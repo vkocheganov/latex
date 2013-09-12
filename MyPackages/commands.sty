@@ -1,0 +1,21 @@
+\ProvidesPackage{commands}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}   
+%\usepackage{commath} % for multline for example
+%Для использования различных шрифтов в формулах
+\usepackage{amsfonts}
+\usepackage{amssymb,amsthm}
+
+\newcommand{\br}[1]{\left(#1\right)}
+\newcommand{\brr}[1]{\left[#1\right]}
+\newcommand{\brrr}[1]{\left\{#1\right\}}
+\newcommand{\brrrr}[1]{\left|#1\right|}
+\newcommand{\ml}[1]{\begin{multline}#1\end{multline}}
+\newcommand{\mll}[1]{\begin{multline*}#1\end{multline*}}
+\newcommand{\On}[2]{O\br{\frac{#1}{#2}}}
+\newcommand{\la}[0]{\lambda}
+\newcommand{\F}[0]{\br{F^{-1}}}
+\newcommand{\Fb}[0]{F^{-1}}
+\newcommand{\I}[2]{\int_{#1}^{#2}}
+\newcommand{\vp}[0]{\varphi}
+\newcommand{\vk}[0]{\varkappa}
