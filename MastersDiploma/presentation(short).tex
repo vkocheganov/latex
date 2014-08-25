@@ -1,0 +1,714 @@
+\documentclass[14pt]{beamer}
+\usepackage[T2A]{fontenc}
+\usepackage{colordvi}
+\usepackage{../MyPackages/commands}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{setspace}
+
+\defbeamertemplate{footline}{centered page number}
+{%
+  \hspace*{\fill}%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertpagenumber\,/\,\insertpresentationendpage%
+  \hspace*{\fill}\vskip2pt%
+}
+\setbeamertemplate{footline}[centered page number]
+%\mode<presentation>{
+%\usetheme{Rochester}
+%}
+
+\mode<presentation>{
+  \usetheme{Rochester}
+}
+\usepackage{graphicx}
+\newcommand{\Pn}[3]{P^{(#1)} \br{#2,#3}}
+\newcommand{\G}{\Gamma}
+\newcommand{\e}{\eta_i^{(1)}}
+\newcommand{\ee}{\eta_i^{(2)}}
+\renewcommand{\b}{b^{(1)}}
+\newcommand{\bb}{b^{(2)}}
+\renewcommand{\P}[2]{P\br{\left. #1 \right| #2}}
+\newcommand{\iakt}{[\tau_{i},\tau_{i+1})}
+\newcommand{\Gr}[1]{\Gamma^{(#1)}}
+\newcommand{\Mark}[0]{\brrr{\br{\G_i, \vk_i}, i \geqslant 0}}
+\newcommand{\Markk}[0]{\brrr{ \vk_i, i \geqslant 0}}
+\newcommand{\Markkhat}[0]{\brrr{ \hat{\vk}_i, i \geqslant 1}}
+\newcommand{\Markkhata}[0]{\brrr{ \hat{\vk}_i\br{a}, i \geqslant 1}}
+\newcommand{\Markkhato}[0]{\brrr{ \hat{\vk}_i\br{0}, i \geqslant 1}}
+\newcommand{\Markkhatoa}[0]{\brrr{ \hat{\hat{\vk}}_i\br{a}, i \geqslant 1}}
+\newcommand{\p}{\hat{p}}
+
+
+\newcommand{\backupbegin}{
+   \newcounter{framenumberappendix}
+   \setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumberappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumberappendix}} 
+}
+
+\begin{document}
+
+\small
+\begin{frame}{  \begin{center} Факультет ВМК\\
+Кафедра ПТВ \end{center}}
+\begin{center}
+{{Выпускная квалификационная работа магистра}}\\
+{ на тему:}\\
+{\textbf{{Моделирование и анализ процесса обслуживания неординарных потоков с относительными приоритетами}}}
+\end{center}
+\vfill
+  \hspace{.5\linewidth}%
+  \begin{minipage}[h]{3.0\linewidth}
+
+    \textbf{Научный руководитель:}\\
+    {к.ф.-м.н., доцент\\
+    Зорин А.В.\\}
+
+    \textbf{Выполнил:}\\
+    {студент группы 86М1 \\
+	Кочеганов В.М.}
+
+    \medskip
+  \end{minipage}
+\end{frame}
+
+\normalsize
+
+\begin{frame}[allowframebreaks] 
+
+\frametitle{\begin{center} Цели работы \end{center}}
+\begin{itemize}
+\item \underline{Построить математическую модель} системы обслуживания неординарных потоков с относительными приоритетами.
+\item \underline{Провести анализ} построенной математической модели.
+\item \underline{Найти стационарное распределение} числа требований в очередях для частного случая $m=2$ входных потоков, используя метод 
+цензурирования марковских цепей. 
+\item \underline{Реализовать имитационную модель} и с ее помощью изучить такие характеристики системы как 
+стационарные вероятности некоторых состояний, загрузка системы и т.д. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\begin{center}  Общий вид системы \end{center} }
+\begin{figure}
+   \center{\includegraphics[width=1\linewidth,height=0.9\textheight]{pic1.png}}
+\end{figure}
+\hyperlink{modelparameters}{\beamerbutton{details}}
+\end{frame}
+
+\begin{frame}
+%[allowframebreaks]
+\frametitle{\begin{center} Построение математической модели \end{center}}
+\framesubtitle{\begin{flushleft}
+ 1. Введение необходимых случайных величин. Формализация работы обслуживающего устройства и формирования очередей.
+\end{flushleft}
+ }
+
+\begin{figure}
+   \center{\includegraphics[width=1\linewidth]{pic2.png}}
+\end{figure}
+%\framebreak
+%\framesubtitle{The third frame subtitle}
+\small{
+Пусть $\theta_i = \max_{1\leq j \leq m} \eta^{(1)}_{j,i}$, тогда
+\begin{equation}
+\G_{i+1} = u\br{\G_i, \vk_i, \theta_i} = u\br{\vk_i, \theta_i},
+\label{gamma_func}
+\end{equation}
+где 
+
+$u\br{\vk_i, \theta_i}=\Gr{j}$, $j = \begin{cases} \mathsf{arg}\max_{1\leq r\leq m} \vk_{r,i}  \text{ при } \vk_i \neq y^{(0)} \\ j=\theta_i, \text{если} \vk_i = y^{(0)} \end{cases}$.
+
+\begin{equation}
+\vk_{j,i+1} = \vk_{j,i} + \eta_{j,i} - \overline{\xi}_{j,i} = \vk_{j,i} + \eta_{j,i} - \xi_{j,i}.
+\label{queue_func}
+\end{equation}
+\hyperlink{mathmodel}{\beamerbutton{details}}
+}
+\newcounter{tmp}
+\setcounter{tmp}{40}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\begin{center} Построение математической модели \end{center}}
+\framesubtitle{\begin{center} 2. Свойства условных распределений входных потоков и потоков насыщения \end{center} }
+\small{
+Сформулированы выражения для следующих условных вероятностей:
+\begin{equation*}
+\P{\e = b}{\G_i = \gamma, \vk_i = x} 
+\end{equation*}
+\begin{equation*}
+\P{\ee = b}{\G_i = \gamma, \vk_i = x, \e = \b} 
+\end{equation*}
+\begin{equation*}
+\P{\xi_i = y^{(j)}}{\G_i = \gamma, \vk_i = x, \e = \b, \ee=\bb} 
+\end{equation*}
+\hyperlink{condition}{\beamerbutton{details}}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{\begin{center} Построение математической модели \end{center}}
+\framesubtitle{\begin{center} 2. Свойства условных распределений входных потоков и потоков насыщения \end{center} }
+\small
+{
+\begin{multline*}
+P\left(\G_{i+1} = \G^{(j)},\vk_{i+1} = x_{i+1}\right|  \G_{i_1} = \gamma_{i_1},\vk_{i_1}=x_{i_1},0\leq i_1 \leq i, \\ \left.\e = \b, \ee = \bb, \xi_i = y^{\br{\tilde{j} } } \right)
+\end{multline*}
+\begin{multline*}
+P\left(\e = \b,\ee = \bb, \xi_i = y^{(j)} \right| \G_{i_1} = \gamma_{i_1}, \vk_{i_1} = x_{i_1},  \\ \left. 0\leq i_1 \leq i\right) =\P{\e = \b,\ee = \bb, \xi_i = y^{(j)}}{\vk_{i} = x_{i}}
+\end{multline*}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{ \begin{center} Результаты анализа СМО \end{center}}
+\small
+{
+\begin{block}{Теорема 1. 
+\begin{enumerate}
+ \item Последовательность $\Mark$ является марковской цепью. 
+ \item Последовательность $\Markk$ является марковской цепью.
+ \end{enumerate}
+ }
+\end{block}
+}
+\end{frame}
+\begin{frame}
+\frametitle{ \begin{center} Результаты анализа СМО \end{center}}
+\footnotesize
+{
+\fontsize{9}{1} 
+\begin{textblock*}{0.95\paperwidth}(5pt,65pt)
+{
+\begin{block}{Теорема 2. Переходные вероятности марковских цепей $\Mark$ и $\Markk$ имеют следующий вид:}
+
+\end{block}
+}
+\end{textblock*}
+
+\begin{textblock*}{\paperwidth}(5pt,85pt)
+{
+\footnotesize
+%\scriptsize
+\begin{multline*}
+\P{\G_{i+1} = \Gr{j}, \vk_{i+1} = x}{\G_i = \gamma, \vk_i = \tilde{x}} = \\
+=\begin{cases}
+p_j\vp_j(x), & \text{если $\tilde{x} = 0$},\\
+\vp_j( x- \tilde{x} + y^{(j)}),  & \text{если $\tilde{x}\neq0$ и $\min\brrr{1 \leqslant s \leqslant m \colon \tilde{x}_s \neq 0} = j$};
+\end{cases}
+\end{multline*}
+}
+\end{textblock*}
+\begin{textblock*}{\paperwidth}(10pt,140pt)
+{
+\footnotesize
+%\scriptsize
+\begin{multline*}
+\P{\vk_{i+1} = x}{\vk_i = \tilde{x}}  = \\
+=\begin{cases}
+\sum_{j = 1}^m p_j\vp_j(x), & \text{если $\tilde{x} = 0$},\\
+\vp_j( x- \tilde{x} + y^{(j)}),  & \text{если $\tilde{x}\neq0$ и $\min\brrr{1 \leqslant s \leqslant m \colon \tilde{x}_s \neq 0} = j$},
+\end{cases}
+\end{multline*}
+\ \ \ \ здесь $x, \tilde{x} \in Z_+^m$, $\vp_j(b) = \P{\ee = b}{\vk_i = x, \e = \b}$ и 
+$$
+\tilde{X}\br{j}= \brrr{\tilde{x} \in X \backslash \brrr{y^{(0)}}\colon \min \brrr{1 \leqslant s \leqslant m \colon \tilde{x}_s \neq 0} = j}.
+$$
+}
+
+\end{textblock*}
+}
+\end{frame}
+\begin{frame}
+\frametitle{ \begin{center} Результаты анализа СМО \end{center}}
+\begin{block}{Теорема 3 (о классификации состояний марковских цепей $\Mark$ и $\Markk$)
+\begin{enumerate}
+ \item Все состояния марковской цепи $\Mark$ являются существенными, сообщающимися и апериодическими.
+ \item Все состояния марковской цепи $\Markk$ являются существенными, сообщающимися и апериодическими.
+ \end{enumerate}
+ }
+\end{block}
+
+\end{frame}
+\begin{frame}
+\frametitle{ \begin{center} Результаты анализа СМО \end{center}}
+%\tiny
+{
+\footnotesize
+Пусть 
+\begin{align}
+\Phi^{(i)}\br{\Gr{j},v} &=  \sum_{w \in \tilde{X}(j)} P\br{\vk_i = w} v^w, \quad \Gr{j} \in \Gamma, v \in \mathbb{C},\\
+q_j(v) &= v_j^{-1} \sum_{w \in X} \vp_j\br{w} v^w,
+\end{align}
+\begin{block}{Теорема 4. Соотношения для многомерных производящих функций марковских цепей $\Mark$ и $\Markk$ имеют следующий вид:}
+\begin{equation*}
+\mathfrak{M}^{(i+1)} \br{\Gr{j}, v} = p_j v_j q_j(v) P\br{\vk_i = y^{(0)}} + q_j(v) \Phi^{(i)} \br{\Gr{j},v}
+\end{equation*}
+\begin{equation*}
+\mathfrak{M}^{(i+1)}_{\vk} \br{v} = P\br{\vk_i = y^{(0)}} \sum_{j=1}^m p_j v_j q_j(v)  + \sum_{j=1}^m q_j(v) \Phi^{(i)} \br{\Gr{j},v}
+\end{equation*}
+\end{block}
+}
+\end{frame}
+\begin{frame}
+\frametitle{ \begin{center} Результаты анализа СМО \end{center}}
+\footnotesize
+{
+Пусть 
+\begin{equation*}
+\beta_{1,1} = \int_0^{\infty} t d B_1(t), \quad \rho  =\sum_{k=1}^m \la_k f'_k(1) \beta_{k,1}.
+\end{equation*}
+\begin{block}{Теорема 5. Условиe существования стационарного распределения  марковской цепи $\Markk$}
+Для существования стационарного распределения 
+$$
+Q(x) = \lim_{i \to \infty} P\br{\vk_i = x}, \quad x \in Z_+^m
+$$
+последовательности $\brrr{\vk_i, i\geq 0}$ необходимо и достаточно выполнения неравенства $\rho < 1$.
+\end{block}
+}
+\end{frame}
+\usebackgroundtemplate{
+ \includegraphics[width=1.2\linewidth,height=1.3\textheight]{drawing1.png}
+}
+%{
+\begin{frame}
+\frametitle{ \begin{center} Стационарное распределение\end{center}}
+\framesubtitle{\begin{center} 1. Исходная марковская цепь \end{center}}
+%\begin{figure}
+%   \center{\includegraphics[width=0.9\linewidth,height=0.9\textheight]{drawing1.png}}
+%\end{figure}
+\begin{textblock*}{\paperwidth}(5pt, 80pt)
+{
+\small
+Пусть $\pi\br{x_1,x_2}$ ---
+стационарная вероятность состояния $\br{x_1,x_2}$ исходной марковской цепи $\Markk$, $\br{x_1,x_2} \in Z_+^2$.
+}
+  \end{textblock*}
+  
+\end{frame}
+\usebackgroundtemplate{
+ \includegraphics[width=1.2\linewidth,height=1.3\textheight]{drawing2.png}
+}
+%\usebackgroundtemplate{}
+\begin{frame}
+\frametitle{ \begin{center} Стационарное распределение\end{center}}
+\framesubtitle{\begin{center} 2. Марковские цепи, цензурированные по первой координате \end{center}}
+{
+\begin{textblock*}{\paperwidth}(5pt,65pt)
+{
+\begin{spacing}{1.2}
+\footnotesize
+Зафиксируем целое число $a \geqslant 0$. Введем новое множество состояний 
+$E^a_{\vk} = \brrr{\br{x_1,x_2} \in Z_+^2 \colon x_1 \leqslant a}$ и моменты времени попадания в это множество
+\end{spacing}
+}
+  \end{textblock*}
+  }
+  {
+\begin{textblock*}{\paperwidth}(5pt,95pt)
+{
+\footnotesize
+  \begin{equation*}
+\begin{array}{lll}
+\theta_1 (a) &=& \min \brrr{k \geqslant 0 \colon \vk_k \in E^a_{\vk}},\\
+\theta_{i+1} (a) &=& \min \brrr{k > \theta_i (a) \colon \vk_k \in E^a_{\vk}}, \quad i = 1, 2, \ldots.
+\end{array}
+\end{equation*}
+}
+  \end{textblock*}
+  }
+  
+\begin{textblock*}{0.3\paperwidth}(225pt,135pt)
+{
+\footnotesize
+Последовательность $\hat{\vk}_i (a)= \vk_{\theta_i (a)}, \quad i \geqslant 1$ снова марковская.
+}
+\end{textblock*}
+\end{frame}
+
+\usebackgroundtemplate{}
+\begin{frame}
+\frametitle{ \begin{center} Стационарное распределение \end{center}}
+\framesubtitle{\begin{center} 2. Марковские цепи, цензурированные по первой координате \end{center}}
+\footnotesize
+{
+%\setlength{\mathindent}{1cm}
+\begin{textblock*}{0.9\paperwidth}(15pt,75pt)
+\begin{block}{Теорема 6. Рекуррентные соотношения для стационарных вероятностей цепи $\Markk$ имеют следующий вид:} 
+ 
+\end{block}
+\end{textblock*}
+\begin{textblock*}{0.5\paperwidth}(15pt,102pt)
+\begin{spacing}{1.2}
+\begin{equation*}
+\pi\br{0,1} = \p_2\br{0,-1}^{-1} \brrr{1 - \p^0\br{0,0,0,0}} \pi\br{0,0},
+\end{equation*}
+\end{spacing}
+\end{textblock*}
+
+\begin{textblock*}{\paperwidth}(5pt,120pt)
+\begin{spacing}{1.2}
+\begin{multline*}
+ \pi\br{0,x} = \p_2\br{0,-1}^{-1}  \left\{ \pi\br{0,x-1} \br{1 - \p_2\br{0,0}} -\right. \\
+ -\left.\pi\br{0,0}\p^0\br{0,0,0,x-1} - 
+  \sum_{k=1}^{x-2}\pi\br{0,k}\p_2\br{0,x-k-1}\right\}, \quad x \geqslant 2,
+\end{multline*}
+\end{spacing}
+\end{textblock*}
+
+\begin{textblock*}{\paperwidth}(5pt,170pt)
+\begin{spacing}{1.2}
+\begin{multline*}
+ \pi\br{a,x} = \br{1-\p_1\br{0,0}}^{-1} \left\{\pi\br{0,0}\p^a\br{0,0,a,x} + \sum_{k=1}^{x+1}\pi\br{0,k}\p_2\br{a,x-k} +\right.\\ 
+  + \left. \sum_{l=1}^{a-1}\sum_{m=0}^{x}\pi\br{l,m}\p_1\br{a-l,x-m} +  \sum_{n=0}^{x-1}\pi\br{a,n}\p_1\br{0,x-n}\right\}, \quad a >0,
+  x \geqslant 0.
+ \end{multline*}
+\end{spacing}
+\hyperlink{hatp}{\beamerbutton{details}}
+\end{textblock*}
+}
+\end{frame}
+\usebackgroundtemplate{
+ \includegraphics[width=1.2\linewidth,height=1.3\textheight]{drawing3.png}
+}
+\begin{frame}
+\frametitle{ \begin{center} Стационарное распределение \end{center}}
+\framesubtitle{\begin{center} 3. Вложенные цензурированные марковские цепи (цензурированные по обеим координатам)\end{center}}
+{	
+\begin{textblock*}{\paperwidth}(5pt,65pt)
+{
+\begin{spacing}{1.2}
+\footnotesize
+Рассмотрим марковскую цепь $\Markkhato$. Пусть $a \geqslant 1$. Введем еще одно множество состояний 
+$E^{a}_{\hat{\vk}\br{0}}=\brrr{\br{0,y} \colon 0 \leqslant y \leqslant a}, a\geqslant 1$ и моменты времени попадания в него
+\end{spacing}
+}
+  \end{textblock*}
+  }
+  {
+\begin{textblock*}{\paperwidth}(15pt,105pt)
+{
+\footnotesize
+  \begin{equation*}
+\begin{array}{lll}
+\hat{\theta}_1 (a) &=& \min \brrr{k \geqslant 1 \colon \hat{\vk}_k\br{0} \in E^{a}_{\hat{\vk}\br{0}}},\\
+\hat{\theta}_{i+1} (a) &=& \min \brrr{k > \hat{\theta}_i (a) \colon \hat{\vk}_k\br{0} \in E^{a}_{\hat{\vk}\br{0}}}, \quad i = 1, 2, \ldots.
+\end{array}
+\end{equation*}
+}
+  \end{textblock*}
+  }
+  
+\begin{textblock*}{0.4\paperwidth}(225pt,150pt)
+{
+\footnotesize
+Последовательность $ \hat{\hat{\vk}}_i (a)= \hat{\vk}_{\hat{\theta}_i (a)},  i \geqslant 1$, также является марковской.
+}
+\end{textblock*}
+
+\end{frame}
+\usebackgroundtemplate{
+}
+
+
+\begin{frame}
+\frametitle{ \begin{center} Стационарное распределение\end{center}}
+\framesubtitle{\begin{center} 3. Вложенные цензурированные марковские цепи (цензурированные по обеим координатам \end{center}}
+\footnotesize
+{
+%\setlength{\mathindent}{1cm}
+\begin{block}{Теорема 7. Стационарная вероятность $\pi\br{0,0}$ исходной марковской цепи $\Markk$ вычисляется по следующей формуле:} 
+ \begin{multline*}
+  \pi\br{0,0} =   \frac{  1 -\la_1 f_1'\br{1} \beta_1}{\la_1 + \la_2} \left\{\la_1^2 f_1'\br{1}\br{ \beta_1 - \beta_2} + \right.\\
+  \left. +\frac{1}{\hat{\pi}^0\br{0,0}}
+ \br{1 - \la_1 f_1'\br{1} \br{\beta_1 - \beta_2} }\right\}^{-1}
+\end{multline*}
+где 
+\begin{equation*}
+ \hat{\pi}^0\br{0,0}= 1- \sum_{a \geqslant 0}\sum_{y_2 \geqslant 0} \p_2\br{0,a+y_2}
+\end{equation*}
+\end{block}
+\hyperlink{hatp}{\beamerbutton{details}}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{ \begin{center} Имитационная модель\end{center}}
+\framesubtitle{\begin{center} 1. Построение модели \end{center}}
+\footnotesize
+{
+%\setlength{\mathindent}{1cm}
+\begin{block}{Определение 1. Регенерирующий процесс} 
+Действительный векторно-значный случайных процесс $\underline{X} = \brrr{X_n\colon n\in Z_+}$ называется регенерирующим, если:
+\begin{enumerate}
+ \item существует последовательность моментов остановки $\underline{\beta}=\brrr{\beta_k \in Z_+ \colon k \in Z_+}$ такая, что $\underline{\beta}$ 
+ является процессом восстановления (т.е. $\beta_0 = 0$ и $\brrr{\beta_k - \beta_{k-1}}_{k\in Z_+}$ --- н.о.р. и положительные случайные величины);
+ \item для любой последовательности моментов времени $0<n_1 < n_2 < \ldots < n_m$ и $k \geqslant 0$ случайные векторы 
+ $\brrr{X_{n_1}, X_{n_2}, \ldots, X_{n_m}}$ и $\brrr{X_{n_1 + \beta_k}, X_{n_2+\beta_k}, \ldots, X_{n_m + \beta_k}}$ имеют одинаковое распределение, 
+ процессы $\brrr{X_n \colon n < \beta_k}$ и $\brrr{X_{n + \beta_k} \colon n \in Z_+}$ независимы.
+\end{enumerate}
+
+\end{block}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{ \begin{center} Имитационная модель\end{center}}
+\framesubtitle{\begin{center} 1. Построение модели \end{center}}
+\small
+{
+ \begin{figure}
+   \center{\includegraphics[width=1\linewidth]{pic3.png}}
+\end{figure}
+$\brrr{\beta_k}_{k\in Z_+}$ --- точки регенерации исходного процесса $\underline{X}$.
+\hyperlink{estimation}{\beamerbutton{Подробнее об оценивании}}
+}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{ \begin{center} Имитационная модель\end{center}}
+\framesubtitle{\begin{center} 2. Преимущества модели \end{center}}
+\small
+{
+ Описанный метод носит название <<Регенеративный>> и он имеет ряд преимуществ по сравнению с более общими методами:
+ \begin{enumerate}
+  \item существенное сокращение общего времени моделирования;
+  \item есть возможность построения доверительных интервалов;
+  \item есть возможность вычислить необходимое число итераций для достижения заданной точности.
+ \end{enumerate}
+}
+\end{frame}
+
+ \begin{frame}
+\frametitle{ \begin{center} Имитационная модель\end{center}}
+\framesubtitle{\begin{center} 3. Реализация модели \end{center}}
+\small
+{
+Имитационная модель была реализована в виде приложения:
+ \begin{itemize}
+ \item используемый язык программирования --- C++;
+ \item возможность запуска на кластере (используемая библиотека для параллельных вычислений --- SHMEM);
+ \item используемые библиотеки для генерации случайных чисел: GSL (GNU Scientific Library) и SPRNG(Scalable Parallel Random Number Generator).
+ \end{itemize}
+}
+\end{frame}
+
+ \begin{frame}
+\frametitle{ \begin{center} Заключение\end{center}}
+\small
+{
+ \begin{itemize}
+ \item Построена математическая модель СМО;
+ \item проведен анализ построенной математической модели и доказан ряд теорем, в том числе найдено необходимое и 
+ достаточное условие существования стационарного распределения;
+ \item найдено стационарное распределение длин очередей в частном случае $m=2$ входных потоков;
+ \item реализована регенеративная имитационная модель с использованием методов параллельных вычислений.
+ \end{itemize}
+}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+ \frametitle{ \begin{center} Список литературы\end{center}}
+ \scriptsize
+ {
+\begin{thebibliography}{99}
+% Не удаляйте следующую строчку!
+\addcontentsline{toc}{section}{Литература}
+\bibitem{FedotkinOne} Федоткин М.~А. Оптимальное управление конфликтными потоками и маркированные точечные процессы с выделенной дискретной компонентой. 1 // Liet. matem. rink. 1988. Т.28, № 4. С. 783-794. ISSN 0132-2818.
+\bibitem{FedotkinTwo} Федоткин М.~А. Оптимальное управление конфликтными потоками и маркированные точечные процессы с выделенной дискретной компонентой. 2 //  Liet. matem. rink. 1989. Т.29, № 1. С. 148-159.
+\bibitem{ZorinFedotkin} Зорин А.~В., Федоткин М.~А. Оптимизация управления дважды стохастическими неординарными потоками в системах с разделением времени. Автоматика и телемеханика, № 7, 2005. С. 102-111.
+\bibitem{KlimovArticle} Климов Г.~П. Системы обслуживания с разделением времени. 1 // Теория вероятностей и ее применения. 1974. Т. 19. Вып. 3. С. 558-576.
+\bibitem{Chinchin} Хинчин А.~Я. Работы по математической теории массового обслуживания. --- М.:Государственное издательство физико-математической литературы, 1963.
+\bibitem{Kolmogorov:1974} Колмогоров А.Н. Основные понятия теории вероятностей. М.: Наука, 1974.
+\bibitem{Gnedenko} Гнеденко Б.~В.\ Курс теории вероятностей. --- М.:~Издательство ЛКИ, 2007.
+\bibitem{Kolmogorov} Колмогоров А.~Н., С.~В. Фомин Элементы теории функций и функционального анализа --- М.:~Физматилит,2006.
+\bibitem{Shiryaev} Ширяев А.~Н.Вероятность --- 2-е изд. --- М.:~Наука, 1989.
+\bibitem{Kemeny} Кемени Дж., Снелл Дж., Кнепп А. Счетные цепи Маркова --- М.:~Наука, 1987.
+\bibitem{Oglhart} Иглхарт Д.~Л., Шедлер Д.~С. Регенеративное моделирование сетей массового обслуживания. --- М.:~Радио и связь, 1984.
+\end{thebibliography}
+}
+\end{frame}
+
+\begin{frame}{
+\begin{center} 
+Спасибо за внимание!
+\end{center}}
+\end{frame}
+
+
+
+
+
+\appendix
+\section{More}
+\backupbegin
+
+\begin{frame}[margin=1cm,label=modelparameters]
+\frametitle{\begin{center} Параметры системы \end{center}}
+\begin{itemize}
+\small {
+ \item $\la_1$, $\la_2$, $\ldots$, $\la_m$ --- интенсивности входных потоков групп;
+\item $f_j(z)=\sum_{\nu=1}^{\infty}{p_{\nu}^{(j)} z^{\nu}}$ --- производящая функция числа заявок в группе по потоку $\Pi_j$, $j = 1, 2, \ldots, m$;
+\item $B_j(t)$ --- функция распределения длительности обслуживания требования из очереди $O_j$, $j=1, 2, \ldots, m$.
+}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label=mathmodel]
+\frametitle{\begin{center} Построение математической модели \end{center}}
+\framesubtitle{\begin{center} Введение необходимых случайных величин и случайных элементов \end{center} }
+\begin{itemize}
+\small {
+\item $\tau_i$ --- момент окончания $i$-го рабочего акта;
+\item
+ $\eta_{j,i}^{(1)} \in \brrr{0,1}$ --- количество поступивших требований в
+ очередь $O_j$ от момента $\tau_i$ до начала $(i+1)$-го рабочего акта;\\
+$\eta_{j,i}^{(2)} \in \brrr{0,1,\ldots}$ --- число требований, пришедших в очередь $O_j$ за $(i+1)$-ый рабочий акт; \\
+$\eta_{j,i} = \eta_{j,i}^{(1)}+\eta_{j,i}^{(2)}$ --- общее число требований, пришеших в очередь $O_j$ за промежуток $(\tau_i,\tau_{i+1}]$;
+}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\begin{center} Построение математической модели \end{center}}
+\framesubtitle{\begin{center} Введение необходимых случайных величин и случайных элементов \end{center} }
+\begin{itemize}
+\small {
+\item
+$\xi_{j,i}  \in \brrr{0,1} $ ---  максимально возможное число обслуженных заявок на промежутке $(\tau_i,\tau_{i+1}]$ для очереди $O_j$;
+\item
+$\overline{\xi}_{j,i}  \in \brrr{0,1} $ --- число фактически обслуженных требований  для очереди $O_j$ на промежутке $(\tau_i,\tau_{i+1}]$;
+\item $\vk_{j,i}$ --- величина очереди $O_j$ в момент $\tau_i$;
+\item  $\theta_i$ ---  в случае отсутствия требований в очередях в момент  $\tau_i$, номер очереди, в которую пришло первое требование; иначе  $\theta_i = 0$;
+\item $\Gamma_{i+1} $-- состояние обслуживающего прибора на промежутке $(\tau_i,\tau_{i+1}]$;
+}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[label=condition]
+\frametitle{\begin{center}Условные вероятности \end{center}}
+\scriptsize{
+\begin{equation*}
+\P{\e = b}{\G_i = \gamma, \vk_i = x} = 
+\begin{cases}
+p_j ,& \text{при $b = y^{(j)}$, $x = y^{(0)}$}\\
+1 ,& \text{при $ b = y^{(0)}$, $x \neq y^{(0)}$}\\
+0 ,& \text{иначе },
+\end{cases}
+\end{equation*}
+\begin{equation*}
+\P{\ee = b}{\G_i = \gamma, \vk_i = x, \e = \b} =
+\int_{0}^{\infty} \prod_{s=1}^m \alpha_{s,b_s} (t) dB_j(t),
+\end{equation*}
+\begin{equation*}
+F_s (t, z) = e^{\la_s t (f_s(z)-1)}=\sum_{k=0}^{\infty} \alpha_{s,k}(t) z^k,
+\end{equation*}
+\begin{equation*}
+\P{\xi_i = y^{(j)}}{\G_i = \gamma, \vk_i = x, \e = \b, \ee=\bb} = 
+\begin{cases}
+1, & \text{если $u\br{x,f\br{\b}} = \Gr{j}$},\\
+0, & \text{ иначе},
+\end{cases}
+\end{equation*}
+{\tiny
+\begin{multline*}
+\P{\G_{i+1} = \G^{(j)},\vk_{i+1} = x_{i+1}}{\G_{i_1} = \gamma_{i_1},\vk_{i_1}=x_{i_1},0\leqslant i_1 \leqslant i,\e = \b, \ee = \bb, \xi_i = y^{\br{j}}} = \\=\begin{cases} 
+1,& \text{если }u\br{x_{i},f\br{\b}}=\G^{(j)}, x_{i+1} =x_{i}+\b+\bb - y^{\br{j}} \\
+0,& \text{иначе}
+\end{cases};
+\end{multline*}
+}
+}
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks, label=rekurr]
+\frametitle{\begin{center}Связь стационарных вероятностей исходной и цензурированной цепей\end{center}}
+\small{
+Стационарные вероятности цензурированной и исходной цепей связаны соотношением 
+\begin{equation*}
+ \hat{\pi}^a \br{w_1, w_2} = \frac{\pi \br{w_1, w_2}}{\sum_{\br{x_1,x_2} \in E^a_{\vk}}{\pi \br{x_1, x_2}}}, \quad \br{w_1,w_2} \in E^a_{\vk},
+\end{equation*}
+где $E^a_{\vk} = \brrr{\br{x_1,x_2} \in Z_+^2 \colon x_1 \leqslant a} $
+}
+\end{frame}
+
+\begin{frame}[allowframebreaks,label=hatp]
+\frametitle{\begin{center}Переходные вероятности цензурированной цепи\end{center}}
+\footnotesize{
+ \begin{equation*}
+\begin{array}{llll}
+\displaystyle \p^a \br{x_1, x_2, a, w_2} &=& \p_1 \br{a - x_1, w_2 - x_2},& \quad 
+ 0 < x_1 \leqslant a, 0 \leqslant x_2 \leqslant w_2\\
+\displaystyle \p^a \br{0, x_2, a, w_2} &=& \p_2 \br{a, w_2 - x_2},& \quad  0 < x_2 \leqslant w_2 + 1
+\end{array}
+\label{transition_property:2}
+\end{equation*}
+\begin{multline*}
+\p^a \br{x_1, x_2, a, w_2} = p \br{x_1, x_2, a, w_2}  + \sum_{y_1 \geqslant 1} \sum_{y_2 = -1}^{w_2 - x_2} p\br{x_1, x_2, a + y_1, x_2 + y_2} \times \\
+\times \sum_{k_1 + k_2 + \ldots + k_{y_1} = w_2 - x_2- y_2} \alpha\br{k_1} \alpha\br{k_2} \ldots \alpha\br{k_{y_1}},
+\label{transition_two}
+\end{multline*}
+ \begin{align}
+\alpha\br{w} &= \vp_1\br{0,w} + \sum_{k=1}^{\infty} \sum_{w_0 + w_1 + \ldots + w_k = w} \vp_1\br{k,w_0} \alpha\br{w_1}
+ \alpha\br{w_2} \ldots \alpha\br{w_k},
+ \nonumber
+\end{align}
+где $ \vp_j(b) = \P{\ee = b}{\vk_i = x, \e = \b}$
+}
+\end{frame}
+
+
+
+
+\begin{frame}[label=estimation]
+\frametitle{ \begin{center} Имитационная модель\end{center}}
+\framesubtitle{\begin{center} 1. Построение модели \end{center}}
+\small
+{
+Пусть $X_n \Rightarrow X$ при $n \rightarrow \infty$, тогда для оценки математического ожидания действительного измеримого функционала $f(X)$ 
+применяют следующую оценку:
+$$
+r(f) = E\brrr{f\br{X}} \approx \hat{r}_n(f) = \overline{Y}_n / \overline{\alpha}_n,
+$$
+где 
+\begin{align*}
+\overline{Y}_n &= \frac{1}{n} \sum_{k=1}^{n} Y_k(f),  &Y_k(f) &= \sum_{l=\beta_{k-1}}^{\beta_k} f(X_l),\\
+\overline{\alpha}_n &= \frac{1}{n} \sum_{k=1}^{n} \alpha_k, &\alpha_k &= \beta_k-\beta_{k-1},\\
+\end{align*}
+}
+\end{frame}
+ 
+ \begin{frame}
+\frametitle{ \begin{center} Имитационная модель\end{center}}
+\framesubtitle{\begin{center} 1. Построение модели \end{center}}
+\footnotesize
+{
+Имеет место следующая теорема:
+\begin{block}{Теорема 8. Центральная предельная теорема}
+При $n \rightarrow \infty$
+ \begin{equation*}
+  n^{1/2}\brrr{\hat{r}_n(f) - r(f)}/ \brr{\sigma / E\brrr{\alpha_1}} \Rightarrow N\br{0,1}, 
+ \end{equation*}
+ где $\sigma = D\brr{Y_1\br{f}}$.
+\end{block}
+}
+Применительно к исследуемой СМО:
+\begin{align*}
+\overline{X} &\sim \Markk \text{ и, например,} \\
+f(X) &= I(X = (x_1,x_2)) \\
+r(f) &= E\brr{f(X)} = \pi\br{x_1,x_2} \\
+\end{align*}
+\end{frame}
+
+
+\backupend
+\end{document}
