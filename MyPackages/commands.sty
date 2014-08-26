@@ -1,5 +1,5 @@
 \ProvidesPackage{commands}
-\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
 \usepackage[russian,english]{babel}   
 %\usepackage{commath} % for multline for example
 %Для использования различных шрифтов в формулах
@@ -19,3 +19,7 @@
 \newcommand{\I}[2]{\int_{#1}^{#2}}
 \newcommand{\vp}[0]{\varphi}
 \newcommand{\vk}[0]{\varkappa}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
