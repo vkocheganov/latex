@@ -14,8 +14,8 @@ bool CrossroadState::operator<(const CrossroadState& s) const
 
 #if OUTPUT
   cout <<"comparing:";
-  this->Out();
-  s.Out();
+  this->Print();
+  s.Print();
 #endif
 
   bool less = (id < s.id) ||
@@ -32,7 +32,7 @@ bool CrossroadState::operator==(const CrossroadState& s) const
   return id == s.id && time == s.time;
 }
 
-void CrossroadState::Out() const
+void CrossroadState::Print() const
 {
   cout << "("<<id<<","<<time<<")"<<endl;
 }
@@ -80,14 +80,14 @@ bool globalState::operator<(const globalState& s) const
 
 #if OUTPUT
   cout <<"comparing:";
-  this->StateOut();
-  s.StateOut();
+  this->Print();
+  s.Print();
 #endif
 
-  bool less = (crossroad1 < s.crossroad1) ||
-    (crossroad1 == s.crossroad1 && crossroad2 < s.crossroad2) ||
-    (crossroad1 == s.crossroad1 && crossroad2 == s.crossroad2 && remainingTime < s.remainingTime) ||
-    (crossroad1 == s.crossroad1 && crossroad2 == s.crossroad2 && remainingTime == s.remainingTime && finishedSystem < s.finishedSystem);
+  bool less = (crossroadState1 < s.crossroadState1) ||
+    (crossroadState1 == s.crossroadState1 && crossroadState2 < s.crossroadState2) ||
+    (crossroadState1 == s.crossroadState1 && crossroadState2 == s.crossroadState2 && remainingTime < s.remainingTime) ||
+    (crossroadState1 == s.crossroadState1 && crossroadState2 == s.crossroadState2 && remainingTime == s.remainingTime && finishedSystem < s.finishedSystem);
 
 #if OUTPUT
   cout<<"less = "<< less<< endl;
@@ -96,10 +96,10 @@ bool globalState::operator<(const globalState& s) const
   return less;
 }
 
-void globalState::StateOut()const
+void globalState::Print()const
 {
-  cout<<"("<<crossroad1.id<<","<<crossroad1.time<<"),"<<
-    "("<<crossroad2.id<<","<<crossroad2.time<<"),"<<remainingTime<<","
+  cout<<"("<<crossroadState1.id<<","<<crossroadState1.time<<"),"<<
+    "("<<crossroadState2.id<<","<<crossroadState2.time<<"),"<<remainingTime<<","
       <<finishedSystem<<endl;
 }
 
@@ -109,10 +109,10 @@ int main()
   stack<globalState> taskQueue;
 
   globalState startState;
-  startState.crossroad1=crossroadStates1[0];
-  startState.crossroad2=crossroadStates2[0];
+  startState.crossroadState1=crossroadStates1[0];
+  startState.crossroadState2=crossroadStates2[0];
   startState.finishedSystem = 2;
-  startState.remainingTime = startState.crossroad1.time;
+  startState.remainingTime = startState.crossroadState1.time;
 
   taskQueue.push(startState);
   stateSet.insert(startState);
@@ -120,12 +120,12 @@ int main()
   while (!taskQueue.empty())
     {
       globalState currentState = taskQueue.top();
-      currentState.StateOut();
+      currentState.Print();
       taskQueue.pop();
       bool firstFinished = currentState.finishedSystem == 0 || currentState.finishedSystem == 1;
       bool secondFinished = currentState.finishedSystem == 0 || currentState.finishedSystem == 2;
-      int firstTime = firstFinished ? currentState.crossroad1.time : currentState.remainingTime;
-      int secondTime = secondFinished ? currentState.crossroad2.time : currentState.remainingTime;
+      int firstTime = firstFinished ? currentState.crossroadState1.time : currentState.remainingTime;
+      int secondTime = secondFinished ? currentState.crossroadState2.time : currentState.remainingTime;
       int willFinishSystem = 
 	firstTime < secondTime ? 1 :
 	(firstTime > secondTime ? 2 : 0);
@@ -135,21 +135,21 @@ int main()
 	{
 	case 1: 
 	  {
-	    set<CrossroadState> newSystems1 = GetNextStates1(currentState.crossroad1);
+	    set<CrossroadState> newSystems1 = GetNextStates1(currentState.crossroadState1);
 	    set<CrossroadState> newSystems2;
-	    newSystems2.insert(currentState.crossroad2);
-	    newState.remainingTime = currentState.crossroad2.time - timeToSpend;
+	    newSystems2.insert(currentState.crossroadState2);
+	    newState.remainingTime = currentState.crossroadState2.time - timeToSpend;
 	    newState.finishedSystem = willFinishSystem;
 	    for (set<CrossroadState>::iterator it1 = newSystems1.begin(); it1 != newSystems1.end(); it1++ )
 	      {
 		for (set<CrossroadState>::iterator it2 = newSystems2.begin(); it2 != newSystems2.end(); it2++ )
 		  {
-		    newState.crossroad1 = *it1;
-		    newState.crossroad2 = *it2;
+		    newState.crossroadState1 = *it1;
+		    newState.crossroadState2 = *it2;
 		    if (stateSet.end() == stateSet.find(newState))
 		      {
 #if OUTPUT
-			cout<<"inserting: ";newState.StateOut();
+			cout<<"inserting: ";newState.Print();
 #endif
 			stateSet.insert(newState);
 			taskQueue.push(newState);
@@ -161,20 +161,20 @@ int main()
 	case 2:
 	  {
 	    set<CrossroadState> newSystems1;
-	    set<CrossroadState> newSystems2 = GetNextStates2(currentState.crossroad2);
-	    newSystems1.insert(currentState.crossroad1);
-	    newState.remainingTime = currentState.crossroad1.time - timeToSpend;
+	    set<CrossroadState> newSystems2 = GetNextStates2(currentState.crossroadState2);
+	    newSystems1.insert(currentState.crossroadState1);
+	    newState.remainingTime = currentState.crossroadState1.time - timeToSpend;
 	    newState.finishedSystem = willFinishSystem;
 	    for (set<CrossroadState>::iterator it1 = newSystems1.begin(); it1 != newSystems1.end(); it1++ )
 	      {
 		for (set<CrossroadState>::iterator it2 = newSystems2.begin(); it2 != newSystems2.end(); it2++ )
 		  {
-		    newState.crossroad1 = *it1;
-		    newState.crossroad2 = *it2;
+		    newState.crossroadState1 = *it1;
+		    newState.crossroadState2 = *it2;
 		    if (stateSet.end() == stateSet.find(newState))
 		      {
 #if OUTPUT
-			cout<<"inserting: ";newState.StateOut();
+			cout<<"inserting: ";newState.Print();
 #endif
 			stateSet.insert(newState);
 			taskQueue.push(newState);
@@ -185,24 +185,24 @@ int main()
 	  }
 	case 0:
 	  {
-	    set<CrossroadState> newSystems1 = GetNextStates1(currentState.crossroad1);
-	    set<CrossroadState> newSystems2 = GetNextStates2(currentState.crossroad2);
+	    set<CrossroadState> newSystems1 = GetNextStates1(currentState.crossroadState1);
+	    set<CrossroadState> newSystems2 = GetNextStates2(currentState.crossroadState2);
 	    newState.remainingTime = 0;
 	    newState.finishedSystem = willFinishSystem;
 	    for (set<CrossroadState>::iterator it1 = newSystems1.begin(); it1 != newSystems1.end(); it1++ )
 	      {
 		for (set<CrossroadState>::iterator it2 = newSystems2.begin(); it2 != newSystems2.end(); it2++ )
 		  {
-		    newState.crossroad1 = *it1;
-		    newState.crossroad2 = *it2;
+		    newState.crossroadState1 = *it1;
+		    newState.crossroadState2 = *it2;
 #if OUTPUT
-		    cout<<"checking: ";newState.StateOut();
+		    cout<<"checking: ";newState.Print();
 		    cout <<"size = "<<stateSet.size()<<endl;
 #endif
 		    if (stateSet.end() == stateSet.find(newState))
 		      {
 #if OUTPUT
-			cout<<"inserting: ";newState.StateOut();
+			cout<<"inserting: ";newState.Print();
 #endif
 			stateSet.insert(newState);
 			taskQueue.push(newState);
