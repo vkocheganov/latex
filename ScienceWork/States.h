@@ -10,7 +10,7 @@ public:
   int time;
   bool operator<(const CrossroadState& s) const;
   bool operator==(const CrossroadState& s) const;
-  void Out() const;
+  void Print() const;
 };
 
 CrossroadState GetNextState1(CrossroadState s);
@@ -22,12 +22,11 @@ set<CrossroadState> GetNextStates2(CrossroadState s);
 class globalState
 {
 public:
-  CrossroadState crossroad1;
-  CrossroadState crossroad2;
+  CrossroadState crossroadState1;
+  CrossroadState crossroadState2;
   int remainingTime;
   int finishedSystem;
   bool operator<(const globalState& s) const;
-  void StateOut() const;
+  void Print() const;
 };
-
 
