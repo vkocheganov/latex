@@ -26,7 +26,10 @@ public:
   CrossroadState crossroadState2;
   int remainingTime;
   int finishedSystem;
+  int id;
   bool operator<(const globalState& s) const;
-  void Print() const;
+  //  void Print() const;
+  void Print(ostream&) const;
 };
 
+void PrintStatesTransitionEdge(ofstream& file, globalState& source, globalState& target);

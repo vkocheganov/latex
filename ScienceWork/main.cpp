@@ -2,6 +2,7 @@
 #include <iostream>
 #include <set>
 #include <stack>
+#include <fstream>
 using namespace std;
 
 #include "States.h"
@@ -19,14 +20,21 @@ int main()
   startState.crossroadState2=crossroadStates2[0];
   startState.finishedSystem = 2;
   startState.remainingTime = startState.crossroadState1.time;
+  startState.id = 1;
 
   taskQueue.push(startState);
   stateSet.insert(startState);
+  ofstream oEdgeFile("Edges.csv",ofstream::out);
+  oEdgeFile <<"Source,Target,Type"<<endl;
+
+  ofstream oNodeFile("Nodes.csv",ofstream::out);
+  oNodeFile <<"Id,Label"<<endl;
+  startState.Print(oNodeFile);
 
   while (!taskQueue.empty())
     {
       globalState currentState = taskQueue.top();
-      currentState.Print();
+      currentState.Print(cout);
       taskQueue.pop();
       bool firstFinished = currentState.finishedSystem == 0 || currentState.finishedSystem == 1;
       bool secondFinished = currentState.finishedSystem == 0 || currentState.finishedSystem == 2;
@@ -55,8 +63,11 @@ int main()
 		    if (stateSet.end() == stateSet.find(newState))
 		      {
 #if OUTPUT
-			cout<<"inserting: ";newState.Print();
+			cout<<"inserting: ";newState.Print(cout);
 #endif
+			newState.id = stateSet.size() + 1;
+			newState.Print(oNodeFile);
+			PrintStatesTransitionEdge(oEdgeFile, currentState, newState);
 			stateSet.insert(newState);
 			taskQueue.push(newState);
 		      }
@@ -80,8 +91,11 @@ int main()
 		    if (stateSet.end() == stateSet.find(newState))
 		      {
 #if OUTPUT
-			cout<<"inserting: ";newState.Print();
+			cout<<"inserting: ";newState.Print(cout);
 #endif
+			newState.id = stateSet.size() + 1;
+			newState.Print(oNodeFile);
+			PrintStatesTransitionEdge(oEdgeFile, currentState, newState);
 			stateSet.insert(newState);
 			taskQueue.push(newState);
 		      }
@@ -102,14 +116,17 @@ int main()
 		    newState.crossroadState1 = *it1;
 		    newState.crossroadState2 = *it2;
 #if OUTPUT
-		    cout<<"checking: ";newState.Print();
+		    cout<<"checking: ";newState.Print(cout);
 		    cout <<"size = "<<stateSet.size()<<endl;
 #endif
 		    if (stateSet.end() == stateSet.find(newState))
 		      {
 #if OUTPUT
-			cout<<"inserting: ";newState.Print();
+			cout<<"inserting: ";newState.Print(cout);
 #endif
+			newState.id = stateSet.size() + 1;
+			newState.Print(oNodeFile);
+			PrintStatesTransitionEdge(oEdgeFile, currentState, newState);
 			stateSet.insert(newState);
 			taskQueue.push(newState);
 		      }

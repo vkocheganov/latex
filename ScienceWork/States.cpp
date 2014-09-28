@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <iostream>
+#include <fstream>
 #include <set>
 #include <stack>
 using namespace std;
@@ -95,9 +96,26 @@ bool globalState::operator<(const globalState& s) const
   return less;
 }
 
-void globalState::Print()const
+
+// void globalState::Print()const
+// {
+  
+//   cout<< id<<" ("<<crossroadState1.id<<","<<crossroadState1.time<<"),"<<
+//     "("<<crossroadState2.id<<","<<crossroadState2.time<<"),"<<remainingTime<<","
+//       <<finishedSystem<<endl;
+// }
+
+void globalState::Print(ostream& f)const
 {
-  cout<<"("<<crossroadState1.id<<","<<crossroadState1.time<<"),"<<
-    "("<<crossroadState2.id<<","<<crossroadState2.time<<"),"<<remainingTime<<","
-      <<finishedSystem<<endl;
+  
+//   f<< id<<",|"<<crossroadState1.id<<"_"<<crossroadState1.time<<"|"
+// <<crossroadState2.id<<"_"<<crossroadState2.time<<"|"<<remainingTime<<"_"
+//       <<finishedSystem<<endl;
+  f<< id<<","<<id<<endl;
+}
+
+#include <sstream>
+void PrintStatesTransitionEdge(ofstream& file, globalState& source, globalState& target)
+{
+  file << source.id<<","<<target.id << ",Directed"<<endl;
 }

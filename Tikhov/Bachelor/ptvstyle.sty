@@ -1,0 +1,166 @@
+% Стилевой файл для оформления курсовых и дипломных работ
+\ProvidesPackage{ptvstyle}
+                [2010/04/02 v0.1]
+\usepackage{indentfirst}
+\usepackage[margin=2cm]{geometry}
+\usepackage[intlimits,sumlimits]{amsmath}
+\usepackage{amssymb,amsthm}
+\usepackage{misccorr}
+%\usepackage{amsfonts}
+%Для использования дифференциальных символов
+\usepackage{commath}
+%Не нарушение выравнивания формул при вставке текста
+%\usepackage{nccmath}
+%\parindent - величина абзацного отступа (только на текущую группу)
+%Для рукописного шрифта
+%\usepackage{euscript}
+\newcommand{\br}[1]{\left(#1\right)}
+\newcommand{\brr}[1]{\left[#1\right]}
+\newcommand{\brrr}[1]{\left\{#1\right\}}
+\newcommand{\brrrr}[1]{\left|#1\right|}
+\newcommand{\ml}[1]{\begin{multline*}#1\end{multline*}}
+\newcommand{\On}[2]{O\br{\frac{#1}{#2}}}
+\newcommand{\la}[0]{\lambda}
+\newcommand{\F}[0]{\br{F^{-1}}}
+\newcommand{\Fb}[0]{F^{-1}}
+\newcommand{\I}[2]{\int_{#1}^{#2}}
+\newcommand{\vp}[0]{\varphi}
+\newcommand{\vk}[0]{\varkappa}
+\renewcommand{\Pr}{{\mathbf P}}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\M}{\mathbf{M}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
+	{\hbox{$\mathsurround=0pt #1$}}{}}% перенос арифметических знаков
+
+\newtheoremstyle{ptvstyle}% NAME
+	{\topsep}%ABOVESPACE
+	{\topsep}%BELOWSPACE
+	{\rmfamily}%BODYFONT
+	{\parindent}%INDENT
+	{\bfseries}%HEADFONT
+	{.}%HEADPUNCT	
+	{\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font}%HEADSPACE
+	{}%CUSTOM-HEAD-SPACE
+
+\theoremstyle{ptvstyle}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{corollary}{Следствие}[section]
+\newtheorem{definition}{Определение}[subsection]
+\newtheorem{remark}{Замечание}[section]
+\newcommand{\ptvtype}{\errmessage{Не указан тип работы!}}
+
+\DeclareOption{Kursovaja}{
+  \renewcommand{\ptvtype}{Курсовая работа}
+}
+\DeclareOption{Praktika}{
+  \renewcommand{\ptvtype}{Отчет по преддипломной практике}
+}
+\DeclareOption{Bakalavr}{
+  \renewcommand{\ptvtype}{Выпускная квалификационная работа бакалавра}
+}
+\DeclareOption{Magistr}{
+  \renewcommand{\ptvtype}{Выпускная квалификационная работа магистра}
+}
+
+\ProcessOptions
+
+\renewcommand{\title}[1]{\newcommand{\ptvtitle}{#1}}
+\renewcommand{\author}[1]{\newcommand{\ptvauthor}{#1}}
+\newcommand{\advisor}[1]{\newcommand{\ptvadvisor}{#1}}
+\newcommand{\chief}[1]{\newcommand{\ptvchief}{#1}}
+\renewcommand{\date}[1]{\newcommand{\ptvdate}{#1}}
+
+\renewcommand{\maketitle}{
+  \clearpage
+  \thispagestyle{empty}
+  \noindent \large
+  \begin{center}
+    Министерство образования и науки Российской Федерации \\
+    Нижегородский государственный университет им. Н.И. Лобачевского\\
+    Факультет вычислительной математики и кибернетики\\
+    Кафедра прикладной теории вероятностей
+
+    \vfill
+
+    {\Large
+      \ptvtype
+
+      \medskip
+      <<{}\ptvtitle{}
+    }
+  \end{center}
+
+  \vfill
+  \hspace{.5\linewidth}%
+  \begin{minipage}[h]{3.0\linewidth}
+    \textbf{Заведующий кафедрой ПТВ}\\
+    \ptvchief
+
+    \medskip
+
+    \textbf{Научный руководитель}\\
+    \ptvadvisor
+
+    \medskip
+
+    \textbf{Выполнил}\\
+    \ptvauthor
+  \end{minipage}
+
+  \vspace{2cm}
+
+  \begin{center}
+    Нижний Новгород \\
+    \ptvdate
+  \end{center}
+
+  \newpage
+  }
+
+\makeatletter
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname. }
+\renewcommand{\section}{\@startsection
+	{section}{1}{\parindent}{\baselineskip}{0.5\baselineskip}
+	{\normalfont\Large\bfseries}}
+\renewcommand{\subsection}{\@startsection
+	{subsection}{2}{\parindent}{\baselineskip}{0.5\baselineskip}
+	{\normalfont\large\bfseries}}
+
+\renewcommand{\@biblabel}[1]{#1.\hfil}
+
+\addto\captionsrussian{%
+  \def\refname{%
+    {Литература}
+}
+}
+\renewenvironment{thebibliography}[1]
+     {\section*{\refname}%
+      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin 0pt % \labelwidth
+            \itemindent \parindent
+            \advance\itemindent\labelwidth
+            % \advance\leftmargin\labelsep
+            \itemsep 0ex \parsep 0ex
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+
+
+\makeatother
+
