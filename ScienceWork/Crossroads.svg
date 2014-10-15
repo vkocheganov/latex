@@ -194,9 +194,9 @@
          id="tspan5833"
          x="192"
          y="763.505"
-         style="font-size:30px">П'<tspan
-   style="font-size:65.00091553%;baseline-shift:super"
-   id="tspan3150" /></tspan></text>
+         style="font-size:30px">П<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan3110">5</tspan></tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Lend)"
        d="m 65.234717,896.77494 89.999993,-1.42857"
