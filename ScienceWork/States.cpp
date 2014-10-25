@@ -8,8 +8,8 @@ using namespace std;
 #include "States.h"
 
 
-CrossroadState crossroadStates1[] = {{0, 3}, {1, 4}};
-CrossroadState crossroadStates2[] = {{0, 4}, {1, 3}, {2, 2}};
+CrossroadState crossroadStates1[] = {{0, 30}, {1, 30}};
+CrossroadState crossroadStates2[] = {{0, 30}, {1, 30}, {2, 15}};
 
 bool CrossroadState::operator<(const CrossroadState& s) const
 {
