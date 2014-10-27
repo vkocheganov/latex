@@ -104,7 +104,8 @@ bool globalState::operator<(const globalState& s) const
 //     "("<<crossroadState2.id<<","<<crossroadState2.time<<"),"<<remainingTime<<","
 //       <<finishedSystem<<endl;
 // }
-
+//Видеотека mathnet.ru
+// мемориальные конференции и воспоминания к 100 летию колмогорова. К столетию великого ... 
 void globalState::Print(ostream& f)const
 {
   
