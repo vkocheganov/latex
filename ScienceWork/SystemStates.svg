@@ -14,7 +14,7 @@
    id="svg5999"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 16">
+   sodipodi:docname="SystemStates.png">
   <defs
      id="defs6001">
     <marker
@@ -109,14 +109,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="306.13915"
-     inkscape:cy="398.24484"
+     inkscape:zoom="1.4"
+     inkscape:cx="414.51765"
+     inkscape:cy="209.50275"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1360"
-     inkscape:window-height="744"
+     inkscape:window-width="1600"
+     inkscape:window-height="876"
      inkscape:window-x="0"
      inkscape:window-y="24"
      inkscape:window-maximized="1" />
@@ -197,22 +197,20 @@
          sodipodi:role="line"
          id="tspan6768"
          x="22.57143"
-         y="866.07648">Г<tspan
-   style="font-size:65.00091553%;baseline-shift:super"
-   id="tspan6770">(1,1)</tspan></tspan></text>
+         y="866.07648">g<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan3154">1,1</tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="22.806625"
        y="920.0462"
        id="text6766-0"
+       style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan6768-7"
          x="22.806625"
-         y="920.0462">T<tspan
-   style="font-size:65.00091553%;baseline-shift:super"
-   id="tspan6770-7">(1,1)</tspan></tspan></text>
+         y="920.0462">30с</tspan></text>
     <path
        transform="translate(466,652)"
        sodipodi:type="arc"
@@ -259,9 +257,9 @@
          sodipodi:role="line"
          id="tspan6768-8"
          x="265.48682"
-         y="866.39246">Г<tspan
-   style="font-size:65.00091553%;baseline-shift:super"
-   id="tspan6770-9">(1,2)</tspan></tspan></text>
+         y="866.39246">g<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan3156">1,2</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -272,9 +270,7 @@
          sodipodi:role="line"
          id="tspan6768-7-6"
          x="265.72202"
-         y="920.36218">T<tspan
-   style="font-size:65.00091553%;baseline-shift:super"
-   id="tspan6770-7-0">(1,2)</tspan></tspan></text>
+         y="920.36218">30с</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -285,9 +281,9 @@
          sodipodi:role="line"
          id="tspan6768-2"
          x="413.71207"
-         y="947.63275">Г<tspan
-   style="font-size:65.00091553%;baseline-shift:super"
-   id="tspan6770-8">(2,1)</tspan></tspan></text>
+         y="947.63275">g<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan3158">2,1</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -298,9 +294,7 @@
          sodipodi:role="line"
          id="tspan6768-7-7"
          x="413.94727"
-         y="1001.6025">T<tspan
-   style="font-size:65.00091553%;baseline-shift:super"
-   id="tspan6770-7-3">(2,1)</tspan></tspan></text>
+         y="1001.6025">30с</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -311,9 +305,9 @@
          sodipodi:role="line"
          id="tspan6768-5"
          x="479.99774"
-         y="817.91846">Г<tspan
-   style="font-size:65.00091553%;baseline-shift:super"
-   id="tspan6770-6">(2,3)</tspan></tspan></text>
+         y="817.91846">g<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan3160">2,3</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -324,9 +318,7 @@
          sodipodi:role="line"
          id="tspan6768-7-0"
          x="607.37585"
-         y="815.60248">T<tspan
-   style="font-size:65.00091553%;baseline-shift:super"
-   id="tspan6770-7-4">(2,3)</tspan></tspan></text>
+         y="815.60248">15с</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot8724"
@@ -338,7 +330,7 @@
            height="434.28571"
            x="374.28571"
            y="-49.066391" /></flowRegion><flowPara
-         id="flowPara8730"></flowPara></flowRoot>    <text
+         id="flowPara8730" /></flowRoot>    <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="670.78235"
@@ -348,9 +340,9 @@
          sodipodi:role="line"
          id="tspan6768-2-3"
          x="670.78235"
-         y="946.77563">Г<tspan
-   style="font-size:65.00091553%;baseline-shift:super"
-   id="tspan6770-8-7">(2,2)</tspan></tspan></text>
+         y="946.77563">g<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan3162">2,2</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -361,9 +353,7 @@
          sodipodi:role="line"
          id="tspan6768-7-7-9"
          x="671.01758"
-         y="1000.7454">T<tspan
-   style="font-size:65.00091553%;baseline-shift:super"
-   id="tspan6770-7-3-4">(2,2)</tspan></tspan></text>
+         y="1000.7454">30с</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot8772"
@@ -375,5 +365,5 @@
            height="157.14285"
            x="364.28571"
            y="179.50504" /></flowRegion><flowPara
-         id="flowPara8778"></flowPara></flowRoot>  </g>
+         id="flowPara8778" /></flowRoot>  </g>
 </svg>
