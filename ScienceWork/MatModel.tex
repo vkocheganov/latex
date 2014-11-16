@@ -213,50 +213,48 @@ T_{i+1}=h_T(\G_i,\vk_{3,i})= \Tt{k,r},\quad  \text{ где } \ga{k,r}=\G_{i+1}=h
 %Построим теперь 	вероятностное пространство $(\Omega, {\cal F}, \Pr(\cdot))$, чтобы можно было рассматривать введеные величины как случайные величины на этом пространстве. А именно, докажем следующую теорему.
 \begin{theorem}
 Пусть $\gamma_0=\ga{k,r} \in \G$ и $x_0=(x_{1,0},x_{2,0}, x_{3,0},x_{4,0})\in Z_+^4$ фиксированы.
-Тогда существует вероятностное пространство $(\Omega, {\cal F}, \Pr(\cdot))$ и заданные на нем случайные величины $\eta_{j,i}=\eta_{j,i}(\omega)$, $\xi_{j,i}=\xi_{j,i}(\omega)$, $\overline{\xi}_{j,i}=\overline{\xi}_{j,i}(\omega)$,  $\vk_{j,i}=\vk_{j,i}(\omega)$ и случайные элементы $\G_i=\G_i(\omega)$, $i\geqslant 0$, $j\in \{1, 2, 3, 4\}$, такие, что $\G_0(\omega) = \gamma_0$ и $\vk_0(\omega)=x_0$, выполняются соотношения \eqref{gammaFunc}, \eqref{queuesFunc}, \eqref{FourthFunc} и для любых $a, b, x \in Z_+^4$ и векторов $\eta_i=(\eta_{1,i}, \eta_{2,i}, \eta_{3,i}, \eta_{4,i})$, $\xi_i=(\xi_{1,i}, \xi_{2,i}, \xi_{3,i}, \xi_{4,i})$, $\vk_i=(\vk_{1,i}, \vk_{2,i}, \vk_{3,i}, \vk_{4,i})$ верно равенство
-\begin{equation*}
-\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\bigcap_{t=0}^{i}\{\omega\colon \G_i=\ga{k_t,r_t}, \vk_t=x^t\}\right.\right)=
+Тогда существует вероятностное пространство $(\Omega, {\cal F}, \Pr(\cdot))$ и заданные на нем случайные величины $\eta_{j,i}=\eta_{j,i}(\omega)$, $\xi_{j,i}=\xi_{j,i}(\omega)$, $\overline{\xi}_{j,i}=\overline{\xi}_{j,i}(\omega)$,  $\vk_{j,i}=\vk_{j,i}(\omega)$ и случайные элементы $\G_i=\G_i(\omega)$, $i\geqslant 0$, $j\in \{1, 2, 3, 4\}$, такие, что $\G_0(\omega) = \gamma_0$ и $\vk_0(\omega)=x_0$, выполняются соотношения \eqref{gammaFunc}, \eqref{queuesFunc}, \eqref{FourthFunc} и для любых $a$, $b$, $x^t=(x_{1,t},x_{2,t},x_{3,t},x_{4,t}) \in Z_+^4$ и векторов $\eta_i=(\eta_{1,i}, \eta_{2,i}, \eta_{3,i}, \eta_{4,i})$, $\xi_i=(\xi_{1,i}, \xi_{2,i}, \xi_{3,i}, \xi_{4,i})$, $\vk_i=(\vk_{1,i}, \vk_{2,i}, \vk_{3,i}, \vk_{4,i})$ верно равенство
+\begin{equation}
+\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right.\right)=
 \vp(a,k_i,r_i,x^i)\times \zeta(b,k_i,r_i,x^i),
-\end{equation*}
+\label{ProbablititiesToProve}
+\end{equation}
 где функции $\vp(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$ определяются формулами \eqref{conditionProbOne} и \eqref{conditionProbTwo} соответственно.
 
 \label{myTheorem}
 \end{theorem}
 \begin{proof}
-В соответствии с теоремой Ионеску Тулчи (см. \cite{Shiryaev}) для доказательства достаточно задать на $(\Omega_0, {\cal F}_0)$ вероятностную меру $P_0(\cdot)$ и далее, считая для $0 < i \leqslant n$ и каждого набора элементарных исходов $(\omega_0, \omega_1, \ldots, \omega_{i-1})$ заданной на $(\Omega_i, {\cal F}_i)$ вероятностную меру $P(\omega_0,\omega_1,\ldots, \omega_{i-1},\cdot)$, задать на $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0,\omega_1,\ldots, \omega_{n},\cdot)$, причем для любого множества $B\in {\cal F}_i$ функции $P(\omega_0,\omega_1,\ldots, \omega_{i-1},B)$
-должны быть измеримыми функциями от $(\omega_0, \omega_1, \ldots, \omega_{i-1})$. Тогда для $\Omega=\prod\limits_{i=0}^{\infty}\Omega_i$ и ${\cal F}=\bigotimes\limits_{i=0}^{\infty} {\cal F}_i$ на $(\Omega,{\cal F})$ будет существовать единственная вероятностная мера $\Pr(\cdot)$ такая, что для любого $i \geqslant 0$
+В соответствии с теоремой Ионеску Тулчи (см. \cite{Shiryaev}) для доказательства достаточно задать на $(\Omega_0, {\cal F}_0)$ вероятностную меру $P_0(\cdot)$ и далее, считая для $0 < i \leqslant n$ и каждого набора элементарных исходов $(\omega_0, \omega_1, \ldots, \omega_{i-1})$ заданной на $(\Omega_i, {\cal F}_i)$ вероятностную меру $P(\omega_0,\omega_1,\ldots, \omega_{i-1};\cdot)$, задать на $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0,\omega_1,\ldots, \omega_{n};\cdot)$, причем для любого множества $B\in {\cal F}_i$ функции $P(\omega_0,\omega_1,\ldots, \omega_{i-1};B)$
+должны быть измеримыми функциями от $(\omega_0, \omega_1, \ldots, \omega_{i-1})$. Тогда для $\Omega=\prod\limits_{i=0}^{\infty}\Omega_i$ и ${\cal F}=\bigotimes\limits_{i=0}^{\infty} {\cal F}_i$ на $(\Omega,{\cal F})$ будет существовать единственная вероятностная мера $\Pr(\cdot)$ такая, что для любого $i \geqslant 0$ верно равенство
 \begin{equation}
 \Pr\{\omega \colon \omega_0 \in A_0, \omega_1 \in A_1, \ldots, \omega_i\in A_i\} = P_i(A_0 \times A_1 \times \ldots \times A_i),
 \label{ProbabilitiesGeneral}
 \end{equation}
 где 
 \begin{equation}
- P_i(A_0 \times A_1 \times \ldots \times A_i) = \int_{A_0} P_0(d \omega_0) \int_{A_1} P(\omega_0,d \omega_1) \ldots \int_{A_i} P(\omega_0, \omega_1, \ldots, \omega_{i-1}, d \omega_i),
+ P_i(A_0 \times A_1 \times \ldots \times A_i) = \int_{A_0} P_0(d \omega_0) \int_{A_1} P(\omega_0;d \omega_1) \ldots \int_{A_i} P(\omega_0, \omega_1, \ldots, \omega_{i-1}; d \omega_i),
 \label{ProbabilitiesGeneralOne}
 \end{equation}
-$i\geqslant 0$, $A_i\in {\cal F}_i$. 
+для любого $A_i$ из ${\cal F}_i$. 
 
-Итак, за описание элементарного исхода $\omega_i \in \Omega_i$ для произвольного $i \geqslant 0$ примем набор $\omega_i=(\omega_{1,i},\omega_{2,i},\omega_{3,i})$, $\omega_{j,i}\in Z_+$. Таким образом, $\Omega_i=Z_+^3$ и в качестве $\sigma$-алгебры ${\cal F}_i$ возьмем множество всех подмножеств $\Omega_i$: ${\cal F}_i=2^{\Omega_i}$. Пусть $\ga{\widetilde{k},\widetilde{r}}=h(\ga{k,r},x_{3,0})$. Тогда  поскольку множество $\Omega_0$ счетно, определим вероятностную меру $P_0(\cdot)$ на измеримом пространстве $(\Omega_0,{\cal F}_0)$ ее значениями на одноточечных множествах:
+Итак, за описание элементарного исхода $\omega_i \in \Omega_i$ для произвольного $i \geqslant 0$ примем набор $\omega_i=(\omega_{1,i},\omega_{2,i},\omega_{3,i})$, $\omega_{j,i}\in Z_+$. Таким образом, $\Omega_i=Z_+^3$ и в качестве $\sigma$-алгебры ${\cal F}_i$ возьмем множество всех подмножеств множества $\Omega_i$: ${\cal F}_i=2^{\Omega_i}$. Пусть $\ga{\widetilde{k},\widetilde{r}}=h(\ga{k,r},x_{3,0})$. Тогда  поскольку множество $\Omega_0$ счетно, определим вероятностную меру $P_0(\cdot)$ на измеримом пространстве $(\Omega_0,{\cal F}_0)$ ее значениями на одноточечных множествах:
 \begin{equation}
-P_0(\{(a_1,a_2,a_3)\})=\vp_1(a_1,h_T(\ga{k,r})) \times \psi(a_2,x_{2,0}, p_{\tilde{k},\tilde{r}}) \times \vp_1(a_1,h_T(\ga{k,r})).
-% \times \delta_{a_4,\min{\{\widetilde{\ell}_{\widetilde{k},\widetilde{r},1}, x_{1,0}+a_1}\}},
+P_0(\{(a_1,a_2,a_3)\})=\vp_1(a_1,h_T(\ga{k,r})) \times \psi(a_2,x_{2,0}, p_{\tilde{k},\tilde{r}}) \times \vp_2(a_1,h_T(\ga{k,r})).
 \label{probabilitiesOne}
 \end{equation}
-
-Определим величины
+Для $j\in \{1,2,3\}$ определим величины
 \begin{equation}
-\G_0=\gamma_0, \quad \vk_{j,0}=x_{j,0}, \quad \xi_{j,0}(\omega_0)=\widetilde{l}(\tilde{k},\tilde{r},j),
+\G_0=\gamma_0, \quad \vk_{j,0}=x_{j,0}, \quad \xi_{j,0}(\omega_0)=\widetilde{l}(\tilde{k},\tilde{r},j), \quad \eta_{j,0}=\omega_{j,0},
 \label{startRekOne}
 \end{equation}
+и
 \begin{equation}
-\eta_{j,0}=\omega_{j,0}, \quad \eta_{4,0}=\min\{\xi_{1,0}, x_{1,0}+\eta_{1,0}\}, \quad \xi_{4,0}=x_{4,0}.
+ \vk_{4,0}=x_{4,0}, \quad \xi_{4,0}=x_{4,0}, \quad \eta_{4,0}=\min\{\xi_{1,0}, x_{1,0}+\eta_{1,0}\}.
 \label{startRekTwo}
 \end{equation}
-где $j\in \{1,2,3\}$.
-Теперь, предполагая заданными на $(\Omega_i, {\cal F}_i)$ вероятностные меры $P(\omega_0, \omega_1, \ldots, \omega_{i-1},\cdot)$, заданными величины $\G_i$, $\vk_{j,i}$, $\xi_{j,i}$, $\eta_{j,i}$, $i\in \{0,1,\ldots,n\}$, $j\in \{1, 2, 3, 4\}$ и фиксируя набор $(\omega_0, \omega_1, \ldots, \omega_{n})$, определим на $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0, \omega_1, \ldots, \omega_n,\cdot)$. Пусть
+Теперь, предполагая заданными на $(\Omega_i, {\cal F}_i)$ вероятностные меры $P(\omega_0, \omega_1, \ldots, \omega_{i-1};\cdot)$, заданными величины $\G_i$, $\vk_{j,i}$, $\xi_{j,i}$, $\eta_{j,i}$, $i\in \{0,1,\ldots,n\}$, $j\in \{1, 2, 3, 4\}$ и фиксируя набор $(\omega_0, \omega_1, \ldots, \omega_{n})$, определим на $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0, \omega_1, \ldots, \omega_n;\cdot)$. Положим для $j\in \{1, 2, 3\}$
 \begin{equation}
 \G_{n+1}=\ga{k^*,r^*}=h(\G_{n},\vk_{3,n}), \quad \vk_{j,n+1}=\max\{ 0,\vk_{j,n}+\eta_{j,n} -\xi_{j,n}\},
-%\label{functionsTwo}
 \label{NextRekOne}
 \end{equation}
 \begin{equation}
@@ -264,41 +262,59 @@ P_0(\{(a_1,a_2,a_3)\})=\vp_1(a_1,h_T(\ga{k,r})) \times \psi(a_2,x_{2,0}, p_{\til
 \label{NextRekTwo}
 \end{equation}
 \begin{equation}
-\eta_{j,n+1}=\omega_{j,n+1}, \quad \eta_{4,n+1}=\min\{\xi_{1,n+1}, \vk_{1,n+1}+\eta_{1,n+1}\}, \quad \xi_{4,n+1}=\vk_{4,n+1},
+\eta_{j,n+1}=\omega_{j,n+1}, \quad \eta_{4,n+1}=\min\{\xi_{1,n+1}, \vk_{1,n+1}+\eta_{1,n+1}\}, \quad \xi_{4,n+1}=\vk_{4,n+1}.
 \label{NextRekThree}
 \end{equation}
-для $j\in \{1, 2, 3\}$.
-Тогда
+Тогда, по аналогии с построением вероятностной меры $P_0(\cdot)$, зададим меру $P(\omega_0,\omega_1,\ldots,\omega_n;\cdot)$ на одноточечных множествах $\{(a_1,a_2,a_3)\}$:
 \ml
 {
-P(\omega_0,\omega_1,\ldots,\omega_n,\{\omega_{n+1} \colon \omega_{1,n+1}=a_1, \omega_{2,n+1}=a_2, \omega_{3,n+1}=a_3\}) = \\
-= \vp_1(a_1,h_T(\G_n,x_{3,n})) \times \psi(a_2,x_{2,n}, p_{k^*,r^*}) \times \vp_1(a_3,h_T(\G_n,x_{3,n})).
+P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
+= \vp_1(a_1,h_T(\G_n,x_{3,n})) \times \psi(a_2,x_{2,n}, p_{k^*,r^*}) \times \vp_2(a_3,h_T(\G_n,x_{3,n})).
 \label{probabilitiesTwo}
 }
 Вероятностное пространство $(\Omega,{\cal F},\Pr(\cdot))$ построено. 
 
-Теперь докажем, что введеные с помощью \eqref{startRekOne}~--~\eqref{NextRekThree} случайные элементы $\G_i(\omega)$ и случайные величины $\vk_{j,i}(\omega)$, $\eta_{j,i}(\omega)$, $\xi_{j,i}$, $i \geqslant 0$, $j \in \{1, 2, 3, 4\}$ удовлетворяют условиям теоремы. Из построения следует, что случайные элементы $\G_i$ удовлетворяют \eqref{gammaFunc}, а случайные величины $\vk_{j,i}$ удовлетворяют \eqref{queuesFunc} и \eqref{FourthFunc}, $j\in \{1, 2, 3, 4\}$. Что касается $\xi_{j,i}$ и $\eta_{j,i}$, то для них найдем явное выражение для условной вероятности $\Pr\{\omega\colon \eta_{j,i}(\omega)=a_j, j\in\{1,2,3,4\} | \G_i(\omega)=\ga{k_1,r_1}, \vk_{i}(\omega)=x\}$. Пусть $\ga{k^*_1,r^*_1}=h(\ga{k_1,r_1},x)$. Учитывая \eqref{NextRekTwo} и \eqref{NextRekThree}, распишем по определению условной вероятности:
+Теперь докажем, что введеные с помощью \eqref{startRekOne}~--~\eqref{NextRekThree} случайные элементы $\G_i(\omega)$ и случайные величины $\vk_{j,i}(\omega)$, $\eta_{j,i}(\omega)$, $\xi_{j,i}(\omega)$, $i \geqslant 0$, $j \in \{1, 2, 3, 4\}$ удовлетворяют условиям теоремы. Из формулы \eqref{NextRekOne} следует, что случайные элементы $\G_i$ удовлетворяют соотношению \eqref{gammaFunc}, а случайные величины $\vk_{j,i}$ для $j\in \{1, 2, 3\}$ удовлетворяют соотношению \eqref{queuesFunc}. Из формулы \eqref{NextRekTwo} заключаем, что $\vk_{4,i}$ удовлетворяет $\eqref{FourthFunc}$. Далее, из \eqref{startRekTwo} и \eqref{NextRekThree} следует справедливость соотношений \eqref{FourthFunc} для величин $\eta_{4,i}$ и $\xi_{4,i}$. 
+
+Перейдем к доказательству равенства \eqref{ProbablititiesToProve}. Для этого найдем явное выражение для условной вероятности $\Pr (\{ \omega \colon \eta_i = a, \xi_i=b\} | \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})$. Пусть $\ga{\tilde{k}_i,\tilde{r}_i}=h(\ga{k_i,r_i},x^i)$. Распишем по определению условной вероятности:
 \mll
 {
-\Pr\{\omega \colon \omega_{j,i}=a_j, j\in \{1, 2, 3\}, a_4=\min\{\tilde{\ell}(k^*_1,r^*_1,1),x_{1} + a_1\}; \G_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=\ga{k_1,r_1},\\
- \vk_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=x\} / \Pr\{\omega \colon \G_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=\ga{k_1,r_1}, \vk_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=x\} = \\
- = \delta_{a_4, \min\{\tilde{\ell}(k^*,r^*,1),x_{1} + a_1\}} \times \Pr\{\omega \colon \omega_{j,i}=a_j, j\in \{1, 2, 3\}; \G_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=\ga{k_1,r_1},\\
- \vk_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=x\} / \Pr\{\omega \colon \G_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=\ga{k_1,r_1}, \vk_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=x\}.
+\Pr \left(\left\{ \omega \colon \eta_i = a, \xi_i=b\right\}  \left| \bigcap_{t=0}^{i}\left\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\right\}\right.\right) = \\
+=\Pr\left(\{ \omega \colon \eta_i = a, \xi_i=b \} \cap \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right) \Big/
+\Pr\left( \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right).
 }
-Далее из \eqref{ProbabilitiesGeneral} и \eqref{ProbabilitiesGeneralOne} получим выражение для знаменателя последней дроби
+Далее из \eqref{ProbabilitiesGeneral}, \eqref{ProbabilitiesGeneralOne} и того факта, что $\G_i$ и $\vk_{i}$ не зависят от $\omega_i$ (этот факт следует из \eqref{startRekOne}, \eqref{startRekTwo}, \eqref{NextRekOne} и \eqref{NextRekTwo}), получим выражение для знаменателя последней дроби
 \mll
 {
-\Pr\{\omega \colon \G_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=\ga{k_1,r_1}, \vk_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=x\} = \\
-= \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_i=\ga{k_1,r_1}, \vk_i=x}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})
+\Pr\left( \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
+=\sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}).
 }
-и числителя
+Преобразуем множество $\{ \eta_i = a, \xi_i=b \} \cap \{\G_i=\ga{k_i,r_i}, \vk_i=x^i\}$, учитывая соотношения \eqref{startRekOne}~--\eqref{NextRekThree}:
 \mll
 {
-\Pr\{\omega \colon \omega_{j,i}=a_j, j\in \{1, 2, 3\}; \G_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=\ga{k_1,r_1}, \vk_i(\omega_0,\omega_1,\ldots, \omega_{i-1})=x\} = \\
-= \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_i=\ga{k_1,r_1}, \vk_i=x} } P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})\times \\ 
-\times P(\omega_0,\omega_1,\ldots, \omega_{i-1};\{\omega_{i}\})= \vp_1(a_1,h_T(\ga{k_1,r_1},x_{3})) \times \psi(a_2,x_{2}, p_{k^*_1,r^*_1}) \times \\ \times \vp_1(a_3,h_T(\ga{k_1,r_1},x_{3}))\sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_i=\ga{k_1,r_1}, \vk_i=x} } P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots
-\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})
+\left\{ \eta_i = a, \xi_i=b \right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} = \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap\\
+\cap \left\{ \eta_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{ \xi_{j,i} = b_j, j\in \{1, 2, 3\}\right\} \cap \left\{ \xi_{4,i} = b_4 \right\} \cap  \left\{ \eta_{4,i} = a_4 \right\} = \\
+= \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{ b_j=\tilde{\ell}(\tilde{k}_i,\tilde{r}_i,j), j\in \{1, 2, 3\}\right\} \cap \\ 
+\cap \left\{ b_4 = x_{4,i} \right\} \cap  \left\{ a_4=\min\left\{\tilde{\ell}(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\} \right\} 
 }
+Тогда для числителя имеем:
+\mll
+{
+\Pr\left(\{ \omega \colon \eta_i = a, \xi_i=b \} \cap \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
+= \Pr\left(\left\{ \eta_i = a, \xi_i=b \right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
+= \delta_{b_4,x_{4,i}} \times \delta_{a_4,\min\left\{\tilde{\ell}(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\}} \times \prod_{j=1}^3\delta_{b_j,\tilde{\ell}(\tilde{k}_i,\tilde{r}_i,j)}   \times \\
+\times \Pr\left( \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)
+}
+И по аналогии со знаменателем, распишем последнюю вероятность:
+\mll
+{
+\Pr\left( \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right) =\\
+= \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})\times\\
+\times  P(\omega_0,\omega_1,\ldots, \omega_{i-1};\{(a_1, a_2, a_3)\}) = \\=
+\vp_1(a_1,h_T(\G_n,x_{3,n})) \times \psi(a_2,x_{2,n}, p_{k^*,r^*}) \times \vp_2(a_3,h_T(\G_n,x_{3,n})) \times \\ 
+\times \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}).
+}
+
 После сокращения одинаковых сумм получим:
 \mll
 {
