@@ -277,54 +277,61 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 Теперь докажем, что введеные с помощью \eqref{startRekOne}~--~\eqref{NextRekThree} случайные элементы $\G_i(\omega)$ и случайные величины $\vk_{j,i}(\omega)$, $\eta_{j,i}(\omega)$, $\xi_{j,i}(\omega)$, $i \geqslant 0$, $j \in \{1, 2, 3, 4\}$ удовлетворяют условиям теоремы. Из формулы \eqref{NextRekOne} следует, что случайные элементы $\G_i$ удовлетворяют соотношению \eqref{gammaFunc}, а случайные величины $\vk_{j,i}$ для $j\in \{1, 2, 3\}$ удовлетворяют соотношению \eqref{queuesFunc}. Из формулы \eqref{NextRekTwo} заключаем, что $\vk_{4,i}$ удовлетворяет $\eqref{FourthFunc}$. Далее, из \eqref{startRekTwo} и \eqref{NextRekThree} следует справедливость соотношений \eqref{FourthFunc} для величин $\eta_{4,i}$ и $\xi_{4,i}$. 
 
 Перейдем к доказательству равенства \eqref{ProbablititiesToProve}. Для этого найдем явное выражение для условной вероятности $\Pr (\{ \omega \colon \eta_i = a, \xi_i=b\} | \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})$. Пусть $\ga{\tilde{k}_i,\tilde{r}_i}=h(\ga{k_i,r_i},x^i)$. Распишем по определению условной вероятности:
-\mll
+\ml
 {
 \Pr \left(\left\{ \omega \colon \eta_i = a, \xi_i=b\right\}  \left| \bigcap_{t=0}^{i}\left\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\right\}\right.\right) = \\
 =\Pr\left(\{ \omega \colon \eta_i = a, \xi_i=b \} \cap \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right) \Big/
 \Pr\left( \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right).
+\label{Construction:1}
 }
-Далее из \eqref{ProbabilitiesGeneral}, \eqref{ProbabilitiesGeneralOne} и того факта, что $\G_i$ и $\vk_{i}$ не зависят от $\omega_i$ (этот факт следует из \eqref{startRekOne}, \eqref{startRekTwo}, \eqref{NextRekOne} и \eqref{NextRekTwo}), получим выражение для знаменателя последней дроби
-\mll
+Далее из \eqref{ProbabilitiesGeneral}, \eqref{ProbabilitiesGeneralOne} и того факта, что $\G_i$ и $\vk_{i}$ не зависят от $\omega_i$ (этот факт следует из \eqref{startRekOne}~--~\eqref{NextRekTwo}), получим выражение для знаменателя последней дроби
+\ml
 {
 \Pr\left( \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
 =\sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}).
+\label{Construction:2}
 }
-Преобразуем множество $\{ \eta_i = a, \xi_i=b \} \cap \{\G_i=\ga{k_i,r_i}, \vk_i=x^i\}$, учитывая соотношения \eqref{startRekOne}~--\eqref{NextRekThree}:
+Преобразуем множество $\{ \eta_i = a, \xi_i=b \} \cap \{\G_i=\ga{k_i,r_i}, \vk_i=x^i\}$, учитывая соотношения \eqref{startRekOne}~--~\eqref{NextRekThree}:
 \mll
 {
 \left\{ \eta_i = a, \xi_i=b \right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} = \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap\\
 \cap \left\{ \eta_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{ \xi_{j,i} = b_j, j\in \{1, 2, 3\}\right\} \cap \left\{ \xi_{4,i} = b_4 \right\} \cap  \left\{ \eta_{4,i} = a_4 \right\} = \\
 = \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{ b_j=\tilde{\ell}(\tilde{k}_i,\tilde{r}_i,j), j\in \{1, 2, 3\}\right\} \cap \\ 
-\cap \left\{ b_4 = x_{4,i} \right\} \cap  \left\{ a_4=\min\left\{\tilde{\ell}(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\} \right\} 
+\cap \left\{ b_4 = x_{4,i} \right\} \cap  \left\{ a_4=\min\left\{\tilde{\ell}(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\} \right\}. 
 }
-Тогда для числителя имеем:
-\mll
+Тогда для числителя \eqref{Construction:1} имеем:
+\ml
 {
 \Pr\left(\{ \omega \colon \eta_i = a, \xi_i=b \} \cap \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
 = \Pr\left(\left\{ \eta_i = a, \xi_i=b \right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
 = \delta_{b_4,x_{4,i}} \times \delta_{a_4,\min\left\{\tilde{\ell}(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\}} \times \prod_{j=1}^3\delta_{b_j,\tilde{\ell}(\tilde{k}_i,\tilde{r}_i,j)}   \times \\
 \times \Pr\left( \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)
+\label{Construction:3}
 }
-И по аналогии со знаменателем, распишем последнюю вероятность:
-\mll
+И по аналогии со знаменателем (см.~\eqref{Construction:2}), распишем последнюю вероятность:
+\ml
 {
 \Pr\left( \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right) =\\
 = \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})\times\\
 \times  P(\omega_0,\omega_1,\ldots, \omega_{i-1};\{(a_1, a_2, a_3)\}) = \\=
-\vp_1(a_1,h_T(\G_n,x_{3,n})) \times \psi(a_2,x_{2,n}, p_{k^*,r^*}) \times \vp_2(a_3,h_T(\G_n,x_{3,n})) \times \\ 
+\vp_1(a_1,h_T(\G_n,x_{3,n})) \times \psi(a_2,x_{2,n}, p_{\tilde{k},\tilde{r}}) \times \vp_2(a_3,h_T(\G_n,x_{3,n})) \times \\ 
 \times \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}).
+\label{Construction:4}
 }
-
-После сокращения одинаковых сумм получим:
+Подставляя \eqref{Construction:2}, \eqref{Construction:3} и \eqref{Construction:4} в \eqref{Construction:1}, получим:
 \mll
 {
-\Pr\{\omega\colon \eta_{j,i}(\omega)=a_j, j\in\{1,2,3,4\} | \G_i(\omega)=\ga{k_1,r_1}, \vk_{i}(\omega)=x\}=\\
-=  \vp_1(a_1,h_T(\ga{k_1,r_1},x_{3})) \times \psi(a_2,x_{2}, p_{k^*_1,r^*_1}) \times \vp_1(a_3,h_T(\ga{k_1,r_1},x_{3})) \times \delta_{a_4, \min\{\tilde{\ell}(k^*_1,r^*_1,1),x_{1} + a_1\}},
+\Pr \left(\left\{ \omega \colon \eta_i = a, \xi_i=b\right\}  \left| \bigcap_{t=0}^{i}\left\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\right\}\right.\right)  = \\
+= \delta_{b_4,x_{4,i}} \times \delta_{a_4,\min\left\{\tilde{\ell}(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\}} \times \prod_{j=1}^3\delta_{b_j,\tilde{\ell}(\tilde{k}_i,\tilde{r}_i,j)} \times
+\vp_1(a_1,h_T(\G_n,x_{3,n})) \times \\ \times \psi(a_2,x_{2,n}, p_{\tilde{k},\tilde{r}}) 
+\times  \vp_2(a_3,h_T(\G_n,x_{3,n})) \times \\ 
+\times \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}) \Big/ \\
+\Big/ \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})
 }
-что в точности совпадает с \eqref{conditionProbOne}. Аналогичным образом вероятность одновременного выполнения равенств $\xi_{1,i}=b_1$, $\xi_{2,i}=b_2$, $\xi_{3,i}=b_3$, $\xi_{4,i}=b_4$ при условии $\G_i(\omega)=\ga{k_1,r_1}$ и $\vk_{i}(\omega)=x$ совпадает с \eqref{conditionProbTwo}.
+и после сокращения одинаковых сумм получаем в точности \eqref{ProbablititiesToProve}.
 \end{proof}
 
-Таким образом, кибернетический подход позволил построить математическую модель управляющей системы обслуживания в виде последовательности случайных величин и случайных элементов, конструктивно заданных на некотором вероятностном пространстве. Выберем для исследования состояния обслуживающего устройства и длины всех очередей.
+Таким образом, кибернетический подход позволил построить математическую модель управляющей системы обслуживания в виде последовательности случайных величин и случайных элементов, конструктивно заданных на некотором вероятностном пространстве. Выберем для дальнейшего исследования состояния обслуживающего устройства и длины всех очередей.
 
 \subsection[Марковское свойство последовательности $\boldsymbol{\Mark}$]%
 {Марковское свойство последовательности \\ $\boldsymbol{\Mark}$}
