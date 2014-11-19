@@ -11,7 +11,7 @@
 \renewcommand{\P}[2]{P( #1 | #2)}
 \newcommand{\iakt}{[\tau_{i},\tau_{i+1})}
 \newcommand{\Gr}[1]{\Gamma^{(#1)}}
-\newcommand{\Mark}{\{(\G_i, \vk_{1,i}, \vk_{2,i}, \vk_{3,i}, \vk_{4,i}); i \geqslant 0\}}
+\newcommand{\Mark}{\{(\G_i, \vk_i); i \geqslant 0\}}
 %\newcommand{\Markk}[0]{\brrr{ \vk_i, i \geqslant 0}}
 %\newcommand{\Markkhat}[0]{\brrr{ \hat{\vk}_i, i \geqslant 1}}
 %\newcommand{\Markkhata}[0]{\brrr{ \hat{\vk}_i\br{a}, i \geqslant 1}}
@@ -331,15 +331,27 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 и после сокращения одинаковых сумм получаем в точности \eqref{ProbablititiesToProve}.
 \end{proof}
 
+\begin{corollary}
+В условиях предыдущей теоремы верно равенство
+\ml
+{
+\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right.\right)=\\
+=\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\{\omega\colon \G_i=\ga{k_i,r_i}, \vk_i=x^i\}\right.\right)
+\label{eta:xi:forgetProperty}
+}
+\end{corollary}
+\begin{proof}
+Действительно, из \eqref{ProbablititiesToProve} видно, что вероятность, стоящая в левой части равенства \eqref{eta:xi:forgetProperty}, равна величине $\vp(a,k_i,r_i,x^i)\times \zeta(b,k_i,r_i,x^i)$, зависящей только от значений $(\ga{k_i,r_i},x^i)$ пары $(\G_i,\vk_i)$ и не зависящей от значений остальных пар $(\G_t,\vk_t)_{0\leqslant t \leqslant i-1}$. Таким образом, знание о значениях пар $(\G_t,\vk_t)_{0\leqslant t \leqslant i-1}$ не влияет на значение вероятности $\Pr (\{ \omega \colon \eta_i = a, \xi_i=b\} |\bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})$, следовательно, \eqref{eta:xi:forgetProperty} верно.
+\end{proof}
 Таким образом, кибернетический подход позволил построить математическую модель управляющей системы обслуживания в виде последовательности случайных величин и случайных элементов, конструктивно заданных на некотором вероятностном пространстве. Выберем для дальнейшего исследования состояния обслуживающего устройства и длины всех очередей.
 
 \subsection[Марковское свойство последовательности $\boldsymbol{\Mark}$]%
 {Марковское свойство последовательности \\ $\boldsymbol{\Mark}$}
 
 Теперь перейдем к вопросу о марковости последовательности $\Mark$. Введем следующие события:
-\begin{align}
-A_i(k;r;x_1;x_2;x_3;x_4) &= \{\G_i=\ga{k,r},\vk_{3,i}=x_3\}\bigcap \{\vk_{1,i}=x_1,\vk_{2,i}=x_2,\vk_{4,i}=x_4\},\\
-B_i(b_1;b_2;b_3;y_1;y_2;y_3) &= \{\eta_{1,i}=b_1, \eta_{2,i}=b_2,\eta_{3,i}=b_3\} \bigcap \{\xi_{1,i}=y_1,\xi_{2,i}=y_2,\xi_{3,i}=y_3\}
+\begin{equation}
+A_i(k_i;r_i;x^i) &= \{\G_i=\ga{k_i,r_i}\vk_i=x^i\},\\
+B_i(a;b) &= \{\eta_i=a\} \bigcap \{\xi_i=b\}
 \end{align}
 Из теоремы \eqref{myTheorem} следует, что 
 \ml
