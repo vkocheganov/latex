@@ -8,7 +8,6 @@
 \newcommand{\ee}{\eta_i^{(2)}}
 \renewcommand{\b}{b^{(1)}}
 \newcommand{\bb}{b^{(2)}}
-\renewcommand{\P}[2]{P( #1 | #2)}
 \newcommand{\iakt}{[\tau_{i},\tau_{i+1})}
 \newcommand{\Gr}[1]{\Gamma^{(#1)}}
 \newcommand{\Mark}{\{(\G_i, \vk_i); i \geqslant 0\}}
@@ -35,6 +34,7 @@
 \usepackage{multicol}
 \usepackage{textcomp}
 \newcommand{\No}{\textnumero}
+\renewcommand{\P}[2]{\Pr\left( #1 \left| #2\right.\right)}
 \begin{document}
 
 \section{Постановка задачи и построение математической модели}
@@ -177,15 +177,15 @@ T_{i+1}=h_T(\G_i,\vk_{3,i})= \Tt{k,r},\quad  \text{ где } \ga{k,r}=\G_{i+1}=h
 \begin{equation*}
 \sum_{x=0}^{\infty} z^x\vp_j(x,t) = \exp\{\la_j t (f_j(z)-1)\},
 \end{equation*}
-где $f_j(z)$ определены в \eqref{GeneratingFunc}, $j \in \{1,3\}$. Функция $\vp_j(x,t)$ есть вероятность поступления $x=0$, $1$, $\ldots$ требований по потоку $\Pi_j$ за время $t \geqslant 0$. Функцию $\psi(\cdot,\cdot,\cdot)$ зададим формулой
+где $f_j(z)$ определены в \eqref{GeneratingFunc}, $j \in \{1,3\}$. Функция $\vp_j(x,t)$ есть вероятность поступления $x=0$, $1$, $\ldots$ требований по потоку $\Pi_j$ за время $t \geqslant 0$. Положим $\vp_j(x,t)$ равной нулю при $x < 0$. Функцию $\psi(\cdot,\cdot,\cdot)$ зададим формулой
 \begin{equation*}
 \psi(k;x,u)=C_x^k u^k (1-u)^{x-k}.
 \end{equation*}
-По своему смыслу $\psi(k;x,u)$ есть вероятность поступления $k$ требований по потоку $\Pi_2$ при условии, что очередь $O_4$ содержит $x$ требований и обслуживающее устройство находится в состоянии $\ga{k,r}$, так что $u=p_{k,r}$.
+По своему смыслу $\psi(k;x,u)$ есть вероятность поступления $k$ требований по потоку $\Pi_2$ при условии, что очередь $O_4$ содержит $x$ требований и обслуживающее устройство находится в состоянии $\ga{k,r}$, так что $u=p_{k,r}$. При нарушении условия $ 0\leqslant k \leqslant x$ положим $\psi(k;x,u)$ равной нулю.
 
-Пусть $a=(a_1, a_2, a_3, a_4) \in Z_+^4$ и $x=(x_1, x_2, x_3, x_4) \in Z_+^4$. Тогда из постановки задачи на содержательном уровне следует, что при фиксированном значении метки метки $\nu_i=(\ga{k,r}; x_1, x_2, x_3, x_4)$ вероятность $\vp(a,k,r,x)$ одновременного выполнения равенств $\eta_{1,i}=a_1$, $\eta_{2,i}=a_2$, $\eta_{3,i}=a_3$, $\eta_{4,i}=a_4$ есть 
+Пусть $a=(a_1, a_2, a_3, a_4) \in Z_+^4$ и $x=(x_1, x_2, x_3, x_4) \in Z_+^4$. Тогда из постановки задачи на содержательном уровне следует, что при фиксированном значении метки $\nu_i=(\ga{k,r}; x_1, x_2, x_3, x_4)$ вероятность $\vp(a,k,r,x)$ одновременного выполнения равенств $\eta_{1,i}=a_1$, $\eta_{2,i}=a_2$, $\eta_{3,i}=a_3$, $\eta_{4,i}=a_4$ есть 
 \begin{equation}
-\vp_1(a_1,h_T(\ga{{k},{r}},x_3)) \times \psi(a_2,x_2, p_{\tilde{k},\tilde{r}}) \times \vp_1(a_3,h_T(\ga{{k},{r}},x_3))
+\vp_1(a_1,h_T(\ga{{k},{r}},x_3)) \times \psi(a_2,x_2, p_{\tilde{k},\tilde{r}}) \times \vp_3(a_3,h_T(\ga{{k},{r}},x_3))
 \times \delta_{a_4,\min{\{\tilde{\ell}(\tilde{k},\tilde{r},1), x_1+a_1}\}},
 \label{conditionProbOne}
 \end{equation}
@@ -339,6 +339,7 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 =\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\{\omega\colon \G_i=\ga{k_i,r_i}, \vk_i=x^i\}\right.\right)
 \label{eta:xi:forgetProperty}
 }
+\label{eta:xi:forget}
 \end{corollary}
 \begin{proof}
 Действительно, из \eqref{ProbablititiesToProve} видно, что вероятность, стоящая в левой части равенства \eqref{eta:xi:forgetProperty}, равна величине $\vp(a,k_i,r_i,x^i)\times \zeta(b,k_i,r_i,x^i)$, зависящей только от значений $(\ga{k_i,r_i},x^i)$ пары $(\G_i,\vk_i)$ и не зависящей от значений остальных пар $(\G_t,\vk_t)_{0\leqslant t \leqslant i-1}$. Таким образом, знание о значениях пар $(\G_t,\vk_t)_{0\leqslant t \leqslant i-1}$ не влияет на значение вероятности $\Pr (\{ \omega \colon \eta_i = a, \xi_i=b\} |\bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})$, следовательно, \eqref{eta:xi:forgetProperty} верно.
@@ -350,112 +351,101 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 
 Теперь перейдем к вопросу о марковости последовательности $\Mark$. Введем следующие события:
 \begin{equation}
-A_i(k_i;r_i;x^i) &= \{\G_i=\ga{k_i,r_i}\vk_i=x^i\},\\
-B_i(a;b) &= \{\eta_i=a\} \bigcap \{\xi_i=b\}
-\end{align}
-Из теоремы \eqref{myTheorem} следует, что 
-\ml
-{
-\P{B_i(b_1;b_2;b_3;y_1;y_2;y_3)}{\bigcap_{t=0}^{i} A_t(k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t})} = \\
-\P{B_i(b_1;b_2;b_3;y_1;y_2;y_3)}{A_i(k_i;r_i;x_{1,i};x_{2,i};x_{3,i};x_{4,i})}
-}
-Далее, в силу того, что потоки насыщения $\Pi_1^{\mathrm{\text{нас}}}$,  $\Pi_2^{\mathrm{\text{нас}}}$, $\Pi_3^{\mathrm{\text{нас}}}$, входные потоки $\Pi_1$, $\Pi_2$, $\Pi_3$ условно независимы между собой, верно следующее соотношение:
-
-\ml
-{
-\label{etaXiIndependence}
-\P{B_i(b_1;b_2;b_3;y_1;y_2;y_3)}{\bigcap_{t=0}^{i} A_t(k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t})} = \\
-= \P{\eta_{1,i}=b_1}{\G_i=\ga{k_i,r_i},\vk_{3,i}=x_{3,i}} \times 
-\P{\eta_{3,i}=b_3}{\G_i=\ga{k_i,r_i},\vk_{3,i}=x_{3,i}} \times \\
-\P{\eta_{2,i}=b_2}{\G_i=\ga{k_i,r_i},\vk_{3,i}=x_{3,i}} \times \P{\xi_{1,i}=y_1}{\G_i=\ga{k_i,r_i},\vk_{3,i}=x_{3,i}} \times\\
-\times  \P{\xi_{2,i}=y_2}{\G_i=\ga{k_i,r_i},\vk_{3,i}=x_{3,i}} \times 
-\P{\xi_{3,i}=y_3}{\G_i=\ga{k_i,r_i},\vk_{3,i}=x_{3,i}}
-}
+A_i(k_i;r_i;x^i) = \{\G_i=\ga{k_i,r_i}\vk_i=x^i\}, \quad B_i(a;b) = \{\eta_i=a, \xi_i=b\}
+\end{equation}
+В новых обозначениях равенство \eqref{eta:xi:forgetProperty} перепишется следующим образом:
+\begin{equation}
+\Pr \left(B_i(a;b) \left| \bigcap_{t=0}^{i} A_t(k_t;r_t;x^t)\right.\right) = \Pr \left(B_i(a;b) \left|  A_i(k_i;r_i;x^i)\right.\right)
+\label{new:notation:eta:xi:forget}
+\end{equation}
 
 Сформулируем и докажем теорему о марковости последовательности \linebreak$\Mark$.
 \begin{theorem}
-При заданном распределении начального вектора $(\G_0,\vk_{1,0},\vk_{2,0},\vk_{3,0},\vk_{4,0})$ последовательность $\Mark$ является цепью Маркова. 
+Пусть $\G_0=\ga{k,r}\in \G$ и $\vk_0=x^0\in Z_+^4$ фиксированы. Тогда последовательность $\Mark$ является однородной счетной цепью Маркова. 
 \end{theorem}
 
 \begin{proof}
 Для доказательства достаточно показать, что 
-\ml
-{
-\P{A_{i+1}(k;r;x_{1};x_{2};x_{3};x_{4})}{\bigcap_{t=0}^{i} A_t(k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t})} = \\
-\P{A_{i+1}(k;r;x_{1};x_{2};x_{3};x_{4})}{ A_i(k_i;r_i;x_{1,i};x_{2,i};x_{3,i};x_{4,i})}
+\begin{equation}
+\Pr \left( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right) = \Pr \left( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) \left|A_i(k_i;r_i;x^{i})\right.\right)
 \label{markovToProve}
-}
-Распишем сначала левую часть равенства \eqref{markovToProve}. Учитывая то, что сумма непересекающихся событий $B_i(b_1;b_2;b_3;y_1;y_2;y_3)$ есть достоверное событие, $\cup_{b,y} B_i(b_1;b_2;b_3;y_1;y_2;y_3)=\Omega$, получим
+\end{equation}
+Распишем левую часть равенства \eqref{markovToProve}. Учитывая то, что сумма $\cup_{a,b} B_i(a;b)$ по всем $a$ и $b$ из $Z_+^4$ непересекающихся событий $B_i(a;b)$ есть достоверное событие $=\Omega$, получим
 \ml
 {
-\P{A_{i+1}(k;r;x_{1};x_{2};x_{3};x_{4})}{\bigcap_{t=0}^{i} A_t(k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t})} = \\
-=\sum_{b,y}\P{A_{i+1}(k;r;x_{1};x_{2};x_{3};x_{4}) \bigcap B_i(b_1;b_2;b_3;y_1;y_2;y_3)}{\bigcap_{t=0}^{i} A_t(k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t})} = \\
-= \sum_{b,y}\P{B_i(b_1;b_2;b_3;y_1;y_2;y_3)}{\bigcap_{t=0}^{i} A_t(k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t})}\times\\
-\times \P{A_{i+1}(k;r;x_{1};x_{2};x_{3};x_{4})}{\bigcap_{t=0}^{i} A_t(k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t})\bigcap B_i(b_1;b_2;b_3;y_1;y_2;y_3)}
+\Pr \left( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right)  = \\
+=\sum_{a,b}\Pr \left( A_{i+1}(k_{i+1};r_{i+1};x^{i+1})\cap B_i(a;b) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right) = \\
+= \sum_{a,b}\Pr \left( B_i(a;b) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right)\times\\
+\times \Pr \left( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) \left|B_i(a;b) \cap \bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right)
 \label{markovProof}
 }
-Беря во внимание \eqref{gammaFunc}, \eqref{queuesFunc} и \eqref{FourthFunc} найдем второй множитель:
-\ml
-{
-\P{A_{i+1}(k;r;x_{1};x_{2};x_{3};x_{4})}{\bigcap_{t=0}^{i} A_t(k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t})\bigcap B_i(b_1;b_2;b_3;y_1;y_2;y_3)} = \\
-= P\left(\G_{i+1}=\ga{k,r},\vk_{1,i+1}=x_1,\vk_{2,i+1}=x_2,\vk_{3,i+1}=x_3,\vk_{4,i+1}=x_4\right| \bigcap_{t=0}^{i-1} A_t(k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t}) \bigcap \\ \bigcap 
-\{\G_i=\ga{k_i,r_i},\vk_{1,i}=x_{1,i},\vk_{2,i}=x_{2,i},\vk_{3,i}=x_{3,i},\vk_{4,i}=x_{4,i}\} \bigcap \\
-\bigcap \left. \{\eta_{1,i}=b_1,\eta_{2,i}=b_2,\eta_{3,i}=b_3,\xi_{1,i}=y_1,\xi_{2,i}=y_2,\xi_{3,i}=y_3\}
-\right) = \\
-= P\left(h(\ga{k_i,r_i},x_{3,i})=\ga{k,r},
-\max{\{0,x_{1,i}+b_1-y_1\}}=x_1,\right.\\
-\max{\{0,x_{2,i}+b_2-y_2\}}=x_2, 
-\max{\{0,x_{3,i}+b_3-y_3\}}=x_3,
-x_{4,i}+\min{\{y_1,x_{1,i}+b_1\}} -\eta_{2,i}=x_4\left.
-\right| \\
-\bigcap_{t=0}^{i-1} A_t\{k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t}\} \bigcap
-\{\G_i=\ga{k_i,r_i},\vk_{1,i}=x_{1,i},\vk_{2,i}=x_{2,i},\vk_{3,i}=x_{3,i},\vk_{4,i}=x_{4,i}\} \bigcap \\
-\bigcap \left. \{\eta_{1,i}=b_1,\eta_{2,i}=b_2,\eta_{3,i}=b_3,\xi_{1,i}=y_1,\xi_{2,i}=y_2,\xi_{3,i}=y_3\}
-\right) = \\ 
-= P\left(h(\ga{k_i,r_i},x_{3,i})=\ga{k,r},
-\max{\{0,x_{1,i}+b_1-y_1\}}=x_1,\right.\\
-\max{\{0,x_{2,i}+b_2-y_2\}}=x_2, 
-\max{\{0,x_{3,i}+b_3-y_3\}}=x_3,
-x_{4,i}+\min{\{y_1,x_{1,i}+b_1\}} - \eta_{2,i}=x_4\left.\right),
-\label{markovProoff}
-}
-где последнее равенство верно, поскольку оставшаяся под знаком вероятности величина уже не является случайной. Из \eqref{etaXiIndependence}, \eqref{markovProof} и  \eqref{markovProoff} получаем выражение для левой части равенства \eqref{markovToProve}:
-\ml
-{
-\P{A_{i+1}(k;r;x_{1};x_{2};x_{3};x_{4})}{\bigcap_{t=0}^{i} A_t(k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t})} = \\
-=  \sum_{b,y}\P{\eta_{1,i}=b_1, \eta_{2,i}=b_2, \eta_{3,i}=b_3, \xi_{1,i}=y_1, \xi_{2,i}=y_2, \xi_{3,i}=y_3}{\G_i=\ga{k_i,r_i},\vk_{3,i}=x_{3,i}}\times\\
-\times  P\left(h(\ga{k_i,r_i},x_{3,i})=\ga{k,r},
-\max{\{0,x_{1,i}+b_1-y_1\}}=x_1,\right.\\
-\max{\{0,x_{2,i}+b_2-y_2\}}=x_2, 
-\max{\{0,x_{3,i}+b_3-y_3\}}=x_3,
-x_{4,i}+\min{\{y_1,x_{1,i}+b_1\}} - \eta_{2,i}=x_4\left.\right)
-}
-
-Заметим, что в наших рассуждениях мы нигде не использовали информацию о событиях  $\bigcap_{t=0}^{i-1} A_t(k_t;r_t;x_{1,t};x_{2,t};x_{3,t};x_{4,t})$, поэтому рассуждения для правой части \eqref{markovToProve} будут аналогичными:
+Из равенства \eqref{new:notation:eta:xi:forget} следует, что вероятность  $\Pr \left( B_i(a;b) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right)$ не зависит от предыстории $\bigcap_{t=0}^{i-1} A_t(k_t;r_t;x^{t})$. Далее, из соотношений \eqref{gammaFunc}, \eqref{queuesFunc} и \eqref{FourthFunc} можно заметить, что случайный элемент $\G_{i+1}$ и случайный вектор $\vk_{i+1}$ функционально выражается через $\G_i$, $\vk_i$, $\eta_i$ и $\xi_i$. Следовательно, вероятность $\Pr ( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) |B_i(a;b) \cap \bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t}))$ не зависит от предыстории. Таким образом 
+\begin{equation*}
+\Pr \left( B_i(a;b) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right) = \\
+\Pr \left( B_i(a;b) \left| A_i(k_i;r_i;x^{i})\right.\right)
+\end{equation*}
+и 
 \mll
 {
-\P{A_{i+1}(k;r;x_{1};x_{2};x_{3};x_{4})}{ A_i(r_i;x_{1,i};x_{2,i};x_{3,i};x_{4,i})} = \\
-= \sum_{b,y}\P{B_i(b_1;b_2;b_3;y_1;y_2;y_3)}{ A_i(r_i;x_{1,i};x_{2,i};x_{3,i};x_{4,i})}\times\\
-\times \P{A_{i+1}(k;r;x_{1};x_{2};x_{3};x_{4})}{ A_i(r_i;x_{1,i};x_{2,i};x_{3,i};x_{4,i})\bigcap B_i(b_1;b_2;b_3;y_1;y_2;y_3)} = \\
-= \sum_{b,y}\P{\eta_{1,i}=b_1, \eta_{2,i}=b_2, \eta_{3,i}=b_3, \xi_{1,i}=y_1, \xi_{2,i}=y_2, \xi_{3,i}=y_3;}{\G_i=\ga{k_i,r_i},\vk_{3,i}=x_{3,i}}\times \\
-\times 
-P\left(\G_{i+1}=\ga{k,r},\vk_{1,i+1}=x_1,\vk_{2,i+1}=x_2,\vk_{3,i+1}=x_3,\vk_{4,i+1}=x_4\right|  \\ 
-\{\G_i=\ga{k_i,r_i},\vk_{1,i}=x_{1,i},\vk_{2,i}=x_{2,i},\vk_{3,i}=x_{3,i},\vk_{4,i}=x_{4,i}\} \bigcap \\
-\bigcap \left. \{\eta_{1,i}=b_1,\eta_{2,i}=b_2,\eta_{3,i}=b_3,\xi_{1,i}=y_1,\xi_{2,i}=y_2,\xi_{2,i}=y_2,\xi_{3,i}=y_3\}
-\right) = 
+\Pr \left( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) \left|B_i(a;b) \cap \bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right) = \\
+=\Pr \left( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) \left|B_i(a;b) \cap A_i(k_i;r_i;x^{i})\right.\right)
 }
-откуда опять в силу \eqref{gammaFunc}, \eqref{queuesFunc} и \eqref{FourthFunc} получаем
-\mll
-{
-=\sum_{b,y}\P{\eta_{1,i}=b_1, \eta_{2,i}=b_2, \eta_{3,i}=b_3, \xi_{1,i}=y_1, \xi_{2,i}=y_2, \xi_{3,i}=y_3}{\G_i=\ga{k_i,r_i},\vk_{3,i}=x_{3,i}}\times \\
-\times P\left(h(\ga{k_i,r_i},x_{3,i})=\ga{k,r},
-\max{\{0,x_{1,i}+b_1-y_1\}}=x_1,\right.\\
-\max{\{0,x_{2,i}+b_2-y_2\}}=x_2, 
-\max{\{0,x_{3,i}+b_3-y_3\}}=x_3,
-x_{4,i}+\min{\{y_1,x_{1,i}+b_1\}} - \eta_{2,i}=x_4\left.\right).
-}
-Таким образом, выражения для левой и правой частей \eqref{markovToProve} совпадают, следовательно равенство верно и последовательность $\Mark$ является цепью Маркова.
+откуда заключаем верность \eqref{markovToProve}.
 \end{proof}
+
+Убедившись в марковости последовательности $\Mark$, приведем формулу для вычисления ее переходных вероятностей.
+\begin{theorem}
+Пусть, как и раньше, $x$, $\tilde{x}\in Z_+^4$ и $\ga{k,r}$, $\ga{\tilde{k},\tilde{r}}=h(\ga{k,r},x_3) \in \G$. Тогда переходные вероятности однородной счетной марковской цепи $\Mark$ вычисляются по следующей формуле:
+\begin{equation}
+\P{\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x} 
+= \vp(a,k,r,x),
+\label{transitionToProve}
+\end{equation}
+где компоненты вектора $a$ находятся из соотношений
+\begin{align}
+a_j&=\tilde{x}_j-x_j+\tilde{\ell}(\tilde{k},\tilde{r},j), \quad j\in\{1, 2, 3\}\\
+a_4&=\tilde{x}_4-x_4+\tilde{x_2}-x_2+\tilde{\ell}(\tilde{k},\tilde{r},2).
+\end{align}
+В случае, если $\ga{\tilde{k},\tilde{r}}\neq h(\ga{k,r},x_3)$, переходная вероятность равна нулю.
+\end{theorem}
+\begin{proof}
+Для нахождения переходной вероятности $\Pr(\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}|\G_{i}=\ga{k,r},\vk_i=x) $ воспользуемся формулой полной вероятности. Выделим из множества событий вида $\{\eta_i=a;\xi_i=b\}$, $a$, $b\in Z_+^4$, полную группу несовместных событий, при условии наступления события $\{\G_{i}=\ga{k,r},\vk_i=x\}$, вероятности которых будут положительны. Из определения функций $\vp_j(x,t)$, $j\in \{1,3\}$, следует, что они положительны тогда и только тогда, когда $x \in Z_+^4$. Аналогично, $\psi(s,m,u)>0$ только в случае $0\leqslant s \leqslant m$. Тогда из формул \eqref{ProbablititiesToProve}, \eqref{conditionProbOne} и \eqref{conditionProbTwo} следует, что вероятность $\Pr(\eta_i=a, \xi_i=b|\G_{i}=\ga{k,r},\vk_i=x)$ положительна тогда и только тогда, когда 
+\begin{equation}
+b_4 = x_4, \quad b_j = \tilde{\ell}(\tilde{k},\tilde{r},j),\quad j\in\{1, 2, 3\},
+\label{transitionB}
+\end{equation}
+и 
+\begin{equation}
+a_4=\min{\{\tilde{\ell}(\tilde{k},\tilde{r},1),x_1+a_1\}}, \quad  0\leqslant a_2 \leqslant x_4.
+\label{transitionA}
+\end{equation}
+В следствии вышесказанного, распишем по формуле полной вероятности:
+\mll
+{
+\P{\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x} = \\
+= \sum_{\substack{a_1,a_3\in Z_+\\0\leqslant a_2 \leqslant x_4}} \P{\eta_i=a; \xi_i=b}{\G_{i}=\ga{k,r},\vk_i=x} \times \\ 
+\times
+\P{\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x, \eta_i=a; \xi_i=b},
+}
+где $a_4$ находится из \eqref{transitionA}, а вектор $b$~--- из \eqref{transitionB}.
+
+Теперь найдем такие $a_1$, $a_2$ и $a_3$, при которых зануляются вероятности $\Pr (\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}|\G_{i}=\ga{k,r},\vk_i=x, \eta_i=a; \xi_i=b)$. Из \eqref{queuesFunc} и \eqref{FourthFunc} получаем следующие условия на $a_1$, $a_2$, $a_3$ и дополонительное условие на $a_4$:
+\begin{equation}
+\begin{aligned}
+a_j &=\tilde{x}_j - x_j + b_j, \quad j \in \{1, 2, 3\}, \\
+a_4 &= \tilde{x}_4 - x_4 +a_2.
+\end{aligned}
+\label{transitionAA}
+\end{equation}
+Компануя все воедино и полагая компоненты вектора $a$ удовлетворяющим соотношениям \eqref{transitionAA}, получим выражение
+\ml
+{
+\P{\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x} = \\
+= \P{\eta_i=a; \xi_i=b}{\G_{i}=\ga{k,r},\vk_i=x} = \vp(a,k,r,x)  \times \psi(b,k,r,x),
+}
+которое при условии, что вектор $b$ находится из \eqref{transitionB}, превращается в формулу \eqref{transitionToProve}. Что и требовалось доказать.
+\end{proof}
+
 
 
 \begin{thebibliography}{99}
