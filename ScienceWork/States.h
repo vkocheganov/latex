@@ -32,4 +32,4 @@ public:
   void Print(ostream&) const;
 };
 
-void PrintStatesTransitionEdge(ofstream& file, globalState& source, globalState& target);
+void PrintStatesTransitionEdge(ofstream& file, globalState& source, const globalState& target);

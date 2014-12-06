@@ -109,14 +109,13 @@ bool globalState::operator<(const globalState& s) const
 void globalState::Print(ostream& f)const
 {
   
-//   f<< id<<",|"<<crossroadState1.id<<"_"<<crossroadState1.time<<"|"
-// <<crossroadState2.id<<"_"<<crossroadState2.time<<"|"<<remainingTime<<"_"
-//       <<finishedSystem<<endl;
-  f<< id<<","<<id<<endl;
+    f<< id<<","<<crossroadState1.id<<"_"<<crossroadState2.id<<"_"<<remainingTime<<"_"
+      <<finishedSystem<<endl;
+//  f<< id<<","<<id<<endl;
 }
 
 #include <sstream>
-void PrintStatesTransitionEdge(ofstream& file, globalState& source, globalState& target)
+void PrintStatesTransitionEdge(ofstream& file, globalState& source, const globalState& target)
 {
   file << source.id<<","<<target.id << ",Directed"<<endl;
 }
