@@ -1,3 +1,0 @@
-To get started with Latex do the following:
-1. Install GUI TexMaker, for example;
-2. Type in command in terminal: sudo apt-get install texlive-full.
