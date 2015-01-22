@@ -70,13 +70,25 @@ $$
 {\it Пусть $\Gamma_0=\Gamma^{(k,r)}\in \Gamma$ и $\varkappa_{3,0}=x_{3,0}\in \mathbb{Z}_+$ фиксированы. Тогда последовательность $\{(\Gamma_i, \varkappa_{3,i}); i \geqslant 0\}$ является однородной счетной цепью Маркова.}
 
 \noindent
-\hbox{\bf Теорема 1.}
+\hbox{\bf Теорема 2.}
 {\it Пусть $x_3$, $\tilde{x}_3\in \mathbb{Z}_+$ и $\Gamma^{(k,r)}$, $\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3) \in \Gamma$. Тогда переходные вероятности ${\mathbf P}(\Gamma_{i+1}=\Gamma^{(\tilde{k},\tilde{r})},\varkappa_{3,i+1}=\tilde{x}_3|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_{3,i}=x_3)$ однородной счетной марковской цепи $\{(\Gamma_i, \varkappa_{3,i}); i \geqslant 0\}$ вычисляются по следующей формуле:
 $$
  (1-\delta_{\tilde{x}_3,0}) \varphi_3(\tilde{x}_3 + \ell(\tilde{k},\tilde{r},3)-x_3,h_T(\Gamma^{(k,r)},x_3))  +\delta_{\tilde{x}_3,0}\sum_{a=0}^{\ell(\tilde{k},\tilde{r},3)-x} \varphi_3(a,h_T(\Gamma^{(k,r)},x_3))
 $$}
 
+Пусть 
+$$
+S^3_{0,r} =  \{(\Gamma^{(0,r)},x_3) \colon x_3\in Z_+, L \geqslant x_3 > L - \max\limits_{k=1, 2, \ldots, d}\{\sum_{t=0}^{n_k} \ell_{k,t,3}\}\}, \quad 1 \leqslant r \leqslant n_0
+$$
+и 
+$$
+S^3_{k,r} =  \{(\Gamma^{(k,r)},x_3) \colon x_3\in Z_+, x_3 > L - \sum_{t=0}^{r-1} \ell_{k,t,3}\} \}, \quad 1 \leqslant k \leqslant d, \quad 1 \leqslant r \leqslant n_k,
+$$
+тогда верна также и следующая теорема.
 
+\noindent
+\hbox{\bf Теорема 3.}
+{\it Множествами существенных состояний марковской цепи $\{(\Gamma_i, \varkappa_{3,i}); i \geqslant 0\}$ являются множества $\bigcup\limits_{1 \leqslant r \leqslant n_0}S^3_{0,r}$, $\bigcup\limits_{\substack{1 \leqslant k \leqslant d\\ 1 \leqslant r \leqslant n_k}} S^3_{k,r}$ и только они.}
 %
 % Библиография создается вручную, заголовок дается командой \References
 %
