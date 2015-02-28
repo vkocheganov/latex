@@ -3,15 +3,14 @@
 \RequirePackage{caption}
 \usepackage{graphicx}
 \newcommand{\Pn}[3]{P^{(#1)} \br{#2,#3}}
-\newcommand{\G}{\Gamma}
 \newcommand{\e}{\eta_i^{(1)}}
 \newcommand{\ee}{\eta_i^{(2)}}
 \renewcommand{\b}{b^{(1)}}
 \newcommand{\bb}{b^{(2)}}
 \newcommand{\iakt}{[\tau_{i},\tau_{i+1})}
-\newcommand{\Gr}[1]{\Gamma^{(#1)}}
-\newcommand{\Mark}{\{(\G_i, \vk_i); i \geqslant 0\}}
-\newcommand{\MarkThree}{\{(\G_i, \vk_{3,i}); i \geqslant 0\}}
+\newcommand{\Gammar}[1]{\Gamma^{(#1)}}
+\newcommand{\Mark}{\{(\Gamma_i, \vk_i); i \geqslant 0\}}
+\newcommand{\MarkThree}{\{(\Gamma_i, \vk_{3,i}); i \geqslant 0\}}
 %\newcommand{\Markk}[0]{\brrr{ \vk_i, i \geqslant 0}}
 %\newcommand{\Markkhat}[0]{\brrr{ \hat{\vk}_i, i \geqslant 1}}
 %\newcommand{\Markkhata}[0]{\brrr{ \hat{\vk}_i\br{a}, i \geqslant 1}}
@@ -59,15 +58,15 @@ f_j(z) = \sum_{\nu=1}^{\infty} p_{\nu}^{(j)} z ^{\nu}, \quad j\in \{1,3\},
 \end{equation}
 которая предполагается аналитической при любом $z\in \mathbb{C}$ таком, что $|z|<(1+\varepsilon)$, $\varepsilon>0$. Величина $p_{\nu}^{(j)}$ определяет вероятность того, что по потоку $\Pi_j$ число требований в группе равно $\nu$. Обслуженные требования потока $\Pi_1$ поступают на повторное обслуживание, формируя при этом поток $\Pi_4$. Потоки $\Pi_2$ и $\Pi_3$ являются конфликтными, что означает запрет на одновременное обслуживание требований этих потоков и, следовательно, исследование системы не может быть сведено к задаче с меньшим числом потоков. 
  
- В каждый момент времени обслуживающее устройство находится в одном из конечного множества состояний $\Gamma=\{\G^{(k,r)} \colon k=0,1,\ldots,d; r=1,2,\ldots n_k\}$ с заданными натуральными числами $d$, $n_0$, $n_1$, $\ldots$, $n_d$. В каждом состоянии $\ga{k,r}$ обслуживающее устройство находится в течение времени $\Tt{k,r}$. Введем множества $\G^{\mathrm{I}}$, $\G^{\mathrm{II}}$, $\G^{\mathrm{III}}$ и $\G^{\mathrm{IV}}$ следующим образом. В состоянии $\gamma \in \G^{\mathrm{\Rmnum{1}}}$ обслуживаются только требования из очередей $O_1$, $O_2$ и $O_4$.
-В состоянии $\gamma \in \G^{\mathrm{\Rmnum{2}}}$ обслуживаются только требования из очередей $O_2$ и $O_4$.
-В состоянии $\gamma \in \G^{\mathrm{\Rmnum{3}}}$ обслуживаются только требования из очередей $O_1$, $O_3$ и $O_4$.
-В состоянии $\gamma \in \G^{\mathrm{\Rmnum{4}}}$ обслуживаются только требования из очередей $O_3$ и $O_4$.
-Тогда множество $\G$ есть объединение $\G = \G^{\mathrm{I}} \cup \G^{\mathrm{II}} \cup \G^{\mathrm{III}} \cup \G^{\mathrm{III}}$ непересекающихся подмножеств. Также в дальнейшем нам понадобятся множества ${}^1\G=\G^{\mathrm{\Rmnum{1}}} \cup \G^{\mathrm{\Rmnum{3}}}$, 
-${}^2\G=\G^{\mathrm{\Rmnum{1}}} \cup \G^{\mathrm{\Rmnum{2}}}$,
-${}^3\G=\G^{\mathrm{\Rmnum{3}}} \cup \G^{\mathrm{\Rmnum{4}}}$. 
+ В каждый момент времени обслуживающее устройство находится в одном из конечного множества состояний $\Gamma=\{\Gamma^{(k,r)} \colon k=0,1,\ldots,d; r=1,2,\ldots n_k\}$ с заданными натуральными числами $d$, $n_0$, $n_1$, $\ldots$, $n_d$. В каждом состоянии $\ga{k,r}$ обслуживающее устройство находится в течение времени $\Tt{k,r}$. Введем множества $\Gamma^{\mathrm{I}}$, $\Gamma^{\mathrm{II}}$, $\Gamma^{\mathrm{III}}$ и $\Gamma^{\mathrm{IV}}$ следующим образом. В состоянии $\gamma \in \Gamma^{\mathrm{\Rmnum{1}}}$ обслуживаются только требования из очередей $O_1$, $O_2$ и $O_4$.
+В состоянии $\gamma \in \Gamma^{\mathrm{\Rmnum{2}}}$ обслуживаются только требования из очередей $O_2$ и $O_4$.
+В состоянии $\gamma \in \Gamma^{\mathrm{\Rmnum{3}}}$ обслуживаются только требования из очередей $O_1$, $O_3$ и $O_4$.
+В состоянии $\gamma \in \Gamma^{\mathrm{\Rmnum{4}}}$ обслуживаются только требования из очередей $O_3$ и $O_4$.
+Тогда множество $\Gamma$ есть объединение $\Gamma = \Gamma^{\mathrm{I}} \cup \Gamma^{\mathrm{II}} \cup \Gamma^{\mathrm{III}} \cup \Gamma^{\mathrm{III}}$ непересекающихся подмножеств. Также в дальнейшем нам понадобятся множества ${}^1\Gamma=\Gamma^{\mathrm{\Rmnum{1}}} \cup \Gamma^{\mathrm{\Rmnum{3}}}$, 
+${}^2\Gamma=\Gamma^{\mathrm{\Rmnum{1}}} \cup \Gamma^{\mathrm{\Rmnum{2}}}$,
+${}^3\Gamma=\Gamma^{\mathrm{\Rmnum{3}}} \cup \Gamma^{\mathrm{\Rmnum{4}}}$. 
 
-Смена состояний обслуживающего устройства осуществляется по следующему правилу. Множество состояний $C_k = \{\G^{(k,r)} \colon r=1,2,\ldots n_k\}$ будем называть $k$-м циклом, $k=1$, $2$, $\ldots$, $d$ (Рис. \ref{GraphScheme}). При $k=0$ состояние вида $\ga{0,r}$ будем называть состоянием продления, $r=0$, $1$, $\ldots$, $n_0$. Положим $r \oplus_k 1 = r+1$ для $r<n_k$ и $r \oplus_k 1 = 1$ при $r=n_k$, $k = 0$, $1$, $\ldots$, $d$. В цикле $C_k$ выделим подмножества $C_k^{\mathrm{O}}$ выходных, $C_k^{\mathrm{I}}$ входных и $C_k^{\mathrm{N}} = C_k \setminus (C_k^{\mathrm{O}} \cup C_k^{\mathrm{I}})$ нейтральных состояний. Тогда после состояния $\ga{k,r} \hm\in C_k\setminus C_k^{\mathrm{O}}$ обслуживающее устройство переходит в состояние $\ga{k,r \oplus_k 1}$ того же цикла $C_k$. При $\ga{k,r}$ принадлежащем множеству $C_k^{\mathrm{O}}$ прибор переходит в состояние $\ga{k,r\oplus_k 1}$, если число требований в очереди $O_3$ в момент переключения больше заданного порога $L$. В противном случае, то есть если число требований в очереди $O_3$ меньше либо равно $L$, то новое состояние прибора будет состоянием продления $\ga{0,r_1}$, где $r_1=h_1(\ga{k,r})$ и $h_1(\cdot)$~--- заданное отображение множества $\bigcup\limits_{k=1}^d C_k^{\mathrm{O}}$ во множество $\{1,2,\ldots, n_0\}$. После состояния $\ga{0,r}$ выбирается состояние того же вида $\ga{0,r_2}$, если число требований в очереди $O_3$ меньше или равно $L$, где $r_2=h_2(r)$ и $h_2(\cdot)$~--- заданное отображение множества $\{1,2, \ldots, n_0\}$ на себя; в противном случае включается входное состояние $\ga{k,r_3} \in C_k^{\mathrm{I}}$, где $\ga{k,r_3}=h_3(r)$ и $h_3(\cdot)$~--- заданное отображение множества $\{1,2, \ldots, n_0\}$ на множество  $\bigcup\limits_{k=1}^d C_k^{\mathrm{I}}$. Считается, что все состояния продления $\ga{0,r}$ принадлежат множеству ${}^2 \G$, а также верны соотношения $C_k^\mathrm{O}\subset {}^2 \G$ и $C_k^\mathrm{I}\subset {}^3 \G$. Также будем предполагать, что из любого состояния продления существует ребро во входную вершину некоторого цикла, а все циклы, в свою очередь, имеют ровно одно входное и одно выходное состояние. И последним предположением является то, что все вершины продления образуют один цикл.
+Смена состояний обслуживающего устройства осуществляется по следующему правилу. Множество состояний $C_k = \{\Gamma^{(k,r)} \colon r=1,2,\ldots n_k\}$ будем называть $k$-м циклом, $k=1$, $2$, $\ldots$, $d$ (Рис. \ref{GraphScheme}). При $k=0$ состояние вида $\ga{0,r}$ будем называть состоянием продления, $r=0$, $1$, $\ldots$, $n_0$. Положим $r \oplus_k 1 = r+1$ для $r<n_k$ и $r \oplus_k 1 = 1$ при $r=n_k$, $k = 0$, $1$, $\ldots$, $d$. В цикле $C_k$ выделим подмножества $C_k^{\mathrm{O}}$ выходных, $C_k^{\mathrm{I}}$ входных и $C_k^{\mathrm{N}} = C_k \setminus (C_k^{\mathrm{O}} \cup C_k^{\mathrm{I}})$ нейтральных состояний. Тогда после состояния $\ga{k,r} \hm\in C_k\setminus C_k^{\mathrm{O}}$ обслуживающее устройство переходит в состояние $\ga{k,r \oplus_k 1}$ того же цикла $C_k$. При $\ga{k,r}$ принадлежащем множеству $C_k^{\mathrm{O}}$ прибор переходит в состояние $\ga{k,r\oplus_k 1}$, если число требований в очереди $O_3$ в момент переключения больше заданного порога $L$. В противном случае, то есть если число требований в очереди $O_3$ меньше либо равно $L$, то новое состояние прибора будет состоянием продления $\ga{0,r_1}$, где $r_1=h_1(\ga{k,r})$ и $h_1(\cdot)$~--- заданное отображение множества $\bigcup\limits_{k=1}^d C_k^{\mathrm{O}}$ во множество $\{1,2,\ldots, n_0\}$. После состояния $\ga{0,r}$ выбирается состояние того же вида $\ga{0,r_2}$, если число требований в очереди $O_3$ меньше или равно $L$, где $r_2=h_2(r)$ и $h_2(\cdot)$~--- заданное отображение множества $\{1,2, \ldots, n_0\}$ на себя; в противном случае включается входное состояние $\ga{k,r_3} \in C_k^{\mathrm{I}}$, где $\ga{k,r_3}=h_3(r)$ и $h_3(\cdot)$~--- заданное отображение множества $\{1,2, \ldots, n_0\}$ на множество  $\bigcup\limits_{k=1}^d C_k^{\mathrm{I}}$. Считается, что все состояния продления $\ga{0,r}$ принадлежат множеству ${}^2 \Gamma$, а также верны соотношения $C_k^\mathrm{O}\subset {}^2 \Gamma$ и $C_k^\mathrm{I}\subset {}^3 \Gamma$. Также будем предполагать, что из любого состояния продления существует ребро во входную вершину некоторого цикла, а все циклы, в свою очередь, имеют ровно одно входное и одно выходное состояние. И последним предположением является то, что все вершины продления образуют один цикл.
 
 \begin{figure}[hb]\centering
 \includegraphics[scale=0.5]{GraphScheme3.png} 
@@ -93,7 +92,7 @@ h_3(r),& \quad \text{ если } k=0 \text{ и } y > L.
 
 
 Предполагается, что длительности обслуживания различных требований могут быть зависимыми и иметь различные законы распределения, поэтому вместо классического способа, состоящего в указании функции распределения длительности обслуживания произвольного требования, будут использованы потоки насыщения. Потоки насыщения $\Pi^{\mathrm{\text{нас}}}_j$, $j \in \{1,2,3,4\}$, определяются как виртуальные выходные потоки при 
-условии максимального использования ресурсов обслуживающего устройства, а для $j\in \{1, 2, 3\}$ еще и при условии максимальной загрузки соответствующих очередей. Поток насыщения $\Pi^{\mathrm{\text{нас}}}_j$, $j\in \{1,2,3\}$, будет содержать неслучайное число $\ell_{k,r,j}$ требований, обслуженных в течение времени $\Tt{k,r}$, если $\ga{k,r} \in~^j\G$, и будет содержать $0$ требований в противном случае: $\ga{k,r} \notin ~^j\G$. Пусть $\mathbb{Z}_+$~--- множество целых неотрицательных чисел. Тогда, при условии, что в очереди $O_4$ находится $x \in \mathbb{Z}_+$ требований, поток насыщения $\Pi^{\mathrm{\text{нас}}}_4$ определим как поток, содержащий все $x$ требований.
+условии максимального использования ресурсов обслуживающего устройства, а для $j\in \{1, 2, 3\}$ еще и при условии максимальной загрузки соответствующих очередей. Поток насыщения $\Pi^{\mathrm{\text{нас}}}_j$, $j\in \{1,2,3\}$, будет содержать неслучайное число $\ell_{k,r,j}$ требований, обслуженных в течение времени $\Tt{k,r}$, если $\ga{k,r} \in~^j\Gamma$, и будет содержать $0$ требований в противном случае: $\ga{k,r} \notin ~^j\Gamma$. Пусть $\mathbb{Z}_+$~--- множество целых неотрицательных чисел. Тогда, при условии, что в очереди $O_4$ находится $x \in \mathbb{Z}_+$ требований, поток насыщения $\Pi^{\mathrm{\text{нас}}}_4$ определим как поток, содержащий все $x$ требований.
 %\subsection{Пример: тандем из двух перекрестков} 
 Наконец, при состоянии обслуживающего устройства $\ga{k,r}$ каждое требование из очереди $O_4$ с вероятностью $p_{k,r}$ и независимо от других завершает обслуживание и отправляется в очередь $O_2$ потока~$\Pi_2$. С вероятностью $1-p_{k,r}$ требование очереди $O_4$ остается в ней до следующего такта. На следующем такте процесс повторяется.
 
@@ -119,7 +118,7 @@ h_3(r),& \quad \text{ если } k=0 \text{ и } y > L.
 \caption{Числовой пример тандема перекрестков. Левый граф соответствует первому перекрестку, правый~--- второму}
 \label{SystemStates}
 \end{figure}
-За начальное состояние объединенной системы примем $\G_0=(g_{1,1},g_{2,1},0,0)$, то есть первый перекресток находится в состоянии $g_{1,1}$, второй~--- в состоянии $g_{2,1}$, и оба только начали свою работу в своем состоянии (этот факт моделируется равенствами $s=0$ и $t=0$). Следующая смена состояний случится у обоих перекрестков одновременно и приведет к следующему состоянию $(g_{1,2},g_{2,2}, 0, 0)$. Далее смена состояний произойдет также у первого и второго перекрестков, однако второй перекресток может перейти как в состояние $g_{2,1}$, так и в состояние продления $g_{2,3}$. Таким образом следущим состоянием тандема будет либо опять $(g_{1,1},g_{2,1},0,0)$, либо $(g_{1,1},g_{2,3},0,0)$. Продолжая рассуждения аналогичным образом, получим следущий список всех возможных состояний системы:
+За начальное состояние объединенной системы примем $\Gamma_0=(g_{1,1},g_{2,1},0,0)$, то есть первый перекресток находится в состоянии $g_{1,1}$, второй~--- в состоянии $g_{2,1}$, и оба только начали свою работу в своем состоянии (этот факт моделируется равенствами $s=0$ и $t=0$). Следующая смена состояний случится у обоих перекрестков одновременно и приведет к следующему состоянию $(g_{1,2},g_{2,2}, 0, 0)$. Далее смена состояний произойдет также у первого и второго перекрестков, однако второй перекресток может перейти как в состояние $g_{2,1}$, так и в состояние продления $g_{2,3}$. Таким образом следущим состоянием тандема будет либо опять $(g_{1,1},g_{2,1},0,0)$, либо $(g_{1,1},g_{2,3},0,0)$. Продолжая рассуждения аналогичным образом, получим следущий список всех возможных состояний системы:
 \begin{align*}
 (g_{1,1},g_{2,1},0,0)&=\ga{1,1} ,& \quad (g_{1,2},g_{2,2},0,0)&=\ga{1,2} ,& \quad (g_{1,1},g_{2,3},0,0)&=\ga{0,1}, \\
 (g_{1,1},g_{2,3},15,2)&=\ga{0,2} ,& \quad (g_{1,2},g_{2,3},0,0)&=\ga{0,3} ,& \quad (g_{1,2},g_{2,3},15,2)&=\ga{0,4}, \\
@@ -143,17 +142,17 @@ h_3(1)=\ga{2,1}, \quad h_3(2)=\ga{3,1}, \quad h_3(3)=\ga{4,1} \quad h_3(4)=\ga{1
 \subsection{Представление рассматриваемой системы обслуживания в виде кибернетической управляющей системы}
 Описанная в предыдущем разделе на содержательном уровне система массового обслуживания должна рассматриваться как кибернетическая управляющая система обслуживания (см. \cite{Zorine:2011}). Схема управляющей системы приведена на рис. \ref{SystemScheme}. На схеме присутствуют следующие блоки: 1) внешняя среда с одним состоянием; 2) входные полюса первого типа~--- входные потоки $\Pi_1$, $\Pi_2$, $\Pi_3$, $\Pi_4$; 3) входные полюса второго типа~--- потоки насыщения $\Pi_1^{\mathrm{\text{нас}}}$, $\Pi_2^{\mathrm{\text{нас}}}$, $\Pi_3^{\mathrm{\text{нас}}}$, $\Pi_4^{\mathrm{\text{нас}}}$; 4) внешняя память~--- очереди $O_1$, $O_2$, $O_3$, $O_4$; 5) устройство по переработкe информации внешней памяти~--- устройства по поддержанию дисциплины очереди $\delta_1$, $\delta_2$, $\delta_3$, $\delta_4$; 6) внутренняя память~--- обслуживающее устройство (ОУ); 7) устройство по переработке информации во внутренней памяти~--- граф смены состояний; 8) выходные полюса $\Pi_1^{\mathrm{\text{вых}}}$, $\Pi_2^{\mathrm{\text{вых}}}$, $\Pi_3^{\mathrm{\text{вых}}}$, $\Pi_4^{\mathrm{\text{вых}}}$. Координатой блока является номер этого блока на схеме. 
 
-Для задания информации блоков введем следующие величины и элементы, а также укажем множества их возможных значений. В качестве дискретной временной шкалы выберем последовательность $\tau_0=0$, $\tau_1$, $\tau_2$, $\ldots$ моментов смены состояний обслуживающего устройства. Обозначим $\G_i$ из множества $\G$ состояние обслуживающего устройства в течение времени $\left(\tau_{i-1};\tau_i\right]$, количество $\vk_{j,i} \in \mathbb{Z}_+ $ требований в очереди $O_j$ в момент времени $\tau_i$, количество $\eta_{j,i} \in \mathbb{Z}_+$ требований, поступивших в очередь $O_j$ по потоку $\Pi_j$ в течение времени $\left(\tau_{i};\tau_{i+1}\right]$, количество $\xi_{j,i} \in \mathbb{Z}_+$ требований по потоку насыщения $\Pi^{\mathrm{\text{нас}}}_j$ в течение времени $\left(\tau_{i};\tau_{i+1}\right]$, количество $\overline{\xi}_{j,i}\in \mathbb{Z}_+$ реально обслуженных требований по потоку $\Pi_j$ в течение времени $\left(\tau_{i};\tau_{i+1}\right]$, $j\in \{1,2,3,4\}$.
+Для задания информации блоков введем следующие величины и элементы, а также укажем множества их возможных значений. В качестве дискретной временной шкалы выберем последовательность $\tau_0=0$, $\tau_1$, $\tau_2$, $\ldots$ моментов смены состояний обслуживающего устройства. Обозначим $\Gamma_i$ из множества $\Gamma$ состояние обслуживающего устройства в течение времени $\left(\tau_{i-1};\tau_i\right]$, количество $\vk_{j,i} \in \mathbb{Z}_+ $ требований в очереди $O_j$ в момент времени $\tau_i$, количество $\eta_{j,i} \in \mathbb{Z}_+$ требований, поступивших в очередь $O_j$ по потоку $\Pi_j$ в течение времени $\left(\tau_{i};\tau_{i+1}\right]$, количество $\xi_{j,i} \in \mathbb{Z}_+$ требований по потоку насыщения $\Pi^{\mathrm{\text{нас}}}_j$ в течение времени $\left(\tau_{i};\tau_{i+1}\right]$, количество $\overline{\xi}_{j,i}\in \mathbb{Z}_+$ реально обслуженных требований по потоку $\Pi_j$ в течение времени $\left(\tau_{i};\tau_{i+1}\right]$, $j\in \{1,2,3,4\}$.
 
 Закон изменения состояния обслуживающего устройства будем предполагать заданным соотношением 
 \begin{equation}
-\G_{i+1}=h(\G_i,\vk_{3,i}),
+\Gamma_{i+1}=h(\Gamma_i,\vk_{3,i}),
 \label{gammaFunc}
 \end{equation}
 где отображение $h(\cdot,\cdot)$ определено в \eqref{hLaw}.
 Для определения длительности $T_{i+1}$ состояния обслуживающего устройства в течение времени $\left(\tau_{i};\tau_{i+1}\right]$ удобно ввести функцию $h_T(\cdot,\cdot)$:
 \begin{equation*}
-T_{i+1}=h_T(\G_i,\vk_{3,i})= \Tt{k,r},\quad  \text{ где } \ga{k,r}=\G_{i+1}=h(\G_i,\vk_{3,i}).
+T_{i+1}=h_T(\Gamma_i,\vk_{3,i})= \Tt{k,r},\quad  \text{ где } \ga{k,r}=\Gamma_{i+1}=h(\Gamma_i,\vk_{3,i}).
 %\label{timeLaw}
 \end{equation*}
 Функциональная зависимость
@@ -204,16 +203,16 @@ T_{i+1}=h_T(\G_i,\vk_{3,i})= \Tt{k,r},\quad  \text{ где } \ga{k,r}=\G_{i+1}=h
 \delta_{b_3,\ell(\tilde{k},\tilde{r},3)} \times \delta_{b_4,x_4}.
 \label{conditionProbTwo}
 \end{equation}
-Из формулы \eqref{conditionProbTwo} следует для $j\in \{1, 2, 3\}$, что вероятность события $\xi_{j,i}=0$ равна $1$ в случае $h(\ga{k,r},x_3)\notin {}^j\G$ и что вероятность события $\xi_{j,i}=\ell_{\tilde{k},\tilde{r},j}$ равна $1$, если $\ga{\tilde{k},\tilde{r}}=h(\ga{k,r},x_3)\in {}^j\G$.
+Из формулы \eqref{conditionProbTwo} следует для $j\in \{1, 2, 3\}$, что вероятность события $\xi_{j,i}=0$ равна $1$ в случае $h(\ga{k,r},x_3)\notin {}^j\Gamma$ и что вероятность события $\xi_{j,i}=\ell_{\tilde{k},\tilde{r},j}$ равна $1$, если $\ga{\tilde{k},\tilde{r}}=h(\ga{k,r},x_3)\in {}^j\Gamma$.
 
 
 Содержательный смысл следующей теоремы состоит в том, что сформулированные выше функциональные связи и вероятностные свойства введенных объектов непротиворечивы и могут быть реализованы на некотором общем вероятностном пространстве.
 %Построим теперь 	вероятностное пространство $(\Omega, {\cal F}, \Pr(\cdot))$, чтобы можно было рассматривать введеные величины как случайные величины на этом пространстве. А именно, докажем следующую теорему.
 \begin{theorem}
-Пусть $\gamma_0=\ga{k_0,r_0} \in \G$ и $x^0=(x_{1,0},x_{2,0}, x_{3,0},x_{4,0})\in \mathbb{Z}_+^4$ фиксированы.
-Тогда существует вероятностное пространство $(\Omega, {\cal F}, \Pr(\cdot))$ и заданные на нем случайные величины $\eta_{j,i}=\eta_{j,i}(\omega)$, $\xi_{j,i}=\xi_{j,i}(\omega)$, 	 $\vk_{j,i}=\vk_{j,i}(\omega)$ и случайные элементы $\G_i=\G_i(\omega)$, $i\geqslant 0$, $j\in \{1, 2, 3, 4\}$, такие, что 1) имеют место равенства $\G_0(\omega) = \gamma_0$ и $\vk_0(\omega)=x^0$; 2) выполняются соотношения \eqref{gammaFunc}, \eqref{queuesFunc}, \eqref{FourthFunc}; 3) для любых  $a$, $b$, $x^t=(x_{1,t},x_{2,t},x_{3,t},x_{4,t}) \in \mathbb{Z}_+^4$, $\ga{k_t,r_t} \in \G$, $t = 1, 2, \ldots$, условное распределение векторов $\eta_i$, и $\xi_i$ имеет вид
+Пусть $\gamma_0=\ga{k_0,r_0} \in \Gamma$ и $x^0=(x_{1,0},x_{2,0}, x_{3,0},x_{4,0})\in \mathbb{Z}_+^4$ фиксированы.
+Тогда существует вероятностное пространство $(\Omega, {\cal F}, \Pr(\cdot))$ и заданные на нем случайные величины $\eta_{j,i}=\eta_{j,i}(\omega)$, $\xi_{j,i}=\xi_{j,i}(\omega)$, 	 $\vk_{j,i}=\vk_{j,i}(\omega)$ и случайные элементы $\Gamma_i=\Gamma_i(\omega)$, $i\geqslant 0$, $j\in \{1, 2, 3, 4\}$, такие, что 1) имеют место равенства $\Gamma_0(\omega) = \gamma_0$ и $\vk_0(\omega)=x^0$; 2) выполняются соотношения \eqref{gammaFunc}, \eqref{queuesFunc}, \eqref{FourthFunc}; 3) для любых  $a$, $b$, $x^t=(x_{1,t},x_{2,t},x_{3,t},x_{4,t}) \in \mathbb{Z}_+^4$, $\ga{k_t,r_t} \in \Gamma$, $t = 1, 2, \ldots$, условное распределение векторов $\eta_i$, и $\xi_i$ имеет вид
 \begin{equation}
-\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right.\right)=
+\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}\right.\right)=
 \vp(a,k_i,r_i,x^i)\times \zeta(b,k_i,r_i,x^i),
 \label{ProbablititiesToProve}
 \end{equation}
@@ -242,7 +241,7 @@ P_0(\{(a_1,a_2,a_3)\})=\vp_1(a_1,h_T(\ga{k_0,r_0})) \times \psi(a_2,x_{2,0}, p_{
 \end{equation}
 Для $j\in \{1,2,3\}$ определим величины
 \begin{equation}
-\G_0=\gamma_0, \quad \vk_{j,0}=x_{j,0}, \quad \xi_{j,0}=l(\tilde{k},\tilde{r},j), \quad \eta_{j,0}=\omega_{j,0},
+\Gamma_0=\gamma_0, \quad \vk_{j,0}=x_{j,0}, \quad \xi_{j,0}=l(\tilde{k},\tilde{r},j), \quad \eta_{j,0}=\omega_{j,0},
 \label{startRekOne}
 \end{equation}
 и
@@ -251,9 +250,9 @@ P_0(\{(a_1,a_2,a_3)\})=\vp_1(a_1,h_T(\ga{k_0,r_0})) \times \psi(a_2,x_{2,0}, p_{
 \label{startRekTwo}
 \end{equation}
 
-Теперь, предполагая заданными на $(\Omega_i, {\cal F}_i)$ вероятностные меры $P(\omega_0, \omega_1, \ldots, \omega_{i-1};\cdot)$, заданными величины $\G_i$, $\vk_{j,i}$, $\xi_{j,i}$, $\eta_{j,i}$, $i\in \{0,1,\ldots,n\}$, $j\in \{1, 2, 3, 4\}$ и фиксируя набор $(\omega_0, \omega_1, \ldots, \omega_{n})$, определим на $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0, \omega_1, \ldots, \omega_n;\cdot)$. Положим для $j\in \{1, 2, 3\}$
+Теперь, предполагая заданными на $(\Omega_i, {\cal F}_i)$ вероятностные меры $P(\omega_0, \omega_1, \ldots, \omega_{i-1};\cdot)$, заданными величины $\Gamma_i$, $\vk_{j,i}$, $\xi_{j,i}$, $\eta_{j,i}$, $i\in \{0,1,\ldots,n\}$, $j\in \{1, 2, 3, 4\}$ и фиксируя набор $(\omega_0, \omega_1, \ldots, \omega_{n})$, определим на $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0, \omega_1, \ldots, \omega_n;\cdot)$. Положим для $j\in \{1, 2, 3\}$
 \begin{equation}
-\G_{n+1}=\ga{k^*,r^*}=h(\G_{n},\vk_{3,n}), \quad \vk_{j,n+1}=\max\{ 0,\vk_{j,n}+\eta_{j,n} -\xi_{j,n}\},
+\Gamma_{n+1}=\ga{k^*,r^*}=h(\Gamma_{n},\vk_{3,n}), \quad \vk_{j,n+1}=\max\{ 0,\vk_{j,n}+\eta_{j,n} -\xi_{j,n}\},
 \label{NextRekOne}
 \end{equation}
 \begin{equation}
@@ -268,68 +267,68 @@ P_0(\{(a_1,a_2,a_3)\})=\vp_1(a_1,h_T(\ga{k_0,r_0})) \times \psi(a_2,x_{2,0}, p_{
 \ml
 {
 P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
-= \vp_1(a_1,h_T(\G_n,x_{3,n})) \times \psi(a_2,x_{4,n}, p_{k^*,r^*}) \times \vp_3(a_3,h_T(\G_n,x_{3,n})).
+= \vp_1(a_1,h_T(\Gamma_n,x_{3,n})) \times \psi(a_2,x_{4,n}, p_{k^*,r^*}) \times \vp_3(a_3,h_T(\Gamma_n,x_{3,n})).
 \label{probabilitiesTwo}
 }
 Вероятностное пространство $(\Omega,{\cal F},\Pr(\cdot))$ построено. 
 
-Теперь докажем, что введеные с помощью формул \eqref{startRekOne}~--~\eqref{NextRekThree} случайные элементы $\G_i(\omega)$ и случайные величины $\vk_{j,i}(\omega)$, $\eta_{j,i}(\omega)$, $\xi_{j,i}(\omega)$, $i \geqslant 0$, $j \in \{1, 2, 3, 4\}$ удовлетворяют условиям теоремы. Из формулы \eqref{NextRekOne} следует, что случайные элементы $\G_i$ удовлетворяют соотношению \eqref{gammaFunc}, а случайные величины $\vk_{j,i}$ для $j\in \{1, 2, 3\}$ удовлетворяют соотношению \eqref{queuesFunc}. Из формулы \eqref{NextRekTwo} заключаем, что $\vk_{4,i}$ удовлетворяет соотношению $\eqref{FourthFunc}$. Далее, из \eqref{startRekTwo} и \eqref{NextRekThree} следует справедливость соотношений \eqref{FourthFunc} для величин $\eta_{4,i}$ и $\xi_{4,i}$. 
+Теперь докажем, что введеные с помощью формул \eqref{startRekOne}~--~\eqref{NextRekThree} случайные элементы $\Gamma_i(\omega)$ и случайные величины $\vk_{j,i}(\omega)$, $\eta_{j,i}(\omega)$, $\xi_{j,i}(\omega)$, $i \geqslant 0$, $j \in \{1, 2, 3, 4\}$ удовлетворяют условиям теоремы. Из формулы \eqref{NextRekOne} следует, что случайные элементы $\Gamma_i$ удовлетворяют соотношению \eqref{gammaFunc}, а случайные величины $\vk_{j,i}$ для $j\in \{1, 2, 3\}$ удовлетворяют соотношению \eqref{queuesFunc}. Из формулы \eqref{NextRekTwo} заключаем, что $\vk_{4,i}$ удовлетворяет соотношению $\eqref{FourthFunc}$. Далее, из \eqref{startRekTwo} и \eqref{NextRekThree} следует справедливость соотношений \eqref{FourthFunc} для величин $\eta_{4,i}$ и $\xi_{4,i}$. 
 
-Перейдем к доказательству равенства \eqref{ProbablititiesToProve}. Для этого найдем явное выражение для условной вероятности $\Pr (\{ \omega \colon \eta_i = a, \xi_i=b\} | \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})$. Пусть $\ga{\tilde{k}_i,\tilde{r}_i}=h(\ga{k_i,r_i},x^i)$. Распишем по определению условной вероятности:
+Перейдем к доказательству равенства \eqref{ProbablititiesToProve}. Для этого найдем явное выражение для условной вероятности $\Pr (\{ \omega \colon \eta_i = a, \xi_i=b\} | \bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\})$. Пусть $\ga{\tilde{k}_i,\tilde{r}_i}=h(\ga{k_i,r_i},x^i)$. Распишем по определению условной вероятности:
 \ml
 {
-\Pr \left(\left\{ \omega \colon \eta_i = a, \xi_i=b\right\}  \left| \bigcap_{t=0}^{i}\left\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\right\}\right.\right) = \\
-=\Pr\left(\{ \omega \colon \eta_i = a, \xi_i=b \} \cap \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right) \Big/
-\Pr\left( \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right).
+\Pr \left(\left\{ \omega \colon \eta_i = a, \xi_i=b\right\}  \left| \bigcap_{t=0}^{i}\left\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\right\}\right.\right) = \\
+=\Pr\left(\{ \omega \colon \eta_i = a, \xi_i=b \} \cap \bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}\right) \Big/
+\Pr\left( \bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}\right).
 \label{Construction:1}
 }
-Далее из \eqref{ProbabilitiesGeneral}, \eqref{ProbabilitiesGeneralOne} и того факта, что $\G_i$ и $\vk_{i}$ не зависят от $\omega_i$ (этот факт следует из \eqref{startRekOne}~--~\eqref{NextRekTwo}), получим выражение для знаменателя последней дроби
+Далее из \eqref{ProbabilitiesGeneral}, \eqref{ProbabilitiesGeneralOne} и того факта, что $\Gamma_i$ и $\vk_{i}$ не зависят от $\omega_i$ (этот факт следует из \eqref{startRekOne}~--~\eqref{NextRekTwo}), получим выражение для знаменателя последней дроби
 \ml
 {
-\Pr\left( \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
-=\sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}).
+\Pr\left( \bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
+=\sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}).
 \label{Construction:2}
 }
-Преобразуем множество $\{ \eta_i = a, \xi_i=b \} \cap \{\G_i=\ga{k_i,r_i}, \vk_i=x^i\}$, учитывая соотношения \eqref{startRekOne}~--~\eqref{NextRekThree}:
+Преобразуем множество $\{ \eta_i = a, \xi_i=b \} \cap \{\Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\}$, учитывая соотношения \eqref{startRekOne}~--~\eqref{NextRekThree}:
 \mll
 {
-\left\{ \eta_i = a, \xi_i=b \right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} = \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap\\
+\left\{ \eta_i = a, \xi_i=b \right\} \cap \left\{\Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\right\} = \left\{\Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap\\
 \cap \left\{ \eta_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{ \xi_{j,i} = b_j, j\in \{1, 2, 3\}\right\} \cap \left\{ \xi_{4,i} = b_4 \right\} \cap  \left\{ \eta_{4,i} = a_4 \right\} = \\
-= \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{ b_j=\ell(\tilde{k}_i,\tilde{r}_i,j), j\in \{1, 2, 3\}\right\} \cap \\ 
+= \left\{\Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{ b_j=\ell(\tilde{k}_i,\tilde{r}_i,j), j\in \{1, 2, 3\}\right\} \cap \\ 
 \cap \left\{ b_4 = x_{4,i} \right\} \cap  \left\{ a_4=\min\left\{\ell(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\} \right\}. 
 }
 Тогда для числителя дроби из \eqref{Construction:1} имеем:
 \ml
 {
-\Pr\left(\{ \omega \colon \eta_i = a, \xi_i=b \} \cap \bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
-= \Pr\left(\left\{ \eta_i = a, \xi_i=b \right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
+\Pr\left(\{ \omega \colon \eta_i = a, \xi_i=b \} \cap \bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
+= \Pr\left(\left\{ \eta_i = a, \xi_i=b \right\} \cap \left\{\Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)=\\
 = \delta_{b_4,x_{4,i}} \times \delta_{a_4,\min\left\{\ell(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\}} \times \prod_{j=1}^3\delta_{b_j,\ell(\tilde{k}_i,\tilde{r}_i,j)}   \times \\
-\times \Pr\left( \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)
+\times \Pr\left( \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{\Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}\right)
 \label{Construction:3}
 }
 И по аналогии со знаменателем (выражение \eqref{Construction:2}), распишем последнюю вероятность:
 \mll
 {
-\Pr\left( \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{\G_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right) =\\
-= \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})\times\\
+\Pr\left( \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{\Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}\right) =\\
+= \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})\times\\
 \times  P(\omega_0,\omega_1,\ldots, \omega_{i-1};\{(a_1, a_2, a_3)\}) =
 }
 и подставляя \eqref{probabilitiesTwo}, получим
 \ml
 {
-=\vp_1(a_1,h_T(\G_i,x_{3,i})) \times \psi(a_2,x_{4,i}, p_{\tilde{k}_i,\tilde{r}_i}) \times \vp_3(a_3,h_T(\G_i,x_{3,i})) \times \\ 
-\times \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}).
+=\vp_1(a_1,h_T(\Gamma_i,x_{3,i})) \times \psi(a_2,x_{4,i}, p_{\tilde{k}_i,\tilde{r}_i}) \times \vp_3(a_3,h_T(\Gamma_i,x_{3,i})) \times \\ 
+\times \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}).
 \label{Construction:4}
 }
 Подставляя  \eqref{Construction:4} в \eqref{Construction:3}, а затем \eqref{Construction:3} и \eqref{Construction:2} в \eqref{Construction:1}, получим:
 \mll
 {
-\Pr \left(\left\{ \omega \colon \eta_i = a, \xi_i=b\right\}  \left| \bigcap_{t=0}^{i}\left\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\right\}\right.\right)  = \\
+\Pr \left(\left\{ \omega \colon \eta_i = a, \xi_i=b\right\}  \left| \bigcap_{t=0}^{i}\left\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\right\}\right.\right)  = \\
 = \delta_{b_4,x_{4,i}} \times \delta_{a_4,\min\left\{\ell(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\}} \times \prod_{j=1}^3\delta_{b_j,\ell(\tilde{k}_i,\tilde{r}_i,j)} \times
-\vp_1(a_1,h_T(\G_i,x_{3,i})) \times \\ \times \psi(a_2,x_{4,i}, p_{\tilde{k}_i,\tilde{r}_i}) 
-\times  \vp_3(a_3,h_T(\G_i,x_{3,i})) \times \\ 
-\times \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}) \Big/ \\
-\Big/ \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \G_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})
+\vp_1(a_1,h_T(\Gamma_i,x_{3,i})) \times \\ \times \psi(a_2,x_{4,i}, p_{\tilde{k}_i,\tilde{r}_i}) 
+\times  \vp_3(a_3,h_T(\Gamma_i,x_{3,i})) \times \\ 
+\times \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}) \Big/ \\
+\Big/ \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})
 }
 и после сокращения одинаковых сумм получаем в точности \eqref{ProbablititiesToProve}.
 \end{proof}
@@ -338,25 +337,25 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 В условиях предыдущей теоремы верно равенство
 \ml
 {
-\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right.\right)=\\
-=\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\{\omega\colon \G_i=\ga{k_i,r_i}, \vk_i=x^i\}\right.\right)
+\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}\right.\right)=\\
+=\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\{\omega\colon \Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\}\right.\right)
 \label{eta:xi:forgetProperty}
 }
 %и
 %\ml
 %{
-%\Pr \left(\{ \omega \colon \eta_{3,i} = a_3, \xi_{3,i}=b_3\} \left|\bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}\right.\right)=\\
-%=\Pr \left(\{ \omega \colon \eta_{3,i} = a_3, \xi_{3,i}=b_3\} \left|\bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_{3,t}=x_3^t\}\right.\right)=\\
-%=\Pr \left(\{ \omega \colon \eta_{3,i} = a_3, \xi_{3,i}=b_3\} \left|\{\omega\colon \G_i=\ga{k_i,r_i}, \vk_{3,i}=x_3^i\}\right.\right)
+%\Pr \left(\{ \omega \colon \eta_{3,i} = a_3, \xi_{3,i}=b_3\} \left|\bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}\right.\right)=\\
+%=\Pr \left(\{ \omega \colon \eta_{3,i} = a_3, \xi_{3,i}=b_3\} \left|\bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_{3,t}=x_3^t\}\right.\right)=\\
+%=\Pr \left(\{ \omega \colon \eta_{3,i} = a_3, \xi_{3,i}=b_3\} \left|\{\omega\colon \Gamma_i=\ga{k_i,r_i}, \vk_{3,i}=x_3^i\}\right.\right)
 %\label{eta:xi:three:forgetProperty}
 %}
 
 \label{eta:xi:forget}
 \end{corollary}
 \begin{proof}
-Действительно, из \eqref{ProbablititiesToProve} cледует, что вероятность, стоящая в левой части равенства \eqref{eta:xi:forgetProperty}, равна величине $\vp(a,k_i,r_i,x^i)\times \zeta(b,k_i,r_i,x^i)$, зависящей только от значения $(\ga{k_i,r_i},x^i)$ пары $(\G_i,\vk_i)$ и не зависящей от значений остальных пар $(\G_t,\vk_t)_{0\leqslant t \leqslant i-1}$. Таким образом, знание о значениях пар $(\G_t,\vk_t)_{0\leqslant t \leqslant i-1}$ не влияет на вероятность $\Pr (\{ \omega \colon \eta_i = a, \xi_i=b\} |\bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})$ и, следовательно, \eqref{eta:xi:forgetProperty} верно.
+Действительно, из \eqref{ProbablititiesToProve} cледует, что вероятность, стоящая в левой части равенства \eqref{eta:xi:forgetProperty}, равна величине $\vp(a,k_i,r_i,x^i)\times \zeta(b,k_i,r_i,x^i)$, зависящей только от значения $(\ga{k_i,r_i},x^i)$ пары $(\Gamma_i,\vk_i)$ и не зависящей от значений остальных пар $(\Gamma_t,\vk_t)_{0\leqslant t \leqslant i-1}$. Таким образом, знание о значениях пар $(\Gamma_t,\vk_t)_{0\leqslant t \leqslant i-1}$ не влияет на вероятность $\Pr (\{ \omega \colon \eta_i = a, \xi_i=b\} |\bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\})$ и, следовательно, \eqref{eta:xi:forgetProperty} верно.
 
-%Аналогично, из \eqref{ProbablititiesToProve} можно заключить, что вероятность $\Pr (\{ \omega \colon \eta_{3,i} = a_3, \xi_{3,i}=b_3\} |\bigcap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})$ равна величине $\vp_3(a_3,h_T(\ga{{k_i},{r_i}},x_3^i))\times \delta_{b_3,\ell(\tilde{k},\tilde{r},3)}$, $\ga{\tilde{k},\tilde{r}}=h(\ga{k_i,r_i},x_3^i)$, зависящей только от значений $(\ga{k_i,r_i},x_3^i)$ пары $(\G_i,\vk_{3,i})$. Следовательно, равенства \eqref{eta:xi:three:forgetProperty} также верны.
+%Аналогично, из \eqref{ProbablititiesToProve} можно заключить, что вероятность $\Pr (\{ \omega \colon \eta_{3,i} = a_3, \xi_{3,i}=b_3\} |\bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\})$ равна величине $\vp_3(a_3,h_T(\ga{{k_i},{r_i}},x_3^i))\times \delta_{b_3,\ell(\tilde{k},\tilde{r},3)}$, $\ga{\tilde{k},\tilde{r}}=h(\ga{k_i,r_i},x_3^i)$, зависящей только от значений $(\ga{k_i,r_i},x_3^i)$ пары $(\Gamma_i,\vk_{3,i})$. Следовательно, равенства \eqref{eta:xi:three:forgetProperty} также верны.
 \end{proof}
 
 Введем для $y_0$, $y$, $\tilde{y} \in \mathbb{Z}_+$ и $t \in \mathbb{R}$, $t\geqslant 0$ функции
@@ -377,14 +376,14 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 \end{aligned}
 \label{tildephi}
 \end{equation}
-причем $k$ и $r$ такие, что $\ga{k,r}\in \G$.
+причем $k$ и $r$ такие, что $\ga{k,r}\in \Gamma$.
 	
 \begin{corollary}
 Пусть $\ga{k_{i+1},r_{i+1}}=h(\ga{k_i,r_i},x_{3,t})$. Тогда в условиях теоремы~\ref{myTheorem} верны равенства
 \begin{align}
-&\Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})=\widetilde{\psi}(k_{i+1},r_{i+1},x_{4,i},x_{2,i},x_{2,i+1}),
+&\Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\})=\widetilde{\psi}(k_{i+1},r_{i+1},x_{4,i},x_{2,i},x_{2,i+1}),
 \label{kappa:2:conditional}\\
-&\Pr (\{ \omega \colon \vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})=\widetilde{\vp}_3(k_{i+1},r_{i+1},h_T(\ga{k_i,r_i},x_{3,i}),x_{3,i},x_{3,i+1}),
+&\Pr (\{ \omega \colon \vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\})=\widetilde{\vp}_3(k_{i+1},r_{i+1},h_T(\ga{k_i,r_i},x_{3,i}),x_{3,i},x_{3,i+1}),
 \label{kappa:3:conditional}
 \end{align}
 \end{corollary}
@@ -392,13 +391,13 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 Начнем с доказательства равенства \eqref{kappa:2:conditional}. Распишем по формуле полной вероятности, а затем учтем \eqref{ProbablititiesToProve} и \eqref{eta:xi:forgetProperty}:
 \mll
 {
-\Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}) = \\
-= \sum_{a,b\in \mathbb{Z}_+^4} \Pr (\{ \omega \colon \eta_i=a, \xi_i=b\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}) \times \\
-\times \Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b\}\cap \cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}) = \\
-=\sum_{a,b\in \mathbb{Z}_+^4} \Pr (\{ \omega \colon \eta_i=a, \xi_i=b\} |\{\omega\colon \G_i=\ga{k_i,r_i}, \vk_i=x^i\}) \times \\
-\times \Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b, \G_i=\ga{k_i,r_i}, \vk_i=x^i\}) = \\
+\Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}) = \\
+= \sum_{a,b\in \mathbb{Z}_+^4} \Pr (\{ \omega \colon \eta_i=a, \xi_i=b\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}) \times \\
+\times \Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b\}\cap \cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}) = \\
+=\sum_{a,b\in \mathbb{Z}_+^4} \Pr (\{ \omega \colon \eta_i=a, \xi_i=b\} |\{\omega\colon \Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\}) \times \\
+\times \Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b, \Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\}) = \\
 =\sum_{a,b\in \mathbb{Z}_+^4} \vp(a,k_i,r_i,x^i)\zeta(b,k_i,r_i,x^i) \times\\
-\times \Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b, \G_i=\ga{k_i,r_i}, \vk_i=x^i\})=
+\times \Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b, \Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\})=
 }
 учитывая функциональную зависимость \eqref{queuesFunc} и явное выражение для функций $\vp(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$, продолжим цепочку рассуждений
 \mll
@@ -411,14 +410,14 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 Поскольку все кроме одной суммы сокращаются (равны $1$), то искомая вероятность упрощается следующим образом:
 \mll
 {
-\Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}) = \\
+\Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}) = \\
 =\sum_{a_2,b_2\in \mathbb{Z}_+}\psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})  \delta_{b_2,\ell(k_{i+1},r_{i+1},2)}   \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-b_2\}}=\\
 =\sum_{a_2\in \mathbb{Z}_+}\psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})   \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}}
 }
 В случае, когда $x_{2,i+1}$ больше $0$, величина $\delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}}$ отлична от нуля только при $x_{2,i+1}=x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)$, то есть при $a_2=x_{2,i+1}-x_{2,i}+\ell(k_{i+1},r_{i+1},2)$. В случае же, когда $x_{2,i+1}$ равно $0$, величина $\delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}}$ отлична от нуля только при $0\leqslant a_2\leqslant \ell(k_{i+1},r_{i+1},2)-x_2$. Таким образом,
 \mll
 {
-\Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}) = \\
+\Pr (\{ \omega \colon \vk_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}) = \\
 = \sum_{a_2\in \mathbb{Z}_+}\psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})   \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}} = \\
 =\psi(x_{2,i+1}-x_{2,i}+\ell(k_{i+1},r_{i+1},2),x_{4,i}, p_{k_{i+1},r_{i+1}}) (1 - \delta_{x_{2,i+1},0}) + \\
 + \delta_{x_{2,i+1},0}\sum_{a=0}^{\ell(k_{i+1},r_{i+1},2)-x_2} \psi(a,x_{4,i}, p_{k_{i+1},r_{i+1}})= \widetilde{\psi}(k_{i+1},r_{i+1},x_{4,i},x_{2,i},x_{2,i+1})
@@ -428,9 +427,9 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 Аналогичным образом доказывается равенство \eqref{kappa:3:conditional}. А именно, расписывая по формуле полной вероятности с учетом \eqref{ProbablititiesToProve} и \eqref{eta:xi:forgetProperty}, имеем:
 \mll
 {
-\Pr (\{ \omega \colon \vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})=\\
+\Pr (\{ \omega \colon \vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\})=\\
 = \sum_{a,b\in \mathbb{Z}_+^4} \vp(a,k_i,r_i,x^i)\times\zeta(b,k_i,r_i,x^i) \times\\
-\times \Pr (\{ \omega \colon \vk_{3,i+1} = x_{3,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b, \G_i=\ga{k_i,r_i}, \vk_i=x^i\})=
+\times \Pr (\{ \omega \colon \vk_{3,i+1} = x_{3,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b, \Gamma_i=\ga{k_i,r_i}, \vk_i=x^i\})=
 }
 учитывая \eqref{queuesFunc} и явный вид функций $\vp(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$, продолжим
 \mll
@@ -445,7 +444,7 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 В результате получаем, что
 \mll
 {
-\Pr (\{ \omega \colon \vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})=\\
+\Pr (\{ \omega \colon \vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\})=\\
 =\sum_{a_3\in \mathbb{Z}_+} \vp_3(a_3,h_T(\ga{k_i,r_i},x_{3,i}))  \delta_{x_{3,i+1},\max\{0,x_{3,i}+a_3-\ell(k_{i+1},r_{i+1},3)\}}  = \\
 =(1 - \delta_{x_{3,i+1},0})\vp_3(x_{3,i+1}-x_{3,i} + \ell(k_{i+1},r_{i+1},3),h_T(\ga{k_i,r_i},x_{3,i})) + \\
 +\delta_{x_{3,i+1},0}\sum_{a=0}^{\ell(k_{i+1},r_{i+1},3)-x_{3,i}} \vp_3(a,h_T(\ga{k_i,r_i},x_{3,i})) 
@@ -462,7 +461,7 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 
 Введем следующие события:
 \begin{equation*}
-A_i(k_i;r_i;x^i) = \{\G_i=\ga{k_i,r_i}\vk_i=x^i\}, \quad  B_i(a;b) = \{\eta_i=a, \xi_i=b\}
+A_i(k_i;r_i;x^i) = \{\Gamma_i=\ga{k_i,r_i}\vk_i=x^i\}, \quad  B_i(a;b) = \{\eta_i=a, \xi_i=b\}
 \end{equation*}
 В новых обозначениях равенство \eqref{eta:xi:forgetProperty}  перепишется следующим образом:
 \begin{equation}
@@ -472,7 +471,7 @@ A_i(k_i;r_i;x^i) = \{\G_i=\ga{k_i,r_i}\vk_i=x^i\}, \quad  B_i(a;b) = \{\eta_i=a,
 
 Сформулируем и докажем теорему о марковости последовательности \linebreak$\Mark$.
 \begin{theorem}
-Пусть $\G_0=\ga{k,r}\in \G$ и $\vk_0=x^0\in \mathbb{Z}_+^4$ фиксированы. Тогда последовательность $\Mark$ является однородной счетной цепью Маркова. 
+Пусть $\Gamma_0=\ga{k,r}\in \Gamma$ и $\vk_0=x^0\in \mathbb{Z}_+^4$ фиксированы. Тогда последовательность $\Mark$ является однородной счетной цепью Маркова. 
 \end{theorem}
 
 \begin{proof}
@@ -489,7 +488,7 @@ A_i(k_i;r_i;x^i) = \{\G_i=\ga{k_i,r_i}\vk_i=x^i\}, \quad  B_i(a;b) = \{\eta_i=a,
 \times \Pr \left( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) \left|B_i(a;b) \cap \bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right)
 \label{markovProof}
 }
-Из равенства \eqref{new:notation:eta:xi:forget} следует, что вероятность  $\Pr \left( B_i(a;b) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right)$ не зависит от предыстории $\bigcap_{t=0}^{i-1} A_t(k_t;r_t;x^{t})$. Далее, из соотношений \eqref{gammaFunc}, \eqref{queuesFunc} и \eqref{FourthFunc} можно заметить, что случайный элемент $\G_{i+1}$ и случайный вектор $\vk_{i+1}$ функционально выражается через $\G_i$, $\vk_i$, $\eta_i$ и $\xi_i$, поэтому вероятность $\Pr ( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) |B_i(a;b) \cap \bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t}))$ не зависит от предыстории. Таким образом 
+Из равенства \eqref{new:notation:eta:xi:forget} следует, что вероятность  $\Pr \left( B_i(a;b) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right)$ не зависит от предыстории $\bigcap_{t=0}^{i-1} A_t(k_t;r_t;x^{t})$. Далее, из соотношений \eqref{gammaFunc}, \eqref{queuesFunc} и \eqref{FourthFunc} можно заметить, что случайный элемент $\Gamma_{i+1}$ и случайный вектор $\vk_{i+1}$ функционально выражается через $\Gamma_i$, $\vk_i$, $\eta_i$ и $\xi_i$, поэтому вероятность $\Pr ( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) |B_i(a;b) \cap \bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t}))$ не зависит от предыстории. Таким образом 
 \begin{equation*}
 \Pr \left( B_i(a;b) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right) = \\
 \Pr \left( B_i(a;b) \left| A_i(k_i;r_i;x^{i})\right.\right)
@@ -505,36 +504,36 @@ A_i(k_i;r_i;x^i) = \{\G_i=\ga{k_i,r_i}\vk_i=x^i\}, \quad  B_i(a;b) = \{\eta_i=a,
 
 Докажем марковость последовательности $\MarkThree$.
 \begin{theorem}
-Пусть $\G_0=\ga{k,r}\in \G$ и $\vk_{3,0}=x_{3,0}\in \mathbb{Z}_+$ фиксированы. Тогда последовательность $\MarkThree$ является однородной счетной цепью Маркова.
+Пусть $\Gamma_0=\ga{k,r}\in \Gamma$ и $\vk_{3,0}=x_{3,0}\in \mathbb{Z}_+$ фиксированы. Тогда последовательность $\MarkThree$ является однородной счетной цепью Маркова.
 \end{theorem}
 \begin{proof}
-Действительно, поскольку $\G_{i+1}$ функционально выражается через $\G_i$ и $\vk_{3,i}$ (см.~\eqref{gammaFunc}), то
+Действительно, поскольку $\Gamma_{i+1}$ функционально выражается через $\Gamma_i$ и $\vk_{3,i}$ (см.~\eqref{gammaFunc}), то
 \mll
 {
-\Pr (\{ \omega \colon \G_{i+1} =\ga{k_{i+1},r_{i+1}},\vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})=\\
-=\delta_{\ga{k_{i+1},r_{i+1}},h(\ga{k_i,r_i},x_{3,i})}\times \Pr (\{ \omega \colon \vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}).
+\Pr (\{ \omega \colon \Gamma_{i+1} =\ga{k_{i+1},r_{i+1}},\vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\})=\\
+=\delta_{\ga{k_{i+1},r_{i+1}},h(\ga{k_i,r_i},x_{3,i})}\times \Pr (\{ \omega \colon \vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}).
 }
 и учитывая равенство \eqref{kappa:3:conditional}, убеждаемся, что вероятность 
 \mll
 {
-\Pr (\{ \omega \colon \G_{i+1} =\ga{k_{i+1},r_{i+1}},\vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\}) = \\
+\Pr (\{ \omega \colon \Gamma_{i+1} =\ga{k_{i+1},r_{i+1}},\vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\}) = \\
 =\delta_{\ga{k_{i+1},r_{i+1}},h(\ga{k_i,r_i},x_{3,i})} \times \widetilde{\vp}_3(k_{i+1},r_{i+1},h_T(\ga{k_i,r_i},x_{3,i}),x_{3,i},x_{3,i+1})
 }
-зависит только от значений пар $(\G_i,\vk_{3,i})$ и $(\G_{i+1},\vk_{3,i+1})$. Следовательно 
+зависит только от значений пар $(\Gamma_i,\vk_{3,i})$ и $(\Gamma_{i+1},\vk_{3,i+1})$. Следовательно 
 \mll
 {
-\Pr (\{ \omega \colon \G_{i+1} =\ga{k_{i+1},r_{i+1}},\vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_t=x^t\})=\\
-=\Pr (\{ \omega \colon \G_{i+1} =\ga{k_{i+1},r_{i+1}},\vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \G_t=\ga{k_t,r_t}, \vk_{3,t}=x_{3,t}\})=\\
-=\Pr (\{ \omega \colon \G_{i+1} =\ga{k_{i+1},r_{i+1}},\vk_{3,i+1} = x_{3,i+1}\} |\{\omega\colon \G_i=\ga{k_i,r_i}, \vk_{3,i}=x_{3,i}\}),
+\Pr (\{ \omega \colon \Gamma_{i+1} =\ga{k_{i+1},r_{i+1}},\vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_t=x^t\})=\\
+=\Pr (\{ \omega \colon \Gamma_{i+1} =\ga{k_{i+1},r_{i+1}},\vk_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\ga{k_t,r_t}, \vk_{3,t}=x_{3,t}\})=\\
+=\Pr (\{ \omega \colon \Gamma_{i+1} =\ga{k_{i+1},r_{i+1}},\vk_{3,i+1} = x_{3,i+1}\} |\{\omega\colon \Gamma_i=\ga{k_i,r_i}, \vk_{3,i}=x_{3,i}\}),
 }
 что доказывает марковость последовательности $\MarkThree$.
 \end{proof}
 
 Убедившись в марковости последовательностей $\Mark$ и $\MarkThree$, приведем формулы для вычисления их переходных вероятностей. 
 \begin{theorem}
-Пусть $x$, $\tilde{x}\in \mathbb{Z}_+^4$ и $\ga{k,r}$, $\ga{\tilde{k},\tilde{r}}=h(\ga{k,r},x_3) \in \G$. Тогда переходные вероятности однородной счетной марковской цепи $\Mark$ вычисляются по следующей формуле:
+Пусть $x$, $\tilde{x}\in \mathbb{Z}_+^4$ и $\ga{k,r}$, $\ga{\tilde{k},\tilde{r}}=h(\ga{k,r},x_3) \in \Gamma$. Тогда переходные вероятности однородной счетной марковской цепи $\Mark$ вычисляются по следующей формуле:
 \begin{multline}
-\P{\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x}=\\ 
+\P{\Gamma_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}}{\Gamma_{i}=\ga{k,r},\vk_i=x}=\\ 
 =\widetilde{\vp}_3(\tilde{k},\tilde{r},h_T(\ga{{k},{r}},x_3),x_3,\tilde{x}_3)\times
 \sum_{(a_1,a_2)\in A_{\mathrm{trans}}}\vp_1(a_1,h_T(\ga{{k},{r}},x_3))  \psi(a_2,x_4, p_{\tilde{k},\tilde{r}}),
 \label{transitionToProve}
@@ -548,7 +547,7 @@ A_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  \tilde{x}_2=\max{
 \end{align*}
 \end{theorem}
 \begin{proof}
-%Для нахождения переходной вероятности $\Pr(\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}|\G_{i}=\ga{k,r},\vk_i=x) $ воспользуемся формулой полной вероятности. Выделим из множества событий вида $\{\eta_i=a;\xi_i=b\}$, $a$, $b\in \mathbb{Z}_+^4$, полную группу несовместных событий, при условии наступления события $\{\G_{i}=\ga{k,r},\vk_i=x\}$, вероятности которых будут положительны. По определению, функции $\vp_j(x,t)$, $j\in \{1,3\}$, положительны тогда и только тогда, когда $x \in \mathbb{Z}_+^4$. Аналогично, значение функции $\psi(s,m,u)$ положительно только в случае $0\leqslant s \leqslant m$. Тогда из формул \eqref{ProbablititiesToProve}, \eqref{conditionProbOne} и \eqref{conditionProbTwo} следует, что вероятность $\Pr(\eta_i=a, \xi_i=b|\G_{i}=\ga{k,r},\vk_i=x)$ положительна тогда и только тогда, когда 
+%Для нахождения переходной вероятности $\Pr(\Gamma_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}|\Gamma_{i}=\ga{k,r},\vk_i=x) $ воспользуемся формулой полной вероятности. Выделим из множества событий вида $\{\eta_i=a;\xi_i=b\}$, $a$, $b\in \mathbb{Z}_+^4$, полную группу несовместных событий, при условии наступления события $\{\Gamma_{i}=\ga{k,r},\vk_i=x\}$, вероятности которых будут положительны. По определению, функции $\vp_j(x,t)$, $j\in \{1,3\}$, положительны тогда и только тогда, когда $x \in \mathbb{Z}_+^4$. Аналогично, значение функции $\psi(s,m,u)$ положительно только в случае $0\leqslant s \leqslant m$. Тогда из формул \eqref{ProbablititiesToProve}, \eqref{conditionProbOne} и \eqref{conditionProbTwo} следует, что вероятность $\Pr(\eta_i=a, \xi_i=b|\Gamma_{i}=\ga{k,r},\vk_i=x)$ положительна тогда и только тогда, когда 
 %\begin{equation}
 %b_4 = x_4, \quad b_j = \ell(\tilde{k},\tilde{r},j),\quad j\in\{1, 2, 3\},
 %\label{transitionB}
@@ -560,24 +559,24 @@ A_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  \tilde{x}_2=\max{
 %\end{equation}
 В случае, если $\ga{\tilde{k},\tilde{r}}=h(\ga{k,r},x_3)$, искомая вероятность упростится следующим образом:
 \begin{equation*}
-\P{\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x} 
-=\P{\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x} 
+\P{\Gamma_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}}{\Gamma_{i}=\ga{k,r},\vk_i=x} 
+=\P{\vk_{i+1}=\tilde{x}}{\Gamma_{i}=\ga{k,r},\vk_i=x} 
 \end{equation*}
 
 По аналогии с выводом формул \eqref{kappa:2:conditional} и \eqref{kappa:3:conditional}, для доказательства воспользуемся формулой полной вероятности и учтем \eqref{ProbablititiesToProve}:
 \mll
 {
-\P{\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x}= \sum_{a,b \in \mathbb{Z}_+^4} \P{\eta_i=a; \xi_i=b}{\G_{i}=\ga{k,r},\vk_i=x} \times \\ 
+\P{\vk_{i+1}=\tilde{x}}{\Gamma_{i}=\ga{k,r},\vk_i=x}= \sum_{a,b \in \mathbb{Z}_+^4} \P{\eta_i=a; \xi_i=b}{\Gamma_{i}=\ga{k,r},\vk_i=x} \times \\ 
 \times
-\P{\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x, \eta_i=a; \xi_i=b} = \\
+\P{\vk_{i+1}=\tilde{x}}{\Gamma_{i}=\ga{k,r},\vk_i=x, \eta_i=a; \xi_i=b} = \\
 =\sum_{a,b \in \mathbb{Z}_+^4} \vp(a,k,r,x) \zeta(b,k,r,x)
 \times
-\P{\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x, \eta_i=a; \xi_i=b}.
+\P{\vk_{i+1}=\tilde{x}}{\Gamma_{i}=\ga{k,r},\vk_i=x, \eta_i=a; \xi_i=b}.
 }
 Теперь учтем функциональные зависимости \eqref{queuesFunc} и \eqref{FourthFunc}, а также явный вид функций $\vp(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$:
 \mll
 {
-\P{\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x}= \\
+\P{\vk_{i+1}=\tilde{x}}{\Gamma_{i}=\ga{k,r},\vk_i=x}= \\
 =\sum_{a_1,b_1 \in \mathbb{Z}_+} \vp_1(a_1,h_T(\ga{{k},{r}},x_3)) \delta_{b_1,\ell(\tilde{k},\tilde{r},1)} \delta_{\tilde{x}_1,\max{\{0,x_1+a_1-b_1\}}} \times \\
 \times \sum_{a_3,b_3 \in \mathbb{Z}_+}  \vp_3(a_3,h_T(\ga{{k},{r}},x_3)) \delta_{b_3,\ell(\tilde{k},\tilde{r},3)}  \delta_{\tilde{x}_3,\max{\{0,x_3+a_3-b_3\}}} \times \\
 \times \sum_{a_2,b_2 \in \mathbb{Z}_+}  \psi(a_2,x_4, p_{\tilde{k},\tilde{r}})   \delta_{b_2,\ell(\tilde{k},\tilde{r},2)}   \delta_{\tilde{x}_2,\max{\{0,x_2+a_2-b_2\}}} \times \\
@@ -586,7 +585,7 @@ A_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  \tilde{x}_2=\max{
 и после упрощения, полагая $a_2 = \min{\{\ell(\tilde{k},\tilde{r},1), x_1+a_1}\} +x_4-\tilde{x}_4$,
 \mll
 {
-\P{\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x}=\sum_{a_3\in \mathbb{Z}_+}  \vp_3(a_3,h_T(\ga{{k},{r}},x_3))  \delta_{\tilde{x}_3,\max{\{0,x_3+a_3-\ell(\tilde{k},\tilde{r},3)\}}} \times \\
+\P{\vk_{i+1}=\tilde{x}}{\Gamma_{i}=\ga{k,r},\vk_i=x}=\sum_{a_3\in \mathbb{Z}_+}  \vp_3(a_3,h_T(\ga{{k},{r}},x_3))  \delta_{\tilde{x}_3,\max{\{0,x_3+a_3-\ell(\tilde{k},\tilde{r},3)\}}} \times \\
 \times\sum_{a_1 \in \mathbb{Z}_+} \left( \vp_1(a_1,h_T(\ga{{k},{r}},x_3))  \psi(a_2,x_4, p_{\tilde{k},\tilde{r}}) \times \right. \\
 \left. \times \delta_{\tilde{x}_1,\max{\{0,x_1+a_1-\ell(\tilde{k},\tilde{r},1)\}}}  \delta_{\tilde{x}_2,\max{\{0,x_2+a_2-\ell(\tilde{k},\tilde{r},2)\}}} \right)
 =\tilde{\vp}_3(\tilde{k},\tilde{r},h_T(\ga{{k},{r}},x_3),\tilde{x}_3) \times\\
@@ -595,7 +594,7 @@ A_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  \tilde{x}_2=\max{
 }
 что есть в точности \eqref{transitionToProve}.
 %где $a_4$ находится из \eqref{transitionA}, а вектор $b$~--- из \eqref{transitionB}.
-%Теперь найдем такие $a_1$, $a_2$ и $a_3$, при которых положительны вероятности $\Pr (\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}|\G_{i}=\ga{k,r},\vk_i=x, \eta_i=a; \xi_i=b)$. Из \eqref{queuesFunc} и \eqref{FourthFunc} получаем следующие условия на $a_1$, $a_2$, $a_3$ и дополонительное условие на $a_4$:
+%Теперь найдем такие $a_1$, $a_2$ и $a_3$, при которых положительны вероятности $\Pr (\Gamma_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}|\Gamma_{i}=\ga{k,r},\vk_i=x, \eta_i=a; \xi_i=b)$. Из \eqref{queuesFunc} и \eqref{FourthFunc} получаем следующие условия на $a_1$, $a_2$, $a_3$ и дополонительное условие на $a_4$:
 %\begin{equation}
 %\begin{aligned}
 %a_j &=\tilde{x}_j - x_j + b_j, \quad &\text{ если } \tilde{x}_j >0, \quad j \in \{1, 2, 3\}, \\
@@ -607,7 +606,7 @@ A_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  \tilde{x}_2=\max{
 %Компануя все воедино и полагая компоненты вектора $a$ удовлетворяющим соотношениям \eqref{transitionAA}, получим выражение
 %\ml
 %{
-%\P{\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_i=x} = \widetilde{\vp}_1(\tilde{k},\tilde{r},h_T(\ga{{k},{r}},x_3),x_1,\tilde{x}_1) \times  \\ 
+%\P{\Gamma_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{i+1}=\tilde{x}}{\Gamma_{i}=\ga{k,r},\vk_i=x} = \widetilde{\vp}_1(\tilde{k},\tilde{r},h_T(\ga{{k},{r}},x_3),x_1,\tilde{x}_1) \times  \\ 
 %\times
 %\widetilde{\psi}(\tilde{k},\tilde{r},x_4,x_2, \tilde{x}_2) 
 %\times
@@ -618,9 +617,9 @@ A_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  \tilde{x}_2=\max{
 \end{proof}
 
 \begin{theorem}
-Пусть $x_3$, $\tilde{x}_3\in \mathbb{Z}_+$ и $\ga{k,r}$, $\ga{\tilde{k},\tilde{r}}=h(\ga{k,r},x_3) \in \G$. Тогда переходные вероятности однородной счетной марковской цепи $\MarkThree$ вычисляются по следующей формуле:
+Пусть $x_3$, $\tilde{x}_3\in \mathbb{Z}_+$ и $\ga{k,r}$, $\ga{\tilde{k},\tilde{r}}=h(\ga{k,r},x_3) \in \Gamma$. Тогда переходные вероятности однородной счетной марковской цепи $\MarkThree$ вычисляются по следующей формуле:
 \begin{equation}
-\P{\G_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{3,i+1}=\tilde{x}}{\G_{i}=\ga{k,r},\vk_{3,i}=x} 
+\P{\Gamma_{i+1}=\ga{\tilde{k},\tilde{r}},\vk_{3,i+1}=\tilde{x}}{\Gamma_{i}=\ga{k,r},\vk_{3,i}=x} 
 = \widetilde{\vp}_3(\tilde{k},\tilde{r},h_T(\ga{k,r},x_3),x_3,\tilde{x}_3),
 \label{transitionToProve:three}
 \end{equation}
@@ -633,10 +632,10 @@ A_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  \tilde{x}_2=\max{
 \begin{equation*}
 X^{(k,r)} = \{x \in \mathbb{Z}_+^4 \colon x_1 > 0, x_4 \geqslant \ell_{k,r,1}\},
 \end{equation*}
-где $k$ и $r$ такие, что $\ga{k,r}\in \G$. 
+где $k$ и $r$ такие, что $\ga{k,r}\in \Gamma$. 
 
 \begin{lemma}
-Пусть $(\gamma,x)$~--- произвольное состояние цепи $\Mark$, $\gamma\in \G$, $x \in \mathbb{Z}_+^4$. Тогда для любого $r_1$, $0\leqslant r_1 \leqslant n_0$, существует $x_{3,1}$, $x_{3,1} \leqslant L$, такое, что вероятность попасть за конечное число переходов из состояния $(\gamma,x)$ в состояние продления $(\ga{0,r_1}, (0,0,x_{3,1},0))$ положительна.
+Пусть $(\gamma,x)$~--- произвольное состояние цепи $\Mark$, $\gamma\in \Gamma$, $x \in \mathbb{Z}_+^4$. Тогда для любого $r_1$, $0\leqslant r_1 \leqslant n_0$, существует $x_{3,1}$, $x_{3,1} \leqslant L$, такое, что вероятность попасть за конечное число переходов из состояния $(\gamma,x)$ в состояние продления $(\ga{0,r_1}, (0,0,x_{3,1},0))$ положительна.
 \label{lemma:1}
 \end{lemma}
 \begin{proof}
@@ -650,7 +649,7 @@ X^{(k,r)} = \{x \in \mathbb{Z}_+^4 \colon x_1 > 0, x_4 \geqslant \ell_{k,r,1}\},
 \label{lemma:2}
 \end{lemma}
 \begin{proof}
-Пусть $\gamma \in \G$~--- состояние продления, из которого обслуживающий прибор может перейти в цикл $C_k$ (в силу предположений о виде рассматриваемых графов такое состояние заведомо существует). Тогда предполагая, что по потокам $\Pi_1$ и $\Pi_3$ требования не поступают, обслуживающее устройство в конечном итоге дойдет до состояния $\gamma$ с пустыми очередями $O_1$, $O_2$ и $O_4$. На этом самом такте, по потоку $\Pi_3$, в дополнение к уже имеющимся $x_{3,1} \leqslant L$ требованиям, может придти любое количество требований, в том числе и количество, необходимое для перехода в состояние цикла $(\ga{k,0},(0,0,x_{3,2},0))$, $x_{3,2} > L$.
+Пусть $\gamma \in \Gamma$~--- состояние продления, из которого обслуживающий прибор может перейти в цикл $C_k$ (в силу предположений о виде рассматриваемых графов такое состояние заведомо существует). Тогда предполагая, что по потокам $\Pi_1$ и $\Pi_3$ требования не поступают, обслуживающее устройство в конечном итоге дойдет до состояния $\gamma$ с пустыми очередями $O_1$, $O_2$ и $O_4$. На этом самом такте, по потоку $\Pi_3$, в дополнение к уже имеющимся $x_{3,1} \leqslant L$ требованиям, может придти любое количество требований, в том числе и количество, необходимое для перехода в состояние цикла $(\ga{k,0},(0,0,x_{3,2},0))$, $x_{3,2} > L$.
 \end{proof}
 
 \begin{lemma}
@@ -671,7 +670,7 @@ X^{(k,r)} = \{x \in \mathbb{Z}_+^4 \colon x_1 > 0, x_4 \geqslant \ell_{k,r,1}\},
 \end{lemma}
 
 \begin{lemma}
-Для любых $\ga{k_1,r_1}, \ga{k_2,r_2} \in \G$ и $x_1 \in \mathbb{Z}_+^4, x_2 \in \mathbb{Z}_+^4 \setminus X^{(k_1,r_1)}$ вероятность перейти на следующем такте из состояния $(\ga{k_1,r_1},x_1)$ в состояние $(\ga{k_2,r_2}, x_2)$ равна нулю.
+Для любых $\ga{k_1,r_1}, \ga{k_2,r_2} \in \Gamma$ и $x_1 \in \mathbb{Z}_+^4, x_2 \in \mathbb{Z}_+^4 \setminus X^{(k_1,r_1)}$ вероятность перейти на следующем такте из состояния $(\ga{k_1,r_1},x_1)$ в состояние $(\ga{k_2,r_2}, x_2)$ равна нулю.
 \label{lemma:5}
 \end{lemma}
 \begin{proof}
