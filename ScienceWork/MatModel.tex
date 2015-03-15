@@ -368,7 +368,7 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 причем $k$ и $r$ такие, что $\Gamma^{(k,r)}\in \Gamma$.
 	
 \begin{corollary}
-Пусть $\Gamma^{(k_{i+1},r_{i+1})}=h(\Gamma^{(k_i,r_i)},x_{3,t})$. Тогда в условиях теоремы~\ref{myTheorem} верны равенства
+Пусть $\Gamma^{(k_{i+1},r_{i+1})}=h(\Gamma^{(k_i,r_i)},x_{3,i})$. Тогда в условиях теоремы~\ref{myTheorem} верны равенства
 \begin{align}
 &\Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\widetilde{\psi}(k_{i+1},r_{i+1},x_{4,i},x_{2,i},x_{2,i+1}),
 \label{kappa:2:conditional}\\
@@ -721,6 +721,27 @@ S^3_{k,r} = & \{(\Gamma^{(k,r)},x_3) \colon x_3\in Z_+, x_3 > L - \sum_{t=0}^{r-
 \begin{theorem}
 Множествами существенных состояний марковской цепи $\MarkThree$ являются множества $\bigcup\limits_{1 \leqslant r \leqslant n_0}S^3_{0,r}$, $\bigcup\limits_{\substack{1 \leqslant k \leqslant d\\ 1 \leqslant r \leqslant n_k}} S^3_{k,r}$ и только они.
 \end{theorem}
+
+\subsection[Рекуррентные соотношения для производящих функций]%
+{Рекуррентные соотношения для производящих функций}
+Обозначим 
+\begin{equation*}
+H_{-1}(\Gamma^{(k,r)}, x_3) = \{\gamma \in \Gamma \colon h(\gamma, x_3) = \Gamma^{(k,r)}\}.
+\end{equation*}
+Тогда непосредственно из \eqref{hLaw} находим явный вид этого множества для различных $\Gamma^{(k,r)} \in \Gamma$ и $x_3 \in Z_+$:
+\begin{equation}
+H_{-1}(\Gamma^{(k,r)}, x_3) = 
+\begin{cases}
+\{\Gamma^{(k_1,r_1)}, \Gamma^{(0,r\ominus_0 1)}\},& \quad \text{ если } (k=0\text{ \& } x_3 \leqslant L);\\
+\{\Gamma^{(k,r\ominus_k 1)}, \Gamma^{(0,r_2)}\},& \quad \text{ если } (\Gamma^{(k,r)}\in C_k^{\mathrm{I}} \text{ \& } x_3>L)\\ 
+\{\Gamma^{(k,r\ominus_k 1)}\},& \quad \text{ если } (\Gamma^{(k,r)}\in C_k^{\mathrm{O}}) \text{ или } (\Gamma^{(k,r)}\in C_k^{\mathrm{N}});\\
+\emptyset,& \quad \text{ если }
+\begin{aligned} 
+&(k = 0 \text{ \& } x_3>L) \text{ или } \\ & (\Gamma^{(k,r)}\in C_k^{\mathrm{I}} \text{ \& } x_3\leqslant L)
+\end{aligned},
+\end{cases}
+\end{equation}
+где $h_1(\Gamma^{(k_1,r_1)}=r)$ и $h_3(r_2)=\Gamma^{k,r}$.
 \begin{thebibliography}{99}
 % Не удаляйте следующую строчку!
 \addcontentsline{toc}{section}{Литература}
