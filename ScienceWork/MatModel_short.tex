@@ -1,0 +1,35 @@
+\documentclass[a4paper,12pt,russian]{extarticle}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage[utf8]{inputenc}
+
+%\newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
+%{\hbox{$\mathsurround=0pt #1$}}{}}
+
+
+%\selectlanguage{russian}
+\renewcommand{\Pr}{{\mathbf P}}
+
+\begin{document}
+Обозначим для $\gamma \in \Gamma$ и $x_3 \in Z_+$
+\begin{equation}
+Q_{3,i+1}(\gamma,x) = \Pr(\Gamma_{i+1}=\gamma, \varkappa_{3,i+1}=x_3).
+\end{equation}
+Тогда для $\tilde{\gamma} =\Gamma^{(\tilde{k},\tilde{r})}$ по формуле полной вероятности имеем
+
+\begin{multline*}
+Q_{3,i+1}(\tilde{\gamma},\tilde{x}) = \Pr(\Gamma_{i+1}=\tilde{\gamma}, \varkappa_{3,i+1}=\tilde{x_3}) = \\
+= \sum_{x_3=0}^{\infty}\sum_{\gamma \in \Gamma} \Pr(\Gamma_{i}=\gamma, \varkappa_{3,i}=x_3) \times \Pr(\Gamma_{i+1}=\tilde{\gamma}, \varkappa_{3,i+1}=\tilde{x_3} | \Gamma_{i}=\gamma, \varkappa_{3,i}=x_3) =  \\ 
+= \sum_{x_3=0}^{\infty}\sum_{\gamma \in \Gamma} Q_{3,i}(\gamma,,x_3) \times \delta_{\tilde{\gamma},h(\gamma,x_3)}\times
+\Pr(\varkappa_{3,i+1}=\tilde{x_3} | \Gamma_{i}=\gamma, \varkappa_{3,i}=x_3)= \\
+= \sum_{x_3=0}^{\infty}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \times 
+\tilde{\varphi}_3(\tilde{k},\tilde{r}, T^{(\tilde{k},\tilde{r})},x_3,\tilde{x}_3) = \\
+= \sum_{x_3=0}^{\infty}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \times 
+[ (1-\delta_{\tilde{x}_3,0})\varphi_3(\tilde{x}_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})}) + \\ 
++\delta_{\tilde{x}_3,0} \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3)-x_3}\varphi_3(a,T^{(\tilde{k},\tilde{r})})]= \\
+= (1-\delta_{\tilde{x}_3,0}) \sum_{x_3=0}^{\tilde{x}_3 +  \ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \times 
+\varphi_3(\tilde{x}_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})}) + \\
++ \delta_{\tilde{x}_3,0} \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})})
+\end{multline*}
+\end{document}
