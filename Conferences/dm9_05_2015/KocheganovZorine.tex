@@ -74,21 +74,16 @@
 \end{frame}
 
 \begin{frame}{Параметры системы}
-\begin{block}{Входные потоки}
-Входные потоки $\Pi_1$ и $\Pi_3$ --- \textbf{неординарные пуассоновские} потоки с интенсивностями $\lambda_1$ и $\lambda_3$ соответственно. 
+
+
+Входные потоки $\Pi_1$ и $\Pi_3$ --- \textbf{неординарные пуассоновские} потоки групп требований с интенсивностями $\lambda_1$ и $\lambda_3$ соответственно. 
 
 Распределение числа заявок в группе по потоку $\Pi_j$, $j\in \{1,3\}$, имеет \textbf{производящую функцию}:
 $$
 f_j(z) = \sum_{\nu=1}^{\infty} p_{\nu}^{(j)} z ^{\nu}, \quad |z|<(1+\varepsilon), \varepsilon>0.
 $$
 
-Требования входных потоков $\Pi_4$ и $\Pi_2$ формируются из выходных требований потоков $\Pi^{\mbox{\scriptsize{вых}}}_1$ и $\Pi^{\mbox{\scriptsize{вых}}}_4$ соответственно.
-\end{block}
-
-
-\begin{block}{Дисциплины очередей}
-Устройство $\delta_j$, $j \in \{1, 2, 3, 4\}$, поддерживает FIFO дисциплину очереди $O_j$.
-\end{block}
+Пусть обслуживающее устройство находится в состоянии $\Gamma^{(k,r)}$. Тогда время нахождения в этом состоянии неслучайно и равно $T^{(k,r)}$. Количество требований, пришедших за это время по потоку насыщения $\Pi^{\mbox{\scriptsize{нас}}}_j$, равно $\ell(k,r,j)$. 
 
 \end{frame}
 
@@ -105,38 +100,35 @@ $$
 
   \framebreak
 
-Требуется задание:
-\begin{itemize}
-\item дискретных моментов наблюдения за системой с помощью точечного случайного процесса $\{\tau_i, i\geqslant0\}$;
-\item случайных величин и случайных элементов, описывающих СМО и соответствующим моментам наблюдения $\tau_i$.
-\end{itemize}
-
+Основные принципы кибернетического подхода:
+  \begin{enumerate}
+  \item \textbf{принцип дискретности} актов функционирования управляющей системы обслуживания во времени;
+    \item \textbf{принцип совместного
+    рассмотрения} поблочного строения управляющей системы
+    обслуживания и ее функционирования во времени.
+  \item \textbf{принцип нелокальности} при описании поблочного
+    строения управляющей системы обслуживания;
+  \end{enumerate}
+  \framebreak
+  
+Выбор моментов наблюдения
    \begin{figure}[h]
     \centering
     \pgfimage[height=2cm]{timings}
     \caption{Шкала моментов наблюдения}
     \label{AZ:fig:3}
   \end{figure}
+
 \framebreak
-Основные принципы кибернетического подхода:
-  \begin{enumerate}
-  \item \textbf{принцип дискретности} актов функционирования управляемой
-    системы обслуживания во времени;
-  \item \textbf{принцип нелокальности} при описании поэлементного
-    строения управляемой системы обслуживания;
-  \item \textbf{принцип совместного
-    рассмотрения} поэлементного строения управляющей системы
-    обслуживания и ее функционирования во времени.
-  \end{enumerate}
-  \framebreak
+
 Основными составляющими кибернетической системы являются:
   \begin{itemize}
   \item \textbf{схема}
   \begin{itemize}
       \item внешняя среда
       \item входные и выходные полюса
-      \item внешняя и внутренняя память
-      \item устройства по переработке информации во входной и выходной памяти
+      \item внутренняя и внешняя память
+      \item устройства по переработке информации во внутренней и внешней памяти
       \end{itemize}
   \item \textbf{информация} --- набор состояний среды, очередей в накопителях, обслуживающего устройства, потоков насыщения и потоков обслуженных требований
   \item \textbf{координата} блока --- номер блока на схеме
@@ -153,13 +145,12 @@ $$
   \item $Z_+^4$~--- множество состояний \textbf{выходных полюсов}
   \item $\Gamma=\{\Gamma^{(k,r)} \colon k=0,1,\ldots,d; r=1,2,\ldots n_k\}$~--- множество состояний \textbf{внутренней памяти}
   \item $Z_+^4$~--- множество состояний \textbf{внешней памяти}
-  \item $Z_+^4$~--- множество состояний \textbf{выходных полюсов}
   \item $\{r^{(1)}\}$~--- множество состояний \textbf{устройства по переработке информации во внешней памяти} (одно состояние)
-  \item граф смены переходов (будет описан ниже) описывает \textbf{устройство по переработке информации во внутренней памяти}
+  \item граф переходов (будет описан ниже) описывает \textbf{устройство по переработке информации во внутренней памяти}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Необходимы случайные величины}
+\begin{frame}{Необходимые случайные величины}
   \begin{itemize}
     \item $\tau_i \in {\mathbb R}_+$, $i=0$, $1$, \ldots --- момент смены состояния
     обслуживающего утройства;
@@ -168,7 +159,7 @@ $$
     \item $\xi_{j,i} \in Z_+$ --- число требований потока насыщения $\Pi^{\mbox{\scriptsize{нас}}}_j$ на промежутке $(\tau_i, \tau_{i+1}]$;
     \item $\varkappa_{j,i} \in Z_+$ --- число требований в
     очереди $O_j$ в момент $\tau_i$;
-  \item $\Gamma_i\in\Gamma=\{\Gamma^{(k,r)} \colon k=0,1,\ldots,d; r=1,2,\ldots n_k\}$ --- состояние обслуживающего устройства в момент $\tau_i$;
+  \item $\Gamma_i\in\Gamma$ --- состояние обслуживающего устройства в момент $\tau_i$;
   \item $\overline{\xi}_{j,i} \in Z_+$ --- число требований
     выходного потока $\Pi^{\mbox{\scriptsize{вых}}}_j$ на промежутке
     $(\tau_i, \tau_{i+1}]$,
@@ -176,15 +167,22 @@ $$
   для $j=1$,  $2$, $3$, $4$.
 \end{frame}
 
-
-\begin{frame}[allowframebreaks]{Закон изменения состояний обслуживающего устройства}
+\begin{frame}[allowframebreaks]{Граф переходов}
  Изменение состояний обслуживающего устройства: $\Gamma_{i+1}=h(\Gamma_i,\varkappa_{3,i})$.
    \begin{figure}[h]
     \centering
-    \pgfimage[height=4.5cm]{GraphScheme3}
-    \caption{Класс графов переходов (отображение $h(\cdot,\cdot)$).}
+    \pgfimage[height=4.5cm]{SystemStates}
+    \caption{Числовой пример. Времена}
     \label{VK:fig:3}
   \end{figure}
+   \begin{figure}[h]
+    \centering
+    \pgfimage[height=6cm]{GraphScheme3}
+    \caption{Числовой пример. Граф переходов (отображение $h(\cdot,\cdot)$).}
+    \label{VK:fig:3}
+  \end{figure}
+
+
   \framebreak
   Таким образом, $$\Gamma = \bigl( \bigcup_{k=1}^d C_k \bigr) \bigcup \{\Gamma^{(0,1)}, \Gamma^{(0,2)}, \ldots, \Gamma^{(0,n_0)}\}, \quad C_k = C_k^{\mathrm{I}} \cup C_k^{\mathrm{O}}  \cup C_k^{\mathrm{N}}.$$
   \begin{equation*}
@@ -209,7 +207,8 @@ $$h_1(\cdot)\colon \bigcup_{k=1}^d C_k^{\mathrm{O}}\to N_0, \quad h_2(\cdot)\col
 \varkappa_{j,i+1}&=\varkappa_{j,i}+\eta_{j,i}-\overline{\xi}_{j,i}, \quad & j\in \{1,2,3\},\\
 \varkappa_{j,i+1}&=\max\{{0,\varkappa_{j,i}+\eta_{j,i}-\xi_{j,i}}\}, \quad & j\in \{1,2,3\},\\
 \varkappa_{4,i+1}&=\varkappa_{4,i}+\eta_{4,i}-\eta_{2,i}, \quad &\\
-\xi_{4,i} & = \varkappa_{4,i}. &
+\xi_{4,i} & = \varkappa_{4,i}, & \\
+\eta_{4,i} & = \min\{ \varkappa_{1,i} + \eta_{1,i}, \xi_{1,i}\}.
 \end{aligned}
 \label{rekk}
 \end{equation}
@@ -224,11 +223,11 @@ $$h_1(\cdot)\colon \bigcup_{k=1}^d C_k^{\mathrm{O}}\to N_0, \quad h_2(\cdot)\col
 Пусть $a=(a_1, a_2, a_3, a_4) \in \mathbb{Z}_+^4$ и $x=(x_1, x_2, x_3, x_4) \in \mathbb{Z}_+^4$.
 %\begin{block}{Предположение 1}
 
-Тогда вероятность $\varphi(a,k,r,x)$ одновременного выполнения равенств $\eta_{1,i}=a_1$, $\eta_{2,i}=a_2$, $\eta_{3,i}=a_3$, $\eta_{4,i}=a_4$ есть 
-\begin{equation*}
+Тогда вероятность $\varphi(a,k,r,x)$ одновременного выполнения равенств $\eta_{1,i}=a_1$, $\eta_{2,i}=a_2$, $\eta_{3,i}=a_3$, $\eta_{4,i}=a_4$ при условии  $\nu_i=(\Gamma{(k,r)}; x)$ есть 
+\begin{equation}
 \!\!\varphi_1(a_1,h_T(\Gamma^{({k},{r})},x_3)) \times \psi(a_2,x_4, p_{\tilde{k},\tilde{r}}) \times \varphi_3(a_3,h_T(\Gamma^{({k},{r})},x_3))
 \times \delta_{a_4,\min{\{\ell(\tilde{k},\tilde{r},1), x_1+a_1}\}},
-\end{equation*}
+\end{equation}
 %\end{block}
 где
 \begin{equation*}
@@ -244,15 +243,13 @@ $$
 Пусть $b=(b_1, b_2, b_3, b_4) \in \mathbb{Z}_+^4$. 
 
 Тогда вероятность $\zeta(b, k, r, x)$ одновременного выполнения равенств $\xi_{1,i}=b_1$, $\xi_{2,i}=b_2$, $\xi_{3,i}=b_3$, $\xi_{4,i}=b_4$ при фиксированном значении метки $\nu_i=(\Gamma{(k,r)}; x)$ есть
-\begin{equation*}
+\begin{equation}
 \delta_{b_1,\ell(\tilde{k},\tilde{r},1)} \times \delta_{b_2,\ell(\tilde{k},\tilde{r},2)} \times 
 \delta_{b_3,\ell(\tilde{k},\tilde{r},3)} \times \delta_{b_4,x_4}.
-\end{equation*}
-где
-\begin{equation*}
-\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3).
-\end{equation*}
+\end{equation}
+где $\tilde{k}$ и $\tilde{r}$ такие, что $\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3)$.
 \end{frame}
+
 
 
 \begin{frame}[allowframebreaks]{Полученные результаты}
