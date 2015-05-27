@@ -764,7 +764,7 @@ Q_{3,i+1}(\tilde{\gamma},\tilde{x}_3) = \Pr(\Gamma_{i+1}=\tilde{\gamma}, \varkap
 = \sum_{x_3=0}^{\infty}\sum_{\gamma \in \Gamma} \Pr(\Gamma_{i}=\gamma, \varkappa_{3,i}=x_3) \times \Pr(\Gamma_{i+1}=\tilde{\gamma}, \varkappa_{3,i+1}=\tilde{x}_3 | \Gamma_{i}=\gamma, \varkappa_{3,i}=x_3) =  \\ 
 = \sum_{x_3=0}^{\infty}\sum_{\gamma \in \Gamma} Q_{3,i}(\gamma,x_3) \times \delta_{\tilde{\gamma},h(\gamma,x_3)}\times
 \Pr(\varkappa_{3,i+1}=\tilde{x}_3 | \Gamma_{i}=\gamma, \varkappa_{3,i}=x_3)=\\
-=\sum_{x_3=0}^{\infty}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \times \delta_{\tilde{\gamma},h(\gamma,x_3)}\times
+=\sum_{x_3=0}^{\infty}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \times 
 \Pr(\varkappa_{3,i+1}=\tilde{x}_3 | \Gamma_{i}=\gamma, \varkappa_{3,i}=x_3)
 \end{multline*}
 и учитывая \eqref{kappa:3:conditional} продолжаем цепочку выкладок
@@ -775,17 +775,16 @@ Q_{3,i+1}(\tilde{\gamma},\tilde{x}_3)= \sum_{x_3=0}^{\infty}\sum_{\gamma \in H_{
 [ (1-\delta_{\tilde{x}_3,0})\varphi_3(\tilde{x}_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})}) + \\ 
 +\delta_{\tilde{x}_3,0} \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3)-x_3}\varphi_3(a,T^{(\tilde{k},\tilde{r})})]
 \end{multline*}
+
 Поскольку  $\varphi_3(x,t)=0$, для $x<0$, в результате получаем
 \begin{multline*}
 Q_{3,i+1}(\tilde{\gamma},\tilde{x}_3)= (1-\delta_{\tilde{x}_3,0}) \sum_{x_3=0}^{\tilde{x}_3 +  \ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \times 
 \varphi_3(\tilde{x}_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})}) + \\
 + \delta_{\tilde{x}_3,0} \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})}).
 \end{multline*}
-\end{proof}
-
-Пусть $k$ и $r$ таковы, что $\Gamma^{(k,r)}\in \Gamma$. Введем производящие функции
+\end{proof}Пусть $k$ и $r$ таковы, что $\Gamma^{(k,r)}\in \Gamma$. Введем производящие функции
 \begin{align*}
-\mathfrak{M}^{(i)}(k,r,v) &= \sum_{w=0}^{\infty} Q_i(\Gamma^{(k,r)},w) v^w,\\
+\mathfrak{M}^{(i)}(k,r,v) &= \sum_{w=0}^{\infty} Q_{3,i}(\Gamma^{(k,r)},w) v^w,\\
 \Phi^{(i)}(k,r,v) &= q_{k,r}(v) \sum_{x_3=0}^{\infty} \sum_{\gamma \in H_{-1}(\Gamma^{(k,r)},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3},
 \end{align*}
 где 
@@ -862,6 +861,7 @@ q_{k,r}(v) = v^{-\ell(k,r,3)}\sum_{w=0}^{\infty} \varphi_3(w,T^{(k,r)})v^w.
 \end{multline*}
 
 \end{proof}
+
 
 \begin{thebibliography}{99}
 % Не удаляйте следующую строчку!
