@@ -67,7 +67,7 @@ The set $\Gamma$ defines as union $\Gamma = \Gamma^{\mathrm{I}} \cup \Gamma^{\ma
 ${}^2\Gamma=\Gamma^{\mathrm{I}} \cup \Gamma^{\mathrm{II}}$,
 ${}^3\Gamma=\Gamma^{\mathrm{III}} \cup \Gamma^{\mathrm{IV}}$. 
 
-Server changes its state according following rule. We will call the set $C_k = \{\Gamma^{(k,r)} \colon r=1,2,\ldots n_k\}$  $k$th cycle, $k=1$, $2$, $\ldots$, $d$ (Pic. \ref{GraphScheme}). When $k=0$ state of the form 
+Server changes its state according to the following rule. We will call the set $C_k = \{\Gamma^{(k,r)} \colon r=1,2,\ldots n_k\}$  $k$-th cycle, $k=1$, $2$, $\ldots$, $d$ (Pic. \ref{GraphScheme}). When $k=0$ state of the form 
 $\Gamma^{(0,r)}$ we will call prolongation state, $r=1$, $2$, $\ldots$, $n_0$. Denote $r \oplus_k 1 = r+1$ for $r<n_k$ and $r \oplus_k 1 = 1$ while $r=n_k$, $k = 0$, $1$, $\ldots$, $d$. In cycle $C_k$ we select subsets $C_k^{\mathrm{O}}$ input, $C_k^{\mathrm{I}}$ output and $C_k^{\mathrm{N}} = C_k \setminus (C_k^{\mathrm{O}} \cup C_k^{\mathrm{I}})$ neutral states. 
 Then  after server was in state $\Gamma^{(k,r)} \in C_k\setminus C_k^{\mathrm{O}}$ it switches to the state $\Gamma^{(k,r \oplus_k 1)}$ of the same cycle $C_k$. 
 After state $\Gamma^{(k,r)}$ in $C_k^{\mathrm{O}}$ server switches to the state $\Gamma^{(k,r \oplus_k 1)}$, if number of customers in the queue $O_3$ in switching moment greater than predetermined threshold $L$. In other case,  that is if number of customers in the queue $O_3$ lesser or equal $L$, then new state is prolongation state $\Gamma^{(0,r_1)}$, where 
@@ -102,118 +102,77 @@ As we mentioned earlier in the end of the section we introduce real-life example
     \caption {Example: crossroads tandem}
     \label{pic1}
 \end{figure}
-Flows of arriving cars play role of customer flows formed by external environment: conflicting flows $\Pi_1$ and $\Pi_5$ on the first crossroad; flow $\Pi_3$ on the second. Every car from flow $\Pi_1$, after passing first road intersection, comes to the queue $O_4$ of the flow $\Pi_4$. Whereupon the car arrives to the next road intersection with some probability ($p_{k,r}$ for the state $\Gamma^{(k,r)}$) or does not have time to do so and stays for another round. In case it has time it comes in queue $O_2$ and waits it's turn to pass it. Such system is an instance of more general queuing model described above.
+Flows of arriving cars play role of customer flows formed by external environment: conflicting flows $\Pi_1$ and $\Pi_5$ on the first crossroad; flow $\Pi_3$ on the second. Every car from flow $\Pi_1$, after passing first road intersection, comes to the queue $O_4$ of the flow $\Pi_4$. Whereupon the car arrives to the next road intersection with some probability ($p_{k,r}$ for the state $\Gamma^{(k,r)}$) or does not have time to do so and stays for another round. In case it has time it comes in queue $O_2$ and waits it's turn to pass it. Such system of two crossroads is an instance of more general queuing model described above.
 
+\section{Mathematical model}
+To build rigorous and complete probabilistic model of queuing system described in previous section cybernetic approach was used (See ...). Scheme of the controlling system was introduced on Fig. 1. There are following blocks presented: 1) external environment with one state; 2) input poles of the first type --- input flows $\Pi_1$, $\Pi_2$, $\Pi_3$ and $\Pi_4$; 3) input poles of the second type --- saturation flows $\Pi^{\mathrm{\text{sat}}}_1$, $\Pi^{\mathrm{\text{sat}}}_2$, $\Pi^{\mathrm{\text{sat}}}_3$ and $\Pi^{\mathrm{\text{sat}}}_4$; 4) external memory --- queues $O_1$, $O_2$, $O_3$ and $O_4$; 5) device for external memory processing --- queue disciplines $\delta_1$, $\delta_2$, $\delta_3$ and $\delta_4$; 6) internal memory ---server; 7)  device for internal memory processing --- state changing graph; 8) output poles $\Pi^{\mathrm{\text{out}}}_1$, $\Pi^{\mathrm{\text{out}}}_2$, $\Pi^{\mathrm{\text{out}}}_3$ and $\Pi^{\mathrm{\text{out}}}_4$.
+The coordinate of the block is its number on scheme.
 
+To specify blocks information we introduce following variables and elements, along with their value ranges. To fix a discrete time scale consider the moments $\tau_0=0$, $\tau_1$, $\tau_2$, $\ldots$ when server chanes its state. Denote $\Gamma_i$ from the set $\Gamma$ server's state during $\left(\tau_{i-1};\tau_i\right]$, $\varkappa_{j,i} \in \mathbb{Z}_+ $ number of customers in queue $O_j$ at the time $\tau_i$, $\eta_{j,i} \in \mathbb{Z}_+$ number of customers, came to the queue $O_j$ from the flow $\Pi_j$ during $\left(\tau_{i};\tau_{i+1}\right]$, $\xi_{j,i} \in \mathbb{Z}_+$ number of customers in the saturation flow $\Pi^{\mathrm{\text{sat}}}_j$ during $\left(\tau_{i};\tau_{i+1}\right]$, $\overline{\xi}_{j,i}\in \mathbb{Z}_+$ number of actually serviced customers in the flow $\Pi_j$ during $\left(\tau_{i};\tau_{i+1}\right]$, $j\in \{1,2,3,4\}$.
 
-The full source text using \TeX{} as well as all auxiliary
-materials, namely,
-\begin{itemize}
-  \item .tex file,
-  \item pictures in .pdf (or .eps) format (if available),
-  \item the paper in pdf format
-\end{itemize}
-have to be submitted as a zip-archive.
-
-The name of the archive should be
-\textbf{Surname1\_Surname2\_Surname3.zip}.
-
-\section{Font}
-
-Type the text of the paper in 10 points, regular. Each
-paragraph is to be indented 5~mm, and their intervals must be 0
-points before and after.
-
-\section{Mathematical formulae and references}
-
-To make references to mathematical expressions, it is
-recommended to use \LaTeX{} mechanism. For example, the formula
-given below
+Server changes it's state according to the following rule:
 \begin{equation}
-\label{eq:1}
-P(n,t)=\frac{\partial^n B(t)}{\partial t^n}
+\Gamma_{i+1}=h(\Gamma_i,\varkappa_{3,i}),
+\label{gammaFunc}
 \end{equation}
-can be referred as \eqref{eq:1}.
+where mapping $h(\cdot,\cdot)$ is defined in \eqref{hLaw}.
+To define a duration $T_{i+1}$ of the server state for $\left(\tau_{i};\tau_{i+1}\right]$ its handy to use mapping $h_T(\cdot,\cdot)$:
+\begin{equation*}
+T_{i+1}=h_T(\Gamma_i,\varkappa_{3,i})= T^{(k,r)},\quad  \text{ where } \Gamma^{(k,r)}=\Gamma_{i+1}=h(\Gamma_i,\varkappa_{3,i}).
+%\label{timeLaw}
+\end{equation*}
+Functional relation
+\begin{equation}
+\overline{\xi}_{j,i}=\min\{\varkappa_{j,i}+\eta_{j,i},\xi_{j,i}\}, \quad j\in \{1,2,3\},
+\label{saturationEq}
+\end{equation}
+between $\overline{\xi}_{j,i}$ and $\varkappa_{j,i}$, $\eta_{j,i}$, $\xi_{j,i}$ implements service strategy. Further since
+\begin{equation*}
+\varkappa_{j,i+1}=\varkappa_{j,i}+\eta_{j,i}-\overline{\xi}_{j,i}, \quad  j\in \{1,2,3\},
+\end{equation*}
+and due to \eqref{saturationEq} it follows that 
+\begin{equation}
+\varkappa_{j,i+1}=\max\{{0,\varkappa_{j,i}+\eta_{j,i}-\xi_{j,i}}\}, \quad j\in \{1,2,3\}.
+\label{queuesFunc}
+\end{equation}
 
-\section{Theorems and proofs}
+The setting of the problem (see also structure scheme on Fig.~\ref{SystemScheme}) implies these relations for flow $\Pi_4$:
+\begin{equation}
+\eta_{4,i} = \min\{\xi_{1,i}, \varkappa_{1,i}+\eta_{1,i}\}, \quad \varkappa_{4,i+1}=\varkappa_{4,i}+\eta_{4,i}-\eta_{2,i}, \quad \xi_{4,i} = \varkappa_{4,i}.
+\label{FourthFunc}
+\end{equation}
 
-Theorems are defined like follows
-\begin{thm}\label{thm1}
-Text of the theorem.
-\end{thm}
+Non-local description of the input and saturation flows involves specification of some particular features of conditional distributions of highlighted discrete components $\eta_i=(\eta_{1,i},\eta_{2,i}, \eta_{3,i}, \eta_{4,i})$ and $\xi_i=(\xi_{1,i}, \xi_{2,i}, \xi_{3,i}, \xi_{4,i})$ of marked point processes $\{(\tau_i, \nu_i, \eta_i); i\geqslant 0\}$ and $\{(\tau_i, \nu_i, \xi_i); i\geqslant 0\}$ given fixed label value $\nu_i = (\Gamma_i;\varkappa_i)$, where $\varkappa_i=(\varkappa_{1,i},\varkappa_{2,i},\varkappa_{3,i},\varkappa_{4,i})$. 
+Let $\varphi_1(\cdot,\cdot)$ and $\varphi_3(\cdot,\cdot)$ be defined from decompositions 
+\begin{equation*}
+\sum_{\nu=0}^{\infty} z^\nu\varphi_j(\nu,t) = \exp\{\lambda_j t (f_j(z)-1)\},
+\end{equation*}
+where $f_j(z)$ are defined in \eqref{GeneratingFunc}, $j \in \{1,3\}$. Function $\varphi_j(\nu,t)$ defines probability of coming $\nu=0$, $1$, $\ldots$ customers of the flow $\Pi_j$ during time $t \geqslant 0$. Let $\varphi_j(\nu,t)$ be zero if $\nu < 0$. Function $\psi(\cdot,\cdot,\cdot)$ is defined by formula
 
-\begin{proof}
-Proof of Theorem \ref{thm1}. If using such reference, you need
-to recompile your paper with \LaTeX{} twice.
-\end{proof}
-
-
-\section{Figures and tables}
-
-Figures should be provided in PDF or EPS format. Raster pictures have
-to be made with maximal resolution (minimal 300 dots per inch).
-
-\begin{figure}[h!]
-   \centering
-    \includegraphics[width=\textwidth]{1.pdf} % or {1.eps} in case of EPS format of the picture
-    \caption {Difference in fractions of synchronous packets for $W=16$.}
-    \label{pic1}
-\end{figure}
-
-\begin{table}[h!]\begin{center}
-\label{tab}
-\begin{tabular}{|c||c|c|c||c||c|c|c|}\hline
-  Parameter & T & E & $\Delta$, \% & Parameter & T & E & $\Delta$, \% \\ \hline \hline
-  $\rho_{1}^{(1)}$ & 0,187 & 0,194 & 3,7 &  $\rho_{1}^{(2)}$ & 0,127 & 0,120 & 5,6 \\ \hline
-  $\rho_{2}^{(1)}$ & 0,073 & 0,072 & 1,4 &  $\rho_{2}^{(2)}$ & 0,052 & 0,053 & 1,9 \\ \hline
-  $\rho_{3}^{(1)}$ & 0,148 & 0,147 & 0,7 &  $\rho_{3}^{(2)}$ & 0,103 & 0,103 & 0,0 \\ \hline
-  $\rho_{4}^{(1)}$ & 0,036 & 0,036 & 0,0 &  $\rho_{4}^{(2)}$ & 0,026 & 0,027 & 3,7 \\ \hline \hline
-  $C^{(1)}$ & 0,479 & 0,476 & 0,6 & $C^{(2)}$ & 0,656 & 0,640 & 2,5 \\ \hline \hline
-  $C_{1}^{*}$ & 0,341 & 0,339 & 0,6 & $C_{3}^{*}$ & 0,323 & 0,329 & 1,8 \\ \hline
-  $C_{2}^{*}$ & 0,296 & 0,298 & 0,7 & $C_{4}^{*}$ & 0,286 & 0,286 & 0,0 \\ \hline
-\end{tabular}\caption{Comparison of system parameters.}
-\end{center}\end{table}
-
-The figures and tables must be numbered, have a self-contained
-caption and referred in the main text. Figure and table
-captions are placed below the object and centered. Also, avoid
-placing figures and tables before their first mention in the
-text. Use the abbreviation "Fig." even at the beginning of a
-sentence.
-
-The authors are recommended not to use characters smaller than
-9 point in figures. Do not use abbreviations in the titles
-unless they are unavoidable.
+\begin{equation*}
+\psi(k;y,u)=C_y^k u^k (1-u)^{y-k}.	
+\end{equation*}
+Semantically $\psi(k;y,u)$ is a probability of coming $k$ customers in flow $\Pi_2$ given $y$ customers in queue $O_4$ and $\Gamma^{(k,r)}$ as a state of the server, such that $u=p_{k,r}$. If condition $ 0\leqslant k \leqslant y$ does not hold let $\psi(k;y,u)$ be zero.
 
 
-\section{Conclusion}
 
-Place a full list of references \cite{Bianchi00, VL02, neuts, GPSS, url} at the end of the paper. List
-the references according to the order of their appearance in
-the text.
 
-%{\bf Acknowledgments.}
-
-\begin{thebibliography}{99}
-\bibitem{Bianchi00}  %% citation code
-Bianchi G. Performance Analysis of the IEEE 802.11 Distributed
-Coordination Function ~// IEEE Journal on Selected Areas in
-Communications. 2000. V. 18. P.~535-547.
-
-\bibitem{VL02} Vishnevsky V.~M., Lyakhov A.~I. IEEE 802.11
-    Wireless LAN: Saturation Throughput Analysis with Seizing
-    Effect Consideration
-// Cluster Computing. 2002. V. 5. P. 133-144.
-
-\bibitem{neuts} Neuts M.~F.  Structured Stochastic
-    Matrices of M/G/1 Type and Their Applications. Marcel
-    Dekker, New York, 1989.
-
-\bibitem{GPSS} Schriber T.~J. Simulation using GPSS. John
-    Wiley \& Sons, 1974.
-    
-\bibitem{url} National Center for Biotechnology Information, \url{http://www.ncbi.nlm.nih.gov}
-
-\end{thebibliography}
+Let $a=(a_1, a_2, a_3, a_4) \in \mathbb{Z}_+^4$ and $x=(x_1, x_2, x_3, x_4) \in \mathbb{Z}_+^4$. Then the setting of the problem implies that given fixed fixed label value $\nu_i=(\Gamma^{(k,r)}; x)$ probability $\varphi(a,k,r,x)$ of following equations simultaneous holding $\eta_{1,i}=a_1$, $\eta_{2,i}=a_2$, $\eta_{3,i}=a_3$, $\eta_{4,i}=a_4$ is
+\begin{equation}
+\varphi_1(a_1,h_T(\Gamma^{(k,r)},x_3)) \times \psi(a_2,x_4, p_{\tilde{k},\tilde{r}}) \times \varphi_3(a_3,h_T(\Gamma^{(k,r)},x_3))
+\times \delta_{a_4,\min{\{\ell(\tilde{k},\tilde{r},1), x_1+a_1}\}},
+\label{conditionProbOne}
+\end{equation}
+where $\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3)$ and $\delta_{i,j}$ is Kroneker's delta
+\begin{equation*}
+\delta_{i,j}=\begin{cases} 1, \quad \text{ if }i=j\\0, \quad \text{ if } i\neq j,
+\end{cases}.
+\end{equation*}
+Let $b=(b_1, b_2, b_3, b_4) \in \mathbb{Z}_+^4$. The setting of the problem also implies that probability $\zeta(b, k, r, x)$  of following equations simultaneous holding $\xi_{1,i}=b_1$, $\xi_{2,i}=b_2$, $\xi_{3,i}=b_3$, $\xi_{4,i}=b_4$ given fixed label value $\nu_i=(\Gamma^{(k,r)}; x)$ is
+\begin{equation}
+\delta_{b_1,\ell(\tilde{k},\tilde{r},1)} \times \delta_{b_2,\ell(\tilde{k},\tilde{r},2)} \times 
+\delta_{b_3,\ell(\tilde{k},\tilde{r},3)} \times \delta_{b_4,x_4}.
+\label{conditionProbTwo}
+\end{equation}
 
 \end{document}
