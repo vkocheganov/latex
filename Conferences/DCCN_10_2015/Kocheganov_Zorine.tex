@@ -4,7 +4,7 @@
 \usepackage{url}
 \usepackage{graphicx,DCCN2015_en}
 \newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
-
+\renewcommand{\Pr}{{\mathbf P}}
 
 \makeatletter
 \c@page=1 % Number will be set by publisher.
@@ -175,4 +175,90 @@ Let $b=(b_1, b_2, b_3, b_4) \in \mathbb{Z}_+^4$. The setting of the problem also
 \label{conditionProbTwo}
 \end{equation}
 
+To gather all the assumptions we made so far, we introduce below a theorem, which is proved in [...]. Specifically theorem constructs probabilistic space on which all the mentioned variables and properties are consistent and therefore make mathematical sense.
+
+\begin{thm}\label{thm1}
+Let $\gamma_0=\Gamma^{(k_0,r_0)}\in \Gamma$ and $x^0=(x_{1,0},x_{2,0}, x_{3,0},x_{4,0})\in \mathbb{Z}_+^4$ be fixed.
+Then there exists probabilistic space $(\Omega, {\cal F}, \Pr(\cdot))$ and random variables $\eta_{j,i}=\eta_{j,i}(\omega)$, $\xi_{j,i}=\xi_{j,i}(\omega)$, 	 $\varkappa_{j,i}=\varkappa_{j,i}(\omega)$ and random elements $\Gamma_i=\Gamma_i(\omega)$, $i\geqslant 0$, $j\in \{1, 2, 3, 4\}$, which are defined on this space, such that 1) equations $\Gamma_0(\omega) = \gamma_0$ and $\varkappa_0(\omega)=x^0$ hold; 2) propositions \eqref{gammaFunc}, \eqref{queuesFunc}, \eqref{FourthFunc} hold; 3) for any  $a$, $b$, $x^t=(x_{1,t},x_{2,t},x_{3,t},x_{4,t}) \in \mathbb{Z}_+^4$, $\Gamma^{(k_t,r_t)} \in \Gamma$, $t = 1, 2, \ldots$, conditional distribution of vectors  $\eta_i$, and $\xi_i$ has the form
+\begin{equation}
+\Pr \left(\{ \omega \colon \eta_i = a, \xi_i=b\} \left|\bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\right.\right)=
+\varphi(a,k_i,r_i,x^i)\times \zeta(b,k_i,r_i,x^i),
+\label{ProbablititiesToProve}
+\end{equation}
+where mappings $\varphi(\cdot, \cdot, \cdot, \cdot)$ and $\zeta(\cdot, \cdot, \cdot, \cdot)$ are defined by \eqref{conditionProbOne} and \eqref{conditionProbTwo} respectively, $i \geqslant 0$.
+\label{myTheorem}
+\end{thm}
+
+\section{Low-priority queue analysis}
+The ultimate goal of the study is to analyse random sequence
+\begin{equation}
+\{(\Gamma_i, \varkappa_{1, i}, \varkappa_{2, i}, \varkappa_{3, i}, \varkappa_{4, i}); i \geqslant 0\}
+\end{equation}
+That is researcher should conclude about it's Markove'ness, make classification of it's states, find necessary and sufficient conditions on stationary distribution existence and find important characteristics of such distribution. To come up with the solution of such a big problem it is easier to reduce problem into small ones. After the solutions for these issues is found researcher builds from them the solution for the main one.
+
+One of such small problems is analyses of sequence
+\begin{equation}
+\{(\Gamma_i, \varkappa_{3, i}); i \geqslant 0\}
+\end{equation}
+which includes low priority queue size $\varkappa_{3, i}$ (size of queue $O_3$). This is a subsequence of $\{(\Gamma_i, \varkappa_{i}); i \geqslant 0\}$ that is why some of it's properties will be likely generalized on the entire sequence. Below we introduce several results which have been already obtained on the way of solving this subproblem.
+
+First result here concerns Markov'ness of the subsequence.
+\begin{thm}
+Let $\Gamma_0=\Gamma^{(k,r)}\in \Gamma$ and $\varkappa_{3,0}=x_{3,0}\in \mathbb{Z}_+$ be fixed. Then sequence $\{(\Gamma_i, \varkappa_{3, i}); i \geqslant 0\}$ is homogeneous enumerable Markov chain.
+\end{thm}
+
+To continue we need following function.
+For any $y_0$, $y$, $\tilde{y} \in \mathbb{Z}_+$ and $t \in \mathbb{R}$, $t\geqslant 0$ 
+\begin{equation}
+\widetilde{\varphi}_3(k,r,t,y,\tilde{y}) = (1-\delta_{\tilde{y},0}) \varphi_3(\tilde{y} + \ell(k,r,3)-y,t)  +\delta_{\tilde{y},0}\sum_{a=0}^{\ell(k,r,3)-y} \varphi_3(a,t).
+\label{tildephi}
+\end{equation}
+besides $k$ and $r$ such that $\Gamma^{(k,r)}\in \Gamma$.
+
+In these notations following proposition is true.
+\begin{thm}
+Let $x_3$, $\tilde{x}_3\in \mathbb{Z}_+$ and $\Gamma^{(k,r)}$, $\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3) \in \Gamma$. Then transition probabilities of  homogeneous enumerable Markov chain $\{(\Gamma_i, \varkappa_{3, i}); i \geqslant 0\}$ can be found from expressions
+\begin{equation}
+\Pr (\Gamma_{i+1}=\Gamma^{(\tilde{k},\tilde{r})},\varkappa_{3,i+1}=\tilde{x}|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_{3,i}=x) 
+= \widetilde{\varphi}_3(\tilde{k},\tilde{r},h_T(\Gamma^{(k,r)},x_3),x_3,\tilde{x}_3),
+\label{transitionToProve:three}
+\end{equation}
+\end{thm}
+
+Last theorem gives insight on what states of the chain $\{(\Gamma_i, \varkappa_{3, i}); i \geqslant 0\}$ are important. Introduce sets
+\begin{equation*}
+\begin{aligned}
+S^3_{0,r} = & \{(\Gamma^{(0,r)},x_3) \colon x_3\in Z_+, L \geqslant x_3 > L - \max\limits_{k=1, 2, \ldots, d}\{\sum_{t=0}^{n_k} \ell_{k,t,3}\}\}, \quad 1 \leqslant r \leqslant n_0 \\
+S^3_{k,r} = & \{(\Gamma^{(k,r)},x_3) \colon x_3\in Z_+, x_3 > L - \sum_{t=0}^{r-1} \ell_{k,t,3}\} \}, \quad 1 \leqslant k \leqslant d, \quad 1 \leqslant r \leqslant n_k.
+\end{aligned}
+\end{equation*}
+
+\begin{thm}
+The set of important states of the Markov chain $\{(\Gamma_i, \varkappa_{3, i}); i \geqslant 0\}$  consists of sets $\bigcup\limits_{1 \leqslant r \leqslant n_0}S^3_{0,r}$ and $\bigcup\limits_{\substack{1 \leqslant k \leqslant d\\ 1 \leqslant r \leqslant n_k}} S^3_{k,r}$.
+\end{thm}
+
+At the end of this article we give result which is principle in finding necessary and sufficient conditions on stationary distribution existence of chain $\{(\Gamma_i, \varkappa_{3, i}); i \geqslant 0\}$.
+
+Denote for $\gamma \in \Gamma$ and $x_3 \in Z_+$
+\begin{equation}
+Q_{3,i}(\gamma,x) = \Pr(\Gamma_{i}=\gamma, \varkappa_{3,i}=x_3).
+\end{equation}
+Suppose $k$ and $r$ such that $\Gamma^{(k,r)}\in \Gamma$. Generation functions are defined as follows:
+\begin{align*}
+\mathfrak{M}^{(i)}(k,r,v) &= \sum_{w=0}^{\infty} Q_{3,i}(\Gamma^{(k,r)},w) v^w,\\
+\Phi^{(i)}(k,r,v) &= q_{k,r}(v) \sum_{x_3=0}^{\infty} \sum_{\gamma \in H_{-1}(\Gamma^{(k,r)},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3},
+\end{align*}
+where
+\begin{equation*}
+q_{k,r}(v) = v^{-\ell(k,r,3)}\sum_{w=0}^{\infty} \varphi_3(w,T^{(k,r)})v^w.
+\end{equation*}
+
+\begin{thm}
+Let $\tilde{\gamma}=\Gamma^{(\tilde{k},\tilde{r})} \in \Gamma$. The following recurrent by $i \geqslant 0$ relations take place for generation functions of Markov chain $\{(\Gamma_i, \varkappa_{3, i}); i \geqslant 0\}$:
+\begin{multline}
+\mathfrak{M}^{(i+1)}(\tilde{k},\tilde{r},v) = \Phi^{(i)}(\tilde{k},\tilde{r},v)+\sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})}) - \\
+- \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3-\ell(\tilde{k},\tilde{r},3)}  \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) + 1 -x_3}\varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w.
+\label{markk_proiz}
+\end{multline}
+\end{thm}
 \end{document}
