@@ -70,7 +70,7 @@ f_j(z) = \sum_{\nu=1}^{\infty} p_{\nu}^{(j)} z ^{\nu}, \quad j\in \{1,3\},
 \end{equation}
 We assume that $f_j(z)$ converges for any $z\in \mathbb{C}$ such that $|z|<(1+\varepsilon)$,
 $\varepsilon>0$. Here $p_{\nu}^{(j)}$ is the probability of a bulk size in flow $\Pi_j$ being
-exactly $\nu=0$, $1$, \ldots. Having being serviced the customers from $O_1$ come back to the system
+exactly $\nu=0$, $1$, \ldots. Having been serviced the customers from $O_1$ come back to the system
 as the $\Pi_4$ customers. The $\Pi_4$ customers in turn after service enter the system as the
 $\Pi_2$ ones. The flows $\Pi_2$ and $\Pi_3$ are conflicting in the sense that their customers can't
 be serviced simultaneously. This implies that the problem can't be reduced to a problem with fewer
@@ -84,7 +84,7 @@ input flows by merging the flows together.
 
 In order to describe the server behavior we fix positive integers $d$, $n_0$, $n_1$, $\ldots$,
 $n_d$ and we introduce a finite set $\Gamma=\{\Gamma^{(k,r)} \colon k=0,1,\ldots,d; r=1,2,\ldots
-n_k\}$ of states server can reside in. At the state $\Gamma^{(k,r)}$ sever stays during a constant
+n_k\}$ of states server can reside in. At the state $\Gamma^{(k,r)}$ sever stays during constant
 time $T^{(k,r)}$. Define disjoint subsets $\Gamma^{\mathrm{I}}$, $\Gamma^{\mathrm{II}}$,
 $\Gamma^{\mathrm{III}}$, and $\Gamma^{\mathrm{IV}}$ of $\Gamma$ as follows.  In the state $\gamma
 \in \Gamma^{\mathrm{I}}$ only customers from the queues $O_1$, $O_2$ and $O_4$ are serviced.  In the
@@ -134,10 +134,12 @@ In general, service durations of different customers can be dependent and may ha
 probability distributions. So, saturation flows will be used to define the service process. A
 saturation flow $\Pi^{\mathrm{\text{sat}}}_j$, $j \in \{1,2,3,4\}$, is defined as a virtual output
 flow under the maximum usage of the server and unlimited number of customer in the queue $O_j$. The
-saturation flow $\Pi^{\mathrm{\text{sat}}}_j$, $j\in \{1,2,3\}$ contains a non-random number of
-customers $\ell({k,r,j)}$ in the server state $\Gamma^{(k,r)}$. Let $\mathbb{Z}_+$ be the set of
-non-negative integer numbers. If the queue $O_4$ contains $x \in \mathbb{Z}_+$ customers the
-saturation flow $\Pi^{\mathrm{\text{sat}}}_4$ also contains the $x$ customers.  Finally, in the
+saturation flow $\Pi^{\mathrm{\text{sat}}}_j$, $j\in \{1,2,3\}$ contains a non-random number
+$\ell({k,r,j)}\geqslant0$ of customers in the server state $\Gamma^{(k,r)}$. In particular,
+$\ell({k,r,j)}\geqslant1$ for $\Gamma^{(k,r)}\in{}^j\Gamma$ and $\ell({k,r,j)}=0$ for
+$\Gamma^{(k,r)}\not\in{}^j\Gamma$. Let $\mathbb{Z}_+$ be
+the set of non-negative integer numbers. If the queue $O_4$ contains $x \in \mathbb{Z}_+$ customers
+the saturation flow $\Pi^{\mathrm{\text{sat}}}_4$ also contains the $x$ customers.  Finally, in the
 state $\Gamma^{(k,r)}$ every customer from queue $O_4$ with probability $p_{k,r}$ and independently
 of others ends servicing and joins $\Pi_2$ to go to $O_2$. With the complementary probability
 $1-p_{k,r}$ the customer stays in $O_4$ until the next time slot. In the next time slot it repeats
@@ -285,14 +287,16 @@ first proven in \cite{k:z:02:2015} demonstrates.
 \label{myTheorem}
 \end{thm}
 
+From now we focuse on low-priority customers in the queue $O_3$. 
+
 \section{The low-priority queue}
 
 Here we will consider the stochastic sequence
 \begin{equation}
 \label{eq:theMC}
-\{(\Gamma_i, \varkappa_{3, i}); i \geqslant 0\}
+\{(\Gamma_i(\omega), \varkappa_{3, i}(\omega)); i =0, 1, \ldots\}
 \end{equation}
-which includes the number of low-priority customers $\varkappa_{3, i}$ in the queue $O_3$.  In this
+which includes the number of low-priority customers $\varkappa_{3, i}(\omega)$ in the queue $O_3$.  In this
 section we will report several results concerning this stochastic sequence.
 
 \begin{thm}
@@ -339,31 +343,30 @@ The last theorem clarifies which states of the Markov chain $\{(\Gamma_i, \varka
 
 %% Имелись в виду существенные состояния? essential, а не important
 \begin{thm}
-The set of essential states of the Markov chain $\{(\Gamma_i, \varkappa_{3, i}); i \geqslant 0\}$  consists of sets $\bigcup\limits_{1 \leqslant r \leqslant n_0}S^3_{0,r}$ and $\bigcup\limits_{\substack{1 \leqslant k \leqslant d\\ 1 \leqslant r \leqslant n_k}} S^3_{k,r}$.
+The set of essential states of the Markov chain $\{(\Gamma_i, \varkappa_{3, i}); i \geqslant 0\}$  consists of sets $\bigcup\limits_{1 \leqslant r \leqslant n_0}S^3_{0,r}$ and $\bigcup\limits_{\substack{1 \leqslant k \leqslant d\\ 1 \leqslant r \leqslant n_k}} S^3_{k,r}\:$.
 \end{thm}
 
-As before, let $\Gamma^{(k,r)}\in \Gamma$ and $x_3 \in Z_+$. Denote 
-\begin{equation*}
-H_{-1}(\Gamma^{(k,r)}, x_3) = \{\gamma \in \Gamma \colon h(\gamma, x_3) = \Gamma^{(k,r)}\}.
-\end{equation*}
-Then expression \eqref{hLaw} implies explicit form of this set for different $\Gamma^{(k,r)}$ and $x_3$:
+As before, let $\Gamma^{(k,r)}\in \Gamma$ and $x_3 \in Z_+$. Denote by 
+$H_{-1}(\Gamma^{(k,r)}, x_3)$ the set of all server states $\gamma$ such that $h(\gamma, x_3) =
+\Gamma^{(k,r)}$ and put $r \ominus_k 1
+= r-1$ for $n_k \geqslant r>0$, and $r \ominus_k 1 = n_k$ for $r=0$ ($k = 0$, $1$, $\ldots$, $d$).
+Then formula \eqref{hLaw} makes it possible to define  the mapping $H_{-1}(\Gamma^{(k,r)}, x_3)$ explicitly:
 \begin{equation}
 H_{-1}(\Gamma^{(k,r)}, x_3) = 
 \begin{cases}
-\{\Gamma^{(k_1,r_1)}, \Gamma^{(0,r\ominus_0 1)}\},& \quad \text{ if } (k=0\text{ \& } x_3 \leqslant L);\\
-\{\Gamma^{(k,r\ominus_k 1)}, \Gamma^{(0,r_2)}\},& \quad \text{ if } (\Gamma^{(k,r)}\in C_k^{\mathrm{I}} \text{ \& } x_3>L);\\ 
-\{\Gamma^{(k,r\ominus_k 1)}\},& \quad \text{ if } (\Gamma^{(k,r)}\in C_k^{\mathrm{O}}) \text{ if } (\Gamma^{(k,r)}\in C_k^{\mathrm{N}});\\
-\emptyset,& \quad \text{ if }
-\begin{aligned} 
-&(k = 0 \text{ \& } x_3>L) \text{ or } \\ & (\Gamma^{(k,r)}\in C_k^{\mathrm{I}} \text{ \& } x_3\leqslant L)
-\end{aligned},
+\bigl\{\Gamma^{(k_1,r_1)}, \Gamma^{(0,r\ominus_0 1)}\bigr\}&  \text{ if  $(k=0) \wedge (x_3 \leqslant L)$,}\\
+\bigl\{\Gamma^{(k,r\ominus_k 1)}, \Gamma^{(0,r_2)}\bigr\}&  \text{ if  $(\Gamma^{(k,r)}\in C_k^{\mathrm{I}})
+  \wedge (x_3>L)$,}\\ 
+\bigl\{\Gamma^{(k,r\ominus_k 1)}\bigr\}&  \text{ if  $(\Gamma^{(k,r)}\in C_k^{\mathrm{O}}) \vee (\Gamma^{(k,r)}\in C_k^{\mathrm{N}})$;}\\
+\varnothing&  \text{ if  $(k = 0)\wedge  (x_3>L)$}\\
+ & \qquad \text{ or $(\Gamma^{(k,r)}\in C_k^{\mathrm{I}}) \wedge (x_3\leqslant L)$}
 \end{cases}
 \end{equation}
 where $h_1(\Gamma^{(k_1,r_1)})=r$ and $h_3(r_2)=\Gamma^{(k,r)}$.
 
 Let's define for $\gamma \in \Gamma$ and $x_3 \in Z_+$ values
 \begin{equation*}
-Q_{3,i}(\gamma,x) = \Pr(\Gamma_{i}=\gamma, \varkappa_{3,i}=x_3).
+Q_{3,i}(\gamma,x) = \Pr(\{\omega\colon \Gamma_{i}(\omega)=\gamma, \varkappa_{3,i}(\omega)=x_3\}).
 \end{equation*}
 Suppose $k$ and $r$ are such that $\Gamma^{(k,r)}\in \Gamma$. Let's define the partial probability generating functions 
 \begin{gather*}
