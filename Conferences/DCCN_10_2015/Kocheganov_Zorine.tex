@@ -77,7 +77,7 @@ be serviced simultaneously. This implies that the problem can't be reduced to a 
 input flows by merging the flows together.
 \begin{figure}[h!]
    \centering
-    \includegraphics[width=\textwidth]{SystemScheme.png} % or {1.eps} in case of EPS format of the picture
+    \includegraphics[width=\textwidth]{SystemScheme.pdf} % or {1.eps} in case of EPS format of the picture
     \caption {Scheme of the queuing system as a cybernetic control system}
     \label{SystemScheme}
 \end{figure}
@@ -149,8 +149,8 @@ A real-life example of just described queuing system is a tandem of two consecut
 (Fig. \ref{crossroads}).
 \begin{figure}[h!]
    \centering
-    \includegraphics[width=\textwidth]{Crossroads.png} 
-    \caption {A tandem of crossroads, the physical interpretation of the queueing system under study}
+    \includegraphics[width=\textwidth]{Crossroads.pdf} 
+    \caption {A tandem of crossroads, the physical interpretation of the queuing system under study}
     \label{crossroads}
 \end{figure}
 The input flows are flows of vehicles. The flows $\Pi_1$ and $\Pi_5$ at the first crossroad are
@@ -160,7 +160,7 @@ $O_4$. After some random time interval the vehicle arrives to the next road inte
 of crossroads is an instance of a more general queuing model described above.
 
 \section{Mathematical model}
-The queueing system under investigation can be regarded as a cybernetic control system what helps to
+The queuing system under investigation can be regarded as a cybernetic control system what helps to
 rigorously construct a formal stochastic model~\cite{z:2012}. The scheme of the control system is
 shown in Fig.~\ref{SystemScheme}. There are following blocks present in the scheme: 1)~the external
 environment with one state; 2) input poles of the first type~--- the input flows $\Pi_1$, $\Pi_2$,
@@ -323,7 +323,6 @@ of the  Markov chain~\eqref{eq:theMC}  are
 \label{transitionToProve:three}
 \end{multline*}
 \end{thm}
-%% А в этой теореме тоже учтены случаи \Gamma^{(r,k)}\not\in{}^3\Gamma ???
 
 The last theorem clarifies which states of the Markov chain $\{(\Gamma_i, \varkappa_{3, i}); i \geqslant
 0\}$ are essential. To make a complete classification we introduce sets
@@ -341,7 +340,6 @@ The last theorem clarifies which states of the Markov chain $\{(\Gamma_i, \varka
   \quad 1 \leqslant k \leqslant d, \quad 1 \leqslant r \leqslant n_k.
 \end{align*}
 
-%% Имелись в виду существенные состояния? essential, а не important
 \begin{thm}
 The set of essential states of the Markov chain $\{(\Gamma_i, \varkappa_{3, i}); i \geqslant 0\}$  consists of sets $\bigcup\limits_{1 \leqslant r \leqslant n_0}S^3_{0,r}$ and $\bigcup\limits_{\substack{1 \leqslant k \leqslant d\\ 1 \leqslant r \leqslant n_k}} S^3_{k,r}\:$.
 \end{thm}
@@ -386,9 +384,6 @@ q_{\tilde k, \tilde r}(v)
 \label{markk_proiz}
 \end{multline*}
 \end{thm}
-
-%% Подозрительно, что уравнение такое, будто при любом состоянии прибора требования
-%% обслуживаются... ты точно не забыл еще одно соотношение??? Проверь!!!
 
 \section{Acknowledgments}
 
