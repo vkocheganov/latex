@@ -210,7 +210,7 @@ T_{i+1}=h_T(\Gamma_i,\varkappa_{3,i})= T^{(k,r)},\quad  \text{ где } \Gamma^{
 \label{myTheorem}
 \end{theorem}
 \begin{proof}
-В соответствии с теоремой Ионеску Тулчи (см. \cite{Shiryaev}) для доказательства достаточно задать на $(\Omega_0, {\cal F}_0)$ вероятностную меру $P_0(\cdot)$ и далее, считая для $0 < i \leqslant n$ и каждого набора элементарных исходов $(\omega_0, \omega_1, \ldots, \omega_{i-1})$ заданной на $(\Omega_i, {\cal F}_i)$ вероятностную меру $P(\omega_0,\omega_1,\ldots, \omega_{i-1};\cdot)$, задать на $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0,\omega_1,\ldots, \omega_{n};\cdot)$, причем для любого множества $B\in {\cal F}_i$ функции $P(\omega_0,\omega_1,\ldots, \omega_{i-1};B)$
+В соответствии с теоремой Ионеску Тулчи (см. \cite{Shiryaev}, c. 348--351) для доказательства достаточно задать на $(\Omega_0, {\cal F}_0)$ вероятностную меру $P_0(\cdot)$ и далее, считая для $0 < i \leqslant n$ и каждого набора элементарных исходов $(\omega_0, \omega_1, \ldots, \omega_{i-1})$ заданной на $(\Omega_i, {\cal F}_i)$ вероятностную меру $P(\omega_0,\omega_1,\ldots, \omega_{i-1};\cdot)$, задать на $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0,\omega_1,\ldots, \omega_{n};\cdot)$, причем для любого множества $B\in {\cal F}_i$ функции $P(\omega_0,\omega_1,\ldots, \omega_{i-1};B)$
 должны быть измеримыми функциями от $(\omega_0, \omega_1, \ldots, \omega_{i-1})$. Тогда для декартова произведения пространств элементарных исходов $\Omega=\prod\limits_{i=0}^{\infty}\Omega_i$ и произведения $\sigma$-алгебр ${\cal F}=\bigotimes\limits_{i=0}^{\infty} {\cal F}_i$ на $(\Omega,{\cal F})$ будет существовать единственная вероятностная мера $\Pr(\cdot)$ такая, что для любого $i \geqslant 0$ верно равенство
 \begin{equation}
 \Pr\{\omega \colon \omega_0 \in A_0, \omega_1 \in A_1, \ldots, \omega_i\in A_i\} = P_i(A_0 \times A_1 \times \ldots \times A_i),
@@ -782,23 +782,52 @@ Q_{3,i+1}(\tilde{\gamma},\tilde{x}_3)= (1-\delta_{\tilde{x}_3,0}) \sum_{x_3=0}^{
 \varphi_3(\tilde{x}_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})}) + \\
 + \delta_{\tilde{x}_3,0} \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})}).
 \end{multline*}
-\end{proof}Пусть $k$ и $r$ таковы, что $\Gamma^{(k,r)}\in \Gamma$. Введем производящие функции
-\begin{align*}
-\mathfrak{M}^{(i)}(k,r,v) &= \sum_{w=0}^{\infty} Q_{3,i}(\Gamma^{(k,r)},w) v^w,\\
-\Phi^{(i)}(k,r,v) &= q_{k,r}(v) \sum_{x_3=0}^{\infty} \sum_{\gamma \in H_{-1}(\Gamma^{(k,r)},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3},
-\end{align*}
-где 
+\end{proof}
+
+Пусть $k$ и $r$ таковы, что $\Gamma^{(k,r)}\in \Gamma$. Введем производящие функции
+\begin{equation*}
+\mathfrak{M}^{(i)}(k,r,v) = \sum_{w=0}^{\infty} Q_{3,i}(\Gamma^{(k,r)},w) v^w,
+\end{equation*}
+функции
 \begin{equation*}
 q_{k,r}(v) = v^{-\ell(k,r,3)}\sum_{w=0}^{\infty} \varphi_3(w,T^{(k,r)})v^w.
 \end{equation*}
+а также функции
+\begin{multline}
+\tilde{\alpha}_i(\tilde{k},\tilde{r},v) = \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})}) - \\
+- \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3-\ell(\tilde{k},\tilde{r},3)}  \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) -x_3}
+\varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w
+\end{multline}
+
+\begin{multline}
+\alpha_i(0,\tilde{r},v) =\tilde{\alpha}_i(0,\tilde{r},v) + q_{0,\tilde{r}}(v) \times \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) \right] v^{x_3}  - \\ - q_{\tilde{k},\tilde{r}}(v)\sum_{x_3=0}^{L} Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3), \quad \Gamma^{(0,\tilde{r})} \in \Gamma.
+\end{multline}
+
+\begin{equation}
+\alpha_i(\tilde{k},\tilde{r},v) =\tilde{\alpha}_i(\tilde{k},\tilde{r},v) - q_{\tilde{k},\tilde{r}}(v)\sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3}, \quad \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}
+\end{equation}
+
+\begin{equation}
+\alpha_i(\tilde{k},\tilde{r},v) =\tilde{\alpha}_i(\tilde{k},\tilde{r},v) - q_{\tilde{k},\tilde{r}}(v) \sum_{x_3=0}^{L} Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) v^{x_3}, \quad \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{O}} \cup C_{\tilde{k}}^{\mathrm{N}}
+\end{equation}
 
 \begin{theorem}
 Пусть $\tilde{\gamma}=\Gamma^{(\tilde{k},\tilde{r})} \in \Gamma$. Тогда имеют место следующие рекуррентные по $i \geqslant 0$ соотношения для производящих функций марковской цепи $\MarkThree$:
-\begin{multline}
-\mathfrak{M}^{(i+1)}(\tilde{k},\tilde{r},v) = \Phi^{(i)}(\tilde{k},\tilde{r},v)+\sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})}) - \\
-- \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3-\ell(\tilde{k},\tilde{r},3)}  \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) + 1 -x_3}\varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w.
-\label{markk_proiz}
-\end{multline}
+\begin{enumerate}
+
+\item для $ \Gamma^{(0,\tilde{r})} \in \Gamma$ $$\mathfrak{M}^{(i+1)}(0,\tilde{r},v) = q_{0,\tilde{r}} (v)\times \mathfrak{M}^{(i)}(0,\tilde{r} \ominus_0 1,v) + \alpha_i(0,\tilde{r},v);$$
+\item для $\Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}$ и $h_3(r_2)=\Gamma^{(\tilde{k},\tilde{r})}$
+$$\mathfrak{M}^{(i+1)}(\tilde{k},\tilde{r},v) = q_{\tilde{k},\tilde{r}} (v)\times \left[ \mathfrak{M}^{(i)}(\tilde{k},\tilde{r} \ominus_{\tilde{k}} 1,v) +  \mathfrak{M}^{(i)}(0,r_2,v) \right] + \alpha_i(\tilde{k},\tilde{r},v);$$
+\item для $\Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{O}} \cup C_{\tilde{k}}^{\mathrm{N}}$ 
+$$\mathfrak{M}^{(i+1)}(\tilde{k},\tilde{r},v) = q_{\tilde{k},\tilde{r}} (v)\times  \mathfrak{M}^{(i)}(\tilde{k},\tilde{r} \ominus_{\tilde{k}} 1,v) + \alpha_i(\tilde{k},\tilde{r},v);$$
+\end{enumerate}
+
+%\begin{multline}
+%\mathfrak{M}^{(i+1)}(\tilde{k},\tilde{r},v) = \Phi^{(i)}(\tilde{k},\tilde{r},v)+\sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})}) - \\
+%- \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3-\ell(\tilde{k},\tilde{r},3)}  \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) + 1 -x_3}\varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w.
+%\label{markk_proiz}
+%\end{multline}
+\label{theorem:gen:rek}
 \end{theorem}
 \begin{proof}
 Учитывая \eqref{prob:rek}, распишем
@@ -812,7 +841,6 @@ q_{k,r}(v) = v^{-\ell(k,r,3)}\sum_{w=0}^{\infty} \varphi_3(w,T^{(k,r)})v^w.
 \begin{equation*}
 \sum_{w=1}^{\infty} \sum_{x_3=0}^{w+\ell(\tilde{k},\tilde{r},3)} (\dots) = \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{w=1}^{\infty}(\dots) + \sum_{x_3=\ell(\tilde{k},\tilde{r},3) + 1}^{\infty}\sum_{w=x_3-\ell(\tilde{k},\tilde{r},3)}^{\infty}(\dots).
 \end{equation*}
-
 Преобразуем их.
 \begin{multline}
  \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{w=1}^{\infty}  \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \times 
@@ -852,17 +880,148 @@ q_{k,r}(v) = v^{-\ell(k,r,3)}\sum_{w=0}^{\infty} \varphi_3(w,T^{(k,r)})v^w.
 + \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3-\ell(\tilde{k},\tilde{r},3)}  [ \sum_{w=\ell(\tilde{k},\tilde{r},3) + 1 -x_3}^{\infty}
 \varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w -\sum_{w=0}^{\infty} 
 \varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w ] +\\
-+ q_{\tilde{k},\tilde{r}}(v) \sum_{x_3=0}^{\infty} \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3}.
++ q_{\tilde{k},\tilde{r}}(v) \sum_{x_3=0}^{\infty} \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3} = \tilde{\alpha}_i(\tilde{k},\tilde{r},v) + q_{\tilde{k},\tilde{r}}(v) \sum_{x_3=0}^{\infty} \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3},
 \end{multline*}
-В результате получаем утверждение теоремы:
-\begin{multline*}
-\mathfrak{M}^{(i+1)}(\tilde{k},\tilde{r},v)=\Phi^{(i)}(\tilde{k},\tilde{r},v)+\sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})}) - \\
-- \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3-\ell(\tilde{k},\tilde{r},3)}  \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) -x_3}\varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w.
-\end{multline*}
+где всю сумму, без учета последнего слагаемого, мы обозначили через $\tilde{\alpha}_i(\tilde{k},\tilde{r},v) $.
+
+Рассмотрим более подробно сумму $\sum_{x_3=0}^{\infty} \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3}$ в зависимости от $\tilde{\gamma}$.
+
+В случае, если $\tilde{\gamma} = \Gamma^{(0,\tilde{r})}$, то из определения следует, что $H_{-1}(\tilde{\gamma},x_3) = \{\Gamma^{(k_1,r_1)}, \Gamma^{(0,r\ominus_0 1)}\}$ для $x_3 \leqslant L$ и $H_{-1}(\tilde{\gamma},x_3) = \{\Gamma^{(0,r\ominus_0 1)}\}$ для $x_3 > L$. Здесь пара $(k_1,r_1)$ такая, что $h_1(\Gamma^{(k_1,r_1)}) = \tilde{r}$. Тогда рассматриваемая сумма примет вид
+\begin{multline}
+\sum_{x_3=0}^{\infty} \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3} = \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) \right] v^{x_3}  + \\ + \sum_{x_3=L+1}^{\infty} Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) v^{x_3} = \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) \right] v^{x_3}  -\\- \sum_{x_3=0}^{L} Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3)  + \sum_{x_3=0}^{\infty} Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) v^{x_3}.
+\end{multline}
+В случае, если $\tilde{\gamma} \in C_{\tilde{k}}^{\mathrm{I}}$, то из определения находим, что $H_{-1}(\tilde{\gamma},x_3) = \emptyset$ для $x_3 \leqslant L$ и $H_{-1}(\tilde{\gamma},x_3) = \{\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)}, \Gamma^{(0,r_2)}\}$ для $x_3 > L$. Здесь $r_2$ таково, что $h_3(r_2)=\Gamma^{(\tilde{k},\tilde{r})}$. Тогда рассматриваемая сумма примет вид
+\begin{multline}
+\sum_{x_3=0}^{\infty} \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3} = \sum_{x_3=L+1}^{\infty} \left[ Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3} = \\=
+\sum_{x_3=0}^{\infty} \left[ Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3} -\sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3} .
+\end{multline}
+И, наконец, если $\tilde{\gamma}\in C_{\tilde{k}}^{\mathrm{O}} \cup C_{\tilde{k}}^{\mathrm{N}}$, то $H_{-1}(\tilde{\gamma},x_3) = \{\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)}\}$ для всех $x_3\geqslant 0$. И рассматриваемая сумма в этом случае будет выглядеть следующим образом
+\begin{multline}
+\sum_{x_3=0}^{\infty} \sum_{\gamma \in H_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3} = \sum_{x_3=L+1}^{\infty} Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) v^{x_3} =\\=
+\sum_{x_3=0}^{\infty} Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) v^{x_3} - \sum_{x_3=0}^{L} Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) v^{x_3}.
+\end{multline}
 
 \end{proof}
 
+\subsection{Достаточное условие существования стационарного распределения последовательности $\MarkThree$ }
+Начнем с двух небольших лемм.
+\begin{lemma}
+Марковская цепь $\MarkThree$ является ациклической.
+\end{lemma}
+\begin{proof}
+Действительно, утверждение леммы сразу следует из определения циклической цепи (и периода)  \cite[ с. 536]{Shiryaev}, и того файта, что наибольший общий делитель $\text{НОД}(n_0,n_1,\ldots, n_d)$ равен $1$.
+\end{proof}  
 
+\begin{lemma}
+Для величин $\alpha_i(k,r,u)$, $\Gamma^{(k,r)} \in \Gamma$, и некоторого фиксированного $0 < \varepsilon < 1$ верны следующие неравенства равномерно для всех $i \geqslant 0$ и $ 1-\varepsilon < u < 1  + \varepsilon$:
+\begin{equation}
+|\alpha_i(k,r,u)| \leqslant M(k,r),
+\end{equation}
+для некоторых конечных постоянных $M(k,r)$, $\Gamma^{(k,r)}\in \Gamma$, не зависящих от $u$ и $i$.
+\end{lemma}
+\begin{proof}
+Начнем с оценки величины $\tilde{\alpha}_i(k,r,u)$, входящей в выражения для всех величин $\alpha_i(k,r,u)$. 
+\begin{multline*}
+|\tilde{\alpha}_i(k,r,v) |= | \sum_{x_3=0}^{\ell(k,r,3)}\sum_{\gamma \in H_{-1}(\Gamma^{(k,r)},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(k,r,3) - x_3} \varphi_3(a,T^{(k,r)}) - \\
+- \sum_{x_3=0}^{\ell(k,r,3)}  \sum_{\gamma \in H_{-1}(\Gamma^{(k,r)},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3-\ell(k,r,3)}  \sum_{w=0}^{\ell(k,r,3) -x_3}
+\varphi_3(w,T^{(k,r)}) v^w| \leqslant \\ \leqslant (\ell(k,r,3) +1 ) + \sum_{x_3=0}^{\ell(k,r,3)} \sum_{\gamma \in H_{-1}(\Gamma^{(k,r)},x_3)} Q_{3,i}(\gamma,x_3) (1-\varepsilon)^{x_3-\ell(k,r,3)} \exp{(\lambda_3 T^{(k,r)} (f_3(1+\varepsilon) - 1))} \leqslant \\ \leqslant 
+\ell(k,r,3) +1 + (1-\varepsilon)^{-\ell(k,r,3)} \exp{(\lambda_3 T^{(k,r)} (f_3(1+\varepsilon) - 1))} \sum_{x_3=0}^{\ell(k,r,3)} \sum_{\gamma \in H_{-1}(\Gamma^{(k,r)},x_3)} Q_{3,i}(\gamma,x_3)  \leqslant \\ \leqslant 
+\ell(k,r,3) +1 + (1-\varepsilon)^{-\ell(k,r,3)} \exp{(\lambda_3 T^{(k,r)} (f_3(1+\varepsilon) - 1))} (\ell(k,r,3) +1)  = \tilde{M}(k,r)
+\end{multline*}
+
+Теперь рассмотрим оставшиеся слагаемые. Для $\Gamma^{(0,r)} \in \Gamma$
+\begin{multline}
+|\alpha_i(0,r,v)| = | \tilde{\alpha}_i(0,r,v) + q_{0,r}(v) \times \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) \right] v^{x_3}  - \\ - q_{k,r}(v)\sum_{x_3=0}^{L} Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) | \leqslant  | \tilde{\alpha}_i(0,r,v) | + |q_{0,r}(v) |\times \\ \times  (1+\varepsilon)^{L} \sum_{x_3=0}^{L}  \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) \right]   + |q_{k,r}(v)|\sum_{x_3=0}^{L} Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) | 
+\leqslant \\ \leqslant| \tilde{\alpha}_i(0,r,v) | + |v ^ {-\ell(k,r,3)} \exp{(\lambda_3 T^{(k,r)} (f_3(1+\varepsilon) - 1))}|\times (1+\varepsilon)^{L}  + \\ + |v ^ {-\ell(k,r,3)} \exp{(\lambda_3 T^{(k,r)} (f_3(1+\varepsilon) - 1))}| 
+\leqslant 
+\tilde{M}(k,r) + \\ +| (1-\varepsilon) ^ {-\ell(k,r,3)} \exp{(\lambda_3 T^{(k,r)} (f_3(1+\varepsilon) - 1))}|\times (1+\varepsilon)^{L}  + \\ + | (1-\varepsilon) ^ {-\ell(k,r,3)} \exp{(\lambda_3 T^{(k,r)} (f_3(1+\varepsilon) - 1))}|  = M(0,r)
+\end{multline}
+
+Для $\Gamma^{(k, r)} \in C_{k}^{\mathrm{I}}$
+\begin{multline*}
+|\alpha_i(k,r,v) |=|\tilde{\alpha}_i(k,r,v) - q_{k,r}(v)\sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3}| \leqslant \\ \leqslant
+|\tilde{\alpha}_i(k,r,v)|  + |q_{k,r}(v)| (1+\varepsilon)^{L} \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] \leqslant \\ \leqslant \tilde{M}(k,r)  + (1-\varepsilon) ^ {-\ell(k,r,3)} \exp{(\lambda_3 T^{(k,r)} (f_3(1+\varepsilon) - 1))} (1+\varepsilon)^{L} = M(k,r)
+\end{multline*}
+
+Для $\Gamma^{(k, r)} \in C_{k}^{\mathrm{O}} \cup C_{k}^{\mathrm{N}}$
+\begin{multline*}
+|\alpha_i(k,r,v)| = |\tilde{\alpha}_i(k,r,v) - q_{k,r}(v) \sum_{x_3=0}^{L} Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) v^{x_3}| \leqslant \\ \leqslant 
+ |\tilde{\alpha}_i(k,r,v)| + | q_{k,r}(v)|  (1+\varepsilon)^{L}  \sum_{x_3=0}^{L} Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3)| \leqslant \\ \leqslant
+  \tilde{M}(k,r)+  (1-\varepsilon) ^ {-\ell(k,r,3)} \exp{(\lambda_3 T^{(k,r)} (f_3(1+\varepsilon) - 1))} (1+\varepsilon)^{L} = M(k,r).
+\end{multline*}
+Этим завершается доказательство.
+
+\end{proof}
+
+Найденные рекуррентные соотношения для производящих функций позволяют сформулировать и доказать следующую теорему:
+\begin{theorem}
+Для того, чтобы марковская цепь $\MarkThree$ имела стационарное распределение $Q(\gamma,x)$, $(\gamma,x)\in \Gamma \times Z_+$ Достаточно выполненеия неравенства 
+$$\sum_{k,r \colon \Gamma^{(k,r)} \in \Gamma} \ell_{k,r,3} > \lambda_3 f_3'(1) \sum_{k,r \colon \Gamma^{(k,r)} \in \Gamma} T^{(k,r)}$$
+\end{theorem}
+\begin{proof}
+Предположим обратное, а именно, что при $\sum_{k,r} \ell_{k,r,3} > \lambda_3 \sum_{k,r} T^{(k,r)}$ ациклическая марковская цепь $\MarkThree$ не имеет стационарного распределения. 
+Тогда для любого состояния $(\gamma,x)\in \Gamma \times Z_+$ и независимо от начального распределения $\Pr(\Gamma_{0}=\Gamma^{(k,r)}, \varkappa_{3,0}=x)$,
+$(\Gamma^{(k,r)},x)\in \Gamma \times Z_+$, 
+имеют место предельные равенства 
+\begin{equation}
+\lim_{i \to \infty} \Pr(\Gamma_{i}=\Gamma^{(k,r)}, \varkappa_{3,i}=x) =0, \quad  (\Gamma^{(k,r)},x)\in \Gamma \times Z_+.
+\label{zero:limit:equations}
+\end{equation} 
+Для доказательства этого факта достаточно рассмотреть все возможные случаи (см. рассуждения \cite[гл. $3$ пар.~3-4]{Shiryaev}):
+\begin{enumerate}
+\item все состояния цепи $\MarkThree$ невозвратные, тогда предельные соотношения выполняются в силу \cite[с. 541, лемма $2$]{Shiryaev};
+\item существует хотя бы одно возвратное состояние, тогда все состояния возвратные (поскольку все состояния сообщающиеся); и пусть все состояния нулевые, тогда предельное соотношение также выполняется \cite[с. 541, лемма $3$]{Shiryaev};
+\item все состояния возвратные и существует хотя бы одно положительное, тогда все состояния положительные и пределы $\lim_{i \to \infty} \Pr(\Gamma_{i}=\Gamma^{(k,r)}, \varkappa_{3,i}=x) > 0$ являются стационарными вероятностями (\cite[с. 549, теорема $1$]{Shiryaev}), что противоречит предположению.
+\end{enumerate}
+
+Выберем это начальное распределение так, что при некотором $u_0 >1$  будет выполнено неравенство $\mathfrak{M}^{(0)}(k,r,u_0) <\infty$ для всех $\Gamma^{(k,r)}\in \Gamma$. Это ограничение, в силу теоремы \eqref{theorem:gen:rek}, обеспечивает при любом конечном $i\geqslant 0$ существование функций 
+\begin{equation}
+\mathfrak{M}^{(i)}(k,r,u),\quad \frac{d}{du} \left[\mathfrak{M}^{(i)}(k,r,u)\right]
+\end{equation}
+по крайней мере в некоторой окрестности точки $u=1$. 
+
+В силу равенств \eqref{zero:limit:equations} для любого натурального $N$ найдется некоторое число $\mathfrak{I}$, что для всех $i > \mathfrak{I}$ будет
+$1 > (1+N) \sum_{x=0}^{N} \sum_{\Gamma^{(k,r)}\in \Gamma}  \Pr(\Gamma_{i}=\Gamma^{(k,r)}, \varkappa_{3,i}=x)$ и, значит, $1 > (1+N) \sum_{x=0}^{N}  \Pr(\varkappa_{3,i}=x)$ . Тогда
+\begin{multline*}
+E[\varkappa_{3,i}] = \sum_{x=0}^{\infty} x \Pr(\varkappa_{3,i}=x) = \sum_{x=0}^{N} x \Pr(\varkappa_{3,i}=x) + \sum_{x=N+1}^{\infty} x \Pr(\varkappa_{3,i}=x) \geqslant \\ \geqslant  \sum_{x=N+1}^{\infty} x \Pr(\varkappa_{3,i}=x) \geqslant \sum_{x=N+1}^{\infty} (N+1)
+\Pr(\varkappa_{3,i}=x) \geqslant (N+1) \sum_{x=N+1}^{\infty} \Pr( \varkappa_{3,i}=x) =\\ =  (N+1) \left(1 - \sum_{x=0}^{N} \Pr(\varkappa_{3,i}=x)\right) \geqslant (N+1) \left(1 - \frac{1}{N+1}\right) = N
+\end{multline*}
+Следовательно, $E[\varkappa_{3,i}]$ неограниченно возрастает при $i \to \infty$. 
+
+Другое рассуждение, однако, приводит к противоположному результату. Действительно, при $\sum_{k,r} \ell_{k,r,3} > \lambda_3 f_3'(1) \sum_{k,r} T^{(k,r)}$ имеем 
+\begin{multline*}
+ (\prod_{k,r}q_{k,r}(u)) ' |_{u=1} = 
+ (\prod_{k,r}u^{-\ell(k,r,3)}\sum_{w=0}^{\infty} \varphi_3(w,T^{(k,r)})u^w )' |_{u=1} = \\ =
+  (\prod_{k,r}u^{-\ell(k,r,3)}\exp(\lambda_3 T^{(k,r)} (f_3(u)-1)))' |_{u=1} = \\ =
+    (u^{-\sum_{k,r}\ell(k,r,3)}\exp(\lambda_3 (f_3(u)-1))\sum_{k,r} T^{(k,r)} )' |_{u=1} = \\ =
+\lambda_3 f_3'(1) \sum_{k,r} T^{(k,r)} -\sum_{k,r} \ell_{k,r,3}  < 0.
+\end{multline*}
+При $\mathfrak{M}_+^{(0)}(k,r,u) =\mathfrak{M}^{(0)}(k,r,u)$ в некоторй окрестности точки  $u = 1$  последовательности $\left\{\mathfrak{M}_+^{(i)}(k,r,u)\colon i \geqslant 0\right\}$, $\Gamma^{(k,r)} \in \Gamma$, рекуррентного отображения 
+\begin{enumerate}
+\item для $ \Gamma^{(0,r)} \in \Gamma$ $$\mathfrak{M}_+^{(i+1)}(0,r,u) = q_{0,r} (u)\times \mathfrak{M}_+^{(i)}(0,r \ominus_0 1,u) + M(0,r);$$
+\item для $\Gamma^{(k, r)} \in C_{k}^{\mathrm{I}}$ и $h_3(r_2)=\Gamma^{(k,r)}$
+$$\mathfrak{M}_+^{(i+1)}(k,r,u) = q_{k,r} (u)\times \left[ \mathfrak{M}_+^{(i)}(k,r \ominus_{k} 1,u) +  \mathfrak{M}_+^{(i)}(0,r_2,u) \right] + M(k,r);$$
+\item для $\Gamma^{(k, r)} \in C_{k}^{\mathrm{O}} \cup C_{k}^{\mathrm{N}}$ 
+$$\mathfrak{M}_+^{(i+1)}(k,r,u) = q_{k,r} (u)\times  \mathfrak{M}_+^{(i)}(k,r \ominus_{k} 1,u) + M(k,r);$$
+\end{enumerate}
+будут мажорантными соответственно для последовательностей $\left\{\mathfrak{M}^{(i)}(k,r,u)\colon i \geqslant 0\right\}$, $\Gamma^{(k,r)} \in \Gamma$, рекуррентного отображения из теоремы~\ref{theorem:gen:rek}.
+
+На множестве пар $(k,r)$ таких, что $\Gamma^{(k,r)} \in \Gamma$, будем предполагать заданным лексикографический порядок: $(k_1,r_1) < (k_2, r_2)$ тогда и только тогда, когда $k_1 < k_2$ или $k_1 = k_2$ и $r_1 < r_2$. Тогда модуль определителя мажорантного отображения (в соответствии с введеным порядком компонент) лекго подсчитывается и будет равен
+$|\prod_{k,r}q_{k,r}(u)|$. В точке $u=1$ модуль определителя $|\prod_{k,r}q_{k,r}(u)|$ равен $1$, а его производная равна $sgn(\prod_{k,r}q_{k,r}(1))\times (\lambda_3 f_3'(1) \sum_{k,r} T^{(k,r)} -\sum_{k,r} \ell_{k,r,3})$. Следовательно в некоторой правой окресности $u \in [1, 1 + \varepsilon_0)$ точки $u=1$ модуль определителя $|\prod_{k,r}q_{k,r}(u)|$ будет меньше $1$ и, значит, мажорантная последовательность сходится. Этот факт, в свою очередь, влечет сходимость исходной последовательности $\left\{\mathfrak{M}^{(i)}(k,r,u)\colon i \geqslant 0\right\}$, $\Gamma^{(k,r)} \in \Gamma$, для $u \in [1, 1 + \varepsilon)$.
+
+Последовательности $\left\{\mathfrak{M}_+^{(i)}(k,r,u_1)\colon i \geqslant 0\right\}$, $\Gamma^{(k,r)} \in \Gamma$, сходятся при $u_1 \in (1,1+\varepsilon)$ и, следовательно, их сумма 
+$\sum_{k,r} \mathfrak{M}^{(i)}(k,r,u)$ при любом $i\geqslant 0$ является аналитической, ограниченной  функцией.
+И поскольку
+\begin{equation}
+\sum_{k,r} \mathfrak{M}^{(i)}(k,r,u) = \sum_{k,r} \sum_{w=0}^{\infty} Q_{3,i}(\Gamma^{(k,r)},w) u^w = 
+ \sum_{w=0}^{\infty} \Pr(\varkappa_{3,i}=w) u^w,
+\end{equation}
+теперь без труда получается, что числовая последовательность 
+$$
+\left\{\sum_{k,r} \frac{d}{du}\left(\mathfrak{M}^{(i)}(k,r,u)\right)_{u=1}= E[\varkappa_{3,i}]; i\geqslant 0\right\} 
+$$
+в силу интегральной формулы Коши равномерно по $i$ ограничена некоторой постоянной величиной. Поэтому принятое в самом начале доказательства этой теоремы предположение не будет справедливым. Доказательство этим завершается.
+\end{proof}
 \begin{thebibliography}{99}
 % Не удаляйте следующую строчку!
 \addcontentsline{toc}{section}{Литература}
@@ -878,7 +1037,7 @@ q_{k,r}(v) = v^{-\ell(k,r,3)}\sum_{w=0}^{\infty} \varphi_3(w,T^{(k,r)})v^w.
 \bibitem{Kolmogorov:1974} Колмогоров, А.~Н. Основные понятия теории вероятностей / А.~Н. Колмогоров // М.:~Наука.~--- 1974.~--- 120 с.
 \bibitem{Kolmogorov:2006} Колмогоров, А.~Н. Элементы теории функций и функционального анализа / А.~Н. Колмогоров, С.~В. Фомин// М.:~Физматилит.~--- 2006.~--- 572 с.
 \bibitem{Gnedenko} Гнеденко, Б.~В. Курс теории вероятностей / Б.~В. Гнеденко // М.:~Издательство ЛКИ.~--- 2007.~--- 448 с.
-\bibitem{Shiryaev} Ширяев, А.~Н. Вероятность: в 2-х кн. Кн.~1 / А.~Н. Ширяев // М.:~Наука.~--- 2007.~--- 552 с. (С. 348--351).
+\bibitem{Shiryaev} Ширяев, А.~Н. Вероятность: в 2-х кн. Кн.~1 / А.~Н. Ширяев // М.:~Наука.~--- 2007.~--- 552 с.
 \bibitem{Kemeny} Кемени, Дж. Счетные цепи Маркова / Дж. Кемени, Дж. Снелл, А. Кнепп // М.:~Наука.~--- 1987.~--- 416 с.
 \end{thebibliography}
 
