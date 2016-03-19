@@ -27,28 +27,41 @@
 \chief{д.ф.-м.н., профессор \\ Федоткин М.~А.}
 \date{2014}
 
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+\geometry{left=3cm}
+\geometry{right=2cm}
 
+\renewcommand{\baselinestretch}{1.5}
 \begin{document}
 %\maketitle
 \begin{titlepage}
 \large
 \begin{center}
-МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ \\
-РОССИЙСКОЙ ФЕДЕРАЦИИ \\
+Министерство образования и науки Российской Федерации\\
 Национальный исследовательский Нижегородский государственный университет им.~Н.И.~Лобачевского 
 
+\medskip
+
+\begin{flushright}
+УДК 519.21
+\end{flushright}
+
 \vfill
+
+Кочеганов~В.М., Зорин~А.В.
+
+\medskip
 
 Вероятностная модель тандема управлящих систем обслуживания по циклическому алгоритму с продлением
 
 \vfill
 
-Нижний Новгород
-
-2016
+Нижний Новгород, 2016
 \end{center}
 \end{titlepage}
 
+\setcounter{page}{2}
 \numberwithin{equation}{section}
 \section*{Введение}
 Теория массового обслуживания является прикладной дисциплиной, использующей методы теории вероятностей и случайных процессов для  изучения математических моделей многих реальных технических комплексов, телекоммуникационных систем и организаций обслуживания потребителей. 
@@ -56,19 +69,18 @@
 Отличительной особенностью моделей теории массового обслуживания является как случайный характер поступления требований, так и случайные длительности ожидания в очереди и актов обслуживания.
 Особую роль играет изучение систем обслуживания, в которых обслуживающее устройство несет управляющую функцию.
 
-Первые работы по теории массового обслуживания принадлежат А.К.~Эрлангу, \cite{Erlang:1909, Erlang:1917}, и Ф.~Поллачеку, \cite{Pollaczek:1934}), в которых методами теории вероятностей из физических соображений были составлены и решены дифференциальные и интегральные уравнения для функции распределения времени ожидания и числа занятых линий на телефонной станции. 
+Первые работы по теории массового обслуживания принадлежат А.К.~Эрлангу, \cite{Erlang:1909, Erlang:1917}, и Ф.~Поллачеку, \cite{Pollaczek:1934}, в которых методами теории вероятностей из физических соображений были составлены и решены дифференциальные и интегральные уравнения для функции распределения времени ожидания и числа занятых линий на телефонной станции. 
 Становлением и расцветом в 20-м веке теория массового обслуживания обязана трудам крупных отечественных математиков 
 А.Я.~Хинчина, А.Н.~Колмогорова, Б.В.~Гнеденко, Ю.В.~Прохорова, А.А.~Боровкова, И.Н.~Коваленко, Г.П.~Климова, А.Д.~Соловьева, Г.П.~Башарина, Б.А.~Севастьянова, Ю.К.~Беляева,
 а также зарубежных ученых Л.~Такача, T.~Саати, Д.Р.~Кокса, У.Д. Смита, Л.~Клейнрока, Дж.Ф.~Кингмэна, Д.Дж.~Кендалла, М.С.~Бартлетта и др. 
-%
-%Первой работой по этой тематике является статья \cite{review:1}, написанная в 1909 году А. Эрлангом, общепризнанным отцом теории массового обслуживания. В ней он размышлял о том, сколько должно быть телефонных станций, предоставляющих услуги связи, чтобы снизить время ожидания обслуживания пользователей. При решении этой задачи, А. Эрланг начал осознавать, что проблема минимизации времени ожидания может быть применена ко многим областям, и продолжил разрабатывать аппарат теории дальше
-% 
-Классические методы построения моделей системы обслуживания и фундаментальные результаты анализа широко представлены в монографиях \cite{Asmussen:2008, }
-\cite{review:9}---\cite{review:13} [вставить еще Асмусен, Боровков, см. листок].
+Классические методы построения моделей системы обслуживания и фундаментальные результаты анализа широко представлены в монографиях \cite{Hinchin:2010, Klimov:1966, Gnedenko:2012, Saati:1971, Bocharov:1995, Asmussen:2008, Borovkov:1972, Borovkov:1980}.
 
-В настоящее время известны достаточно сложные технические системы, в которых требования не однородны и потоки требований разных типов оказываются конфликтными. Конфликтность означает, что в каждый момент времени могут обслуживаться требования не более чем из одного потока. Примерами таких систем являются пересечение транспортных магистралей --- перекрестки, взлетно-посадочные комплексы в аэропортах, локальные вычислительные сети и сети передачи данных. В конфликтных системах обслуживания обслуживающее устройство с необходимостью выполняет функцию управления потоками. В существующей литературе алгоритмы управления конфликтными потоками делятся на два типа: независящие \cite{review:2, review:3} и зависящие \cite{review:4}--\cite{review:7}  от состояния системы. Случай произвольного числа потоков впервые был рассмотрен подробно в работе \cite{review:8}, где найдены явные выражения для средней задержки заявки в системе и для оптимальных параметров алгоритма управления. В связи со стремительным ростом числа машин в современных городах, все больший интерес стала представлять теория транспортных потоков. Результаты некоторых исследований по этой тематике представлены, например в \cite{review:14}---\cite{review:16}. В этих работах, потоки машин моделируются с помощью традиционных стохастических потоков событий, весьма полно изученных в классической теории массового обслуживания. Однако, потоки машин сильно отличаются от потоков обычных случайных требований: необходимо учитывать не только вероятностные свойства последовательности моментов пересечения машинами так называемой виртуальной стоп-линии, но и определять свойства случайных конфигураций автомобилей на дороге. Этому наблюдению были посвящены работы \cite{review:17}---\cite{review:20}.
+В настоящее время известны достаточно сложные технические системы, в которых требования неоднородны и потоки требований разных типов оказываются конфликтными. Конфликтность означает, что в каждый момент времени могут обслуживаться требования не более чем из одного потока. Примерами таких систем являются пересечение транспортных магистралей --- перекрестки, взлетно-посадочные комплексы в аэропортах, локальные вычислительные сети и сети передачи данных. В~конфликтных системах обслуживания обслуживающее устройство с необходимостью выполняет функцию управления потоками. В существующей литературе алгоритмы управления конфликтными потоками делятся на два типа: независящие от состояния системы \cite{Darroch:1964,Neymark:Fedotkin:1967} и зависящие от нее \cite{Neymark:Fedotkin:1968, Fedotkin:1976, Ferguson:1985, Takagi:1985}. В частности, в работе Ю.И.~Неймарка и М.А.~Федоткина (\cite{Neymark:Fedotkin:1967}) строится модель перекрестка, для которого длительности сигналов светофора фиксированы, и находятся вероятностные характеристики стационарного режима. В работе \cite{Neymark:Fedotkin:1968} авторы изучают алгоритм, учитывающий информацию о количестве машин в очередях в момент принятия решения. Обобщение на случай произвольного числа конфликтных потоков впервые было осуществлено в \cite{Yakushev:1990}. В этой работе рассматривается система обслуживания с произвольным конечным числом пуассоновских входных потоков и найдены оценки для средней задержки заявки в системе, а также оценки оптимальных параметров алгоритма управления. 
 
-Тандемы систем массового обслуживания широко используются при разработке компьютерных и коммуникационных систем, колл-центров, аварийных служб, при планировании их мощностей, производительности и последующей оптимизации работы. Также одним из важных приложений тандемов являются и вопросы дорожного трафика автомобилей. Теория таких тандемов хорошо изучена, например, в работах \cite{review:21}---\cite{review:24} для простейших стационарных входных потоков и экспоненциального времени обслуживания. Модели с неэкспоненциальным временем обслуживания рассмотрены в \cite{review:25}\cite{review:27}. Более общие модели включают в себя так называемые BMAP (Batch Markovian Arrival Process) входные потоки, особенностью которых является корреляция количества пришедших требований во времени. Такие потоки рассмотрены, например, в работах \cite{review:28}---\cite{review:32}. 
+В связи со стремительным ростом числа машин в современных городах, все больший интерес стала представлять теория потоков транспортных средств. Результаты ранних исследований по этой тематике собраны, например, в книгах \cite{Haight:1963, Drew:1968, Inose:1975}. В этих монографиях потоки машин моделируются с помощью традиционных стохастических потоков событий, весьма полно изученных в классической теории массового обслуживания. Однако классические модели не удается использовать для адекватного описания реальных потоков машин \cite{Bartlet:1963}. В работах
+\cite{Fedotkin:2009,Fedotkin:Kudryavcev:Rachinskaya:2010, Rachinskaya:Fedotkin:2011:1,Rachinskaya:Fedotkin:2011:2, Fedotkin:Kudryavcev:Rachinskaya:2011, Rachinskaya:Fedotkin:2012, Rachinskaya:Fedotkin:2013, Rachinskaya:Fedotkin:2014} предлагается учитывать не только вероятностные свойства последовательности моментов пересечения машинами так называемой виртуальной стоп-линии, но и определять свойства случайных конфигураций автомобилей на дороге. В указанных работах изучается возникновение так называемых пачек машин. Каждая пачка состоит из медленной головной машины и ожидающих возможности обгона машин за ней. Динамика длины пачки определяется возможностью обгона машинами из хвоста всей пачки. Другая динамика, обусловленная возможностью съезда машин с трассы, рассматривается в \cite{Afanasyeva:Bulinskaya:2013:1,Afanasyeva:Bulinskaya:2010,Afanasyeva:Bulinskaya:2013:2}. Основным объектом изучения в этих работах является плотность потока машин как функция от расстояния, на основе которой делаются выводы о пропускной способности перекрестков.
+
+Тандемы систем массового обслуживания широко используются при разработке компьютерных и коммуникационных систем, колл-центров, аварийных служб, при планировании их мощностей, производительности и последующей оптимизации работы. Также одним из важных приложений тандемов являются вопросы дорожного трафика автомобилей. Теория таких тандемов хорошо изучена, например, в работах \cite{Balsamo:2003, Gnedenko:Konig:1983, Perros:1994, Perros:1989} для простейших стационарных входных потоков и экспоненциального времени обслуживания. Модели с неэкспоненциальным временем обслуживания рассмотрены в \cite{Gomez:2002:1, Gomez:2002:2, Gomez:2002:3}. Более общие модели включают в себя так называемые BMAP (Batch Markovian Arrival Process) входные потоки, особенностью которых является наличие корреляции количества пришедших требований в различные моменты времени. Такие потоки рассмотрены, например, в работах \cite{Klimenok:Dudin:2005,Klimenok:Dudin:2004, Klimenok:2010, Klimenok:2011, Klimenok:2015}, где проведены аналитические и численные рассчеты условий стационарности двухфазных (тандемных) систем, в том числе с повторными попытками и нетерпеливостью запросов.
 
 
 \section{Постановка задачи и построение математической модели}
@@ -1656,61 +1668,83 @@ $$
 \begin{thebibliography}{99}
 % Не удаляйте следующую строчку!
 \addcontentsline{toc}{section}{Литература}
-\bibitem{Erlang:1909} Erlang, A.K.  The Theory of Probabilities and Telephone Conversations / Agner~K. Erlang //  Nyt Tidsskrift for Matematik~--- 1909.~--- V.~20.~--- P.~33-39.
-\bibitem{Erlang:1917}
-Erlang, A.K. Solution of some problems in the theory of probabilities of significance in automatic telephone exchanges //Elektrotkeknikeren. -- 1917.~-- V. 13.~-- P.~5-13.
-\bibitem{Pollaczek:1934} Pollaczek, F. Über das warteproblem //Mathematische Zeitschrift. – 1934. – V. 38. – \No{}. 1. – P. 492-537.
-\bibitem{review:2} Darrach, J.~N. On the traffic-light queue / J.~N. Darrach // The Annals of Mathematical Statistics~--- 1964.~--- V.~35~--- \No {}~1.~--- P.~380-388. 
-\bibitem{review:3} Неймарк, Ю.~И. О работе автомата, регулирующего уличное движение на перекрестке / Ю.~И. Неймарк, M.~А. Федоткин // Автоматика и телемеханика~--- 1966.~--- \No {}~3.~--- С.~78—87.  
-\bibitem{review:4} Неймарк, Ю.~И. Преображенская А. М. Работа автомата с обратной связью, управляющего уличным движением на перекрестке / Ю.~И. Неймарк, М.~А. Федоткин~---// Изв. АН СССР, Техническая кибернетика~--- 1968.~--- \No {}~ 5.~--- С.~129—141. 
-\bibitem{review:5} Федоткин, М. А. О существовании эргодического распределения в системе с пере менной структурой обслуживания конфликтных потоков / М.~А. Федоткин~--- Теория вероятн. и ее примен.~--- 1976.~--- Т.~XXI~--- В.~4.~--- С.~792—801.
-\bibitem{review:6} Ferguson, М.~J. Exac t results for nonsymmetric token ring systems/ М.~J. Ferguson, Y.~J. Aminetzah // IEE E Transactions on Communications~--- 1985.~--- V.~33.~--- \No {}~3.~--- P.~223—231.
-\bibitem{review:7} Takagi H. Mean message waiting times in symmetric multiqueue systems with cyclic service / Takagi H. // Performance Evaluation~--- 1985.~--- V.~5.~--- \No{}~4~--- P.~271—277.  
-\bibitem{review:8} Якушев, Ю.~Ф. Об оптимальном обслуживании конфликтных потоков / Ю.~Ф. Якушев //  Теория вероятн. и ее примен.~--- 1990.~--- Т.~35~--- В.~1~--- С.~161–167.
+\bibitem{Erlang:1909} Erlang~A.K.  The Theory of Probabilities and Telephone Conversations //  Nyt Tidsskrift for Matematik, 1909.~-- V.~20.~-- P.~33-39.
+\bibitem{Erlang:1917} Erlang~A.K. Solution of some problems in the theory of probabilities of significance in automatic telephone exchanges // Elektrotkeknikeren, 1917.~-- V.~13.~-- P.~5-13.
+\bibitem{Pollaczek:1934} Pollaczek~F. Uber das warteproblem // Mathematische Zeitschrift, 1934.~-- V.~38.~-- \No{}.~1.~-- P.~492-537.
 
-\bibitem{Hinchin:1963} Хинчин, А.~Я. Работы по математической теории массового обслуживания / А.~Я. Хинчин.// М.: Физматгиз~--- 1963.~--- 312 с.
-\bibitem{review:10} Климов, Г.~П. Стохастические системы обслуживания / Г.~П. Климов.// М.: Наука~--- 1966.~--- 243 с.
-\bibitem{review:11} Гнеденко, Б.~В. Введение в теорию массового обслуживания / Б.~В. Гнеденко, И.~Н. Коваленко // М.: Наука~--- 1987.~--- 336 с.
-\bibitem{review:12} Саати, Т.  Элементы теории массового обслуживания и ее применение / Т. Саати. // М.: Советское радио~--- 1971.~--- 520 с.
-\bibitem{review:13} Бочаров, П.~П. Теория массового обслуживания / П.~П. Бочаров, А.~В. Печинкин. // М.: Издательство РУДН~--- 1995.~--- 529 с.
-\bibitem{Asmussen:2008} Asmussen, S. Applied probability and queues. --- Springer Science & Business Media, 2008. – V. 51.
-\bibitem{review:14} Haight, F.~A., Mathematical Theories of Traffic Stream / F.~A. Haight // New York: Academic~--- 1963. 
-\bibitem{review:15} Drew, D.~R. Traffic Stream Theory and Control / D.~R. Drew // New York: McGraw-Hill~--- 1968.
-\bibitem{review:16} Inose, H. and Hamada, T., Road Traffic Control / H. Inose, T. Hamada // Tokyo: Univ. of Tokyo Press~--- 1975.
-\bibitem{review:17} Afanasyeva, L.~G. Estimation of transport systems capacity / L.~G. Afanasyeva, E.~V. Bulinskaya // Springer-Verlag Berlin, Heidelberg~--- 2013.~--- P.~63–77.
-\bibitem{review:18} Афанасьева, Л.~Г., Булинская Е. В. Математические модели транспортных систем, основанные на теории очередей / Л.~Г. Афанасьева,  Е.~В. Булинская // Труды Московского физико-технического института (государственного университета)~--- 2010.~--- Т.~2~--- \No{}~4.~---С.~6–21.
-\bibitem{review:19} Afanasyeva L.~G. Asymptotic analysis of traffic lights performance under heavy traffic assumption / L.~G. Afanasyeva, E.~V. Bulinskaya // Methodology and Computing in Applied Probability, Springer.~--- 2013.~--- V.~15, \No{}~4.~--- P.~935–950.
-\bibitem{review:20} Fedotkin, A.~M., Matematicheskie modeli transportnykh potokov na avtomagistrale i na upravlyaemom po tsiklicheskomu algoritmu perekrestke /  A.~M. Fedotkin // Mathematical Models of Traffic Streams on a Highway and on a Crossing Controlled by a Cyclic Algorithm, Available from VINITI, 2009, Nizhni Novgorod,~--- \No{}~5~--- V2009,~--- P.~1–30.
-\bibitem{review:21} Balsamo, S. A review on queueing network models with finite capacity queues for software architectures performance prediction / S. Balsamo, V.~D.~N. Persone, P. Inverardi // Performance Evaluation 51~--- 2003.~--- P.~269–288.
-\bibitem{review:22} Gnedenko, B.~W. Handbuch der Bedienungstheorie / B.~W. Gnedenko, D. Konig // Akademie Verlag, Berlin.~--- 1983
-\bibitem{review:23} Perros, H.~G.  Queueing networks with blocking, in: Exact and Approximate Solutions / H.~G. Perros // Oxford University Press, New York.~--- 1994. 
-\bibitem{review:24} Perros, H.~G. A bibliography of papers on queueing networks with finite capacity queues / H.~G. Perros // Performance Evaluation 10~--- 1989.~--- p.~255–260.
-\bibitem{review:25} Gomez-Corral, A. A tandem queue with blocking and Markovian arrival process / A. Gomez-Corral // Queueing Systems 41~--- 2002.~--- P.~343–370. 
-\bibitem{review:26} Gomez-Corral, A. On a tandem G-network with blocking / A. Gomez-Corral // Advances in Applied Probability 34 (3)~--- 2002.~--- P.~626–661.
-\bibitem{review:27} Gomez-Corral, A. A matrix-geometric approximation for tandem queues with blocking and repeated attempts / A. Gomez-Corral // Operations Research Letters  30~--- 2002.~--- P.~360–374.
-\bibitem{review:28} Klimenok, V.~I. The $BMAP/G/1/N \to PH/1/M$ system with losses / V.~I. Klimenok, L. Breuer, G.~V. Tsarenkov, A.~N. Dudin // Performance Evaluation 61~--- 2005~--- P.~17–40.
-\bibitem{review:29} Бройер, Л. “Двухфазная система $BMAP|G|1|N \to PH|1|M-1-1$ с блокировкой / Л. Бройер, А.~Н. Дудин, В.~И. Клименок, Г.~В. Царенков // Автомат. и телемех.~--- 2004~--- \No {}~1.~--- P.~117–130 
-\bibitem{review:30} Клименок, В.~И. Двухфазная система обслуживания с групповым марковским потоком и повторными вызовами /  В.~И. Клименок, О.~С. Тарамин // Автомат. и телемех.~--- 2010~--- \No~1~--- P.~3–17 
-\bibitem{review:31} Клименок, В.~И. Двухфазная система $GI/PH/1 \to /PH/1/0GI/PH/1 \to /PH/1/0$ с потерями / В.~И. Клименок, О.~С. Тарамин // Автомат. и телемех.~--- 2011.~--- \No {}~5.~--- P.~113–126.
-\bibitem{review:32} Клименок, В.~И. Двухфазная система с повторными попытками и нетерпеливостью запросов / В. И. Клименок, Р. Ч. Савко // Автомат. и телемех.~--- 2015.~--- \No {}~8.~--- P.~78–93. 
+\bibitem{Hinchin:2010} Хинчин~А.Я. Работы по математической теории массового обслуживания.~-- Либроком, 2010.~-- 240~с.
+\bibitem{Klimov:1966} Климов~Г.П. Стохастические системы обслуживания.~--- М.: Наука, 1966.~--- 243~с.
+\bibitem{Gnedenko:2012} Гнеденко~Б.В., Коваленко~И.Н. Введение в теорию массового обслуживания.~-- ЛКИ, 2012.~--- 400~с.
+\bibitem{Saati:1971} Саати~Т. Элементы теории массового обслуживания и ее применение.~-- М.: Советское радио, 1971.~-- 520~с.
+\bibitem{Bocharov:1995} Бочаров~П.П., Печинкин~А.В. Теория массового обслуживания.~-- М.: Издательство РУДН, 1995.~-- 529~с.
+\bibitem{Asmussen:2008} Asmussen~S. Applied probability and queues.~-- Springer Science and Business Media, 2008.~-- V.~51.~-- 438~p.
+\bibitem{Borovkov:1972} Боровков~А.А. Вероятностные процессы в теории массового обслуживания.~-- Рипол Классик, 1972.~-- 368~с.
+\bibitem{Borovkov:1980} Боровков~А.А. Асимптотические методы в теории массового обслуживания.~-- Наука, 1980.~-- 384~с.
 
-\bibitem{Zorine:2013:1} Zorine, A.~V. Study of queues’ sizes in tandem intersections under cyclic control in random environment /  A.~V. Zorine // Modern Probabilistic Methods for Analysis of Telecommunication Networks. Communications in Computer and Information Science.~--- 2013. V.~356.~--- P.~206--215.
-\bibitem{Zorine:2013:2} Zorine, A.~V. On the conditions for the existence of a stationary mode in a tandem of queuing systems with cyclic control in a random environment / A.~V. Zorine // Automatic Control and Computer Sciences.~--- 2013. V.~47.~--- P.~183--191.
-\bibitem{Zorine:2011} Зорин, А.~В. Устойчивость тандема систем обслуживания с бернуллиевским немгновенным перемещением требований / А.~В. Зорин // Теория вероятностей и математическая статистика.~--- 2011.~--- Вып.~84.~--- С.~163--176.
-\bibitem{Fedotkin:1988} Федоткин, М.~А. Оптимальное управление конфликтными потоками и маркированные точечные процессы с выделенной дискретной компонентой. 1 / М.~А. Федоткин // Литовский математический сборник.~--- 1988.~--- Т.~28.~--- \No {} 4.~--- С.~783--784.
-\bibitem{Fedotkin:1989} Федоткин, М.~А. Оптимальное управление конфликтными потоками и маркированные точечные процессы с выделенной дискретной компонентой. 2 / М.~А. Федоткин // Литовский математический сборник.~--- 1989.~--- Т.~29.~--- \No {} 1.~--- С.~148--159.
-\bibitem{Fedotkin:1998} Федоткин, М.~А. Нелокальный способ задания управляемых случайных процессов / М.~А. Федоткин // Математические вопросы кибернетики.~--- М.: Наука.~--- 1998.~--- Вып.~7.~--- С.~333--344.
-\bibitem{Fedotkin:1996} Федоткин, М.~А. Процессы обслуживания и управляющие системы / М.~А. Федоткин // Математические вопросы кибернетики.~--- М.: Наука.~--- 1996.~--- Вып.~6.~--- С. 51--70.
-\bibitem{Fedotkin:2001} Федоткин, М.~А. Управление процессами обслуживания / М.~А. Федоткин // Вестник Нижегородского госуниверситета им. Н.И. Лобачевского “Математическое моделирование и оптимальное управление”.~--- 2001.~--- Вып. 2(24).~--- С.~169--188.
-\bibitem{Kolmogorov:1974} Колмогоров, А.~Н. Основные понятия теории вероятностей / А.~Н. Колмогоров // М.:~Наука.~--- 1974.~--- 120 с.
-\bibitem{Kolmogorov:2006} Колмогоров, А.~Н. Элементы теории функций и функционального анализа / А.~Н. Колмогоров, С.~В. Фомин// М.:~Физматилит.~--- 2006.~--- 572 с.
-\bibitem{Gnedenko} Гнеденко, Б.~В. Курс теории вероятностей / Б.~В. Гнеденко // М.:~Издательство ЛКИ.~--- 2007.~--- 448 с.
-\bibitem{Shiryaev} Ширяев, А.~Н. Вероятность: в 2-х кн. Кн.~1 / А.~Н. Ширяев // М.:~Наука.~--- 2007.~--- 552 с.
-\bibitem{Kemeny} Кемени, Дж. Счетные цепи Маркова / Дж. Кемени, Дж. Снелл, А. Кнепп // М.:~Наука.~--- 1987.~--- 416 с.
+\bibitem{Darroch:1964} Darroch~J.N. On the traffic-light queue // The Annals of Mathematical Statistics, 1964.~-- V.~35~-- \No{}~1.~--- P.~380-388. 
+\bibitem{Neymark:Fedotkin:1967} Неймарк~Ю.И., Федоткин~М.А. О работе автомата, регулирующего уличное движение на перекрестке // Автоматика и телемеханика, 1967.~-- \No{}~3.~-- С.~78—87.  
+
+\bibitem{Neymark:Fedotkin:1968} Неймарк~Ю.И., Преображенская~А.М., Федоткин~М.А. Работа автомата с обратной связью, управляющего уличным движением на перекрестке // Изв. АН СССР, Техническая кибернетика, 1968.~-- \No{}~5.~-- С.~129—141. 
+\bibitem{Fedotkin:1976} Федоткин М.А. О существовании эргодического распределения в системе с переменной структурой обслуживания конфликтных потоков // Теория вероятн. и ее примен, 1976.~-- Т.~21~-- В.~4.~-- С.~792—801.
+\bibitem{Ferguson:1985} Ferguson~М.J., Aminetzah~Y.J. Exact results for nonsymmetric token ring systems // IEEE Transactions on Communications, 1985.~-- V.~33.~-- \No{}~3.~-- P.~223—231.
+\bibitem{Takagi:1985} Takagi~H. Mean message waiting times in symmetric multiqueue systems with cyclic service // Performance Evaluation, 1985.~-- V.~5.~-- \No{}~4~-- P.~271—277.  
+
+\bibitem{Yakushev:1990} Якушев~Ю.Ф. Об оптимальном обслуживании конфликтных потоков //  Теория вероятн. и ее примен, 1990.~-- Т.~35~-- В.~1~-- С.~161–167.
+
+\bibitem{Haight:1963} Haight~F.A. Mathematical Theories of Traffic Flow.~-- New York: Academic, 1963. 
+\bibitem{Drew:1968} Drew~D.R. Traffic Stream Theory and Control.~-- New York: McGraw-Hill~-- 1968.
+\bibitem{Inose:1975} Inose~H., Hamada~T. Road Traffic Control.~-- Tokyo: Univ. of Tokyo Press, 1975.
+
+%\bibitem{Fedotkin:2009} Fedotkin~M.A., Fedotkin~A.M. Analysis and optimization of output processes of conflicting Gnedenko-Kovalenko traffic streams under cyclic control // Automation and Remote Control, 2009.~-- V.~70.~-- \No{}~12.~-- P.~2024-2038.
+\bibitem{Fedotkin:2009} Fedotkin~M.A. Математические модели на автомагистрали и на управляемом по циклическому алгоритму перекрестке // Нижегородский государственный университет им.~Н.И.~Лобачевского, Нижний Новгород, 2009.~-- 30~с.~-- Деп. в ВИНИТИ, \No{}~5-V2009.
+
+\bibitem{Bartlet:1963} Bartlett, M.S., The Spectral Analysis of Point Processes // J. R. Statist. Soc. B, 1963.~-- V.~25.~-- \No{}~2.~-- P.~264–296.
+
+
+\bibitem{Fedotkin:Kudryavcev:Rachinskaya:2010} Fedotkin~M.A. Kudryavtsev~E.V., Rachinskaya~M.A.  About correctness of probabilistic models of traffic flows dynamics on a motorway // Proceedings 36 of International Workshop «Distributed computer and communication networks» (DCCN-2010), Moscow, 2010.~-- P.86-93.
+\bibitem{Rachinskaya:Fedotkin:2011:1} Fedotkin~M.A., Rachinskaya~M.A. Investigation of Traffic Flows Characteristics in Case of the Small Density // Queues: Flows, Systems, Networks. Proceedings of the International Conference «Modern Probabilistic Methods for Analysis and Optimization of Information and Telecommunication Networks». Minsk: BSU-RIVH, 2011.~-- \No{}~21.~-- P.~82-87.
+\bibitem{Rachinskaya:Fedotkin:2011:2} Федоткин~М.А., Рачинская~М.А. Исследование математической модели трафика автомобилей на основе подхода Ляпунова-Яблонского // Материалы XVI Международной конференции «Проблемы теоретической кибернетики», Нижний Новгород: Изд-во Нижегородского госуниверситета, 2011.~-- С.~508-512.
+\bibitem{Fedotkin:Kudryavcev:Rachinskaya:2011} Fedotkin~M.A., Kudryavtcev~E.V., Rachinskaya~M.A. Simulation and Research of Probabilistic Regularities in Motion of Traffic Flows // Proceedings of the International Workshop «Applied Methods of Statistical Analysis. Simulations and
+Statistical Inference» AMSA’2011, Novosibirsk: Publishing house of NSTU, 2011.~-- P.~11-18.
+\bibitem{Rachinskaya:Fedotkin:2012} Рачинская~М.А., Федоткин~М.А. Изучение характеристик потока машин в условиях малой плотности // Нижегородский государственный университет им.~Н.И.~Лобачевского, Нижний Новгород, 2012.~-- 36~с.~-- Деп. в ВИНИТИ 26.01.12, \No{}~27-В2012.
+\bibitem{Rachinskaya:Fedotkin:2013} Fedotkin~M.A., Rachinskaya~M.A. Parameters estimator of the probabilistic model of batches traffic flow with the non-intensive movement // Proceedings of International Workshop «Distributed computer and communication networks» (DCCN-2013), Moscow, 2013~-- P.~357-364.
+\bibitem{Rachinskaya:Fedotkin:2014} Fedotkin~M., Rachinskaya~M. Parameters Estimator of the Probabilistic Model of Moving Batches Traffic Flow // Distributed Computer and Communication Networks. Springer International Publishing, «Communications in Computer and Information Science» series, 2014.~-- V.~279.~-- P.~154-168.
+
+\bibitem{Afanasyeva:Bulinskaya:2013:1} Afanasyeva~L.G., Bulinskaya~E.V. Estimation of transport systems capacity // Springer-Verlag Berlin, Heidelberg, 2013.~-- P.~63–77.
+\bibitem{Afanasyeva:Bulinskaya:2010} Афанасьева~Л.Г., Булинская~Е.В. Математические модели транспортных систем, основанные на теории очередей // Труды Московского физико-технического института (государственного университета), 2010.~-- Т.~2~-- \No{}~4.~-- С.~6–21.
+\bibitem{Afanasyeva:Bulinskaya:2013:2} Afanasyeva~L.G., Bulinskaya~E.V. Asymptotic analysis of traffic lights performance under heavy traffic assumption // Methodology and Computing in Applied Probability, Springer, 2013.~-- V.~15.~-- \No{}~4.~-- P.~935–950.
+
+\bibitem{Balsamo:2003} Balsamo~S., Persone~V.D.N., Inverardi~P. A review on queueing network models with finite capacity queues for software architectures performance prediction // Performance Evaluation 51, 2003.~-- P.~269–288.
+\bibitem{Gnedenko:Konig:1983} Gnedenko~B.W., Konig~D. Handbuch der Bedienungstheorie // Akademie Verlag, Berlin, 1983.
+\bibitem{Perros:1994} Perros~H.G.  Queueing networks with blocking, in: Exact and Approximate Solutions // Oxford University Press, New York.~-- 1994. 
+\bibitem{Perros:1989} Perros~H.G. A bibliography of papers on queueing networks with finite capacity queues // Performance Evaluation 10, 1989.~-- P.~255–260.
+
+
+\bibitem{Gomez:2002:1} Gomez-Corral~A. A tandem queue with blocking and Markovian arrival process // Queueing Systems 41, 2002.~-- P.~343–370. 
+\bibitem{Gomez:2002:2} Gomez-Corral~A. On a tandem G-network with blocking // Advances in Applied Probability 34 (3), 2002.~-- P.~626–661.
+\bibitem{Gomez:2002:3} Gomez-Corral~A. A matrix-geometric approximation for tandem queues with blocking and repeated attempts // Operations Research Letters  30, 2002.~-- P.~360–374.
+
+\bibitem{Klimenok:Dudin:2005} Klimenok~V.I., Breuer~L., Tsarenkov~G.V., Dudin~A.N. The $BMAP/G/1/N \to PH/1/M$ system with losses // Performance Evaluation 61, 2005~-- P.~17–40.
+\bibitem{Klimenok:Dudin:2004} Бройер~Л., Дудин~А.Н., Клименок~В.И., Царенков~Г.В. Двухфазная система $BMAP|G|1|N \to PH|1|M-1-1$ с блокировкой // Автомат. и телемех, 2004~-- \No {}~1.~-- P.~117–130
+\bibitem{Klimenok:2010} Клименок~В.И., Тарамин~О.С. Двухфазная система обслуживания с групповым марковским потоком и повторными вызовами // Автомат. и телемех.~-- 2010~-- \No~1.~-- P.~3–17 
+\bibitem{Klimenok:2011} Клименок~В.И., Тарамин~О.С. Двухфазная система $GI/PH/1 \to /PH/1/0GI/PH/1 \to /PH/1/0$ с потерями // Автомат. и телемех, 2011.~-- \No{}~5.~-- P.~113–126.
+\bibitem{Klimenok:2015} Клименок~В.И., Савко~Р.Ч. Двухфазная система с повторными попытками и нетерпеливостью запросов // Автомат. и телемех., 2015.~-- \No{}~8.~-- P.~78–93. 
+
+
+\bibitem{Zorine:2013:1} Zorine~A.V. Study of queues’ sizes in tandem intersections under cyclic control in random environment // Modern Probabilistic Methods for Analysis of Telecommunication Networks. Communications in Computer and Information Science, 2013.~-- v.~356.~-- P.~206--215.
+\bibitem{Zorine:2013:2} Zorine~A.V. On the conditions for the existence of a stationary mode in a tandem of queuing systems with cyclic control in a random environment // Automatic Control and Computer Sciences, 2013.~-- v.~47.~-- P.~183-191.
+\bibitem{Zorine:2011} Зорин~А.В. Устойчивость тандема систем обслуживания с бернуллиевским немгновенным перемещением требований // Теория вероятностей и математическая статистика.~-- 2011.~-- Вып.~84.~-- С.~163-176.
+\bibitem{Fedotkin:1988} Федоткин~М.А. Оптимальное управление конфликтными потоками и маркированные точечные процессы с выделенной дискретной компонентой. 1 // Литовский математический сборник, 1988.~-- Т.~28.~-- \No{}~4.~-- С.~783-784.
+\bibitem{Fedotkin:1989} Федоткин~М.А. Оптимальное управление конфликтными потоками и маркированные точечные процессы с выделенной дискретной компонентой. 2 // Литовский математический сборник, 1989.~-- Т.~29.~-- \No{}~1.~-- С.~148-159.
+\bibitem{Fedotkin:1998} Федоткин~М.А. Нелокальный способ задания управляемых случайных процессов // Математические вопросы кибернетики.~--- М.: Наука, 1998.~-- Вып.~7.~-- С.~333-344.
+\bibitem{Fedotkin:1996} Федоткин~М.А. Процессы обслуживания и управляющие системы // Математические вопросы кибернетики.~-- М.:~Наука, 1996.~-- Вып.~6.~-- С. 51--70.
+\bibitem{Fedotkin:2001} Федоткин~М.А. Управление процессами обслуживания // Вестник Нижегородского госуниверситета им.~Н.И.~Лобачевского “Математическое моделирование и оптимальное управление”, 2001.~-- Вып.~2(24).~-- С.~169--188.
+\bibitem{Kolmogorov:1974} Колмогоров~А.Н. Основные понятия теории вероятностей.~-- М.:~Наука, 1974.~-- 120~с.
+\bibitem{Kolmogorov:2006} Колмогоров~А.Н., Фомин~С.В. Элементы теории функций и функционального анализа.~-- М.:~Физматилит, 2006.~-- 572~с.
+\bibitem{Gnedenko} Гнеденко~Б.В. Курс теории вероятностей.~-- М.:~Издательство ЛКИ, 2007.~-- 448~с.
+\bibitem{Shiryaev} Ширяев~А.Н. Вероятность: в 2-х кн. Кн.~1.~-- М.:~Наука, 2007.~-- 552~с.
+\bibitem{Kemeny} Кемени~Дж., Снелл~Дж., Кнепп~А. Счетные цепи Маркова.~-- М.:~Наука, 1987.~-- 416~с.
 \end{thebibliography}
-
-
-
 
 \end{document}
 
