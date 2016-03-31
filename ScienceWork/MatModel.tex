@@ -5,12 +5,12 @@
 \usepackage[onehalfspacing]{setspace}
 \RequirePackage{caption}
 \usepackage{graphicx}
-\usepackage{showkeys}
+%\usepackage{showkeys}
 %\newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
 %{\hbox{$\mathsurround=0pt #1$}}{}}
 
-\newcommand{\Mark}{\{(\Gamma_i, \varkappa_i); i \geqslant 0\}}
-\newcommand{\MarkThree}{\{(\Gamma_i, \varkappa_{3,i}); i \geqslant 0\}}
+\newcommand{\Mark}{\{(\Gamma_i, \varkappa_i); \hm{} i \geqslant 0\}}
+\newcommand{\MarkThree}{\{(\Gamma_i, \varkappa_{3,i}); \hm{} i \geqslant 0\}}
 \makeatletter
 \newcommand{\rmnum}[1]{\romannumeral #1}
 \newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
@@ -95,11 +95,10 @@
 
 Рассмотрим систему массового обслуживания следующего вида (Рис.~\ref{SystemScheme}).
 \begin{figure}[h]
-\includegraphics[scale=0.5]{SystemScheme.png} 
+\includegraphics[scale=0.45]{SystemScheme.png} 
 \caption{Структурная схема системы обслуживания}
 \label{SystemScheme}
 \end{figure}
-
 Пусть в систему с одним обслуживающим устройством поступают потоки $\Pi_1$, $\Pi_2$, $\Pi_3$  и $\Pi_4$. Требования по потоку $\Pi_j$ становятся в соответствующую очередь $O_j$ с неограниченной вместимостью, $j\in \{1, 2, 3, 4\}$. Для $j \in \{1, 2, 3\}$ дисциплина очереди $O_j$, поддерживаемая устройством $\delta_j$, имеет тип FIFO (First In First Out). Таким образом, для обслуживания из соответствующей очереди выбирается то требование, которое пришло раньше. Дисциплина очереди $O_4$ будет описана ниже. Входные потоки $\Pi_1$ и $\Pi_3$ формируются внешней средой, которая, будем предполагать, имеет только одно состояние, то есть вероятностная структура потоков не меняется с течением времени. Требования потоков $\Pi_1$ и $\Pi_3$ формируют независимые между собой неординарные пуассоновские потоки, то есть  стационарные, без последействия и ординарные потоки групп требований. Интенсивности соответствующих простейших потоков для $\Pi_1$ и $\Pi_3$ будем обозначать $\lambda_1$ и $\lambda_3$, а распределение числа заявок в группе по потоку $\Pi_j$ будем описывать производящей функцией
 \begin{equation}
 f_j(z) = \sum_{\nu=1}^{\infty} p_{\nu}^{(j)} z ^{\nu}, \quad j\in \{1,3\},
@@ -118,7 +117,7 @@ ${}^3\Gamma=\Gamma^{\mathrm{\Rmnum{3}}} \cup \Gamma^{\mathrm{\Rmnum{4}}}$.
 Смена состояний обслуживающего устройства осуществляется по следующему правилу. Множество состояний $C_k = \{\Gamma^{(k,r)} \colon r=\overline{1,n_k}\}$ будем называть $k$-м циклом, $k=\overline{1,d}$ (Рис. \ref{GraphScheme}). Состояние вида $\Gamma^{(0,r)}$ будем называть состоянием продления, $r=\overline{1,n_0}$. Положим $r \oplus_k 1 = r+1$ для $r=\overline{1,n_k-1}$ и $r \oplus_k 1 = 1$ при $r=n_k$, $k = \overline{0,d}$. В цикле $C_k$ выделим подмножества $C_k^{\mathrm{O}}$ выходных, $C_k^{\mathrm{I}}$ входных и $C_k^{\mathrm{N}} = C_k \setminus (C_k^{\mathrm{O}} \cup C_k^{\mathrm{I}})$ нейтральных состояний. Тогда после состояния $\Gamma^{(k,r)} \hm\in C_k\setminus C_k^{\mathrm{O}}$ обслуживающее устройство переходит в состояние $\Gamma^{(k,r \oplus_k 1)}$ того же цикла $C_k$. При $\Gamma^{(k,r)}$ принадлежащем множеству $C_k^{\mathrm{O}}$ прибор переходит в состояние $\Gamma^{(k,r \oplus_k 1)}$, если число требований в очереди $O_3$ в момент переключения больше заданного порога $L$. В противном случае, то есть если число требований в очереди $O_3$ меньше либо равно $L$, новое состояние прибора будет состоянием продления $\Gamma^{(0,r_1)}$, где $r_1=h_1(\Gamma^{(k,r)})$ и $h_1(\cdot)$~--- заданное отображение множества $\bigcup\limits_{k=1}^d C_k^{\mathrm{O}}$ во множество $\{1,2,\ldots, n_0\}$. После состояния $\Gamma^{(0,r)}$ выбирается состояние того же вида $\Gamma^{(0,r_2)}$, если число требований в очереди $O_3$ меньше или равно $L$, где $r_2=h_2(r)$ и $h_2(\cdot)$~--- заданное отображение множества $\{1,2, \ldots, n_0\}$ на себя; в противном случае включается входное состояние $\Gamma^{(k,r_3)} \in C_k^{\mathrm{I}}$, где $\Gamma^{(k,r_3)}=h_3(r)$ и $h_3(\cdot)$~--- заданное отображение множества $\{1,2, \ldots, n_0\}$ на множество  $\bigcup\limits_{k=1}^d C_k^{\mathrm{I}}$. Считается, что все состояния продления $\Gamma^{(0,r)}$ принадлежат множеству ${}^2 \Gamma$, а также верны соотношения $C_k^\mathrm{O}\subset {}^2 \Gamma$ и $C_k^\mathrm{I}\subset {}^3 \Gamma$. Также будем предполагать, что все циклы имеют ровно одно входное и одно выходное состояние. И последним предположением является то, что все вершины продления образуют один цикл, то есть можем положить $h_2(r)=r\oplus_0 1$.
 
 \begin{figure}[h]\centering
-\includegraphics[scale=0.5]{GraphScheme3.png} 
+\includegraphics[scale=0.5]{GraphScheme3_grayscale.png} 
 \caption{Класс графов переходов. Незакрашенные вершины являются выходными вершинами, красным отмечены входные вершины, черным --- нейтральные, наполовину закрашенным вершинам соответствуют состояния продления}
 \label{GraphScheme}
 \end{figure}
@@ -147,7 +146,7 @@ h_3(r),& \quad \text{ если } k=0 \text{ и } y > L.
 
 В качестве наглядной физической интерпретации можно привести тандем из двух перекрестков (рис. \ref{crossroads}).
 \begin{figure}[h]
-\includegraphics[scale=0.5]{Crossroads.png} 
+\includegraphics[scale=0.5]{Crossroads_grayscale.png} 
 \caption{Пример: тандем перекрестков}
 \label{crossroads}
 \end{figure}
@@ -270,7 +269,8 @@ T_{i+1}=h_T(\Gamma_i,\varkappa_{3,i})= T^{(k,r)},\quad  \text{ где $k$ и $r$
 \label{myTheorem}
 \end{theorem}
 \begin{proof}
-В соответствии с теоремой Ионеску Тулчи (см. \cite{Shiryaev}, c. 348--351) для доказательства достаточно задать на $(\Omega_0, {\cal F}_0)$ вероятностную меру $P_0(\cdot)$ и далее, считая для $0 < i \leqslant n$ и каждого набора элементарных исходов $(\omega_0, \omega_1, \ldots, \omega_{i-1})$ заданной на $(\Omega_i, {\cal F}_i)$ вероятностную меру $P(\omega_0,\omega_1,\ldots, \omega_{i-1};\cdot)$, задать на $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0,\omega_1,\ldots, \omega_{n};\cdot)$, причем для любого множества $B\in {\cal F}_i$ функции $P(\omega_0,\omega_1,\ldots, \omega_{i-1};B)$
+В соответствии с теоремой Ионеску Тулчи (см. \cite{Shiryaev}, c. 348--351) для доказательства достаточно задать на $(\Omega_0, {\cal F}_0)$ вероятностную меру $P_0(\cdot)$ и далее, считая для $0 < i \leqslant n$ и каждого набора элементарных исходов $(\omega_0, \omega_1, \ldots, \omega_{i-1})$ заданной на $(\Omega_i, {\cal F}_i)$ вероятностную меру $P(\omega_0,\omega_1,\ldots, \omega_{i-1};\cdot)$, задать на $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0,\omega_1,\ldots, \omega_{n};\cdot)$, 
+причем для любого множества $B\in {\cal F}_i$ функции $P(\omega_0,\omega_1,\hm\ldots,  \omega_{i-1};B)$
 должны быть измеримыми функциями от $(\omega_0, \omega_1, \ldots, \omega_{i-1})$. Тогда для декартова произведения пространств элементарных исходов $\Omega=\prod\limits_{i=0}^{\infty}\Omega_i$ и произведения $\sigma$-алгебр ${\cal F}=\bigotimes\limits_{i=0}^{\infty} {\cal F}_i$ на $(\Omega,{\cal F})$ будет существовать единственная вероятностная мера $\Pr(\cdot)$ такая, что для любого $i \geqslant 0$ верно равенство
 \begin{equation}
 \Pr\{\omega \colon \omega_0 \in A_0, \omega_1 \in A_1, \ldots, \omega_i\in A_i\} = P_i(A_0 \times A_1 \times \ldots \times A_i),
@@ -299,7 +299,8 @@ P_0(\{(a_1,a_2,a_3)\})=\varphi_1(a_1,h_T(\Gamma^{(k_0,r_0)})) \times \psi(a_2,x_
 \label{startRekTwo}
 \end{equation}
 
-Теперь, предполагая заданными на $(\Omega_i, {\cal F}_i)$ вероятностные меры $P(\omega_0, \omega_1, \ldots, \omega_{i-1};\cdot)$, заданными величины $\Gamma_i$, $\varkappa_{j,i}$, $\xi_{j,i}$, $\eta_{j,i}$, $i=\overline{1,n}$, $j=\overline{1,4}$, и фиксируя набор $(\omega_0, \omega_1, \ldots, \omega_{n})$, определим на измеримом пространстве $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0, \omega_1, \ldots, \omega_n;\cdot)$. Положим для $j\in \{1, 2, 3\}$
+Теперь, предполагая заданными на $(\Omega_i, {\cal F}_i)$ вероятностные меры $P(\omega_0\hm{}, \omega_1\hm{}, \hm\ldots, \omega_{i-1};\cdot)$, 
+заданными величины $\Gamma_i$, $\varkappa_{j,i}$, $\xi_{j,i}$, $\eta_{j,i}$, $i=\overline{1,n}$, $j=\overline{1,4}$, и фиксируя набор $(\omega_0, \omega_1, \hm\ldots, \omega_{n})$, определим на измеримом пространстве $(\Omega_{n+1}, {\cal F}_{n+1})$ меру $P(\omega_0, \omega_1, \hm\ldots, \omega_n;\cdot)$. Положим для $j\in \{1, 2, 3\}$
 \begin{equation}
 \Gamma_{n+1}=\Gamma^{(k^*,r^*)}=h(\Gamma_{n},\varkappa_{3,n}), \quad \varkappa_{j,n+1}=\max\{ 0,\varkappa_{j,n}+\eta_{j,n} -\xi_{j,n}\},
 \label{NextRekOne}
@@ -312,7 +313,7 @@ P_0(\{(a_1,a_2,a_3)\})=\varphi_1(a_1,h_T(\Gamma^{(k_0,r_0)})) \times \psi(a_2,x_
 \eta_{j,n+1}=\omega_{j,n+1}, \quad \eta_{4,n+1}=\min\{\xi_{1,n+1}, \varkappa_{1,n+1}+\eta_{1,n+1}\}, \quad \xi_{4,n+1}=\varkappa_{4,n+1}.
 \label{NextRekThree}
 \end{equation}
-Тогда, по аналогии с построением вероятностной меры $P_0(\cdot)$, зададим меру $P(\omega_0,\omega_1,\ldots,\omega_n;\cdot)$ на одноточечных множествах $\{(a_1,a_2,a_3)\}$, $(a_1,a_2,a_3)\in {\mathbb Z}_+^3$:
+Тогда, по аналогии с построением вероятностной меры $P_0(\cdot)$, зададим меру $P(\omega_0,\hm{}\omega_1,\hm\ldots,\omega_n;\cdot)$ на одноточечных множествах $\{(a_1,a_2,a_3)\}$, $(a_1,a_2,a_3)\hm\in {\mathbb Z}_+^3$:
 \ml
 {
 P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
@@ -348,33 +349,33 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 \end{multline*}
 Тогда для числителя дроби из \eqref{Construction:1} имеем:
 \begin{multline}
-\Pr\left(\{ \omega \colon \eta_i = a, \xi_i=b \} \cap \bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\right)=\\
+\Pr\left(\{ \omega \colon \eta_i = a, \xi_i=b \} \cap \bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\right)=\displaybreak\\
 = \Pr\left(\left\{ \eta_i = a, \xi_i=b \right\} \cap \left\{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\right)=\\
 = \delta_{b_4,x_{4,i}} \times \delta_{a_4,\min\left\{\ell(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\}} \times \prod_{j=1}^3\delta_{b_j,\ell(\tilde{k}_i,\tilde{r}_i,j)}   \times \\
 \times \Pr\left( \left\{ \omega_{j,i} = a_j, j=\overline{1,3}\right\} \cap \left\{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\right).
 \label{Construction:3}
 \end{multline}
-И по аналогии со знаменателем (выражение \eqref{Construction:2}), распишем последнюю вероятность:
+И по аналогии со знаменателем (выражение \eqref{Construction:2}), распишем последнюю вероятность из \eqref{Construction:3}:
 \begin{multline*}
-\Pr\left( \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\right) =\\
-= \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})\times\\
+\Pr\left( \left\{ \omega_{j,i} = a_j,j=\overline{1,3}\right\} \cap \left\{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap \right. \\ \left. \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\right) 
+= \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots \\ \ldots \times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})
 \times  P(\omega_0,\omega_1,\ldots, \omega_{i-1};\{(a_1, a_2, a_3)\})
 \end{multline*}
 и, учитывая выражение \eqref{probabilitiesTwo}, получим
 \begin{multline}
-\Pr\left( \left\{ \omega_{j,i} = a_j, j\in \{1, 2, 3\}\right\} \cap \left\{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\right) =\\
-=\varphi_1(a_1,h_T(\Gamma_i,x_{3,i})) \times \psi(a_2,x_{4,i}, p_{\tilde{k}_i,\tilde{r}_i}) \times \varphi_3(a_3,h_T(\Gamma_i,x_{3,i})) \times \\ 
-\times \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}).
+\Pr\left( \left\{ \omega_{j,i} = a_j, j=\overline{1,3}\right\} \cap \left\{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap \right.  \\ \left. \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\right) 
+=\varphi_1(a_1,h_T(\Gamma_i,x_{3,i})) \times \psi(a_2,x_{4,i}, p_{\tilde{k}_i,\tilde{r}_i}) \times  \\ \times \varphi_3(a_3,h_T(\Gamma_i,x_{3,i}))
+\times \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\\ \ldots \times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}).
 \label{Construction:4}
 \end{multline}
 
-Подставляя  \eqref{Construction:4} в \eqref{Construction:3}, а затем \eqref{Construction:3} и \eqref{Construction:2} в \eqref{Construction:1}, получим:
+Подставляя \eqref{Construction:4} в \eqref{Construction:3}, а затем \eqref{Construction:3} и \eqref{Construction:2} в \eqref{Construction:1}, получим:
 \mll
 {
 \Pr \left(\left\{ \omega \colon \eta_i = a, \xi_i=b\right\}  \left| \bigcap_{t=0}^{i}\left\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\right\}\right.\right)  = \\
 = \delta_{b_4,x_{4,i}} \times \delta_{a_4,\min\left\{\ell(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\}} \times \prod_{j=1}^3\delta_{b_j,\ell(\tilde{k}_i,\tilde{r}_i,j)} \times
 \varphi_1(a_1,h_T(\Gamma_i,x_{3,i})) \times \\ \times \psi(a_2,x_{4,i}, p_{\tilde{k}_i,\tilde{r}_i}) 
-\times  \varphi_3(a_3,h_T(\Gamma_i,x_{3,i})) \times \\ 
+\times  \varphi_3(a_3,h_T(\Gamma_i,x_{3,i})) \times\displaybreak \\ 
 \times \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\}) \Big/ \\
 \Big/ \sum_{\substack{\omega_0, \omega_1,\ldots \omega_{i-1} \colon \\ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t, \forall 0\leqslant t \leqslant i-1}} P_0(\omega_0)\times P(\omega_0;\{\omega_1\})\times\ldots\times P(\omega_0,\omega_1,\ldots, \omega_{i-2};\{\omega_{i-1}\})
 }
@@ -392,7 +393,7 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 \label{eta:xi:forget}
 \end{corollary}
 \begin{proof}
-Действительно, из \eqref{ProbablititiesToProve} cледует, что вероятность, стоящая в левой части равенства \eqref{eta:xi:forgetProperty}, равна величине $\varphi(a,k_i,r_i,x^i)\times \zeta(b,k_i,r_i,x^i)$, зависящей только от значения $(\Gamma^{(k_i,r_i)},x^i)$ пары $(\Gamma_i,\varkappa_i)$ и не зависящей от значений остальных пар $(\Gamma_t,\varkappa_t)_{0\leqslant t \leqslant i-1}$. Таким образом, знание о значениях пар $(\Gamma_t,\varkappa_t)_{0\leqslant t \leqslant i-1}$ не влияет на вероятность $\Pr (\{ \omega \colon \eta_i = a, \xi_i=b\} |\bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})$ и, следовательно, \eqref{eta:xi:forgetProperty} верно.
+Действительно, из \eqref{ProbablititiesToProve} cледует, что вероятность, стоящая в левой части равенства \eqref{eta:xi:forgetProperty}, равна величине $\varphi(a,k_i,r_i,x^i)\times \zeta(b,k_i,r_i,x^i)$, зависящей только от значения $(\Gamma^{(k_i,r_i)},x^i)$ пары $(\Gamma_i,\varkappa_i)$ и не зависящей от значений остальных пар $(\Gamma_t,\varkappa_t)_{0\leqslant t \leqslant i-1}$. Таким образом, знание о значениях пар $(\Gamma_t,\varkappa_t)$, $0\leqslant t \leqslant i-1$, не влияет на вероятность $\Pr (\{ \omega \colon \eta_i = a, \xi_i=b\} |\bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})$ и, следовательно, \eqref{eta:xi:forgetProperty} верно.
 \end{proof}
 
 Введем для $y_0$, $y$, $\tilde{y} \in \mathbb{Z}_+$ и $t \in \mathbb{R}$, $t\geqslant 0$ функции
@@ -419,7 +420,7 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 \begin{multline*}
 \Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) = \\
 = \sum_{a,b\in \mathbb{Z}_+^4} \Pr (\{ \omega \colon \eta_i=a, \xi_i=b\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) \times \\
-\times \Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b\}\cap \cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})
+\times \Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b\}\cap \cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}).
 \end{multline*}
 Поскольку для величин $\varkappa_{2,i+1}$, $\eta_i$ и $\xi_i$ история до момента времени $\tau_i$ значения не имеет (см. \eqref{eta:xi:forgetProperty} и \eqref{queuesFunc}), то
 \begin{multline*}
@@ -434,7 +435,7 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 \times \Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b, \Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\}).
 \end{multline*}
 
-Функциональная зависимость \eqref{queuesFunc} позволяет избавиться от последней вероятности:
+Функциональная зависимость \eqref{queuesFunc} позволяет упростить последнюю вероятность:
 \begin{multline*}
 \Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) =\\
 =\sum_{a,b\in \mathbb{Z}_+^4} \varphi(a,k_i,r_i,x^i)\zeta(b,k_i,r_i,x^i)  \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-b_2\}}.
@@ -446,7 +447,7 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 =  \sum_{a,b\in \mathbb{Z}_+^4} \varphi_1(a_1,h_T(\Gamma^{(k_i,r_i)},x_{3,i})) \times \psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})  \times \varphi_3(a_3,h_T(\Gamma^{(k_i,r_i)},x_{3,i})) \times \\ \times \delta_{a_4,\min{\{\ell(k_{i+1},r_{i+1},1), x_{1,i}+a_1}\}} \times \delta_{b_1,\ell(k_{i+1},r_{i+1},1)} \delta_{b_2,\ell(k_{i+1},r_{i+1},2)} 
 \delta_{b_4,x_{4,i}}. \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-b_2\}} 
 \end{multline*}
-и перегруппируем множители и слагаемые:
+и перегруппируем множители:
 \begin{multline*}
 \Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) =\\
 = \sum_{a_2,b_2\in \mathbb{Z}_+}\psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})  \delta_{b_2,\ell(k_{i+1},r_{i+1},2)}   \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-b_2\}} \times \\ 
@@ -456,11 +457,11 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 \end{multline*}
 Поскольку все кроме первой суммы последовательно сокращаются (равны $1$), то искомая вероятность упрощается следующим образом:
 \begin{multline*}
-\Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) = \\
-=\sum_{a_2,b_2\in \mathbb{Z}_+}\psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})  \delta_{b_2,\ell(k_{i+1},r_{i+1},2)}   \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-b_2\}}=\\
+\Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) =\\
+=\sum_{a_2,b_2\in \mathbb{Z}_+}\psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})  \delta_{b_2,\ell(k_{i+1},r_{i+1},2)}   \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-b_2\}}= \\
 =\sum_{a_2\in \mathbb{Z}_+}\psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})   \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}}
 \end{multline*}
-В случае, когда $x_{2,i+1}$ больше $0$, величина $\delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}}$ отлична от нуля только при $x_{2,i+1}=x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)$, то есть при $a_2=x_{2,i+1}-x_{2,i}+\ell(k_{i+1},r_{i+1},2)$. В случае же, когда $x_{2,i+1}$ равно $0$, величина $\delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}}$ отлична от нуля только при $ a_2\leqslant \ell(k_{i+1},r_{i+1},2)-x_{2,i}$. Таким образом,
+В случае, когда $x_{2,i+1}$ больше $0$, величина $\delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}}$ отлична от нуля только при $x_{2,i+1}=x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)$, то есть при $a_2=x_{2,i+1}-x_{2,i}+\ell(k_{i+1},r_{i+1},2)$. В случае же когда $x_{2,i+1}$ равно $0$, величина $\delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}}$ отлична от нуля только при $ a_2\leqslant \ell(k_{i+1},r_{i+1},2)-x_{2,i}$. Таким образом,
 \begin{multline*}
 \Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) = \\
 = \sum_{a_2\in \mathbb{Z}_+}\psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})   \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}} = \\
@@ -473,25 +474,24 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 \begin{corollary}
 Пусть $\Gamma^{(k_{i+1},r_{i+1})}=h(\Gamma^{(k_i,r_i)},x_{3,i})$, $i=0$, $1$, $\ldots$. Тогда в условиях теоремы~\ref{myTheorem} верно равенство
 \begin{multline}
-\Pr (\{ \omega \colon \varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\
+\Pr (\{ \omega \colon \varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\displaybreak\\
 =\widetilde{\varphi}_3(k_{i+1},r_{i+1},h_T(\Gamma^{(k_i,r_i)},x_{3,i}),x_{3,i},x_{3,i+1}),
 \label{kappa:3:conditional}
 \end{multline}
 \end{corollary}
 \begin{proof}
-Доказательство проводится аналогично доказательству предыдущего следствия. А именно, расписывая по формуле полной вероятности с учетом \eqref{ProbablititiesToProve} и \eqref{eta:xi:forgetProperty}, имеем:
+Распишем по формуле полной вероятности с учетом \eqref{ProbablititiesToProve} и \eqref{eta:xi:forgetProperty}:
 \begin{multline*}
-\Pr (\{ \omega \colon \varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\
-= \sum_{a,b\in \mathbb{Z}_+^4} \varphi(a,k_i,r_i,x^i)\times\zeta(b,k_i,r_i,x^i) \times\\
-\times \Pr (\{ \omega \colon \varkappa_{3,i+1} = x_{3,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b, \Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\})
+\Pr (\{ \omega \colon \varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\sum_{a,b\in \mathbb{Z}_+^4} \varphi(a,k_i,r_i,x^i)\times\\
+ \times \zeta(b,k_i,r_i,x^i) \times \Pr (\{ \omega \colon \varkappa_{3,i+1} = x_{3,i+1}\} |\{\omega\colon \eta_i=a, \xi_i=b, \Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\})
 \end{multline*}
 
-Из \eqref{queuesFunc} опять следует
+Из \eqref{queuesFunc} следует
 \begin{multline*}
 \Pr (\{ \omega \colon \varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\
 = \sum_{a,b\in \mathbb{Z}_+^4} \varphi(a,k_i,r_i,x^i)\zeta(b,k_i,r_i,x^i)  \delta_{x_{3,i+1},\max\{0,x_{3,i}+a_3-b_3\}} 
 \end{multline*}
-и, раскрывая $\varphi(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$, получим
+и, раскрывая по определению $\varphi(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$, получим
 \begin{multline*}
 \Pr (\{ \omega \colon \varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\= \sum_{a_3,b_3\in \mathbb{Z}_+} \varphi_3(a_3,h_T(\Gamma^{(k_i,r_i)},x_{3,i})) \delta_{b_3,\ell(k_{i+1},r_{i+1},3)} \delta_{x_{3,i+1},\max\{0,x_{3,i}+a_3-b_3\}} \times \\
 \times
@@ -500,15 +500,14 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 \sum_{b_2\in \mathbb{Z}_+}  \delta_{b_2,\ell(k_{i+1},r_{i+1},2)} \times \\
 \times  \sum_{b_4\in \mathbb{Z}_+}\delta_{b_4,x_{4,i}} =  \sum_{a_3\in \mathbb{Z}_+} \varphi_3(a_3,h_T(\Gamma^{(k_i,r_i)},x_3))  \delta_{x_{3,i+1},\max\{0,x_{3,i}+a_3-\ell(k_{i+1},r_{i+1},3)\}} 
 \end{multline*}
-В результате,
+И результат леммы получаем после следующих рассуждений:
 \begin{multline*}
 \Pr (\{ \omega \colon \varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\
 =\sum_{a_3\in \mathbb{Z}_+} \varphi_3(a_3,h_T(\Gamma^{(k_i,r_i)},x_{3,i}))  \delta_{x_{3,i+1},\max\{0,x_{3,i}+a_3-\ell(k_{i+1},r_{i+1},3)\}}  = \\
-=(1 - \delta_{x_{3,i+1},0})\varphi_3(x_{3,i+1}-x_{3,i} + \ell(k_{i+1},r_{i+1},3),h_T(\Gamma^{(k_i,r_i)},x_{3,i})) + \\
-+\delta_{x_{3,i+1},0}\sum_{a=0}^{\ell(k_{i+1},r_{i+1},3)-x_{3,i}} \varphi_3(a,h_T(\Gamma^{(k_i,r_i)},x_{3,i})) 
+=(1 - \delta_{x_{3,i+1},0})\varphi_3(x_{3,i+1}-x_{3,i} + \ell(k_{i+1},r_{i+1},3),h_T(\Gamma^{(k_i,r_i)},x_{3,i})) 
++\delta_{x_{3,i+1},0}\times\\\times\sum_{a=0}^{\ell(k_{i+1},r_{i+1},3)-x_{3,i}} \varphi_3(a,h_T(\Gamma^{(k_i,r_i)},x_{3,i})) 
 =\widetilde{\varphi}_3(k_{i+1},r_{i+1},h_T(\Gamma^{(k_i,r_i)},x_{3,i}),x_{3,i},x_{3,i+1}).
 \end{multline*}
-и следствие доказано.
 \end{proof}
 
 \begin{corollary}
@@ -541,14 +540,14 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 \sum_{a_2\in \mathbb{Z}_+} \psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}}) 
 \times  \sum_{a_4\in \mathbb{Z}_+} \delta_{a_4,\min{\{\ell(k_{i+1},r_{i+1},1), x_{1,i}+a_1}\}} \times \\ \times   
 \sum_{b_2\in \mathbb{Z}_+}  \delta_{b_2,\ell(k_{i+1},r_{i+1},2)} \times \sum_{b_4\in \mathbb{Z}_+}\delta_{b_4,x_{4,i}} \end{multline*}
-После сокращения сумм:
+И после сокращения сумм
 \begin{multline*}
 \Pr (\{ \omega \colon \varkappa_{1,i+1} = x_{1,i+1}, \varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) = \\
-=\sum_{a_3\in \mathbb{Z}_+} \varphi_3(a_3,h_T(\Gamma^{(k_i,r_i)},x_3))  \delta_{x_{3,i+1},\max\{0,x_{3,i}+a_3-\ell(k_{i+1},r_{i+1},3)\}}  \times \\
+=\sum_{a_3\in \mathbb{Z}_+} \varphi_3(a_3,h_T(\Gamma^{(k_i,r_i)},x_3))  \delta_{x_{3,i+1},\max\{0,x_{3,i}+a_3-\ell(k_{i+1},r_{i+1},3)\}}  \times \displaybreak \\
 \times \sum_{a_1\in \mathbb{Z}_+} \varphi_1(a_1,h_T(\Gamma^{(k_i,r_i)},x_1))  \delta_{x_{1,i+1},\max\{0,x_{1,i}+a_1-\ell(k_{i+1},r_{i+1},1)\}} =
 \\ =\widetilde{\varphi}_3(k_{i+1},r_{i+1},h_T(\Gamma^{(k_i,r_i)},x_{3,i}),x_{3,i},x_{3,i+1}) \times \widetilde{\varphi}_1(k_{i+1},r_{i+1},h_T(\Gamma^{(k_i,r_i)},x_{3,i}),x_{1,i},x_{1,i+1})
 \end{multline*}
-и следствие доказано.
+следствие доказано.
 \end{proof}
 
 Таким образом, кибернетический подход позволил построить математическую модель управляющей системы обслуживания в виде последовательности случайных величин и случайных элементов, конструктивно заданных на некотором вероятностном пространстве. Выберем для дальнейшего исследования состояния обслуживающего устройства и длины всех очередей.
@@ -565,7 +564,7 @@ A_i(k_i;r_i;x^i) = \{\Gamma_i=\Gamma^{(k_i,r_i)}\varkappa_i=x^i\}, \quad  B_i(a;
 \Pr (B_i(a;b) | \bigcap_{t=0}^{i} A_t(k_t;r_t;x^t)) = \Pr (B_i(a;b) |  A_i(k_i;r_i;x^i)).
 \label{new:notation:eta:xi:forget}
 \end{equation}
-Сформулируем и докажем теорему о марковости последовательности \linebreak$\Mark$.
+Сформулируем и докажем теорему о марковости последовательности $\Mark$.
 \begin{theorem}
 Пусть $\Gamma_0=\Gamma^{(k,r)}\in \Gamma$ и $\varkappa_0=x^0\in \mathbb{Z}_+^4$ фиксированы. Тогда последовательность $\Mark$ является однородной счетной цепью Маркова. 
 \end{theorem}
@@ -578,14 +577,14 @@ A_i(k_i;r_i;x^i) = \{\Gamma_i=\Gamma^{(k_i,r_i)}\varkappa_i=x^i\}, \quad  B_i(a;
 \end{equation}
 для $x_t \in {\mathbb Z}_+$ и $k_t,r_t$ таких, что $\Gamma^{(k_t,r_t)}\in \Gamma$.
 
-Сначала левую часть равенства \eqref{markovToProve}. По формуле полной вероятности, получим
+Рассмотрим сначала левую часть равенства \eqref{markovToProve}. По формуле полной вероятности, получим
 \begin{multline}
 \Pr \left( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right) 
 = \sum_{a,b}\Pr \left( B_i(a;b) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right)\times\\
 \times \Pr \left( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) \left|B_i(a;b) \cap \bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right)
 \label{markovProof}
 \end{multline}
-Из равенства \eqref{new:notation:eta:xi:forget} следует, что вероятность  $\Pr \left( B_i(a;b) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right)$ не зависит от предыстории, то есть от события $\bigcap_{t=0}^{i-1} A_t(k_t;r_t;x^{t})$. 
+Из равенства \eqref{new:notation:eta:xi:forget} следует, что вероятность  $\Pr \left( B_i(a;b) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right)$ не зависит от события $\bigcap_{t=0}^{i-1} A_t(k_t;r_t;x^{t})$. 
 Далее, из соотношений \eqref{gammaFunc}, \eqref{queuesFunc} и \eqref{FourthFunc} можно заметить, что случайный элемент $\Gamma_{i+1}$ и случайный вектор $\varkappa_{i+1}$ функционально выражаются через $\Gamma_i$, $\varkappa_i$, $\eta_i$ и $\xi_i$, поэтому вероятность $\Pr ( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) |B_i(a;b) \cap \bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t}))$ не зависит от предыстории. Таким образом, подставляя выражения
 \begin{equation*}
 \Pr \left( B_i(a;b) \left|\bigcap_{t=0}^{i} A_t(k_t;r_t;x^{t})\right.\right) = \\
@@ -647,7 +646,7 @@ A_i(k_i;r_i;x^i) = \{\Gamma_i=\Gamma^{(k_i,r_i)}\varkappa_i=x^i\}, \quad  B_i(a;
 \end{align*}
 \end{theorem}
 \begin{proof}
-В случае, если $\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3)$, искомая вероятность упростится следующим образом:
+В случае если $\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3)$, искомая вероятность упростится следующим образом:
 \begin{equation*}
 \Pr \left(\left.\Gamma_{i+1}=\Gamma^{(\tilde{k},\tilde{r})},\varkappa_{i+1}=\tilde{x}\right| \Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x\right) 
 =\Pr \left(\left.\varkappa_{i+1}=\tilde{x}\right|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x\right).
@@ -674,7 +673,8 @@ A_i(k_i;r_i;x^i) = \{\Gamma_i=\Gamma^{(k_i,r_i)}\varkappa_i=x^i\}, \quad  B_i(a;
 \delta_{\tilde{x}_2,\max{\{0,x_2+a_2-b_2\}}} \times
 \delta_{\tilde{x}_4,x_4+a_4-a_2}
 \end{multline*}
-Раскроем функции $\varphi(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$ и сгруппируем слагаемые:
+Распишем  функции $\varphi(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$ и перегруппируем множители:
+
 \begin{multline*}
 \Pr (\varkappa_{i+1}=\tilde{x}|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x)= \\
 =\sum_{a_1,b_1 \in \mathbb{Z}_+} \varphi_1(a_1,h_T(\Gamma^{(k,r)},x_3)) \delta_{b_1,\ell(\tilde{k},\tilde{r},1)} \delta_{\tilde{x}_1,\max{\{0,x_1+a_1-b_1\}}} \times \\
@@ -956,7 +956,7 @@ x_{4,N_1} + \min{\{x_{1,N_1}, \ell(0,r_1,1)\}}\right),
 \times
 \varphi_1(0,T^{(0,r_1)})  \psi(0,x_{4,N_1}, p_{0,r_1}) > 0
 \end{multline*}
-и вероятность за один такт перейти из состояния $(\Gamma^{(k_0,n_{k_0})}, x^{N_1})$ в состояние $ (\Gamma^{(0,r_1)}, x^{N_1+1})$ положительна.
+и вероятность за один такт перейти из состояния $(\Gamma^{(k_0,n_{k_0})}, x^{N_1})$ в состояние $ (\Gamma^{(0,r_1)}, \hm{} x^{N_1+1})$ положительна.
 
 Таким образом, вероятность перейти из состояния $(\Gamma^{(k_0,r_0)},x^0)$, $k_0>0$, $x^0 \in \mathbb{Z}_+^4$, в состояние $(\Gamma^{(0,r_1)},x^{N_1+1})$, $r_1=h_1(\Gamma^{(k_0,n_{k_0})},x_{3,N_1}) \in \{1, 2, \ldots, n_0\}$,
 за $(N_1+1)$ шагов положительна. По предыдущей лемме существует такое такое число шагов $N_2$, за которое можно перейти из состояния вида $(\Gamma^{(0,r_1)},x^{N_1+1})$ в состояние $(\Gamma^{(0,\tilde{r})},(0,0,L+1,0))$, $\tilde{r}=\overline{1,n_0}$. Полагая $N=N_1+1+N_2$, получаем утверждение леммы.
@@ -1034,7 +1034,7 @@ $\Gamma^{(\tilde{k},\tilde{r})}=h_3(r_0)$, существует такое на�
 \begin{multline*}
 \Pr(\Gamma_{1}=\Gamma^{(\tilde{k},1)}, \varkappa_{1}=x^1|
 \Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0)=\\
-=\widetilde{\varphi}_3(\tilde{k},1,T^{(\tilde{k},1)},x_{3,0},\max{\{0,x_{3,0} - \ell(\tilde{k},1,3)\}}) \times
+=\widetilde{\varphi}_3(\tilde{k},1,T^{(\tilde{k},1)},x_{3,0},\max{\{0,x_{3,0} - \ell(\tilde{k},1,3)\}}) \times \\ \times
 \sum_{(a_1,a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,T^{(\tilde{k},1)})  \psi(a_2,x_{4,0}, p_{\tilde{k},1}),
 \end{multline*}
 где множество 
@@ -1093,7 +1093,7 @@ x^j = (0,0,\max{\{0,L+1-\sum_{s=1}^{j} \ell(\tilde{k},s,3)\}},0).
 \Pr(\Gamma_{j+1}=\Gamma^{(\tilde{k},j+1)}, \varkappa_{j+1}=x^{j+1}|
 \Gamma_{j}=\Gamma^{(\tilde{k},j)}, \varkappa_{j}=x^j)\geqslant \\
 \geqslant \widetilde{\varphi}_3(\tilde{k},j+1,T^{(\tilde{k},j+1)},x_{3,j},\max{\{0,x_{3,j} - \ell(\tilde{k},j+1,3)\}})
-\times
+\times \\ \times
 \varphi_1(0,T^{(\tilde{k},j+1)})  \psi(0,x_{4,j}, p_{\tilde{k},j+1}) > 0,
 \end{multline*}
 
@@ -1211,17 +1211,17 @@ x_4&=\tilde{x}_4 - \delta_{\tilde{x}_1,0}\ell(0,\tilde{r},1) + \ell(0,r_3,2),
 \begin{equation*}
 x^{N_1+N_2} = (x_4 + \tilde{x}_2 - \sum_{s=1}^{N_2} \ell(0,r_1+s,1),0,x_3,\sum_{s=1}^{N_2} \ell(0,r_1+s,1)).
 \end{equation*}
-И заключительный, третий этап. Здесь доказывается (аналогично предыдущему), что 
+И заключительный, третий этап. В нем доказывается (аналогично предыдущему), что вероятности
 \begin{equation*}
 \Pr(\Gamma_{N_1+N_2+1}=\Gamma^{(0,r_2\oplus 1)}, \varkappa_{N_1+N_2+1}=x^{N_1+N_2+1}|
-\Gamma_{N_1+N_2}=\Gamma^{(0,r_2)}, \varkappa_{N_1+N_2}=x^{N_1+N_2})>0,
+\Gamma_{N_1+N_2}=\Gamma^{(0,r_2)}, \varkappa_{N_1+N_2}=x^{N_1+N_2}),
 \end{equation*}
 и 
-\begin{equation*}
-\Pr(\Gamma_{N_1+N_2+2}=\Gamma^{(0,r_2\oplus 2)}, \varkappa_{N_1+N_2+2}=x^{N_1+N_2+2}|
-\Gamma_{N_1+N_2+1}=\Gamma^{(0,r_3\oplus 1)}, \varkappa_{N_1+N_2+1}=x^{N_1+N_2+1})>0,
-\end{equation*}
-где 
+\begin{multline*}
+\Pr(\Gamma_{N_1+N_2+2}=\Gamma^{(0,r_2\oplus 2)}, \varkappa_{N_1+N_2+2}=x^{N_1+N_2+2}|\\
+\Gamma_{N_1+N_2+1}=\Gamma^{(0,r_3\oplus 1)}, \varkappa_{N_1+N_2+1}=x^{N_1+N_2+1}),
+\end{multline*}
+положительны.  Здесь 
 \begin{equation*}
 x^{N_1+N_2 + 1} = (0,0,x_3,\tilde{x}_2+x_4), \quad x^{N_1+N_2 + 2} = \tilde{x}.
 \end{equation*}
@@ -1231,7 +1231,7 @@ x^{N_1+N_2 + 1} = (0,0,x_3,\tilde{x}_2+x_4), \quad x^{N_1+N_2 + 2} = \tilde{x}.
 \begin{lemma}
 Для любых состояний $(\Gamma^{(0,r_0)},x^0)$, $x^0=(0,0,L+1,0)$, $\Gamma^{(0,r_0)} \in \Gamma$, и
 $(\Gamma^{(0,\tilde{r})},\tilde{x})$,
-где $\tilde{x}$ таково, что $\tilde{x}_1 \geqslant 0$, $\tilde{x}_2\geqslant 0$, $\tilde{x}_3\geqslant \max{\{0,L+1-\max_{k=\overline{1,d}}{\{\sum_{s=1}^{n_{\tilde{k}}} \ell(\tilde{k},s,3)\}}\}}$, $\tilde{x}_4\geqslant 0$ и $(x_1 > 0)\Rightarrow (x_4\geqslant \ell(0,\tilde{r},1))$, существует такое натуральное число $N$, что 
+где $\tilde{x}$ таково, что $\tilde{x}_1 \geqslant 0$, $\tilde{x}_2\geqslant 0$, $\tilde{x}_3\hm\geqslant \max{}\{0,L+1\hm-\max_{k=\overline{1,d}}{\{\sum_{s=1}^{n_{\tilde{k}}} \ell(\tilde{k},s,3)\}}\}$, $\tilde{x}_4\hm\geqslant 0$ и $(x_1 > 0)\hm\Rightarrow (x_4\geqslant \ell(0,\tilde{r},1))$, существует такое натуральное число $N$, что 
 \begin{equation*}
 \Pr(\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}|
 \Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0)>0.
@@ -1370,7 +1370,7 @@ q_{k,r}(v) = v^{-\ell(k,r,3)}\sum_{w=0}^{\infty} \varphi_3(w,T^{(k,r)})v^w.
 \end{multline}
 
 \begin{multline}
-\alpha_i(0,\tilde{r},v) =\tilde{\alpha}_i(0,\tilde{r},v) + q_{0,\tilde{r}}(v) \times \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) \right] v^{x_3}, \quad \Gamma^{(0,\tilde{r})} \in \Gamma.
+\alpha_i(0,\tilde{r},v) =\tilde{\alpha}_i(0,\tilde{r},v) + q_{0,\tilde{r}}(v) \times \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) \right] v^{x_3}, \\ \Gamma^{(0,\tilde{r})} \in \Gamma.
 \end{multline}
 
 \begin{multline}
@@ -1454,8 +1454,8 @@ $$
 \begin{multline*}
 \mathfrak{M}^{(3,i+1)}(\tilde{k},\tilde{r},v)= \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})}) + \\
 + \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3-\ell(\tilde{k},\tilde{r},3)}  [ \sum_{w=\ell(\tilde{k},\tilde{r},3) + 1 -x_3}^{\infty}
-\varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w -\sum_{w=0}^{\infty} 
-\varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w ] +\\
+\varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w -\\-\sum_{w=0}^{\infty} 
+\varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w ] 
 + q_{\tilde{k},\tilde{r}}(v) \sum_{x_3=0}^{\infty} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3}
 \end{multline*}
 и, следовательно,
@@ -1554,13 +1554,13 @@ ${\mathbb H}_{-1}(\tilde{\gamma},x_3) =\emptyset$ для $x_3 > L$. Здесь �
 Найденные рекуррентные соотношения для производящих функций позволяют сформулировать и доказать следующую теорему:
 \begin{theorem}
 Для того, чтобы марковская цепь $\MarkThree$ имела стационарное распределение $Q(\gamma,x)$, $(\gamma,x)\in \Gamma \times {\mathbb Z}_+$ достаточно выполнения неравенства 
-$$
+\begin{equation}
 \min_{k=\overline{1,d}} { \frac{\sum_{r = 1}^{n_k} \ell(k,r,3) }{\lambda_3 f_3'(1) \sum_{r=1}^{n_k} T^{(k,r)} }}>1.
-$$
+\label{necessary:low}
+\end{equation}
 \end{theorem}
 \begin{proof}
-Предположим обратное, а именно, что при $\min_{k=\overline{1,d}} { \frac{\sum_{r = 1}^{n_k} \ell(k,r,3) }{\lambda_3 f_3'(1) \sum_{r=1}^{n_k} T^{(k,r)} }}
->1$ марковская цепь $\MarkThree$ не имеет стационарного распределения. 
+Предположим обратное, а именно, что при выполнении условия \eqref{necessary:low} марковская цепь $\MarkThree$ не имеет стационарного распределения. 
 Тогда для любого состояния $(\gamma,x)\in \Gamma \times {\mathbb Z}_+$ и независимо от начального распределения $\Pr(\Gamma_{0}=\Gamma^{(k,r)}, \varkappa_{3,0}=x)$,
 $(\Gamma^{(k,r)},x)\in \Gamma \times {\mathbb Z}_+$, 
 имеют место предельные равенства 
@@ -1568,7 +1568,7 @@ $(\Gamma^{(k,r)},x)\in \Gamma \times {\mathbb Z}_+$,
 \lim_{i \to \infty} \Pr(\Gamma_{i}=\Gamma^{(k,r)}, \varkappa_{3,i}=x) =0, \quad  (\Gamma^{(k,r)},x)\in \Gamma \times {\mathbb Z}_+.
 \label{zero:limit:equations}
 \end{equation} 
-Для доказательства этого факта достаточно рассмотреть все возможные случаи, предполагая апериодичность рассматриваемой цепи (см. рассуждения \cite[гл. $3$, пар.~3-4]{Shiryaev}):
+Для доказательства этого факта достаточно рассмотреть все возможные случаи, предполагая апериодичность рассматриваемой цепи (см. рассуждения \cite[гл. $3$, \linebreak пар.~3-4]{Shiryaev}):
 \begin{enumerate}
 \item все состояния цепи $\MarkThree$ невозвратные, тогда предельные соотношения выполняются в силу \cite[с. 541, лемма $2$]{Shiryaev};
 \item существует хотя бы одно возвратное состояние, тогда все состояния возвратные (поскольку все состояния сообщающиеся); и пусть все состояния нулевые, тогда предельное соотношение также выполняется \cite[с. 541, лемма $3$]{Shiryaev};
@@ -1606,12 +1606,12 @@ E[\varkappa_{3,i}] = \sum_{x=0}^{\infty} x \Pr(\varkappa_{3,i}=x) = \sum_{x=0}^{
 \item для $\Gamma^{(k, r)} \in C_{k}$,  $k=1$, $2$, $\dots$, $d$,
 $$\mathfrak{M}_+^{(3, i+1)}(k,r,v) = q_{k,r} (v)\times  \mathfrak{M}_+^{(3,i)}(k,r \ominus_{k} 1,v) + M(k,r);$$
 \end{enumerate}
-будут мажорантными соответственно для последовательностей $\left\{\mathfrak{M}^{(3,i)}(k,r,v)\colon i \geqslant 0\right\}$, $\Gamma^{(k,r)} \in \Gamma$, рекуррентного отображения из теоремы~\ref{theorem:gen:rek}.
+будут мажорантными соответственно для последовательностей $\{\mathfrak{M}^{(3,i)}(k,r,v)\colon \hm{} i \geqslant 0\}$, $\Gamma^{(k,r)} \in \Gamma$, рекуррентного отображения из теоремы~\ref{theorem:gen:rek}.
 
 Из приведенного рекуррентного отображения для мажорантной последовательности видно, что компонента $\mathfrak{M}_+^{(3,i+1)}(k,r,v)$ зависит только от величины $\mathfrak{M}_+^{(3,i)}(k,r \ominus_{k} 1,v)$ того же цикла $C_k$, $k=\overline{1,d}$, и не зависит от величин других циклов. И поскольку числа $M(k,r)$, $\Gamma^{(k,r)}\in \Gamma$, конечны и не зависят от $v$ и $i$, для сходимости всего мажорантного отображения $\left\{\mathfrak{M}_+^{(3,i)}(k,r,v)\colon i \geqslant 0\right\}$, $\Gamma^{(k,r)} \in \Gamma$, достаточно сходимости для каждого $k=\overline{1,d}$ подблока $\left\{\mathfrak{M}_+^{(3,i)}(k,r,v)\colon i \geqslant 0\right\}$, $r =\overline{1,n_k}$. 
 
 Пусть $k =\overline{1,d}$ фиксировано. В матричном виде рекуррентное отображение для блока $\left\{\mathfrak{M}_+^{(3,i)}(k,r,v)\colon i \geqslant 0\right\}$, $r =\overline{1,n_k}$, будет иметь вид:
-\begin{equation}
+\begin{multline*}
 \left[ \begin{array}{c}
     \mathfrak{M}_+^{(3,i+1)}(k,1,v) \\
     \mathfrak{M}_+^{(3,i+1)}(k,2,v) \\
@@ -1627,7 +1627,7 @@ $$\mathfrak{M}_+^{(3, i+1)}(k,r,v) = q_{k,r} (v)\times  \mathfrak{M}_+^{(3,i)}(k
     \hdotsfor{5} \\
     0       & 0  & \dots &  q_{k,n_k} & 0 \\
 \end{array}\right]
-\times 
+\times \\ \times
 \left[ \begin{array}{c}
     \mathfrak{M}_+^{(3,i)}(k,1,v) \\
     \mathfrak{M}_+^{(3,i)}(k,2,v) \\
@@ -1643,7 +1643,7 @@ $$\mathfrak{M}_+^{(3, i+1)}(k,r,v) = q_{k,r} (v)\times  \mathfrak{M}_+^{(3,i)}(k
     \hdotsfor{1} \\
     M(k,n_k) \\
 \end{array}\right]
-\end{equation}
+\end{multline*}
 Тогда характеристический многочлен для этого отображения легко подсчитывается и имеет вид 
 $$
 x^{n_k} - \prod_{r=1}^{n_k}q_{k,r} (v),
@@ -1707,7 +1707,7 @@ $$
 \bibitem{Bartlet:1963} Bartlett, M.S., The Spectral Analysis of Point Processes // J. R. Statist. Soc. B, 1963.~-- V.~25.~-- \No{}~2.~-- P.~264–296.
 
 
-\bibitem{Fedotkin:Kudryavcev:Rachinskaya:2010} Fedotkin~M.A. Kudryavtsev~E.V., Rachinskaya~M.A.  About correctness of probabilistic models of traffic flows dynamics on a motorway // Proceedings 36 of International Workshop «Distributed computer and communication networks» (DCCN-2010), Moscow, 2010.~-- P.86-93.
+\bibitem{Fedotkin:Kudryavcev:Rachinskaya:2010} Fedotkin~M.A., Kudryavtsev~E.V., Rachinskaya~M.A.  About correctness of probabilistic models of traffic flows dynamics on a motorway // Proceedings 36 of International Workshop «Distributed computer and communication networks» (DCCN-2010), Moscow, 2010.~-- P.86-93.
 \bibitem{Rachinskaya:Fedotkin:2011:1} Fedotkin~M.A., Rachinskaya~M.A. Investigation of Traffic Flows Characteristics in Case of the Small Density // Queues: Flows, Systems, Networks. Proceedings of the International Conference «Modern Probabilistic Methods for Analysis and Optimization of Information and Telecommunication Networks». Minsk: BSU-RIVH, 2011.~-- \No{}~21.~-- P.~82-87.
 \bibitem{Rachinskaya:Fedotkin:2011:2} Федоткин~М.А., Рачинская~М.А. Исследование математической модели трафика автомобилей на основе подхода Ляпунова~-- Яблонского // Материалы XVI Международной конференции «Проблемы теоретической кибернетики», Нижний Новгород: Изд-во Нижегородского госуниверситета, 2011.~-- С.~508-512.
 \bibitem{Fedotkin:Kudryavcev:Rachinskaya:2011} Fedotkin~M.A., Kudryavtcev~E.V., Rachinskaya~M.A. Simulation and Research of Probabilistic Regularities in Motion of Traffic Flows // Proceedings of the International Workshop «Applied Methods of Statistical Analysis. Simulations and
