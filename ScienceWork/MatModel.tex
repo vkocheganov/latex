@@ -260,6 +260,7 @@ $$%\end{equation*}
 
 Содержательный смысл следующей теоремы состоит в том, что сформулированные выше функциональные связи и вероятностные свойства введенных объектов непротиворечивы и могут быть реализованы на некотором вероятностном пространстве.
 %Построим теперь 	вероятностное пространство $(\Omega, {\cal F}, \Pr(\cdot))$, чтобы можно было рассматривать введеные величины как случайные величины на этом пространстве. А именно, докажем следующую теорему.
+
 \begin{theorem}
 Пусть $\gamma_0=\Gamma^{(k_0,r_0)}\in \Gamma$ и $x^0=(x_{1,0},x_{2,0}, x_{3,0},x_{4,0})\in \mathbb{Z}_+^4$ фиксированы.
 Тогда существует вероятностное пространство $(\Omega, {\cal F}, \Pr(\cdot))$ и заданные на нем случайные величины $\eta_{j,i}=\eta_{j,i}(\omega)$, $\xi_{j,i}=\xi_{j,i}(\omega)$, 	 $\varkappa_{j,i}=\varkappa_{j,i}(\omega)$ и случайные элементы $\Gamma_i=\Gamma_i(\omega)$, $i\geqslant 0$, $j\in \overline{1,4}$, такие, что 1) имеют место равенства $\Gamma_0(\omega) = \gamma_0$ и $\varkappa_0(\omega)=x^0$; 2) выполняются соотношения \eqref{gammaFunc}, \eqref{queuesFunc}, \eqref{FourthFunc}; 3) для любых  $a\in \mathbb{Z}_+^4$, $b\in \mathbb{Z}_+^4$ и любых $x^t=(x_{1,t},x_{2,t},x_{3,t},x_{4,t}) \in \mathbb{Z}_+^4$, $\Gamma^{(k_t,r_t)} \in \Gamma$, $t = 1, 2, \ldots$, таких, что $\Pr\Bigl(\bigcap\limits_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\Bigr)>0$, условное распределение векторов $\eta_i$ и $\xi_i$, $i \geqslant 0$,  имеет вид
@@ -359,19 +360,19 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 \end{multline}
 %Здесь мы положили $A_t(\omega_0,\omega_1,\ldots,\omega_{t-1})=\{\omega_t \colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}$, $t=\overline{0,i}$.
 
-Преобразуем множество $\{ \eta_i = a, \xi_i=b \} \cap \{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\}$, учитывая соотношения \eqref{startRekOne}~--~\eqref{NextRekThree}:
+Преобразуем множество $\{\omega\colon \eta_i = a, \xi_i=b \} \cap \{\omega\colon\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\}$, учитывая соотношения \eqref{startRekOne}~--~\eqref{NextRekThree}:
 \begin{multline*}
-\left\{ \eta_i = a, \xi_i=b \right\} \cap \left\{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} = \left\{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap\\
-\cap \left\{ \eta_{j,i} = a_j, j=\overline{1,3}\right\} \cap \left\{ \xi_{j,i} = b_j, j=\overline{1,3}\right\} \cap \left\{ \xi_{4,i} = b_4 \right\} \cap  \left\{ \eta_{4,i} = a_4 \right\} = \\
-= \left\{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap \left\{ \omega_{j,i} = a_j, j= \overline{1,3}\right\} \cap \left\{ b_j=\ell(\tilde{k}_i,\tilde{r}_i,j), j=\overline{1,3}\right\} \cap \\ 
-\cap \left\{ b_4 = x_{4,i} \right\} \cap  \left\{ a_4=\min\left\{\ell(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\} \right\}. 
+\left\{\omega\colon \eta_i = a, \xi_i=b \right\} \cap \left\{\omega\colon\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} = \left\{\omega\colon\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap\\
+\cap \left\{\omega\colon \eta_{j,i} = a_j, j=\overline{1,3}\right\} \cap \left\{\omega\colon \xi_{j,i} = b_j, j=\overline{1,3}\right\} \cap \left\{ \omega\colon\xi_{4,i} = b_4 \right\} \cap  \left\{\omega\colon \eta_{4,i} = a_4 \right\} = \\
+= \left\{\omega\colon\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap \left\{\omega\colon \omega_{j,i} = a_j, j= \overline{1,3}\right\} \cap \left\{\omega\colon b_j=\ell(\tilde{k}_i,\tilde{r}_i,j), j=\overline{1,3}\right\} \cap \\ 
+\cap \left\{ \omega\colon b_4 = x_{4,i} \right\} \cap  \left\{\omega\colon a_4=\min\left\{\ell(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\} \right\}. 
 \end{multline*}
 Тогда для второго множителя из правой части выражения \eqref{Construction:1} имеем:
 \begin{multline}
 \Pr\biggl(\{ \omega \colon \eta_i = a, \xi_i=b \} \cap \bigcap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\biggr)=\displaybreak[0]\\
-= \Pr\biggl(\left\{ \eta_i = a, \xi_i=b \right\} \cap \left\{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\biggr)=\displaybreak[0]\\
+= \Pr\biggl(\left\{\omega\colon \eta_i = a, \xi_i=b \right\} \cap \left\{\omega\colon\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\biggr)=\displaybreak[0]\\
 = \delta_{b_4,x_{4,i}} \times \delta_{a_4,\min\left\{\ell(\tilde{k}_i,\tilde{r}_i,1), x_{1,i}+a_1\right\}} \times \prod_{j=1}^3\delta_{b_j,\ell(\tilde{k}_i,\tilde{r}_i,j)}   \times \displaybreak[0]\\
-\times \Pr\biggl( \left\{ \omega_{j,i} = a_j, j=\overline{1,3}\right\} \cap \left\{\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\} \cap \bigcap_{t=0}^{i-1}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\biggr).
+\times \Pr\biggl( \left\{ \omega\colon \omega_{j,i} = a_j, j=\overline{1,3}\right\} \cap \left\{\omega\colon\Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_i=x^i\right\}  \mathop{\cap}_{t=0}^{i-1}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}\biggr).
 \label{Construction:3}
 \end{multline}
 И по аналогии со вторым множителем в выражении \eqref{Construction:2} преобразуем последний сомножитель правой части равенства \eqref{Construction:3}:
@@ -466,7 +467,7 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 =\sum_{a,b\in \mathbb{Z}_+^4} \varphi(a,k_i,r_i,x^i)\zeta(b,k_i,r_i,x^i)  \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-b_2\}}.
 \end{multline*}
 
-Учтем явное выражение для функций $\varphi(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$ из определений \eqref{conditionProbOne} и \eqref{conditionProbTwo}:
+Учтем явное выражение функций $\varphi(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$ из определений \eqref{conditionProbOne} и \eqref{conditionProbTwo}:
 \begin{multline*}
 \Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\mathop{\cap}\limits_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) =\\
 =  \sum_{a,b\in \mathbb{Z}_+^4} \varphi_1(a_1,h_T(\Gamma^{(k_i,r_i)},x_{3,i})) \times \psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})  \times \varphi_3(a_3,h_T(\Gamma^{(k_i,r_i)},x_{3,i})) \times \\ \times \delta_{a_4,\min{\{\ell(k_{i+1},r_{i+1},1), x_{1,i}+a_1}\}} \times \delta_{b_1,\ell(k_{i+1},r_{i+1},1)} \delta_{b_2,\ell(k_{i+1},r_{i+1},2)} 
@@ -489,8 +490,8 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 В случае, когда $x_{2,i+1}$ больше $0$, величина $\delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}}$ отлична от нуля только при $x_{2,i+1}=x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)$, то есть при $a_2=x_{2,i+1}-x_{2,i}\hm+\ell(k_{i+1},r_{i+1},2)$. В случае, когда $x_{2,i+1}$ равно $0$, величина $\delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}}$ отлична от нуля только при $ a_2\leqslant \ell(k_{i+1},r_{i+1},2)-x_{2,i}$. Таким образом,
 \begin{multline*}
 \Pr (\{ \omega \colon \varkappa_{2,i+1} = x_{2,i+1}\} |\mathop{\cap}\limits_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) = \\
-= \sum_{a_2\in \mathbb{Z}_+}\psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})   \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}} = \\
-=(1 - \delta_{x_{2,i+1},0})\psi(x_{2,i+1}-x_{2,i}+\ell(k_{i+1},r_{i+1},2),x_{4,i}, p_{k_{i+1},r_{i+1}})  + \\
+= \sum_{a_2\in \mathbb{Z}_+}\psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}})   \delta_{x_{2,i+1},\max\{0,x_{2,i}+a_2-\ell(k_{i+1},r_{i+1},2)\}} = \displaybreak[0]\\
+=(1 - \delta_{x_{2,i+1},0})\psi(x_{2,i+1}-x_{2,i}+\ell(k_{i+1},r_{i+1},2),x_{4,i}, p_{k_{i+1},r_{i+1}})  +\displaybreak[0] \\
 + \delta_{x_{2,i+1},0}\sum_{a=0}^{\ell(k_{i+1},r_{i+1},2)-x_{2,i}} \psi(a,x_{4,i}, p_{k_{i+1},r_{i+1}})= \widetilde{\psi}(k_{i+1},r_{i+1},x_{4,i},x_{2,i},x_{2,i+1})
 \end{multline*}
 и равенство \eqref{kappa:2:conditional} доказано.
@@ -559,11 +560,11 @@ P(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 \end{multline*}
 и, раскрывая $\varphi(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$, получим
 \begin{multline*}
-\Pr (\{ \omega \colon \varkappa_{1,i+1} = x_{1,i+1}, \varkappa_{3,i+1} = x_{3,i+1}\} |\mathop{\cap}\limits_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\= \sum_{a_3,b_3\in \mathbb{Z}_+} \varphi_3(a_3,h_T(\Gamma^{(k_i,r_i)},x_{3,i})) \delta_{b_3,\ell(k_{i+1},r_{i+1},3)} \delta_{x_{3,i+1},\max\{0,x_{3,i}+a_3-b_3\}} \times \\
-\times \sum_{a_1,b_1\in \mathbb{Z}_+}  \varphi_1(a_1,h_T(\Gamma^{(k_i,r_i)},x_{3,i}))  \delta_{b_1,\ell(k_{i+1},r_{i+1},1)}  \delta_{x_{1,i+1},\max\{0,x_{1,i}+a_1-b_1\}}   \times\\
+\Pr (\{ \omega \colon \varkappa_{1,i+1} = x_{1,i+1}, \varkappa_{3,i+1} = x_{3,i+1}\} |\mathop{\cap}\limits_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\= \sum_{a_3,b_3\in \mathbb{Z}_+} \varphi_3(a_3,h_T(\Gamma^{(k_i,r_i)},x_{3,i})) \delta_{b_3,\ell(k_{i+1},r_{i+1},3)} \delta_{x_{3,i+1},\max\{0,x_{3,i}+a_3-b_3\}} \times \displaybreak[0]  \\
+\times \sum_{a_1,b_1\in \mathbb{Z}_+}  \varphi_1(a_1,h_T(\Gamma^{(k_i,r_i)},x_{3,i}))  \delta_{b_1,\ell(k_{i+1},r_{i+1},1)}  \delta_{x_{1,i+1},\max\{0,x_{1,i}+a_1-b_1\}}   \times\displaybreak[0]\\
 \times
 \sum_{a_2\in \mathbb{Z}_+} \psi(a_2,x_{4,i}, p_{k_{i+1},r_{i+1}}) 
-\times  \sum_{a_4\in \mathbb{Z}_+} \delta_{a_4,\min{\{\ell(k_{i+1},r_{i+1},1), x_{1,i}+a_1}\}} \times \\ \times   
+\times  \sum_{a_4\in \mathbb{Z}_+} \delta_{a_4,\min{\{\ell(k_{i+1},r_{i+1},1), x_{1,i}+a_1}\}} \times\displaybreak[0] \\ \times   
 \sum_{b_2\in \mathbb{Z}_+}  \delta_{b_2,\ell(k_{i+1},r_{i+1},2)} \times \sum_{b_4\in \mathbb{Z}_+}\delta_{b_4,x_{4,i}}\,.
 \end{multline*}
 И после упращения сумм в предыдущем выражении, получим
@@ -645,12 +646,12 @@ $$\Pr \biggl( A_{i+1}(k_{i+1};r_{i+1};x^{i+1}) \biggl|B_i(a;b) \cap \bigcap_{t=0
 \begin{proof}
 Действительно, поскольку $\Gamma_{i+1}$ функционально выражается через $\Gamma_i$ и $\varkappa_{3,i}$ (см. условие \eqref{gammaFunc}), то
 \begin{multline*}
-\Pr (\{ \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\
-=\delta_{\Gamma^{(k_{i+1},r_{i+1})},h(\Gamma^{(k_i,r_i)},x_{3,i})}\times \Pr (\{  \varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})
+\Pr (\{ \omega\colon \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon  \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\
+=\delta_{\Gamma^{(k_{i+1},r_{i+1})},h(\Gamma^{(k_i,r_i)},x_{3,i})}\times \Pr (\{ \omega\colon  \varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon  \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})
 \end{multline*}
 для $\Gamma^{(k_i,r_i)}\in \Gamma$, $x_{3,i}\in {\mathbb Z}_+$, $i\geqslant 0$. Учитывая равенство \eqref{kappa:3:conditional}, убеждаемся, что вероятность 
 $$
-\Pr (\{ \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) 
+\Pr (\{\omega\colon  \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) 
 $$ 
 равна
 $$
@@ -658,9 +659,9 @@ $$
 $$
 и зависит только от значений пар $(\Gamma_i,\varkappa_{3,i})$ и $(\Gamma_{i+1},\varkappa_{3,i+1})$. Следовательно, 
 \begin{multline*}
-\Pr (\{ \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\
-=\Pr (\{  \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{3,i+1} = x_{3,i+1}\} |\{ \Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_{3,i}=x_{3,i}\}) = \\
-=\Pr (\{ \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_{3,t}=x_{3,t}\}),
+\Pr (\{ \omega\colon \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\
+=\Pr (\{\omega\colon   \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{3,i+1} = x_{3,i+1}\} |\{\omega\colon  \Gamma_i=\Gamma^{(k_i,r_i)}, \varkappa_{3,i}=x_{3,i}\}) = \\
+=\Pr (\{\omega\colon \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{ \omega\colon \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_{3,t}=x_{3,t}\}),
 \end{multline*}
 что доказывает марковость последовательности $\MarkThree$.
 \end{proof}
@@ -697,23 +698,22 @@ $$
 \end{multline*}
 Учтем формулы \eqref{ProbablititiesToProve} и \eqref{eta:xi:forgetProperty}:
 \begin{multline*}
-\Pr (\varkappa_{i+1}=\tilde{x}|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x)= \\
+\Pr (\{\omega\colon \varkappa_{i+1}=\tilde{x}\}|\{\omega\colon\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x\})
 =\sum_{a,b \in \mathbb{Z}_+^4} \varphi(a,k,r,x) \zeta(b,k,r,x)
-\times
-\Pr (\varkappa_{i+1}=\tilde{x}|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x, \eta_i=a; \xi_i=b).
+\times \\ \times
+\Pr (\{\omega\colon\varkappa_{i+1}=\tilde{x}\}|\{\omega\colon\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x, \eta_i=a; \xi_i=b\}).
 \end{multline*}
 Из условий \eqref{queuesFunc} и \eqref{FourthFunc} следует
 \begin{multline*}
-\Pr (\varkappa_{i+1}=\tilde{x}|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x)=\sum_{a,b \in \mathbb{Z}_+^4} \varphi(a,k,r,x) \zeta(b,k,r,x)
+\Pr (\{\omega\colon\varkappa_{i+1}=\tilde{x}\}|\{\omega\colon\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x\})=\sum_{a,b \in \mathbb{Z}_+^4} \varphi(a,k,r,x) \zeta(b,k,r,x)
 \times \delta_{\tilde{x}_1,\max{\{0,x_1+a_1-b_1\}}} \times \\
 \times \delta_{\tilde{x}_3,\max{\{0,x_3+a_3-b_3\}}} \times
 \delta_{\tilde{x}_2,\max{\{0,x_2+a_2-b_2\}}} \times
 \delta_{\tilde{x}_4,x_4+a_4-a_2}
 \end{multline*}
 Раскроем  функции $\varphi(\cdot, \cdot, \cdot, \cdot)$ и $\zeta(\cdot, \cdot, \cdot, \cdot)$ и перегруппируем множители:
-
 \begin{multline*}
-\Pr (\varkappa_{i+1}=\tilde{x}|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x)= \\
+\Pr (\{\omega\colon\varkappa_{i+1}=\tilde{x}|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x\})= \\
 =\sum_{a_1,b_1 \in \mathbb{Z}_+} \varphi_1(a_1,h_T(\Gamma^{(k,r)},x_3)) \delta_{b_1,\ell(\tilde{k},\tilde{r},1)} \delta_{\tilde{x}_1,\max{\{0,x_1+a_1-b_1\}}} \times \\
 \times \sum_{a_3,b_3 \in \mathbb{Z}_+}  \varphi_3(a_3,h_T(\Gamma^{(k,r)},x_3)) \delta_{b_3,\ell(\tilde{k},\tilde{r},3)}  \delta_{\tilde{x}_3,\max{\{0,x_3+a_3-b_3\}}} \times \\
 \times \sum_{a_2,b_2 \in \mathbb{Z}_+}  \psi(a_2,x_4, p_{\tilde{k},\tilde{r}})   \delta_{b_2,\ell(\tilde{k},\tilde{r},2)}   \delta_{\tilde{x}_2,\max{\{0,x_2+a_2-b_2\}}} \times \\
@@ -721,8 +721,9 @@ $$
 \end{multline*}
 Поскольку произведение $\delta_{\tilde{x}_4,x_4+a_4-a_2}\times \delta_{a_4,\min{\{\ell(\tilde{k},\tilde{r},1), x_1+a_1}\}}$ отлично от нуля, если и только если $a_2 = \min{\{\ell(\tilde{k},\tilde{r},1), x_1+a_1}\} +x_4-\tilde{x}_4$, то
 \begin{multline*}
-\Pr (\varkappa_{i+1}=\tilde{x}|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x)=\sum_{a_3\in \mathbb{Z}_+}  \varphi_3(a_3,h_T(\Gamma^{(k,r)},x_3))  \delta_{\tilde{x}_3,\max{\{0,x_3+a_3-\ell(\tilde{k},\tilde{r},3)\}}} \times \\
-\times\sum_{a_1 \in \mathbb{Z}_+} \varphi_1(a_1,h_T(\Gamma^{(k,r)},x_3))  \psi(a_2,x_4, p_{\tilde{k},\tilde{r}}) \times  \delta_{\tilde{x}_1,\max{\{0,x_1+a_1-\ell(\tilde{k},\tilde{r},1)\}}}  \delta_{\tilde{x}_2,\max{\{0,x_2+a_2-\ell(\tilde{k},\tilde{r},2)\}}},
+\Pr (\{\omega\colon\varkappa_{i+1}=\tilde{x}\}|\{\omega\colon\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x\})=\\=\sum_{a_3\in \mathbb{Z}_+}  \varphi_3(a_3,h_T(\Gamma^{(k,r)},x_3))  \delta_{\tilde{x}_3,\max{\{0,x_3+a_3-\ell(\tilde{k},\tilde{r},3)\}}} 
+\times\sum_{a_1 \in \mathbb{Z}_+} \varphi_1(a_1,h_T(\Gamma^{(k,r)},x_3))  \times \\ \times \psi(a_2,x_4, p_{\tilde{k},\tilde{r}}) 
+\times \delta_{\tilde{x}_1,\max{\{0,x_1+a_1-\ell(\tilde{k},\tilde{r},1)\}}}  \delta_{\tilde{x}_2,\max{\{0,x_2+a_2-\ell(\tilde{k},\tilde{r},2)\}}},
 \end{multline*}
 Из определений \eqref{tildephi} видно, что
 \begin{equation*}
@@ -730,20 +731,20 @@ $$
 \end{equation*}
 значит,
 \begin{multline*}
-\Pr (\varkappa_{i+1}=\tilde{x}|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x)
+\Pr (\{\omega\colon\varkappa_{i+1}=\tilde{x}\}|\{\omega\colon\Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x\})
 =\tilde{\varphi}_3(\tilde{k},\tilde{r},h_T(\Gamma^{(k,r)},x_3),\tilde{x}_3) \times\\
-\times \sum_{a_1 \in \mathbb{Z}_+} \varphi_1(a_1,h_T(\Gamma^{(k,r)},x_3))  \psi(a_2,x_4, p_{\tilde{k},\tilde{r}}) \times \delta_{\tilde{x}_1,\max{\{0,x_1+a_1-\ell(\tilde{k},\tilde{r},1)\}}}  \delta_{\tilde{x}_2,\max{\{0,x_2+a_2-\ell(\tilde{k},\tilde{r},2)\}}},
+\times \sum_{a_1 \in \mathbb{Z}_+} \varphi_1(a_1,h_T(\Gamma^{(k,r)},x_3))  \psi(a_2,x_4, p_{\tilde{k},\tilde{r}}) \times \delta_{\tilde{x}_1,\max{\{0,x_1+a_1-\ell(\tilde{k},\tilde{r},1)\}}}  \delta_{\tilde{x}_2,\max{\{0,x_2+a_2-\ell(\tilde{k},\tilde{r},2)\}}}.
 \end{multline*}
 что есть в точности \eqref{transitionToProve}.
 \end{proof}
 
 \begin{theorem}
 Пусть $x_3$, $\tilde{x}_3\in \mathbb{Z}_+$ и $\Gamma^{(k,r)}\in \Gamma$, $\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3) \in \Gamma$. Тогда переходные вероятности однородной счетной марковской цепи $\MarkThree$ вычисляются по следующей формуле:
-\begin{equation}
-\Pr (\Gamma_{i+1}=\Gamma^{(\tilde{k},\tilde{r})},\varkappa_{3,i+1}=\tilde{x}|\Gamma_{i}=\Gamma^{(k,r)},\varkappa_{3,i}=x) 
-= \widetilde{\varphi}_3(\tilde{k},\tilde{r},h_T(\Gamma^{(k,r)},x_3),x_3,\tilde{x}_3),
+\begin{multline}
+\Pr (\{\omega\colon\Gamma_{i+1}=\Gamma^{(\tilde{k},\tilde{r})},\varkappa_{3,i+1}=\tilde{x}\}|\{\omega\colon\Gamma_{i}=\Gamma^{(k,r)},\varkappa_{3,i}=x\}) 
+= \\ =\widetilde{\varphi}_3(\tilde{k},\tilde{r},h_T(\Gamma^{(k,r)},x_3),x_3,\tilde{x}_3),
 \label{transitionToProve:three}
-\end{equation}
+\end{multline}
 \end{theorem}
 \begin{proof}
 Доказательство следует из равенства \eqref{kappa:3:conditional}.
@@ -763,8 +764,8 @@ $$
 \begin{lemma}\label{class:1}
 Для любых состояний $(\Gamma^{(0,r_0)},x^0)$, $r_0=\overline{1,n_0}$, $x^0 \in \mathbb{Z}_+^4$, $x_{3,0} \leqslant L$, и $(\Gamma^{(0,\tilde{r})},(0,0,\tilde{x}_3,0))$, $\tilde{r} = \overline{1,n_0}$, $\tilde{x}_3\geqslant x_{3,0}$, существует такое натуральное число $N$, что 
 \begin{equation*}
-\Pr(\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=(0,0,\tilde{x}_3,0)|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0)>0.
+\Pr(\{\omega\colon\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=(0,0,\tilde{x}_3,0)\}|
+\{\omega\colon\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\})>0.
 \end{equation*}
 \end{lemma}
 \begin{proof}
@@ -780,7 +781,7 @@ x^1 =(x_{1,1},x_{2,1},x_{3,1},x_{4,1}) =\left(\max{\{0, x_{1,0} - \ell(0,r_0\opl
 \end{multline*}
 Тогда, учитывая формулу \eqref{transitionToProve}, имеем
 \begin{multline*}
-\Pr (\Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_{1}=x^1 | \Gamma_{0}=\Gamma^{(0,r_0)},\varkappa_0=x^0)=\widetilde{\varphi}_3(0,r_0\oplus_{0}1,T^{(0,r_0\oplus_{0}1)},x_{3,0},x_{3,0})\times \\
+\Pr (\{\omega\colon\Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_{1}=x^1 \}|\{\omega\colon \Gamma_{0}=\Gamma^{(0,r_0)},\varkappa_0=x^0)=\\=\widetilde{\varphi}_3(0,r_0\oplus_{0}1,T^{(0,r_0\oplus_{0}1)},x_{3,0},x_{3,0}\})
 \times
 \sum_{(a_1,a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,T^{(0,r_0\oplus_{0}1)})  \psi(a_2,x_{4,0}, p_{0,r_0\oplus_{0}1}),
 \end{multline*}
@@ -798,7 +799,7 @@ x^1 =(x_{1,1},x_{2,1},x_{3,1},x_{4,1}) =\left(\max{\{0, x_{1,0} - \ell(0,r_0\opl
 \end{multline*}
 Значит,
 \begin{multline*}
-\Pr (\Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_{1}=x^1 | \Gamma_{0}=\Gamma^{(0,r_0)},\varkappa_0=x^0)\geqslant \\
+\Pr (\{\omega\colon\Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_{1}=x^1 \}|\{\omega\colon \Gamma_{0}=\Gamma^{(0,r_0)},\varkappa_0=x^0\})\geqslant \\
 \geqslant \widetilde{\varphi}_3(0,r_0\oplus_{0}1,T^{(0,r_0\oplus_{0}1)},x_{3,0},x_{3,0})
 \times
 \varphi_1(0,T^{(0,r_0\oplus_{0}1)})  \psi(x_{4,0},x_{4,0}, p_{0,r_0\oplus_{0}1}) > 0.
@@ -807,7 +808,7 @@ x^1 =(x_{1,1},x_{2,1},x_{3,1},x_{4,1}) =\left(\max{\{0, x_{1,0} - \ell(0,r_0\opl
 
 Поскольку никаких ограничений на вектор $x^0 \in \mathbb{Z}_+^4$, кроме $x_{3,0}\leqslant L$, наложено не было, то аналогично получаем
 \begin{equation*}
-\Pr (\Gamma_{2}=\Gamma^{(0,r_0\oplus_{0}2)},\varkappa_{2}=x^2 | \Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_1=x^1) > 0,
+\Pr (\{\omega\colon\Gamma_{2}=\Gamma^{(0,r_0\oplus_{0}2)},\varkappa_{2}=x^2 \} |\{\omega\colon \Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_1=x^1\}) > 0,
 \end{equation*}
 для 
 \begin{multline*}
@@ -816,7 +817,7 @@ x^2  =\left(\max{\{0, x_{1,1} - \ell(0,r_0\oplus_{0}2,1)\}}; \right. \\
 \end{multline*}
 и вообще 
 \begin{equation*}
-\Pr (\Gamma_{j+1}=\Gamma^{(0,r_0\oplus_{0}j+1)},\varkappa_{j+1}=x^{j+1} | \Gamma_{j}=\Gamma^{(0,r_0\oplus_{0}j)},\varkappa_j=x^j) > 0,
+\Pr (\{\omega\colon\Gamma_{j+1}=\Gamma^{(0,r_0\oplus_{0}j+1)},\varkappa_{j+1}=x^{j+1} \} |\{\omega\colon \Gamma_{j}=\Gamma^{(0,r_0\oplus_{0}j)},\varkappa_j=x^j\}) > 0,
 \end{equation*}
 для 
 \begin{multline*}
@@ -827,21 +828,21 @@ x^{j+1}  =\left(\max{\{0, x_{1,j} - \ell(0,r_0\oplus_{0}j+1,1)\}}; \right. \\
 
 Так как для каждой очереди $O_s$, $s=1,2,4$, найдется состояние продления, в котором она обслуживается, т.е. $\ell(0,r_0\oplus_{0}j,s)>0$, то для некоторого $N_1>0$ количество требований $x^{N_1}$ в очередях $O_1$, $O_2$ и $O_4$ станет равным нулю, т.е. 
 \begin{equation*}
-\Pr (\Gamma_{N_1}=\Gamma^{(0,r_0\oplus_{0}N_1)},\varkappa_{N_1}=x^{N_1} | \Gamma_{N_1-1}=\Gamma^{(0,r_0\oplus_{0}(N_1-1))},\varkappa_{N_1-1}=x^{N_1-1}) > 0,
+\Pr (\{\omega\colon\Gamma_{N_1}=\Gamma^{(0,r_0\oplus_{0}N_1)},\varkappa_{N_1}=x^{N_1} \}| \{\omega\colon\Gamma_{N_1-1}=\Gamma^{(0,r_0\oplus_{0}(N_1-1))},\varkappa_{N_1-1}=x^{N_1-1}\}) > 0,
 \end{equation*}
 для $x^{N_1}  =\left(0;0; x_{3,0};0\right)$. Поскольку все состояния продления образуют цикл, то существует такое число $N_2>N_1$, что $r_0 \oplus_0  N_2 = \tilde{r} \ominus_0 1$ и 
 \begin{equation*}
-\Pr (\Gamma_{N_2}=\Gamma^{(0,r_0\oplus_{0}N_2)},\varkappa_{N_2}=x^{N_2} | \Gamma_{N_2-1}=\Gamma^{(0,r_0\oplus_{0}(N_2-1))},\varkappa_{N_2-1}=x^{N_2-1}) > 0,
+\Pr (\{\omega\colon\Gamma_{N_2}=\Gamma^{(0,r_0\oplus_{0}N_2)},\varkappa_{N_2}=x^{N_2} \}| \{\omega\colon\Gamma_{N_2-1}=\Gamma^{(0,r_0\oplus_{0}(N_2-1))},\varkappa_{N_2-1}=x^{N_2-1}\}) > 0,
 \end{equation*}
 где $x^{N_2} = (0,0,x_{3,0},0)$.
 Для завершения доказательства теперь необходимо оценить вероятность 
 \begin{equation*}
-\Pr (\Gamma_{N_2+1}=\Gamma^{(0,\tilde{r})},\varkappa_{N_2+1}= x^{N_2+1} | \Gamma_{N_2}=\Gamma^{(0,r_0\oplus_{0}N_2)},\varkappa_{N_2}=x^{N_2}),
+\Pr (\{\omega\colon\Gamma_{N_2+1}=\Gamma^{(0,\tilde{r})},\varkappa_{N_2+1}= x^{N_2+1} \}| \{\omega\colon\Gamma_{N_2}=\Gamma^{(0,r_0\oplus_{0}N_2)},\varkappa_{N_2}=x^{N_2}\}),
 \end{equation*}
 где $x^{N_2+1} = (0,0,\tilde{x}_3,0)$.
 Опять учитывая формулу \eqref{transitionToProve}, имеем
 \begin{multline*}
-\Pr (\Gamma_{N_2+1}=\Gamma^{(0,\tilde{r})},\varkappa_{N_2+1}=x^{N_2+1} | \Gamma_{N_2}=\Gamma^{(0,r_0\oplus_{0}N_2)},\varkappa_{N_2}=x^{N_2})=\\
+\Pr (\{\omega\colon\Gamma_{N_2+1}=\Gamma^{(0,\tilde{r})},\varkappa_{N_2+1}=x^{N_2+1} \}| \{\omega\colon\Gamma_{N_2}=\Gamma^{(0,r_0\oplus_{0}N_2)},\varkappa_{N_2}=x^{N_2}\})=\\
 =\widetilde{\varphi}_3(0,\tilde{r},T^{(0,\tilde{r})},x_{3,0},\tilde{x}_3)
 \times
 \sum_{(a_1,a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,T^{(0,\tilde{r})})  \psi(a_2,0, p_{0,\tilde{r}}),
@@ -859,7 +860,7 @@ x^{j+1}  =\left(\max{\{0, x_{1,j} - \ell(0,r_0\oplus_{0}j+1,1)\}}; \right. \\
 \end{equation*}
 Следовательно, 
 \begin{multline*}
-\Pr (\Gamma_{N_2+1}=\Gamma^{(0,\tilde{r})},\varkappa_{N_2+1}=x^{N_2+1} | \Gamma_{N_2}=\Gamma^{(0,r_0\oplus_{0}N_2)},\varkappa_{N_2}=x^{N_2})\geqslant\\
+\Pr (\{\omega\colon\Gamma_{N_2+1}=\Gamma^{(0,\tilde{r})},\varkappa_{N_2+1}=x^{N_2+1} \}| \{\omega\colon\Gamma_{N_2}=\Gamma^{(0,r_0\oplus_{0}N_2)},\varkappa_{N_2}=x^{N_2}\})\geqslant\\
 \geqslant \widetilde{\varphi}_3(0,\tilde{r},T^{(0,\tilde{r})},x_{3,0},\tilde{x}_3)
 \times
 \varphi_1(0,T^{(0,\tilde{r}}) \psi(0,0, p_{0,\tilde{r}}) > 0.
@@ -867,30 +868,30 @@ x^{j+1}  =\left(\max{\{0, x_{1,j} - \ell(0,r_0\oplus_{0}j+1,1)\}}; \right. \\
 
 Положим $N = N_2+1$ и соберем все воедино:
 \begin{multline*}
-\Pr(\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=x^N|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0) = \\ =
-\Pr(\Gamma_{ N_2+1}=\Gamma^{(0,\tilde{r} )}, \varkappa_{ N_2+1}=x^{N_2+1}|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0) \geqslant \\ 
+\Pr(\{\omega\colon\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=x^N\}| \{\omega\colon
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\}) = \\ =
+\Pr(\{\omega\colon\Gamma_{ N_2+1}=\Gamma^{(0,\tilde{r} )}, \varkappa_{ N_2+1}=x^{N_2+1}\}|\{\omega\colon
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\}) \geqslant \\ 
 \geqslant
-\Pr(C|\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0),
+\Pr(C|\{\omega\colon\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\}),
 \end{multline*}
 где 
 \begin{multline*}
-    C = \left\{\Gamma_{ N_2+1}=\Gamma^{(0,\tilde{r} )}, \varkappa_{ N_2+1}=x^{N_2+1}\right\} \cap \left\{ \Gamma_{ N_2}=\Gamma^{(0,\tilde{r} \ominus_0 1 )}, \varkappa_{N_2}=x^{N_2}\right\} \cap\ldots \biggr.\\ \biggl.
-\ldots \cap \left\{\Gamma_{2}=\Gamma^{(0,r_0\oplus_{0}2)},\varkappa_{2}=x^2\right\} \cap \left\{ \Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_{1}=x^1\right\}.
+    C = \left\{\omega\colon\Gamma_{ N_2+1}=\Gamma^{(0,\tilde{r} )}, \varkappa_{ N_2+1}=x^{N_2+1}\right\} \cap \left\{ \omega\colon \Gamma_{ N_2}=\Gamma^{(0,\tilde{r} \ominus_0 1 )}, \varkappa_{N_2}=x^{N_2}\right\} \cap\ldots \biggr.\\ \biggl.
+\ldots \cap \left\{\omega\colon\Gamma_{2}=\Gamma^{(0,r_0\oplus_{0}2)},\varkappa_{2}=x^2\right\} \cap \left\{\omega\colon \Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_{1}=x^1\right\}.
 \end{multline*}
 Наконец, из теоремы умножения и марковского свойства заключаем, что 
 \begin{multline*}
-\Pr(\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=x^N |
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0) \geqslant \\ 
+\Pr(\left\{\omega\colon \Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=x^N\right\} |\{\omega\colon 
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\}) \geqslant \\ 
 \geqslant
-\Pr\biggl(\left\{\Gamma_{ N_2+1}=\Gamma^{(0,\tilde{r} )}, \varkappa_{ N_2+1}=x^{N_2+1}\right\} \biggr|\biggl. \left\{ \Gamma_{ N_2}=\Gamma^{(0,\tilde{r} \ominus_0 1 )}, \varkappa_{N_2}=x^{N_2}\right\}\biggr) \times 
+\Pr\biggl(\left\{\omega\colon \Gamma_{ N_2+1}=\Gamma^{(0,\tilde{r} )}, \varkappa_{ N_2+1}=x^{N_2+1}\right\} \biggr|\biggl. \left\{\omega\colon \Gamma_{ N_2}=\Gamma^{(0,\tilde{r} \ominus_0 1 )}, \varkappa_{N_2}=x^{N_2}\right\}\biggr) \times 
 \\ \times
-\Pr\biggl(\left\{\Gamma_{ N_2}=\Gamma^{(0,\tilde{r} \ominus_0 1 )}, \varkappa_{ N_2}=x^{N_2}\right\} \biggr|\biggl. \left\{ \Gamma_{ N_2-1}=\Gamma^{(0,\tilde{r} \ominus_0 2 )}, \varkappa_{N_2-1}=x^{N_2-1}\right\}\biggr) \times \ldots \\
+\Pr\biggl(\left\{\omega\colon\Gamma_{ N_2}=\Gamma^{(0,\tilde{r} \ominus_0 1 )}, \varkappa_{ N_2}=x^{N_2}\right\} \biggr|\biggl. \left\{\omega\colon \Gamma_{ N_2-1}=\Gamma^{(0,\tilde{r} \ominus_0 2 )}, \varkappa_{N_2-1}=x^{N_2-1}\right\}\biggr) \times \ldots \\
 \ldots\times 
-\Pr\biggl(\left\{\Gamma_{2}=\Gamma^{(0,r_0\oplus_{0}2)},\varkappa_{2}=x^2\right\} \biggr|\biggl. \left\{ \Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_{1}=x^1\right\}\biggr) \times \\
+\Pr\biggl(\left\{\omega\colon\Gamma_{2}=\Gamma^{(0,r_0\oplus_{0}2)},\varkappa_{2}=x^2\right\} \biggr|\biggl. \left\{\omega\colon \Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_{1}=x^1\right\}\biggr) \times \\
 \times
-\Pr\biggl(\left\{\Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_{1}=x^1\right\} \biggr|\biggl. \left\{ \Gamma_{0}=\Gamma^{(0,r_0)},\varkappa_{0}=x^0\right\}\biggr)>0,
+\Pr\biggl(\left\{\omega\colon\Gamma_{1}=\Gamma^{(0,r_0\oplus_{0}1)},\varkappa_{1}=x^1\right\} \biggr|\biggl. \left\{\omega\colon \Gamma_{0}=\Gamma^{(0,r_0)},\varkappa_{0}=x^0\right\}\biggr)>0,
 \end{multline*}
 что и требовалось доказать.
 \end{proof}
@@ -898,8 +899,8 @@ x^{j+1}  =\left(\max{\{0, x_{1,j} - \ell(0,r_0\oplus_{0}j+1,1)\}}; \right. \\
 \begin{lemma}\label{class:2}
 Для любых состояний $(\Gamma^{(k_0,r_0)},x^0)$, $k_0 > 0$, $r_0=\overline{1,n_{k_0}}$ $x^0 \in \mathbb{Z}_+^4$, и $(\Gamma^{(0,\tilde{r})},\tilde{x})$, $\tilde{r} = \overline{1,n_0}$, $\tilde{x}=(0,0,L+1,0)$, существует такое натуральное число $N$, что 
 \begin{equation*}
-\Pr(\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}|
-\Gamma_{0}=\Gamma^{(k_0,r_0)}, \varkappa_{0}=x^0)>0.
+\Pr(\{\omega\colon \Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}\}|\{\omega\colon 
+\Gamma_{0}=\Gamma^{(k_0,r_0)}, \varkappa_{0}=x^0\})>0.
 \end{equation*}
 \end{lemma}
 \begin{proof}
@@ -918,25 +919,25 @@ $j=\overline{0,N_1-1}$. Пусть, далее, $N_1$~--- первый номе�
 
 Тогда, учитывая формулу \eqref{transitionToProve} имеем
 \begin{multline*}
-\Pr (\Gamma_{1}=\Gamma^{(k_0,r_0\oplus_{k_0}1)},\varkappa_{1}=x^1 | \Gamma_{0}=\Gamma^{(k_0,r_0)},\varkappa_0=x^0)=\\
+\Pr (\{\omega\colon \Gamma_{1}=\Gamma^{(k_0,r_0\oplus_{k_0}1)},\varkappa_{1}=x^1 \}|\{\omega\colon  \Gamma_{0}=\Gamma^{(k_0,r_0)},\varkappa_0=x^0\})=\\
 =\widetilde{\varphi}_3(k_0,r_0\oplus_{k_0}1,T^{(k_0,r_0\oplus_{k_0}1)},x_{3,0},\max{\{0,x_{3,0} - \ell(k_0,r_0\oplus_{k_0}1,3)\}})\times \\
 \times
 \sum_{(a_1,a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,T^{(k_0,r_0\oplus_{k_0}1)})  \psi(a_2,x_{4,0}, p_{k_0,r_0\oplus_{k_0}1}),
 \end{multline*}
-где множество 
+где множество ${\mathbb A}_{\mathrm{trans}}$ не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$, поскольку из соотношений \eqref{A:trans:1}--\eqref{A:trans:2} имеем
 \begin{equation*}
-{\mathbb A}_{\mathrm{trans}}(x^0,x^1,k_0,r_0\oplus_{k_0}1) = {\mathbb A}_{\mathrm{trans}}^0 \bigcap {\mathbb A}_{\mathrm{trans}}^1\bigcap {\mathbb A}_{\mathrm{trans}}^2,
+{\mathbb A}_{\mathrm{trans}}(x^0,x^1,k_0,r_0\oplus_{k_0}1) = {\mathbb A}_{\mathrm{trans}}^0 \cap {\mathbb A}_{\mathrm{trans}}^1\cap {\mathbb A}_{\mathrm{trans}}^2,
 \end{equation*}
-состоящее из множеств 
+и
 \begin{align*}
 {\mathbb A}_{\mathrm{trans}}^0 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(k_0,r_0\oplus_{k_0}1,1), x_{1,0}+a_1}\} +x_{4,0}- \\ 
 &-x_{4,0} - \min{\{x_{1,0}, \ell(k_0,r_0\oplus_{k_0}1,1)\}}\},\\
 {\mathbb A}_{\mathrm{trans}}^1 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon \max{\{0,x_{1,0} - \ell(k_0,r_0\oplus_{k_0}1,1)\}}=\\
 &=\max{\{0,x_{1,0}+a_1-\ell(k_0,r_0\oplus_{k_0}1,1)\}}\},\\
  {\mathbb A}_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  \max{\{0,x_{2,0} - \ell(k_0,r_0\oplus_{k_0}1,2)\}}=\\
- &=\max{\{0,x_{2,0}+a_2-\ell(k_0,r_0\oplus_{k_0}1,2)\}}\},
+ &=\max{\{0,x_{2,0}+a_2-\ell(k_0,r_0\oplus_{k_0}1,2)\}}\}.
 \end{align*}
-не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$. Из определений \eqref{tildephi} находим
+Из определений \eqref{tildephi} находим
 \begin{multline*}
 \widetilde{\varphi}_3(k_0,r_0\oplus_{k_0}1,T^{(k_0,r_0\oplus_{k_0}1)},x_{3,0},\max{\{0,x_{3,0} - \ell(k_0,r_0\oplus_{k_0}1,3)\}})= \\=(1-\delta_{\max{\{0,x_{3,0} - \ell(k_0,r_0\oplus_{k_0}1,3)\}},0}) \times \\\times\varphi_3(\max{\{0,x_{3,0} - \ell(k_0,r_0\oplus_{k_0}1,3)\}} + \ell (k_0,r_0\oplus_{k_0}1,3) - x_{3,0},T^{(k_0,r_0\oplus_{k_0}1)} ) +\\
 +\delta_{\max{\{0,x_{3,0} - \ell(k_0,r_0\oplus_{k_0}1,3)\}},0} \sum_{a=0}^{\ell(k_0,r_0\oplus_{k_0}1,3)-x_{3,0}}\varphi_3 (a,T^{(k_0,r_0\oplus_{k_0}1)}),
@@ -949,7 +950,7 @@ $j=\overline{0,N_1-1}$. Пусть, далее, $N_1$~--- первый номе�
 
 Значит,
 \begin{multline*}
-\Pr (\Gamma_{1}=\Gamma^{(k_0,r_0\oplus_{k_0}1)},\varkappa_{1}=x^1 | \Gamma_{0}=\Gamma^{(k_0,r_0)},\varkappa_0=x^0)\geqslant \\
+\Pr (\{\omega\colon \Gamma_{1}=\Gamma^{(k_0,r_0\oplus_{k_0}1)},\varkappa_{1}=x^1\} | \{\omega\colon \Gamma_{0}=\Gamma^{(k_0,r_0)},\varkappa_0=x^0\})\geqslant \\
 \geqslant \widetilde{\varphi}_3(k_0,r_0\oplus_{k_0}1,T^{(k_0,r_0\oplus_{k_0}1)},x_{3,0},x_{3,1})
 \varphi_1(0,T^{(k_0,r_0\oplus_{k_0}1)})  \psi(0,x_{4,0}, p_{k_0,r_0\oplus_{k_0}1}) > 0.
 \end{multline*}
@@ -968,22 +969,19 @@ x_{4,N_1} + \min{\{x_{1,N_1}, \ell(0,r_1,1)\}}\right).
 
 Из формулы \eqref{transitionToProve} имеем
 \begin{multline*}
-\Pr (\Gamma_{N_1+1}=\Gamma^{(0,r_1)},\varkappa_{N_1+1}=x^{N_1+1} | \Gamma_{N_1}=\Gamma^{(k_0,n_{k_0})},\varkappa_{N_1}=x^{N_1})=\\
+\Pr (\{\omega\colon \Gamma_{N_1+1}=\Gamma^{(0,r_1)},\varkappa_{N_1+1}=x^{N_1+1} \}|\{\omega\colon  \Gamma_{N_1}=\Gamma^{(k_0,n_{k_0})},\varkappa_{N_1}=x^{N_1}\})=\\
 =\widetilde{\varphi}_3(0,r_1,T^{(0,r_1)},x_{3,N_1},x_{3,N_1})\times \\
 \times
 \sum_{(a_1,a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,T^{(0,r_1)})  \psi(a_2,x_{4,N_1}, p_{0,r_1}),
 \end{multline*}
-где множество 
-\begin{equation*}
-{\mathbb A}_{\mathrm{trans}}(x^{N_1},x^{N_1+1},0,r_1) = {\mathbb A}_{\mathrm{trans}}^0 \bigcap {\mathbb A}_{\mathrm{trans}}^1\bigcap {\mathbb A}_{\mathrm{trans}}^2,
-\end{equation*}
-состоящее из множеств 
+где множество ${\mathbb A}_{\mathrm{trans}}$ не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$, поскольку из соотношений \eqref{A:trans:1}--\eqref{A:trans:2} имеем
 \begin{align*}
-{\mathbb A}_{\mathrm{trans}}^0 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(0,r_1,1), x_{1,N_1}+a_1}\} +x_{4,N_1}-x_{4,N_1+1} \}, \\
-{\mathbb A}_{\mathrm{trans}}^1 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon x_{1,N_1+1} =\max{\{0,x_{1,N_1}+a_1-\ell(0,r_1,1)\}}\},\\
- {\mathbb A}_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  x_{2,N_1+1}=\max{\{0,x_{2,N_1}+a_2-\ell(0,r_1,2)\}}\},
+&{\mathbb A}_{\mathrm{trans}}(x^{N_1},x^{N_1+1},0,r_1) = {\mathbb A}_{\mathrm{trans}}^0 \cap {\mathbb A}_{\mathrm{trans}}^1\cap {\mathbb A}_{\mathrm{trans}}^2,\\
+&{\mathbb A}_{\mathrm{trans}}^0 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(0,r_1,1), x_{1,N_1}+a_1}\} +x_{4,N_1}-x_{4,N_1+1} \}, \\
+&{\mathbb A}_{\mathrm{trans}}^1 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon x_{1,N_1+1} =\max{\{0,x_{1,N_1}+a_1-\ell(0,r_1,1)\}}\},\\
+& {\mathbb A}_{\mathrm{trans}}^2 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  x_{2,N_1+1}=\max{\{0,x_{2,N_1}+a_2-\ell(0,r_1,2)\}}\},
 \end{align*}
-не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$. Из определений \eqref{tildephi} находим
+Из определений \eqref{tildephi} находим
 \begin{multline*}
 \widetilde{\varphi}_3(0,r_1,T^{(0,r_1)},x_{3,N_1},x_{3,N_1})=\\=(1-\delta_{x_{3,N_1+1},0}) \times\varphi_3(x_{3,N_1+1} + \ell (0,r_1,3) - x_{3,N_1},T^{(0,r_1)} )
 +\delta_{x_{3,N_1+1},0} \varphi_3 (0,T^{(0,r_1)}) = \\=
@@ -992,7 +990,7 @@ x_{4,N_1} + \min{\{x_{1,N_1}, \ell(0,r_1,1)\}}\right).
 \end{multline*}
 Значит,
 \begin{multline*}
-\Pr (\Gamma_{N_1+1}=\Gamma^{(0,r_1)},\varkappa_{N_1+1}=x^{N_1+1} | \Gamma_{N_1}=\Gamma^{(k_0,n_{k_0})},\varkappa_{N_1}=x^{N_1})\geqslant\\
+\Pr (\{\omega\colon \Gamma_{N_1+1}=\Gamma^{(0,r_1)},\varkappa_{N_1+1}=x^{N_1+1} \}|\{\omega\colon  \Gamma_{N_1}=\Gamma^{(k_0,n_{k_0})},\varkappa_{N_1}=x^{N_1}\})\geqslant\\
 \geqslant\varphi_3 (0,T^{(0,r_1)})
 \times
 \varphi_1(0,T^{(0,r_1)})  \psi(0,x_{4,N_1}, p_{0,r_1}) > 0,
@@ -1006,8 +1004,8 @@ x_{4,N_1} + \min{\{x_{1,N_1}, \ell(0,r_1,1)\}}\right).
 \begin{lemma}\label{all:in:one}
 Для любых состояний $(\Gamma^{(k_0,r_0)},x^0)$, $k_0=\overline{0,d}$, $r_0=\overline{1,n_{k_0}}$, $x^0 \in \mathbb{Z}_+^4$, и $(\Gamma^{(0,\tilde{r})},\tilde{x})$, $\tilde{r} = \overline{1,n_0}$, $\tilde{x}=(0,0,L+1,0)$, существует такое натуральное число $N$, что 
 \begin{equation*}
-\Pr(\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}|
-\Gamma_{0}=\Gamma^{(k_0,r_0)}, \varkappa_{0}=x^0)>0.
+\Pr(\{\omega\colon \Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}\}|
+\{\omega\colon \Gamma_{0}=\Gamma^{(k_0,r_0)}, \varkappa_{0}=x^0\})>0.
 \end{equation*}
 \end{lemma}
 \begin{proof}
@@ -1023,29 +1021,26 @@ x_{4,0} + \min{\{x_{1,0}, \ell(k_1,r_1,1)\}}\right).
 
 Действительно, из формулы \eqref{transitionToProve} имеем
 \begin{multline*}
-\Pr (\Gamma_{1}=\Gamma^{(k_1,r_1)},\varkappa_{1}=x^1 | \Gamma_{0}=\Gamma^{(k_0,r_0)},\varkappa_0=x^0)=\\
+\Pr (\{\omega\colon \Gamma_{1}=\Gamma^{(k_1,r_1)},\varkappa_{1}=x^1 \}| \{\omega\colon \Gamma_{0}=\Gamma^{(k_0,r_0)},\varkappa_0=x^0\})=\\
 =\widetilde{\varphi}_3(k_1,r_1,T^{(k_1,r_1)},x_{3,0},\max{\{0,x_{3,0} - \ell(k_1,r_1,3)\}})\times \\
 \times
 \sum_{(a_1,a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,T^{(k_1,r_1)})  \psi(a_2,x_{4,0}, p_{k_1,r_1}),
 \end{multline*}
-где множество 
-\begin{equation*}
-{\mathbb A}_{\mathrm{trans}}(x^0,x^1,k_1,r_1) = {\mathbb A}_{\mathrm{trans}}^0 \bigcap {\mathbb A}_{\mathrm{trans}}^1\bigcap {\mathbb A}_{\mathrm{trans}}^2,
-\end{equation*}
-состоящее из множеств 
+где множество ${\mathbb A}_{\mathrm{trans}}$ не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$, поскольку из соотношений \eqref{A:trans:1}--\eqref{A:trans:2} имеем
 \begin{align*}
-{\mathbb A}_{\mathrm{trans}}^0 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(k_1,r_1,1), x_{1,0}+a_1}\} +x_{4,0}- x_{4,1}\},\\
-{\mathbb A}_{\mathrm{trans}}^1 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon x_{1,1}=\max{\{0,x_{1,0}+a_1-\ell(k_1,r_1,1)\}}\},\\
- {\mathbb A}_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  x_{2,1} =\max{\{0,x_{2,0}+a_2-\ell(k_1,r_1,2)\}}\},
+&{\mathbb A}_{\mathrm{trans}}(x^0,x^1,k_1,r_1) = {\mathbb A}_{\mathrm{trans}}^0 \cap {\mathbb A}_{\mathrm{trans}}^1\cap {\mathbb A}_{\mathrm{trans}}^2,\\
+&{\mathbb A}_{\mathrm{trans}}^0 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(k_1,r_1,1), x_{1,0}+a_1}\} +x_{4,0}- x_{4,1}\},\\
+&{\mathbb A}_{\mathrm{trans}}^1 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon x_{1,1}=\max{\{0,x_{1,0}+a_1-\ell(k_1,r_1,1)\}}\},\\
+& {\mathbb A}_{\mathrm{trans}}^2 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  x_{2,1} =\max{\{0,x_{2,0}+a_2-\ell(k_1,r_1,2)\}}\},
 \end{align*}
-не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$. Из определений \eqref{tildephi} находим
+Из определений \eqref{tildephi} находим
 \begin{multline*}
 \widetilde{\varphi}_3(k_1,r_1,T^{(k_1,r_1)},x_{3,0},\max{\{0,x_{3,0} - \ell(k_1,r_1,3)\}}) = (1-\delta_{x_{3,1},0}) \times \\\times\varphi_3(\max{\{0,x_{3,0} - \ell(k_1,r_1,3)\}} + \ell (k_1,r_1,3) - x_{3,0},T^{(k_1,r_1)} ) 
 +\\+\delta_{x_{3,1},0} \sum_{a=0}^{\ell(k_1,r_1,3)-x_{3,0}}\varphi_3 (a,T^{(k_1,r_1)})>0.
 \end{multline*}
 Значит,
 \begin{multline*}
-\Pr (\Gamma_{1}=\Gamma^{(k_1,r_1)},\varkappa_{1}=x^1 | \Gamma_{0}=\Gamma^{(k_0,r_0)},\varkappa_0=x^0)\geqslant \\
+\Pr (\{\omega\colon \Gamma_{1}=\Gamma^{(k_1,r_1)},\varkappa_{1}=x^1\}|\{\omega\colon  \Gamma_{0}=\Gamma^{(k_0,r_0)},\varkappa_0=x^0\})\geqslant \\
 \geqslant \widetilde{\varphi}_3(k_1,r_1,T^{(k_1,r_1)},x_{3,0},x_{3,1})
 \times
 \varphi_1(0,T^{(k_1,r_1)})  \psi(0,x_{4,0}, p_{k_1,r_1}) > 0.
@@ -1063,38 +1058,35 @@ $\tilde{r} = \overline{1,n_{\tilde{k}}}$
 и $\tilde{k}>0$ такое, что 
 $\Gamma^{(\tilde{k},\tilde{r})}=h_3(r_0)$, существует такое натуральное число $N$, что 
 \begin{equation*}
-\Pr(\Gamma_{N}=\Gamma^{(\tilde{k},\tilde{r} )}, \varkappa_{N}=\tilde{x}|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0)>0.
+\Pr(\{\omega\colon \Gamma_{N}=\Gamma^{(\tilde{k},\tilde{r} )}, \varkappa_{N}=\tilde{x}\}|\{\omega\colon 
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\})>0.
 \end{equation*}
 \end{lemma}
 \begin{proof}
 Поскольку $h(\Gamma^{(0,r_0)}, L+1) = \Gamma^{(\tilde{k},1)}$, то $\Gamma_1 = \Gamma^{(\tilde{k},1)}$. Докажем, что вероятность перехода за один такт из состояния $(\Gamma^{(0,r_0)},x^0)$ в состояние $(\Gamma^{(\tilde{k},1)},x^1)$, $x^1 = (0,0,\max{\{0,L+1-\ell(\tilde{k},1,3)\}},0)$, положительна.
 Действительно, из формулы \eqref{transitionToProve} имеем
 \begin{multline*}
-\Pr(\Gamma_{1}=\Gamma^{(\tilde{k},1)}, \varkappa_{1}=x^1|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0)=\\
+\Pr(\{\omega\colon \Gamma_{1}=\Gamma^{(\tilde{k},1)}, \varkappa_{1}=x^1\}|\{\omega\colon 
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\})=\\
 =\widetilde{\varphi}_3(\tilde{k},1,T^{(\tilde{k},1)},x_{3,0},\max{\{0,x_{3,0} - \ell(\tilde{k},1,3)\}}) \times \\ \times
 \sum_{(a_1,a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,T^{(\tilde{k},1)})  \psi(a_2,x_{4,0}, p_{\tilde{k},1}),
 \end{multline*}
-где множество 
-\begin{equation*}
-{\mathbb A}_{\mathrm{trans}}(x^0,x^1,\tilde{k},1) = {\mathbb A}_{\mathrm{trans}}^0 \bigcap {\mathbb A}_{\mathrm{trans}}^1\bigcap {\mathbb A}_{\mathrm{trans}}^2,
-\end{equation*}
-состоящее из множеств 
+где множество ${\mathbb A}_{\mathrm{trans}}$ не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$, поскольку из соотношений \eqref{A:trans:1}--\eqref{A:trans:2} имеем
 \begin{align*}
-{\mathbb A}_{\mathrm{trans}}^0 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(\tilde{k},1,1), x_{1,0}+a_1}\} +x_{4,0}- x_{4,1}\},\\
-{\mathbb A}_{\mathrm{trans}}^1 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon x_{1,1}=\max{\{0,x_{1,0}+a_1-\ell(k_1,r_1,1)\}}\},\\
- {\mathbb A}_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  x_{2,1} =\max{\{0,x_{2,0}+a_2-\ell(k_1,r_1,2)\}}\},
+&{\mathbb A}_{\mathrm{trans}}(x^0,x^1,\tilde{k},1) = {\mathbb A}_{\mathrm{trans}}^0 \bigcap {\mathbb A}_{\mathrm{trans}}^1\bigcap {\mathbb A}_{\mathrm{trans}}^2,\\
+&{\mathbb A}_{\mathrm{trans}}^0 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(\tilde{k},1,1), x_{1,0}+a_1}\} +x_{4,0}- x_{4,1}\},\\
+&{\mathbb A}_{\mathrm{trans}}^1 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon x_{1,1}=\max{\{0,x_{1,0}+a_1-\ell(k_1,r_1,1)\}}\},\\
+& {\mathbb A}_{\mathrm{trans}}^2 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  x_{2,1} =\max{\{0,x_{2,0}+a_2-\ell(k_1,r_1,2)\}}\}.
 \end{align*}
-не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$. Из определений \eqref{tildephi} находим
+Из определений \eqref{tildephi} находим
 \begin{multline*}
 \widetilde{\varphi}_3(\tilde{k},1,T^{(\tilde{k},1)},x_{3,0},\max{\{0,x_{3,0} - \ell(\tilde{k},1,3)\}})= (1-\delta_{x_{3,1},0}) \times \\\times\varphi_3(\max{\{0,x_{3,0} - \ell(\tilde{k},1,3)\}} + \ell (\tilde{k},1,3) - x_{3,0},T^{(\tilde{k},1)} ) 
 +\\+\delta_{x_{3,1},0} \sum_{a=0}^{\ell(\tilde{k},1,3)-x_{3,0}}\varphi_3 (a,T^{(\tilde{k},1)})>0.
 \end{multline*}
 Значит,
 \begin{multline*}
-\Pr(\Gamma_{1}=\Gamma^{(\tilde{k},1)}, \varkappa_{1}=x^1|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0)\geqslant \\
+\Pr(\{\omega\colon \Gamma_{1}=\Gamma^{(\tilde{k},1)}, \varkappa_{1}=x^1\}|\{\omega\colon 
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\})\geqslant \\
 \geqslant \widetilde{\varphi}_3(\tilde{k},1,T^{(\tilde{k},1)},x_{3,0},\max{\{0,x_{3,0} - \ell(\tilde{k},1,3)\}})
 \times
 \varphi_1(0,T^{(\tilde{k},1)})  \psi(0,x_{4,0}, p_{\tilde{k},1}) > 0,
@@ -1104,33 +1096,30 @@ $\Gamma^{(\tilde{k},\tilde{r})}=h_3(r_0)$, существует такое на�
 \begin{equation*}
 x^j = (0,0,\max{\{0,L+1-\sum_{s=1}^{j} \ell(\tilde{k},s,3)\}},0).
 \end{equation*}
-Из фолмулы \eqref{transitionToProve} имеем
+Из формулы \eqref{transitionToProve} имеем
 \begin{multline*}
-\Pr(\Gamma_{j+1}=\Gamma^{(\tilde{k},j+1)}, \varkappa_{j+1}=x^{j+1}|
-\Gamma_{j}=\Gamma^{(\tilde{k},j)}, \varkappa_{j}=x^j)=\\
+\Pr(\{\omega\colon \Gamma_{j+1}=\Gamma^{(\tilde{k},j+1)}, \varkappa_{j+1}=x^{j+1}\}|
+\{\omega\colon \Gamma_{j}=\Gamma^{(\tilde{k},j)}, \varkappa_{j}=x^j\})=\\
 =\widetilde{\varphi}_3(\tilde{k},j+1,T^{(\tilde{k},j+1)},x_{3,j},\max{\{0,x_{3,j} - \ell(\tilde{k},j+1,3)\}})\times \\
 \times
 \sum_{(a_1,a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,T^{(\tilde{k},j+1)})  \psi(a_2,x_{4,j}, p_{\tilde{k},j+1}),
 \end{multline*}
-где множество 
-\begin{equation*}
-{\mathbb A}_{\mathrm{trans}}(x^j,x^{j+1},\tilde{k},j+1) = {\mathbb A}_{\mathrm{trans}}^0 \bigcap {\mathbb A}_{\mathrm{trans}}^1\bigcap {\mathbb A}_{\mathrm{trans}}^2,
-\end{equation*}
-состоящее из множеств 
+где множество ${\mathbb A}_{\mathrm{trans}}$ не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$, поскольку из соотношений \eqref{A:trans:1}--\eqref{A:trans:2} имеем
 \begin{align*}
-{\mathbb A}_{\mathrm{trans}}^0 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(\tilde{k},j+1,1), x_{1,j}+a_1}\} +x_{4,j}- x_{4,j+1}\},\\
-{\mathbb A}_{\mathrm{trans}}^1 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon x_{1,j+1}=\max{\{0,x_{1,j}+a_1-\ell(\tilde{k},j+1,1)\}}\},\\
- {\mathbb A}_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  x_{2,j+1} =\max{\{0,x_{2,j}+a_2-\ell(\tilde{k},j+1,2)\}}\},
+&{\mathbb A}_{\mathrm{trans}}(x^j,x^{j+1},\tilde{k},j+1) = {\mathbb A}_{\mathrm{trans}}^0 \bigcap {\mathbb A}_{\mathrm{trans}}^1\bigcap {\mathbb A}_{\mathrm{trans}}^2,\\
+&{\mathbb A}_{\mathrm{trans}}^0 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(\tilde{k},j+1,1), x_{1,j}+a_1}\} +x_{4,j}- x_{4,j+1}\},\\
+&{\mathbb A}_{\mathrm{trans}}^1 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon x_{1,j+1}=\max{\{0,x_{1,j}+a_1-\ell(\tilde{k},j+1,1)\}}\},\\
+ &{\mathbb A}_{\mathrm{trans}}^2 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  x_{2,j+1} =\max{\{0,x_{2,j}+a_2-\ell(\tilde{k},j+1,2)\}}\},
 \end{align*}
-не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$. Из определений \eqref{tildephi} находим
+Из определений \eqref{tildephi} находим
 \begin{multline*}
 \widetilde{\varphi}_3(\tilde{k},j+1,T^{(\tilde{k},j+1)},x_{3,j},\max{\{0,x_{3,j} - \ell(\tilde{k},j+1,3)\}})= (1-\delta_{x_{3,j+1},0}) \times \\\times\varphi_3(\max{\{0,x_{3,j} - \ell(\tilde{k},j+1,3)\}} + \ell (\tilde{k},j+1,3) - x_{3,j},T^{(\tilde{k},j+1)} ) 
 +\\+\delta_{x_{3,j+1},0} \sum_{a=0}^{\ell(\tilde{k},j+1,3)-x_{3,j}}\varphi_3 (a,T^{(\tilde{k},j+1)})>0.
 \end{multline*}
 Значит,
 \begin{multline*}
-\Pr(\Gamma_{j+1}=\Gamma^{(\tilde{k},j+1)}, \varkappa_{j+1}=x^{j+1}|
-\Gamma_{j}=\Gamma^{(\tilde{k},j)}, \varkappa_{j}=x^j)\geqslant \\
+\Pr(\{\omega\colon \Gamma_{j+1}=\Gamma^{(\tilde{k},j+1)}, \varkappa_{j+1}=x^{j+1}\}|\{\omega\colon 
+\Gamma_{j}=\Gamma^{(\tilde{k},j)}, \varkappa_{j}=x^j\})\geqslant \\
 \geqslant \widetilde{\varphi}_3(\tilde{k},j+1,T^{(\tilde{k},j+1)},x_{3,j},\max{\{0,x_{3,j} - \ell(\tilde{k},j+1,3)\}})
 \times \\ \times
 \varphi_1(0,T^{(\tilde{k},j+1)})  \psi(0,x_{4,j}, p_{\tilde{k},j+1}) > 0,
@@ -1146,8 +1135,8 @@ $(\Gamma^{(0,\tilde{r})},\tilde{x})$,
 $\tilde{x}=(0,0,\tilde{x}_3,0))$, $\tilde{x}_3 \geqslant \max{\{0,L+1-\sum_{s=1}^{n_{\tilde{k}}} \ell(\tilde{k},s,3)\}}$,
 $\tilde{k}=\overline{1,d}$ и $\tilde{r} = \overline{1,n_0}$, существует такое натуральное число $N$, что 
 \begin{equation*}
-\Pr(\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0)>0.
+\Pr(\{\omega\colon \Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}\}|\{\omega\colon 
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\})>0.
 \end{equation*}
 \end{lemma}
 \begin{proof}
@@ -1160,24 +1149,21 @@ x^2=(0,0,\max{\{0,L+1-\sum_{s=1}^{n_{\tilde{k}}} \ell(\tilde{k},s,3)\}},0).
 
 Итак, из формулы \eqref{transitionToProve} имеем
 \begin{multline*}
-\Pr(\Gamma_{N_1+N_2+1}=\Gamma^{(0,r_3)}, \varkappa_{N_1+N_2+1}=x^{3}|
-\Gamma_{N_1+N_2}=\Gamma^{(\tilde{k},n_{\tilde{k}})}, \varkappa_{N_1+N_2}=x^2)=\\
+\Pr(\{\omega\colon \Gamma_{N_1+N_2+1}=\Gamma^{(0,r_3)}, \varkappa_{N_1+N_2+1}=x^{3}\}|\{\omega\colon 
+\Gamma_{N_1+N_2}=\Gamma^{(\tilde{k},n_{\tilde{k}})}, \varkappa_{N_1+N_2}=x^2\})=\\
 =\widetilde{\varphi}_3(0,r_3,T^{(0,r_3)},x_{3,2},\max{\{0,x_{3,2} - \ell(0,r_3,3)\}}) \times]\\ \times
 \sum_{(a_1,a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,T^{(0,r_3)})  \psi(a_2,x_{4,2}, p_{0,r_3}) =\\
 =\widetilde{\varphi}_3(0,r_3,T^{(0,r_3)},x_{3,2},x_{3,2}) \times
 \sum_{(a_1,a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,T^{(0,r_3)})  \psi(a_2,0, p_{0,r_3}),
 \end{multline*}
-где множество 
-\begin{equation*}
-{\mathbb A}_{\mathrm{trans}}(x^2,x^{3},0,r_3) = {\mathbb A}_{\mathrm{trans}}^0 \bigcap {\mathbb A}_{\mathrm{trans}}^1\bigcap {\mathbb A}_{\mathrm{trans}}^2,
-\end{equation*}
-состоящее из множеств 
+где множество ${\mathbb A}_{\mathrm{trans}}$ не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$, поскольку из соотношений \eqref{A:trans:1}--\eqref{A:trans:2} имеем
 \begin{align*}
-{\mathbb A}_{\mathrm{trans}}^0 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(0,r_3,1), x_{1,2}+a_1}\} +x_{4,2}- x_{4,3}\},\\
-{\mathbb A}_{\mathrm{trans}}^1 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon x_{1,3}=\max{\{0,x_{1,2}+a_1-\ell(0,r_3,1)\}}\},\\
- {\mathbb A}_{\mathrm{trans}}^2 &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  x_{2,3} =\max{\{0,x_{2,2}+a_2-\ell(0,r_3,2)\}}\},
+&{\mathbb A}_{\mathrm{trans}}(x^2,x^{3},0,r_3) = {\mathbb A}_{\mathrm{trans}}^0 \bigcap {\mathbb A}_{\mathrm{trans}}^1\bigcap {\mathbb A}_{\mathrm{trans}}^2,\\
+&{\mathbb A}_{\mathrm{trans}}^0 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(0,r_3,1), x_{1,2}+a_1}\} +x_{4,2}- x_{4,3}\},\\
+&{\mathbb A}_{\mathrm{trans}}^1 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon x_{1,3}=\max{\{0,x_{1,2}+a_1-\ell(0,r_3,1)\}}\},\\
+& {\mathbb A}_{\mathrm{trans}}^2 = \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  x_{2,3} =\max{\{0,x_{2,2}+a_2-\ell(0,r_3,2)\}}\},
 \end{align*}
-не пусто и содержит, как минимум, один элемент $(a_1,a_2)=(0,0)$. Из определений \eqref{tildephi} находим
+Из определений \eqref{tildephi} находим
 \begin{multline*}
 \widetilde{\varphi}_3(0,r_3,T^{(0,r_3)},x_{3,2},\max{\{0,x_{3,2} - \ell(0,r_3,3)\}})= (1-\delta_{x_{3,3},0}) \times \\\times\varphi_3(\max{\{0,x_{3,2} - \ell(0,r_3,3)\}} + \ell (0,r_3,3) - x_{3,2},T^{(0,r_3)} ) 
 +\\+\delta_{x_{3,3},0} \sum_{a=0}^{\ell(0,r_3,3)-x_{3,2}}\varphi_3 (a,T^{(0,r_3)})>0.
@@ -1189,8 +1175,8 @@ x^2=(0,0,\max{\{0,L+1-\sum_{s=1}^{n_{\tilde{k}}} \ell(\tilde{k},s,3)\}},0).
 \end{equation*}
 Значит,
 \begin{multline*}
-\Pr(\Gamma_{N_1+N_2+1}=\Gamma^{(0,r_3)}, \varkappa_{N_1+N_2+1}=x^{3}|
-\Gamma_{N_1+N_2}=\Gamma^{(\tilde{k},n_{\tilde{k}})}, \varkappa_{N_1+N_2}=x^2)\geqslant \\
+\Pr(\{\omega\colon \Gamma_{N_1+N_2+1}=\Gamma^{(0,r_3)}, \varkappa_{N_1+N_2+1}=x^{3}\}|\{\omega\colon 
+\Gamma_{N_1+N_2}=\Gamma^{(\tilde{k},n_{\tilde{k}})}, \varkappa_{N_1+N_2}=x^2\})\geqslant \\
 \geqslant \widetilde{\varphi}_3(0,r_3,T^{(0,r_3)},x_{3,2},x_{3,2})
 \times
 \varphi_1(0,T^{(0,r_3)})  \psi(0,0, p_{0,r_3}) > 0.
@@ -1206,16 +1192,16 @@ $(\Gamma^{(0,\tilde{r})},\tilde{x})$,
 $\tilde{x}=(0,0,\tilde{x}_3,0)$, $\tilde{x}_3\geqslant \max{\{0,L+1-\max_{k=\overline{1,d}}{\{ \sum_{s=1}^{n_k}\ell(k,s,3)\}}\}}$,
 $\tilde{r} = \overline{1,n_0}$, существует такое натуральное число $N$, что 
 \begin{equation*}
-\Pr(\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0)>0.
+\Pr(\{\omega\colon \Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}\}|\{\omega\colon 
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\})>0.
 \end{equation*}
 \end{lemma}
 
 \begin{lemma}
 Если из состояния $(\Gamma^{(0,r_0)},x^0)$, $x^0=(0,0,L+1,0)$, $r_0=\overline{1;n_0}$, можно перейти за конечное число шагов в состояние $(\Gamma^{(0,\tilde{r})},(0,0,\min\{L,\tilde{x}_3\},0))$, $\tilde{r}=\overline{1;n_0}$, $\tilde{x}_3\geqslant 0$, то для любого $\tilde{x}\in \{x \in Z_+^4\colon x_3=\tilde{x}_3; (x_1 > 0)\rightarrow (x_4\geqslant \ell(0,\tilde{r},1))\}$, существует такое число $N$ шагов, что
 \begin{equation*}
-\Pr(\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0)>0.
+\Pr(\{\omega\colon \Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}\}|\{\omega\colon 
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\})>0.
 \end{equation*}
 \end{lemma}
 \begin{proof}
@@ -1223,8 +1209,8 @@ $\tilde{r} = \overline{1,n_0}$, существует такое натураль
 
 Первый этап. Из сделанных предположений следует существование такого натурального числа $N_1$, что 
 \begin{equation*}
-\Pr(\Gamma_{N_1}=\Gamma^{(0,r_0\oplus_0 N_1)}, \varkappa_{N_1}=(0,0,x_3,0)|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=(0,0,L+1,0))>0,
+\Pr(\{\omega\colon \Gamma_{N_1}=\Gamma^{(0,r_0\oplus_0 N_1)}, \varkappa_{N_1}=(0,0,x_3,0)\}|\{\omega\colon 
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=(0,0,L+1,0)\})>0,
 \end{equation*}
 где $x_3=\min\{L,\tilde{x}_3\}$.
 
@@ -1243,8 +1229,8 @@ x_4&=\tilde{x}_4 - \delta_{\tilde{x}_1,0}\ell(0,\tilde{r},1) + \ell(0,r_3,2),
 \end{equation*}
 Таким образом,
 \begin{equation*}
-\Pr(\Gamma_{N_1+N_2}=\Gamma^{(0,r_2)}, \varkappa_{N_1+N_2}=x^{N_1+N_2 })|
-\Gamma_{N_1}=\Gamma^{(0,r_1)}, \varkappa_{N_1}=x^{N_1})>0,
+\Pr(\{\omega\colon \Gamma_{N_1+N_2}=\Gamma^{(0,r_2)}, \varkappa_{N_1+N_2}=x^{N_1+N_2 })\}|\{\omega\colon 
+\Gamma_{N_1}=\Gamma^{(0,r_1)}, \varkappa_{N_1}=x^{N_1}\})>0,
 \end{equation*}
 где 
 \begin{equation*}
@@ -1252,14 +1238,13 @@ x^{N_1+N_2} = (x_4 + \tilde{x}_2 - \sum_{s=1}^{N_2} \ell(0,r_1+s,1),0,x_3,\sum_{
 \end{equation*}
 И заключительный, третий этап. В нем доказывается (аналогично предыдущему), что вероятности
 \begin{equation*}
-\Pr(\Gamma_{N_1+N_2+1}=\Gamma^{(0,r_2\oplus 1)}, \varkappa_{N_1+N_2+1}=x^{N_1+N_2+1}|
-\Gamma_{N_1+N_2}=\Gamma^{(0,r_2)}, \varkappa_{N_1+N_2}=x^{N_1+N_2}),
+\Pr(A_{N_1+N_2+1}(0,r_2\oplus 1,x^{N_1+N_2+1})|A_{N_1+N_2}(0,r_2,x^{N_1+N_2}) ),
 \end{equation*}
 и 
-\begin{multline*}
-\Pr(\Gamma_{N_1+N_2+2}=\Gamma^{(0,r_2\oplus 2)}, \varkappa_{N_1+N_2+2}=x^{N_1+N_2+2}|\\
-\Gamma_{N_1+N_2+1}=\Gamma^{(0,r_3\oplus 1)}, \varkappa_{N_1+N_2+1}=x^{N_1+N_2+1}),
-\end{multline*}
+\begin{equation*}
+\Pr(A_{N_1+N_2+2}(0,r_2\oplus 2,x^{N_1+N_2+2})|A_{N_1+N_2+1}(0,r_2\oplus 1,x^{N_1+N_2+1}) )
+%\\ \Pr(\{\omega\colon \Gamma_{N_1+N_2+2}=\Gamma^{(0,r_2\oplus 2)}, \varkappa_{N_1+N_2+2}=x^{N_1+N_2+2}\}|\\\{\omega\colon \Gamma_{N_1+N_2+1}=\Gamma^{(0,r_3\oplus 1)}, \varkappa_{N_1+N_2+1}=x^{N_1+N_2+1}\}),
+\end{equation*}
 положительны.  Здесь 
 \begin{equation*}
 x^{N_1+N_2 + 1} = (0,0,x_3,\tilde{x}_2+x_4), \quad x^{N_1+N_2 + 2} = \tilde{x}.
@@ -1272,8 +1257,8 @@ x^{N_1+N_2 + 1} = (0,0,x_3,\tilde{x}_2+x_4), \quad x^{N_1+N_2 + 2} = \tilde{x}.
 $(\Gamma^{(0,\tilde{r})},\tilde{x})$,
 где $\tilde{x}$ таково, что $\tilde{x}_1 \geqslant 0$, $\tilde{x}_2\geqslant 0$, $\tilde{x}_3\hm\geqslant \max{}\Bigl\{0,L+1\hm-\max\limits_{k=\overline{1,d}}{\Bigl\{\sum\limits_{s=1}^{n_{\tilde{k}}} \ell(\tilde{k},s,3)\Bigr\}}\Bigr\}$, $\tilde{x}_4\hm\geqslant 0$ и $(x_1 > 0)\hm\Rightarrow (x_4\geqslant \ell(0,\tilde{r},1))$, существует такое натуральное число $N$, что 
 \begin{equation*}
-\Pr(\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0)>0.
+\Pr(\{\omega\colon \Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=\tilde{x}\}|\{\omega\colon 
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\})>0.
 \end{equation*}
 \end{lemma}
 
@@ -1283,8 +1268,8 @@ $(\Gamma^{(\tilde{k},\tilde{r})},\tilde{x})$,
 где $\tilde{k}=\overline{1,d}$, $\tilde{r} = \overline{1,n_{\tilde{k}}}$ и $\tilde{x}$ таково, что $\tilde{x}_3\geqslant \max{\Bigl\{0,L+1-\sum\limits_{s=1}^{\tilde{r}}\ell(\tilde{k},s,3)\Bigr\}}$,
 $(\tilde{x}_1>0) \Rightarrow (\tilde{x}_4\geqslant \ell(\tilde{k},\tilde{r},1))$, существует такое натуральное число $N$, что 
 \begin{equation*}
-\Pr(\Gamma_{N}=\Gamma^{(\tilde{k},\tilde{r} )}, \varkappa_{N}=\tilde{x}|
-\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0)>0.
+\Pr(\{\omega\colon \Gamma_{N}=\Gamma^{(\tilde{k},\tilde{r} )}, \varkappa_{N}=\tilde{x}\}|\{\omega\colon 
+\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\})>0.
 \end{equation*}
 \end{lemma}
 \begin{proof}
@@ -1330,12 +1315,12 @@ $(\Gamma^{(\tilde{k},\tilde{r})},\tilde{x})$,
 \end{theorem}
 
 \section[Рекуррентные соотношения для производящих функций последовательности $\boldsymbol{\MarkThree}$]%
-{Рекуррентные соотношения для производящих функций последовательности  $\boldsymbol{\MarkThree}$}
+{Рекуррентные соотношения для производящих \\ функций последовательности  $\boldsymbol{\MarkThree}$}
 Пусть $\Gamma^{(k,r)}\in \Gamma$ и $x_3 \in {\mathbb Z}_+$. Обозначим 
 \begin{equation*}
 {\mathbb H}_{-1}(\Gamma^{(k,r)}, x_3) = \{\gamma \in \Gamma \colon h(\gamma, x_3) = \Gamma^{(k,r)}\}.
 \end{equation*}
-Тогда непосредственно из определения \eqref{hLaw} находим явный вид этого множества для различных $\Gamma^{(k,r)}$ и $x_3$:
+Тогда из определения \eqref{hLaw} находим явный вид множества для различных $\Gamma^{(k,r)}$ и $x_3$:
 \begin{equation}
 {\mathbb H}_{-1}(\Gamma^{(k,r)}, x_3) = 
 \begin{cases}
@@ -1406,16 +1391,13 @@ q_{k,r}(v) = v^{-\ell(k,r,3)}\sum_{w=0}^{\infty} \varphi_3(w,T^{(k,r)})v^w.
 - \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3-\ell(\tilde{k},\tilde{r},3)}  \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) -x_3}
 \varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w
 \end{multline}
-
 \begin{multline}
 \alpha_i(0,\tilde{r},v) =\tilde{\alpha}_i(0,\tilde{r},v) + q_{0,\tilde{r}}(v) \times \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) \right] v^{x_3}, \\ \Gamma^{(0,\tilde{r})} \in \Gamma.
 \end{multline}
-
 \begin{multline}
 \alpha_i(\tilde{k},\tilde{r},v) =\tilde{\alpha}_i(\tilde{k},\tilde{r},v) - q_{\tilde{k},\tilde{r}}(v)\sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3}+ \\ 
 + q_{\tilde{k},\tilde{r}}(v)  \sum_{x_3\geqslant 0} Q_{3,i}(\Gamma^{(0,\tilde{r})},x_3) v^{x_3}, \quad \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}
 \end{multline}
-
 \begin{equation}
 \alpha_i(\tilde{k},\tilde{r},v) =\tilde{\alpha}_i(\tilde{k},\tilde{r},v) - q_{\tilde{k},\tilde{r}}(v) \sum_{x_3=0}^{L} Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) v^{x_3} , \quad \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{O}} \cup C_{\tilde{k}}^{\mathrm{N}}
 \end{equation}
@@ -1458,9 +1440,9 @@ $$
 Преобразуем их.
 \begin{multline}
  \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{w=1}^{\infty}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \times 
-\varphi_3(w + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})}) v^w = \\
+\varphi_3(w + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})}) v^w =\displaybreak[0] \\
 =  \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3)  \sum_{w=1}^{\infty} 
-\varphi_3(w + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})}) v^w = \\
+\varphi_3(w + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})}) v^w =\displaybreak[0] \\
 =\sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3-\ell(\tilde{k},\tilde{r},3)}  \sum_{w=\ell(\tilde{k},\tilde{r},3) + 1 -x_3}^{\infty}
 \varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w.
 \label{sum:one}
@@ -1528,8 +1510,8 @@ ${\mathbb H}_{-1}(\tilde{\gamma},x_3) \hm=\emptyset$ для $x_3 > L$. Здес�
 Подставляя найденные выражения \eqref{rekur:additional:first}, \eqref{rekur:additional:second} и \eqref{rekur:additional:third} в правую часть равенств \eqref{rekur:general:second}, получаем утверждение теоремы.
 \end{proof}
 
-\section[Достаточное условие существования стационарного\\ {распределения} последовательности $\boldsymbol{\MarkThree}$]%
-{ Достаточное условие существования стационарного\\ {распределения} последовательности $\boldsymbol{\MarkThree}$}
+\section[Достаточное условие существования стационарного {распределения} последовательности\\ $\boldsymbol{\MarkThree}$]%
+{ Достаточное условие существования стационарного {распределения} последовательности\\ $\boldsymbol{\MarkThree}$}
 Получение достаточных условий будет проведено с использованием итеративно-мажорантного подхода (\cite{Fedotkin:1988,Fedotkin:1989}). В основе этого подхода лежит изучение динамики одномерных сечений счетной марковской цепи. 
 
 \begin{lemma}
