@@ -1699,6 +1699,230 @@ $$
 в силу интегральной формулы Коши равномерно по $i$ ограничена некоторой постоянной величиной. Поэтому принятое предположение не будет справедливым. Доказательство этим завершается.
 \end{proof}
 
+
+\subsection{Учтем первую очередь}
+
+Докажем марковость последовательности $\{(\Gamma_i, \varkappa_{1,i},\varkappa_{3,i}); i \geqslant 0\}$.
+\begin{theorem}
+Пусть $\Gamma_0=\Gamma^{(k,r)}\in \Gamma$ и $(\varkappa_{1,0}, \varkappa_{3,0})=(x_{1,0}, x_{3,0})\in \mathbb{Z}_+^2$ фиксированы. Тогда последовательность $\{(\Gamma_i, \varkappa_{1,i},\varkappa_{3,i}); i \geqslant 0\}$ является однородной счетной цепью Маркова.
+\end{theorem}
+\begin{proof}
+Действительно, поскольку $\Gamma_{i+1}$ функционально выражается через $\Gamma_i$ и $\varkappa_{3,i}$ (см.~\eqref{gammaFunc}), то
+\begin{multline*}
+\Pr (\{ \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{1,i+1} = x_{1,i+1},\varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\
+=\delta_{\Gamma^{(k_{i+1},r_{i+1})},h(\Gamma^{(k_i,r_i)},x_{3,i})}\times \Pr (\{ \varkappa_{1,i+1} = x_{1,i+1},  \varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}),
+\end{multline*}
+для $\Gamma^{(k_i,r_i)}\in \Gamma$, $(x_{1,i}, x_{3,i})\in {\mathbb Z}_+^2$, $i\geqslant 0$. Учитывая равенство \eqref{kappa:1:kappa:3:conditional}, убеждаемся, что вероятность 
+\begin{multline*}
+\Pr (\{ \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{1,i+1} = x_{1,i+1},\varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\}) = \\
+=\delta_{\Gamma^{(k_{i+1},r_{i+1})},h(\Gamma^{(k_i,r_i)},x_{3,i})} \times \widetilde{\varphi}_3(k_{i+1},r_{i+1},h_T(\Gamma^{(k_i,r_i)},x_{3,i}),x_{3,i},x_{3,i+1})
+\times \\ \times \widetilde{\varphi}_1(k_{i+1},r_{i+1},h_T(\Gamma^{(k_i,r_i)},x_{3,i}),x_{1,i},x_{1,i+1})
+\end{multline*}
+зависит только от значений $(\Gamma_i,\varkappa_{1,i},\varkappa_{3,i})$ и $(\Gamma_{i+1},\varkappa_{1,i+1}, \varkappa_{3,i+1})$. Следовательно, 
+\begin{multline*}
+\Pr (\{ \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{1,i+1} = x_{1,i+1},\varkappa_{3,i+1} = x_{3,i+1}\} |\cap_{t=0}^{i}\{\Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_t=x^t\})=\\
+=\Pr (\{  \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})},\varkappa_{1,i+1} = x_{1,i+1},\varkappa_{3,i+1} = x_{3,i+1}\} | \\ \{ \Gamma_i=\Gamma^{(k_i,r_i)},\varkappa_{1,i}=x_{1,i}, \varkappa_{3,i}=x_{3,i}\}) = \\
+=\Pr (\{ \Gamma_{i+1} =\Gamma^{(k_{i+1},r_{i+1})}, \varkappa_{1,i+1} = x_{1,i+1},\varkappa_{3,i+1} = x_{3,i+1}\} |\\ |\cap_{t=0}^{i}\{ \Gamma_t=\Gamma^{(k_t,r_t)}, \varkappa_{1,t}=x_{1,t}, \varkappa_{3,t}=x_{3,t}\}),
+\end{multline*}
+что доказывает марковость последовательности $\{(\Gamma_i, \varkappa_{1,i},\varkappa_{3,i}); i \geqslant 0\}$.
+\end{proof}
+
+
+
+Обозначим для $\gamma \in \Gamma$ и $(x_1,x_3) \in {\mathbb Z}_+^2$
+\begin{equation}
+Q_{1,i}(\gamma,x_1,x_3) = \Pr(\Gamma_{i}=\gamma, \varkappa_{1,i}=x_1, \varkappa_{3,i}=x_3).
+\end{equation}
+
+\begin{theorem}
+Пусть $\tilde{\gamma} =\Gamma^{(\tilde{k},\tilde{r})}\in \Gamma$ и $(\tilde{x}_1, \tilde{x}_3) \in {\mathbb Z}_+^2$. Тогда для переходных вероятностей $\{Q_{1,i}(\cdot,\cdot,\cdot)\}_{i\geqslant 0}$ марковской цепи $\{(\Gamma_i, \varkappa_{1,i},\varkappa_{3,i}); i \geqslant 0\} $ имеют место следующие рекуррентные соотношения:
+\begin{multline*}
+Q_{1,i+1}(\tilde{\gamma},\tilde{x}_1, \tilde{x}_3)= 
+\sum_{x_1=0}^{\ell(\tilde{k},\tilde{r},1)} \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3)\times \\ \times
+\sum_{a=0}^{\ell(\tilde{k},\tilde{r},3)-x_3}\varphi_3(a,T^{(\tilde{k},\tilde{r})}) \times \sum_{a=0}^{\ell(\tilde{k},\tilde{r},1)-x_1}\varphi_1(a,T^{(\tilde{k},\tilde{r})}), \quad \tilde{x}_1 = 0,\tilde{x}_3 = 0,
+\end{multline*}
+\begin{multline*}
+Q_{1,i+1}(\tilde{\gamma},\tilde{x}_1, \tilde{x}_3)= 
+\sum_{x_1=0}^{\ell(\tilde{k},\tilde{r},1)} \sum_{x_3=0}^{\tilde{x}_3 + \ell(\tilde{k},\tilde{r},3)} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\ \times \varphi_3(\tilde{x}_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \sum_{a=0}^{\ell(\tilde{k},\tilde{r},1)-x_1}\varphi_1(a,T^{(\tilde{k},\tilde{r})}), \quad \tilde{x}_1 = 0, \tilde{x}_3 > 0,
+\end{multline*}
+\begin{multline*}
+Q_{1,i+1}(\tilde{\gamma},\tilde{x}_1, \tilde{x}_3)= 
+\sum_{x_1=0}^{\tilde{x}_1 + \ell(\tilde{k},\tilde{r},1) } \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\ \times \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3)-x_3}\varphi_3(a,T^{(\tilde{k},\tilde{r})}) \times \varphi_1(\tilde{x}_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})}), \quad \tilde{x}_1 > 0, \tilde{x}_3 = 0,
+\end{multline*}
+\begin{multline*}
+Q_{1,i+1}(\tilde{\gamma},\tilde{x}_1, \tilde{x}_3)= 
+\sum_{x_1=0}^{\tilde{x}_1 +\ell(\tilde{k},\tilde{r},1)} \sum_{x_3=0}^{\tilde{x}_3 +\ell(\tilde{k},\tilde{r},3)} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\ \times \varphi_3(\tilde{x}_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \varphi_1(\tilde{x}_1 + \ell(\tilde{k},\tilde{r},1)-x_1,T^{(\tilde{k},\tilde{r})}), \quad \tilde{x}_1 > 0, \tilde{x}_3 > 0.
+\end{multline*}
+\label{prob:rek:1}
+\end{theorem}
+\begin{proof}
+По формуле полной вероятности имеем
+\begin{multline*}
+Q_{1,i+1}(\tilde{\gamma},\tilde{x}_1,\tilde{x}_3) = \Pr(\Gamma_{i+1}=\tilde{\gamma}, \varkappa_{1,i+1}=\tilde{x}_1, \varkappa_{3,i+1}=\tilde{x}_3) = \\
+= \sum_{x_1=0}^{\infty}\sum_{x_3=0}^{\infty}\sum_{\gamma \in \Gamma} \Pr(\Gamma_{i}=\gamma, \varkappa_{1,i}=x_1, \varkappa_{3,i}=x_3) \times \\ \times  \Pr(\Gamma_{i+1}=\tilde{\gamma}, \varkappa_{1,i+1}=\tilde{x}_1, \varkappa_{3,i+1}=\tilde{x}_3 | \Gamma_{i}=\gamma,\varkappa_{1,i}=x_1, \varkappa_{3,i}=x_3) =  \\ 
+=\sum_{x_1=0}^{\infty} \sum_{x_3=0}^{\infty}\sum_{\gamma \in \Gamma} Q_{1,i}(\gamma, x_1, x_3) \times \delta_{\tilde{\gamma},h(\gamma,x_3)}\times \\ \times
+\Pr(\varkappa_{1,i+1}=\tilde{x}_1 , \varkappa_{3,i+1}=\tilde{x}_3 | \Gamma_{i}=\gamma, \varkappa_{1,i}=x_1, \varkappa_{3,i}=x_3).
+\end{multline*}
+Тогда из определения $ {\mathbb H}_{-1}(\tilde{\gamma},x_3)$ следует, что 
+\begin{multline*}
+Q_{1,i+1}(\tilde{\gamma},\tilde{x}_1, \tilde{x}_3) =\sum_{x_1=0}^{\infty} \sum_{x_3=0}^{\infty}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{1,i}(\gamma,x_1, x_3) \times \\ \times 
+\Pr(\varkappa_{1,i+1}=\tilde{x}_1, \varkappa_{3,i+1}=\tilde{x}_3 | \Gamma_{i}=\gamma, \varkappa_{1,i}=x_1, \varkappa_{3,i}=x_3)
+\end{multline*}
+и учитывая \eqref{kappa:1:kappa:3:conditional} продолжаем цепочку выкладок
+\begin{multline*}
+Q_{1,i+1}(\tilde{\gamma},\tilde{x}_1, \tilde{x}_3)=\sum_{x_1=0}^{\infty} \sum_{x_3=0}^{\infty}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{1,i}(\gamma,x_1,x_3) \times 
+\tilde{\varphi}_3(\tilde{k},\tilde{r}, T^{(\tilde{k},\tilde{r})},x_3,\tilde{x}_3) \times \\ \times 
+\tilde{\varphi}_1(\tilde{k},\tilde{r}, T^{(\tilde{k},\tilde{r})},x_1,\tilde{x}_1) 
+= \sum_{x_1=0}^{\infty} \sum_{x_3=0}^{\infty} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{1,i}(\gamma,x_1, x_3) \times \\ \times
+[ (1-\delta_{\tilde{x}_3,0})\varphi_3(\tilde{x}_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})}) +\delta_{\tilde{x}_3,0} \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3)-x_3}\varphi_3(a,T^{(\tilde{k},\tilde{r})})] \times \\ 
+\times 
+[ (1-\delta_{\tilde{x}_1,0})\varphi_1(\tilde{x}_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})}) +\delta_{\tilde{x}_1,0} \sum_{a=0}^{\ell(\tilde{k},\tilde{r},1)-x_1}\varphi_1(a,T^{(\tilde{k},\tilde{r})})].
+\end{multline*}
+
+Поскольку  $\varphi_i(x,t)=0$ для $x<0$, $i=1,2$, получаем утверждение теоремы.
+\end{proof}
+
+Пусть $k$ и $r$ таковы, что $\Gamma^{(k,r)}\in \Gamma$. Введем производящие функции
+\begin{equation*}
+\mathfrak{M}^{(3,i)}_1(k,r,v_1,v_3) = \sum_{w_1=0}^{\infty}\sum_{w_3=0}^{\infty} Q_{1,i}(\Gamma^{(k,r)},w_1,w_3) v_1^{w_1} v_3^{w_3},
+\end{equation*}
+вспомогательные функции
+\begin{equation*}
+q_{k,r}(1,v_1,v_3) = v^{-\ell(k,r,3)}\sum_{w=0}^{\infty} \varphi_3(w,T^{(k,r)})v^w.
+\end{equation*}
+и 
+\begin{multline*}
+    \alpha_1^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3) = \sum_{w_3=0}^{\infty} Q_{1,i+1}(\tilde{\gamma},0,w_3) v_3^{w_3} + \sum_{w_1=1}^{\infty} Q_{1,i+1}(\tilde{\gamma},w_1,0) v_1^{w_1} + \\ +\sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{w_3=1}^{\infty} \sum_{w_1=1}^{\infty} \sum_{x_1=0}^{w_1+\ell(\tilde{k},\tilde{r},1)}   \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\
+   \times \varphi_3(w_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \varphi_1(w_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})})  \times v_1^{w_1} v_3^{w_3} + \\
+   +  \sum_{x_3=\ell(\tilde{k},\tilde{r},3)+1}^{\infty}\sum_{w_3=x_3 -\ell(\tilde{k},\tilde{r},3) }^{\infty} \sum_{x_1=0}^{\ell(\tilde{k},\tilde{r},1)}  \sum_{w_1=1}^{\infty} \sum_{x_1=0}^{w_1+\ell(\tilde{k},\tilde{r},1)}   \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\
+   \times \varphi_3(w_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \varphi_1(w_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})})  \times v_1^{w_1} v_3^{w_3} - \\
+   - \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)} \sum_{x_1=0}^{\infty} \sum_{w_3=x_3 -\ell(\tilde{k},\tilde{r},3) }^{\infty}   \sum_{w_1=x_1-\ell(\tilde{k},\tilde{r},1)}^{\infty}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\
+   \times \varphi_3(w_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \varphi_1(w_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})})  \times v_1^{w_1} v_3^{w_3} - \\
+   \sum_{x_3=\ell(\tilde{k},\tilde{r},3)+1}^{\infty} \sum_{x_1=0}^{\ell(\tilde{k},\tilde{r},1)} \sum_{w_3=x_3 -\ell(\tilde{k},\tilde{r},3) }^{\infty}   \sum_{w_1=x_1-\ell(\tilde{k},\tilde{r},1)}^{\infty}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\
+   \times \varphi_3(w_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \varphi_1(w_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})})  \times v_1^{w_1} v_3^{w_3}
+\end{multline*}
+
+\begin{multline*}
+    \alpha_2^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3) = \sum_{x_3=0}^{L} \sum_{x_1=0}^{\infty} [ Q_{1,i}(\Gamma^{(k_1,r_1)},x_1, x_3) + \\
+    + Q_{1,i}( \Gamma^{(0,\tilde{r}\ominus_0 1)},x_1, x_3) ] \times v_1^{x_1} v_3^{x_3}, 
+    \quad \Gamma^{(\tilde{k},\tilde{r})} =  \Gamma^{(0,\tilde{r})}, \tilde{r}=\overline{1,n_0};
+\end{multline*}
+\begin{multline*}
+    \alpha_2^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3) = -\sum_{x_3=0}^{L-1} \sum_{x_1=0}^{\infty} [ Q_{1,i}(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_1, x_3) +Q_{1,i}(  \Gamma^{(0,r_2)},x_1, x_3) ]  \times v_1^{x_1} v_3^{x_3} , 
+    \quad \Gamma^{(\tilde{k},\tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}};
+\end{multline*}
+\begin{equation*}
+    \alpha_2^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3) = 0, 
+    \quad \Gamma^{(\tilde{k},\tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}};
+\end{equation*}
+
+\begin{theorem}
+Пусть $\tilde{\gamma}=\Gamma^{(\tilde{k},\tilde{r})} \in \Gamma$. Тогда имеют место следующие рекуррентные по $i \geqslant 0$ соотношения для производящих функций марковской цепи $\{(\Gamma_i, \varkappa_{1,i},\varkappa_{3,i}); i \geqslant 0\}$:
+\begin{enumerate}
+
+\item для $ \Gamma^{(0,\tilde{r})} \in \Gamma$, $\tilde{r} = \overline{1,n_0}$ 
+$$
+\mathfrak{M}^{(3,i+1)}(0,\tilde{r},v) =  q^{(1,i)}(\tilde{k},\tilde{r},v_1) q^{(3,i)}(\tilde{k},\tilde{r},v_3)\times 
+   \alpha_2^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3) 
+     + \alpha_1^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3);
+$$
+\item для $\Gamma^{(\tilde{k},\tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}$
+\begin{multline*}
+\mathfrak{M}^{(3,i+1)}(\tilde{k},\tilde{r},v) = q^{(1,i)}(\tilde{k},\tilde{r},v_1) q^{(3,i)}(\tilde{k},\tilde{r},v_3) \times [\mathfrak{M}^{(1,i)}(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1,v_1,v_3) + \\
+    +\mathfrak{M}^{(1,i)}(0,r_2,v_1,v_3)  + \alpha_2^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3)]
+     + \alpha_1^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3);
+\end{multline*}
+\item для $\Gamma^{(\tilde{k},\tilde{r})} \in C_{\tilde{k}}^{\mathrm{O}} \cup C_{\tilde{k}}^{\mathrm{N}}$
+$$
+\mathfrak{M}^{(3,i+1)}(\tilde{k},\tilde{r},v) = q^{(1,i)}(\tilde{k},\tilde{r},v_1) q^{(3,i)}(\tilde{k},\tilde{r},v_3)\times \mathfrak{M}^{(1,i)}(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1,v_1,v_3) 
+     + \alpha_1^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3);
+$$
+\end{enumerate}
+
+\label{theorem:gen:rek}
+\end{theorem}
+\begin{proof}
+В соответствии с теоремой \eqref{prob:rek:1} выделим из суммы
+\begin{equation*}
+\mathfrak{M}^{(1,i+1)}(\tilde{k},\tilde{r},v_1,v_3) = \sum_{w_1=0}^{\infty}\sum_{w_3=0}^{\infty} Q_{1,i+1}(\tilde{\gamma},w_1,w_3) v_1^{w_1} v_3^{w_3}.
+\end{equation*}
+слагаемое вида 
+\begin{equation*}
+    \sum_{w_1=1}^{\infty}\sum_{w_3=1}^{\infty} Q_{1,i+1}(\tilde{\gamma},w_1,w_3) v_1^{w_1} v_3^{w_3}
+\end{equation*}
+и исследуем его. Из теоремы \eqref{prob:rek:1} следует:
+\begin{multline*}
+   \sum_{w_3=1}^{\infty}  \sum_{w_1=1}^{\infty}  Q_{1,i+1}(\tilde{\gamma},w_1,w_3) \times v_1^{w_1} v_3^{w_3} = \sum_{w_3=1}^{\infty}  \sum_{w_1=1}^{\infty}  \sum_{x_1=0}^{w_1+\ell(\tilde{k},\tilde{r},1)} \sum_{x_3=0}^{w_3 + \ell(\tilde{k},\tilde{r},3)} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\ \times \varphi_3(w_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times
+   \varphi_1(w_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})}) \times v_1^{w_1} v_3^{w_3}
+\end{multline*}
+Поменяв порядок суммирования по $w_3$ и $x_3$, получим
+\begin{multline*}
+   \sum_{w_3=1}^{\infty}   \sum_{w_1=1}^{\infty}  Q_{1,i+1}(\tilde{\gamma},w_1,w_3) \times v_1^{w_1} v_3^{w_3} = \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{w_3=1}^{\infty} \sum_{w_1=1}^{\infty} \sum_{x_1=0}^{w_1+\ell(\tilde{k},\tilde{r},1)}   \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\
+   \times \varphi_3(w_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \varphi_1(w_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})})  \times v_1^{w_1} v_3^{w_3} + \\ 
+   +  \sum_{x_3=\ell(\tilde{k},\tilde{r},3)+1}^{\infty}\sum_{w_3=x_3 -\ell(\tilde{k},\tilde{r},3) }^{\infty} \sum_{w_1=1}^{\infty} \sum_{x_1=0}^{w_1+\ell(\tilde{k},\tilde{r},1)}   \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\
+   \times \varphi_3(w_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \varphi_1(w_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})})  \times v_1^{w_1} v_3^{w_3}
+\end{multline*}
+Во втором слагаемом поменяем порядок суммирования по $w_1$ и $x_1$:
+\begin{multline*}
+   \sum_{x_3=\ell(\tilde{k},\tilde{r},3)+1}^{\infty}\sum_{w_3=x_3 -\ell(\tilde{k},\tilde{r},3) }^{\infty} \sum_{w_1=1}^{\infty} \sum_{x_1=0}^{w_1+\ell(\tilde{k},\tilde{r},1)}   \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\
+   \times \varphi_3(w_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \varphi_1(w_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})})  \times v_1^{w_1} v_3^{w_3} = \\ 
+   = \sum_{x_3=\ell(\tilde{k},\tilde{r},3)+1}^{\infty}\sum_{w_3=x_3 -\ell(\tilde{k},\tilde{r},3) }^{\infty} \sum_{x_1=0}^{\ell(\tilde{k},\tilde{r},1)}  \sum_{w_1=1}^{\infty} \sum_{x_1=0}^{w_1+\ell(\tilde{k},\tilde{r},1)}   \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\
+   \times \varphi_3(w_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \varphi_1(w_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})})  \times v_1^{w_1} v_3^{w_3} + \\
+   +\sum_{x_3=\ell(\tilde{k},\tilde{r},3)+1}^{\infty}\sum_{w_3=x_3 -\ell(\tilde{k},\tilde{r},3) }^{\infty} \sum_{x_1=\ell(\tilde{k},\tilde{r},1)+1}^{\infty}  \sum_{w_1=x_1-\ell(\tilde{k},\tilde{r},1)}^{\infty}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\
+   \times \varphi_3(w_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \varphi_1(w_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})})  \times v_1^{w_1} v_3^{w_3}
+\end{multline*}
+Таким образом:
+\begin{multline*}
+    \mathfrak{M}^{(1,i+1)}(\tilde{k},\tilde{r},v_1,v_3)  =\sum_{x_3=0}^{\infty} \sum_{x_1=0}^{\infty} \sum_{w_3=x_3 -\ell(\tilde{k},\tilde{r},3) }^{\infty}   \sum_{w_1=x_1-\ell(\tilde{k},\tilde{r},1)}^{\infty}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) \times  \\
+   \times \varphi_3(w_3 + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})})  \times \varphi_1(w_1 + \ell(\tilde{k},\tilde{r},1) - x_1,T^{(\tilde{k},\tilde{r})})  \times v_1^{w_1} v_3^{w_3} + \alpha_1^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3),
+\end{multline*}
+где к последней сумме мы добавили и вычли одно и то же выражение.
+
+Сделаем замены переменных в индексах суммирования:
+\begin{multline*}
+    \mathfrak{M}^{(1,i+1)}(\tilde{k},\tilde{r},v_1,v_3)  =\sum_{x_3=0}^{\infty} \sum_{x_1=0}^{\infty}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) 
+    \times v_1^{x_1-\ell(\tilde{k},\tilde{r},1)} v_3^{x_3 -\ell(\tilde{k},\tilde{r},3)}\times \\
+    \times 
+    \sum_{w_3=0 }^{\infty}  \varphi_3(w_3,T^{(\tilde{k},\tilde{r})}) v_3^{w_3}  \times  \sum_{w_1=0}^{\infty}  \varphi_1(w_1,T^{(\tilde{k},\tilde{r})})  v_1^{w_1}  + \alpha_1^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3) = \\
+    = q^{(1,i)}(\tilde{k},\tilde{r},v_1) q^{(3,i)}(\tilde{k},\tilde{r},v_3)\times 
+    \sum_{x_3=0}^{\infty} \sum_{x_1=0}^{\infty}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) 
+    \times v_1^{x_1} v_3^{x_3}+\\
+     + \alpha_1^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3)
+\end{multline*}
+Рассмотрим несколько случаев в зависимости от $\tilde{\gamma}$. Eсли $\tilde{\gamma} = \Gamma^{(0,\tilde{r})}$, то из определения ${\mathbb H}_{-1}(\cdot,\cdot)$ следует, что ${\mathbb H}_{-1}(\tilde{\gamma},x_3) = \{\Gamma^{(k_1,r_1)}, \Gamma^{(0,\tilde{r}\ominus_0 1)}\}$ для $x_3 \leqslant L$ и
+${\mathbb H}_{-1}(\tilde{\gamma},x_3) =\emptyset$ для $x_3 > L$. Здесь пара $(k_1,r_1)$ такая, что $h_1(\Gamma^{(k_1,r_1)}) = \tilde{r}$. Тогда 
+\begin{multline*}
+     \sum_{x_3=0}^{\infty} \sum_{x_1=0}^{\infty}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) 
+    \times v_1^{x_1} v_3^{x_3} =  \sum_{x_3=0}^{L} \sum_{x_1=0}^{\infty} [ Q_{1,i}(\Gamma^{(k_1,r_1)},x_1, x_3) + \\ 
+    +Q_{1,i}( \Gamma^{(0,\tilde{r}\ominus_0 1)},x_1, x_3) ]
+    \times v_1^{x_1} v_3^{x_3} =  \alpha_2^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3)
+\end{multline*}
+
+Если $\tilde{\gamma} \in C_{\tilde{k}}^{\mathrm{I}}$, из определения  ${\mathbb H}_{-1}(\cdot,\cdot)$ находим, что ${\mathbb H}_{-1}(\tilde{\gamma},x_3) = \emptyset$ для $x_3 \leqslant L$ и ${\mathbb H}_{-1}(\tilde{\gamma},x_3) = \{\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)}, \Gamma^{(0,r_2)}\}$ для $x_3 > L$. Здесь $r_2$ таково, что $h_3(r_2)=\Gamma^{(\tilde{k},\tilde{r})}$. Сумма принимает вид
+\begin{multline*}
+      \sum_{x_3=0}^{\infty} \sum_{x_1=0}^{\infty}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) 
+    \times v_1^{x_1} v_3^{x_3} =  \sum_{x_3=L}^{\infty} \sum_{x_1=0}^{\infty} [ Q_{1,i}(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_1, x_3) + \\ 
+    +Q_{1,i}(  \Gamma^{(0,r_2)},x_1, x_3) ] \times v_1^{x_1} v_3^{x_3} = 
+    \sum_{x_3=0}^{\infty} \sum_{x_1=0}^{\infty} [ Q_{1,i}(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_1, x_3) +Q_{1,i}(  \Gamma^{(0,r_2)},x_1, x_3) ]  \times v_1^{x_1} v_3^{x_3} - \\
+    -\sum_{x_3=0}^{L-1} \sum_{x_1=0}^{\infty} [ Q_{1,i}(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_1, x_3) +Q_{1,i}(  \Gamma^{(0,r_2)},x_1, x_3) ]  \times v_1^{x_1} v_3^{x_3} 
+    = \mathfrak{M}^{(1,i)}(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1,v_1,v_3)  + \\
+    +\mathfrak{M}^{(1,i)}(0,r_2,v_1,v_3) -\sum_{x_3=0}^{L-1} \sum_{x_1=0}^{\infty} [ Q_{1,i}(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_1, x_3) +Q_{1,i}(  \Gamma^{(0,r_2)},x_1, x_3) ]  \times v_1^{x_1} v_3^{x_3} = \\
+    =  \mathfrak{M}^{(1,i)}(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1,v_1,v_3) 
+    +\mathfrak{M}^{(1,i)}(0,r_2,v_1,v_3)  + \alpha_2^{(3,i)}(\tilde{k},\tilde{r},v_1,v_3)
+\end{multline*}
+И, наконец, если $\tilde{\gamma}\in C_{\tilde{k}}^{\mathrm{O}} \cup C_{\tilde{k}}^{\mathrm{N}}$, то ${\mathbb H}_{-1}(\tilde{\gamma},x_3) = \{\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)}\}$ для всех $x_3\geqslant 0$. Тогда сумма будет выглядеть следующим образом
+\begin{multline*}
+      \sum_{x_3=0}^{\infty} \sum_{x_1=0}^{\infty}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)}Q_{1,i}(\gamma,x_1, x_3) 
+    \times v_1^{x_1} v_3^{x_3} =\\
+    =   \sum_{x_3=0}^{\infty} \sum_{x_1=0}^{\infty} Q_{1,i}(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_1, x_3) 
+    \times v_1^{x_1} v_3^{x_3}
+    = \mathfrak{M}^{(1,i)}(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1,v_1,v_3) 
+\end{multline*}
+
+
+\end{proof}
+
+
 \section{Заключение}
 В приведенной работе был рассмотрен тандем систем массового обслуживания конкретного вида. Тандем был представлен в виде кибернетической управляющей системы, а вероятностное пространство, на котором реализуются введенные последовательности случайных величин и элементов, построено конструктивно. Доказана марковость как всей последовательности, включающей в себя состояние прибора и состояния всех очередей, так и последовательности, включающей в себя состояние прибора и состояние низко-приоритетной очереди. Найдены переходные вероятности марковской цепи с низкоприоритетной очередью, рекурретные соотношения для ее производящих функций, а также проведена классификация ее состояний по арифметическим свойствам последовательности. В результате была найдено достаточное условие существования стационарного распределения марковской цепи, включающей в себя состояние прибора и состояние низкоприоритетной очереди.
 
