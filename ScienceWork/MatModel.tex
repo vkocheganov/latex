@@ -1385,35 +1385,36 @@ Q_{3,i+1}(\tilde{\gamma},\tilde{x}_3)= (1-\delta_{\tilde{x}_3,0}) \sum_{x_3=0}^{
 \begin{equation*}
 q_{k,r}(v) = v^{-\ell(k,r,3)}\sum_{w=0}^{\infty} \varphi_3(w,T^{(k,r)})v^w.
 \end{equation*}
-а также функции
+а также для чисел $k_1$, $r_1$ и $r_2$, удовлетворяющих соотношениям $h_1(\Gamma^{(k_1,r_1)}) = \tilde{r}$ и $h_3(r_2)=\Gamma^{(\tilde{k},\tilde{r})}$, определим функции
 \begin{multline}
 \tilde{\alpha}_i(\tilde{k},\tilde{r},v) = \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})}) - \\
 - \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3-\ell(\tilde{k},\tilde{r},3)}  \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) -x_3}
 \varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^w
 \end{multline}
 \begin{multline}
-\alpha_i(0,\tilde{r},v) =\tilde{\alpha}_i(0,\tilde{r},v) + q_{0,\tilde{r}}(v) \times \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) \right] v^{x_3}, \\ \Gamma^{(0,\tilde{r})} \in \Gamma.
+\alpha_i(0,\tilde{r},v) =\tilde{\alpha}_i(0,\tilde{r},v) + q_{0,\tilde{r}}(v) \times \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,\tilde{r}\ominus_0 1)},x_3) \right] v^{x_3}, \\ \Gamma^{(0,\tilde{r})} \in \Gamma.
 \end{multline}
 \begin{multline}
-\alpha_i(\tilde{k},\tilde{r},v) =\tilde{\alpha}_i(\tilde{k},\tilde{r},v) - q_{\tilde{k},\tilde{r}}(v)\sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3}+ \\ 
-+ q_{\tilde{k},\tilde{r}}(v)  \sum_{x_3\geqslant 0} Q_{3,i}(\Gamma^{(0,\tilde{r})},x_3) v^{x_3}, \quad \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}
+\alpha_i(\tilde{k},\tilde{r},v) =\tilde{\alpha}_i(\tilde{k},\tilde{r},v) - q_{\tilde{k},\tilde{r}}(v)\sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3}+ \\ 
++ q_{\tilde{k},\tilde{r}}(v)  \sum_{x_3\geqslant 0} Q_{3,i}(\Gamma^{(0,r_2)},x_3) v^{x_3}, \quad \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}
 \end{multline}
 \begin{equation}
-\alpha_i(\tilde{k},\tilde{r},v) =\tilde{\alpha}_i(\tilde{k},\tilde{r},v) - q_{\tilde{k},\tilde{r}}(v) \sum_{x_3=0}^{L} Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) v^{x_3} , \quad \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{O}} \cup C_{\tilde{k}}^{\mathrm{N}}
+\alpha_i(\tilde{k},\tilde{r},v) =\tilde{\alpha}_i(\tilde{k},\tilde{r},v), \quad \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{O}} \cup C_{\tilde{k}}^{\mathrm{N}}
 \end{equation}
 
 \begin{theorem}
-Пусть $\tilde{\gamma}=\Gamma^{(\tilde{k},\tilde{r})} \in \Gamma$. Тогда имеют место следующие рекуррентные по $i \geqslant 0$ соотношения для производящих функций марковской цепи $\MarkThree$:
+Пусть $\tilde{\gamma}=\Gamma^{(\tilde{k},\tilde{r})} \in \Gamma$. Тогда имеют место следующие рекуррентные по $i \geqslant 0$ соотношения для производящих функций Марковской цепи $\MarkThree$:
 \begin{enumerate}
-
 \item для $ \Gamma^{(0,\tilde{r})} \in \Gamma$, $\tilde{r} = \overline{1,n_0}$ 
-$$
+\begin{equation}
 \mathfrak{M}^{(3,i+1)}(0,\tilde{r},v) = \alpha_i(0,\tilde{r},v);
-$$
+\label{three:generation:rek:one}
+\end{equation}
 \item для $\Gamma^{(\tilde{k},\tilde{r})} \in \Gamma $, $\tilde{k} =\overline{1,d}$, $\tilde{r}=\overline{1,n_{\tilde{k}}}$
-$$
+\begin{equation}
 \mathfrak{M}^{(3,i+1)}(\tilde{k},\tilde{r},v) = q_{\tilde{k},\tilde{r}} (v)\times  \mathfrak{M}^{(3,i)}(\tilde{k},\tilde{r} \ominus_{\tilde{k}} 1,v) + \alpha_i(\tilde{k},\tilde{r},v);
-$$
+\label{three:generation:rek:two}
+\end{equation}
 \end{enumerate}
 
 \label{theorem:gen:rek}
@@ -1421,7 +1422,7 @@ $$
 \begin{proof}
 Учитывая рекуррентные соотношения \eqref{prob:rek}, выпишем
 \begin{multline}
-\mathfrak{M}^{(3,i+1)}(\tilde{k},\tilde{r},v) =\sum_{w=0}^{\infty} Q_{3,i+1}(\Gamma^{(k,r)},w) v^w = Q_{3,i+1}(\Gamma^{(k,r)},0) + \sum_{w=1}^{\infty} Q_{3,i+1}(\Gamma^{(k,r)},w) v^w =\\
+\mathfrak{M}^{(3,i+1)}(\tilde{k},\tilde{r},v) =\sum_{w=0}^{\infty} Q_{3,i+1}(\Gamma^{(\tilde{k},\tilde{r})},w) v^w = Q_{3,i+1}(\Gamma^{(\tilde{k},\tilde{r})},0) + \sum_{w=1}^{\infty} Q_{3,i+1}(\Gamma^{(\tilde{k},\tilde{r})},w) v^w =\\
 =\sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})}) + \\
 + \sum_{w=1}^{\infty} \sum_{x_3=0}^{w +  \ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) \times 
 \varphi_3(w + \ell(\tilde{k},\tilde{r},3) - x_3,T^{(\tilde{k},\tilde{r})}) v^w.
@@ -1491,22 +1492,21 @@ $$
 В случае, если $\tilde{\gamma} = \Gamma^{(0,\tilde{r})}$, то из определения ${\mathbb H}_{-1}(\cdot,\cdot)$ следует, что ${\mathbb H}_{-1}(\tilde{\gamma},x_3) = \{\Gamma^{(k_1,r_1)}, \Gamma^{(0,\tilde{r}\ominus_0 1)}\}$ для $x_3 \leqslant L$ и
 ${\mathbb H}_{-1}(\tilde{\gamma},x_3) \hm=\emptyset$ для $x_3 > L$. Здесь пара $(k_1,r_1)$ такая, что $h_1(\Gamma^{(k_1,r_1)}) = \tilde{r}$. Тогда сумма примет вид
 \begin{equation}
-\sum_{x_3=0}^{\infty} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3} = \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,r\ominus_0 1)},x_3) \right] v^{x_3}.
+\sum_{x_3=0}^{\infty} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3} = \sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k_1,r_1)},x_3) + Q_{3,i}(\Gamma^{(0,\tilde{r}\ominus_0 1)},x_3) \right] v^{x_3}.
 \label{rekur:additional:first}
 \end{equation}
 В случае, если $\tilde{\gamma} \in C_{\tilde{k}}^{\mathrm{I}}$, из определения  ${\mathbb H}_{-1}(\cdot,\cdot)$ находим, что ${\mathbb H}_{-1}(\tilde{\gamma},x_3) = \emptyset$ для $x_3 \leqslant L$ и ${\mathbb H}_{-1}(\tilde{\gamma},x_3) = \{\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)}, \Gamma^{(0,r_2)}\}$ для $x_3 > L$. Здесь $r_2$ таково, что $h_3(r_2)=\Gamma^{(\tilde{k},\tilde{r})}$. Сумма принимает вид
 \begin{multline}
-\sum_{x_3=0}^{\infty} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3} = \sum_{x_3=L+1}^{\infty} \left[ Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3} = \\=
-\sum_{x_3=0}^{\infty} \left[ Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3} -\\
--\sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3}.
+\sum_{x_3=0}^{\infty} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3} = \sum_{x_3=L+1}^{\infty} \left[ Q_{3,i}(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3} = \\=
+\sum_{x_3=0}^{\infty} \left[ Q_{3,i}(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3} -\\
+-\sum_{x_3=0}^{L} \left[ Q_{3,i}(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_3) + Q_{3,i}(\Gamma^{(0,r_2)},x_3) \right] v^{x_3}.
 \label{rekur:additional:second}
 \end{multline}
 И, наконец, если $\tilde{\gamma}\in C_{\tilde{k}}^{\mathrm{O}} \cup C_{\tilde{k}}^{\mathrm{N}}$, то ${\mathbb H}_{-1}(\tilde{\gamma},x_3) = \{\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)}\}$ для всех $x_3\geqslant 0$. Тогда сумма будет выглядеть следующим образом
-\begin{multline}
-\sum_{x_3=0}^{\infty} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3} = \sum_{x_3=L+1}^{\infty} Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) v^{x_3} =\\=
-\sum_{x_3=0}^{\infty} Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) v^{x_3} - \sum_{x_3=0}^{L} Q_{3,i}(\Gamma^{(k,r\ominus_k 1)},x_3) v^{x_3}.
+\begin{equation}
+\sum_{x_3=0}^{\infty} \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_{3,i}(\gamma,x_3) v^{x_3} = \sum_{x_3=0}^{\infty} Q_{3,i}(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_3) v^{x_3}.
 \label{rekur:additional:third}
-\end{multline}
+\end{equation}
 Подставляя найденные выражения \eqref{rekur:additional:first}, \eqref{rekur:additional:second} и \eqref{rekur:additional:third} в правую часть равенств \eqref{rekur:general:second}, получаем утверждение теоремы.
 \end{proof}
 
@@ -1585,11 +1585,11 @@ ${\mathbb H}_{-1}(\tilde{\gamma},x_3) \hm=\emptyset$ для $x_3 > L$. Здес�
 Для того, чтобы марковская цепь $\MarkThree$ имела стационарное распределение $Q(\gamma,x)$, $(\gamma,x)\in \Gamma \times {\mathbb Z}_+$ достаточно выполнения неравенства 
 \begin{equation}
 \min_{k=\overline{1,d}} { \frac{\sum_{r = 1}^{n_k} \ell(k,r,3) }{\lambda_3 f_3'(1) \sum_{r=1}^{n_k} T^{(k,r)} }}>1.
-\label{necessary:low}
+\label{sufficient:low}
 \end{equation}
 \end{theorem}
 \begin{proof}
-Предположим обратное, а именно, что при выполнении условия \eqref{necessary:low} марковская цепь $\MarkThree$ не имеет стационарного распределения. 
+Предположим обратное, а именно, что при выполнении условия \eqref{sufficient:low} марковская цепь $\MarkThree$ не имеет стационарного распределения. 
 Тогда для любого состояния $(\gamma,x)\in \Gamma \times {\mathbb Z}_+$ и независимо от начального распределения $\Pr(\Gamma_{0}=\Gamma^{(k,r)}, \varkappa_{3,0}=x)$,
 $(\Gamma^{(k,r)},x)\in \Gamma \times {\mathbb Z}_+$, 
 имеют место предельные равенства 
@@ -1700,7 +1700,132 @@ $$
 \end{proof}
 
 
-\subsection{Учтем первую очередь}
+
+
+
+
+
+
+\section[Необходимое условие существования стационарного {распределения} последовательности\\ $\boldsymbol{\MarkThree}$]%
+{Необходимое условие существования стационарного {распределения} последовательности\\ $\boldsymbol{\MarkThree}$}
+
+\begin{theorem}
+Для того, чтобы марковская цепь $\MarkThree$ имела стационарное распределение $Q_3(\gamma,x)$, $(\gamma,x)\in \Gamma \times {\mathbb Z}_+$ необходимо выполнение хотя бы одного из неравенств
+$$
+\lambda_3 T^{(k,r)} f'_3(1) - \ell(k,r,3) < 0,
+$$
+$k=\overline{0,d}$, $r = \overline{1,n_k}$.
+\end{theorem}
+
+\begin{proof}
+
+Допустим, что стационарное распределение марковской цепи $\MarkThree$ существует. Тогда выбрав это распределение в качестве начального $Q_3(\gamma,w)$, $(\gamma,w)\in \Gamma\times {\mathbb Z}_+$, обеспечивается существование пределов 
+$$
+\lim_{i\to \infty} Q_{3,i}(\gamma,w) = Q_3(\gamma,w),
+$$
+равных стационарным вероятностям соответствующих состояний. 
+
+Определив производящие функции
+$$
+\mathfrak{M}^{(3)}(k,r,v) = \sum_{w=0}^{\infty} Q_3(\gamma,w) v^w,
+$$
+можем переписать соотношения $\eqref{three:generation:rek:one}$ и $\eqref{three:generation:rek:two}$ в новом виде:
+\begin{enumerate}
+\item для $ \Gamma^{(0,\tilde{r})} \in \Gamma$, $\tilde{r} = \overline{1,n_0}$ 
+\begin{equation}
+\mathfrak{M}^{(3)}(0,\tilde{r},v) = \alpha(0,\tilde{r},v);
+\label{three:generation:one}
+\end{equation}
+\item для $\Gamma^{(\tilde{k},\tilde{r})} \in \Gamma $, $\tilde{k} =\overline{1,d}$, $\tilde{r}=\overline{1,n_{\tilde{k}}}$
+\begin{equation}
+\mathfrak{M}^{(3)}(\tilde{k},\tilde{r},v) = q_{\tilde{k},\tilde{r}} (v)\times  \mathfrak{M}^{(3)}(\tilde{k},\tilde{r} \ominus_{\tilde{k}} 1,v) + \alpha(\tilde{k},\tilde{r},v);
+\label{three:generation:two}
+\end{equation}
+\end{enumerate}
+где 
+\begin{multline}
+\tilde{\alpha}(\tilde{k},\tilde{r},v) = \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_3(\gamma,x_3) \sum_{a=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(a,T^{(\tilde{k},\tilde{r})}) - \\
+- \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}  \sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_3(\gamma,x_3) \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) -x_3}
+\varphi_3(w,T^{(\tilde{k},\tilde{r})}) v^{w-(\ell(\tilde{k},\tilde{r},3)-x_3)}
+\end{multline}
+\begin{multline}
+\alpha(0,\tilde{r},v) =\tilde{\alpha}(0,\tilde{r},v) + q_{0,\tilde{r}}(v) \times \sum_{x_3=0}^{L} \left[ Q_3(\Gamma^{(k_1,r_1)},x_3) + Q_3(\Gamma^{(0,\tilde{r}\ominus_0 1)},x_3) \right] v^{x_3}, \\ \Gamma^{(0,\tilde{r})} \in \Gamma.
+\end{multline}
+\begin{multline}
+\alpha(\tilde{k},\tilde{r},v) =\tilde{\alpha}(\tilde{k},\tilde{r},v) - q_{\tilde{k},\tilde{r}}(v)\sum_{x_3=0}^{L} \left[ Q_3(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_3) + Q_3(\Gamma^{(0,r_2)},x_3) \right] v^{x_3}+ \\ 
++ q_{\tilde{k},\tilde{r}}(v)  \mathfrak{M}^{(3)}(0,r_2,v), \quad \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}
+\end{multline}
+\begin{equation}
+\alpha(\tilde{k},\tilde{r},v) =\tilde{\alpha}(\tilde{k},\tilde{r},v), \quad \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{O}} \cup C_{\tilde{k}}^{\mathrm{N}}
+\end{equation}
+Разложим функцию $q_{k,r}(v)$ по формуле Тейлора по степеням $(v-1)$
+\begin{multline*}
+    q_{k,r}(v) =  v^{-\ell(k,r,3)} \exp{(\lambda_3 T^{(k,r)} (f_3(v)-1))}= \\=1 + (\lambda_3 T^{(k,r)} f_3'(1) - \ell(k,r,3))(v-1) + O((v-1)^2)).
+\end{multline*}
+
+Просуммируем соотношения $\eqref{three:generation:one}$ и $\eqref{three:generation:two}$
+\begin{multline}
+ \sum_{k=0}^{d} \sum_{r=1}^{n_k} \mathfrak{M}^{(3)}(k,r,v) = \sum_{r=1}^{n_0} \alpha (0,r,v) + \sum_{k=1}^{d}\sum_{r=1}^{n_k} \bigl[ q_{k,r}(v) \mathfrak{M}(k,r\ominus_k 1,v) + \alpha(k,r,v)\bigr] = \\
+ = \sum_{k=1}^{d}\sum_{r=1}^{n_k} q_{k,r}(v) \mathfrak{M}(k,r\ominus_k 1,v)   + \sum_{k=1}^{d}\sum_{r=1}^{n_k} \alpha(k,r,v)  + \sum_{r=1}^{n_0} \alpha (0,r,v).
+ \label{summed:neccessary}
+\end{multline}
+Разложим по формуле Тейлора слагаемые $\sum_{k=1}^{d}\sum_{r=1}^{n_k} \alpha(k,r,v)$ и $\sum_{r=1}^{n_0} \alpha (0,r,v)$.
+\begin{multline*}
+    \tilde{\alpha} (\tilde{k},\tilde{r},v) = \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_3(\gamma,x_3) \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(w,T^{(\tilde{k},\tilde{r})}) (1-v^{w-(\ell(\tilde{k},\tilde{r},3)-x_3)})=\\= - (v-1) \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_3(\gamma,x_3) \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(w,T^{(\tilde{k},\tilde{r})}) (w-(\ell(\tilde{k},\tilde{r},3)-x_3)) + \\ + O((v-1)^2).
+\end{multline*}
+В частности, для $k=0$ величина $\ell(k,r,3)$ равна нулю, поэтому $\tilde{\alpha} (0,r,v) = O((v-1)^2)$.
+
+Теперь непосредственно
+\begin{multline*}
+    \sum_{\tilde{r}=1}^{n_0} \alpha (0,\tilde{r},v) = \sum_{\tilde{r}=1}^{n_0} q_{0,\tilde{r}}(v) \times \sum_{x_3=0}^{L} \bigl[ Q_3(\Gamma^{(k_1,r_1)},x_3) + Q_3(\Gamma^{(0,\tilde{r}\ominus_0 1)},x_3) \bigr] v^{x_3} + O((v-1)^2) =\\
+    = \sum_{\tilde{r}=1}^{n_0}(1 + (\lambda_3 T^{(0,\tilde{r})} f_3'(1) - \ell(0,\tilde{r},3))(v-1))  \times \sum_{x_3=0}^{L} \left[ Q_3(\Gamma^{(k_1,r_1)},x_3) + Q_3(\Gamma^{(0,\tilde{r}\ominus_0 1)},x_3) \right] v^{x_3} + O((v-1)^2).
+\end{multline*}
+\begin{multline*}
+    \sum_{\tilde{k},\tilde{r}\colon \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}} \alpha(\tilde{k},\tilde{r},v) =  \\= \sum_{\tilde{k},\tilde{r}\colon \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}}q_{\tilde{k},\tilde{r}}(v) \biggl[ \mathfrak{M}^{(3)}(0,r_2,v) -   \sum_{x_3=0}^L\bigl(Q_3(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_3) + Q_3(\Gamma^{(0,r_2)},x_3) \bigr) v^{x_3} \biggr] + \\ 
+    + \sum_{\tilde{k},\tilde{r}\colon \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}} \tilde{\alpha}(\tilde{k},\tilde{r},v)
+    = \sum_{\tilde{k},\tilde{r}\colon \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}}(1 + (\lambda_3 T^{(\tilde{k},\tilde{r})} f_3'(1) - \ell(\tilde{k},\tilde{r},3))(v-1) )\times \\ 
+     \times \biggl[ \mathfrak{M}^{(3)}(0,r_2,v) -   \sum_{x_3=0}^L\bigl(Q_3(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_3) + Q_3(\Gamma^{(0,r_2)},x_3) \bigr) v^{x_3} \biggr] -\\- (v-1)\sum_{\tilde{k},\tilde{r}\colon \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}} \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_3(\gamma,x_3) \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(w,T^{(\tilde{k},\tilde{r})}) (w-(\ell(\tilde{k},\tilde{r},3)-x_3)) + \\+O((v-1)^2)
+\end{multline*}
+
+\begin{multline*}
+    \sum_{\tilde{k},\tilde{r}\colon \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{O}}} \alpha(\tilde{k},\tilde{r},v) =  \sum_{\tilde{k},\tilde{r}\colon \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{O}}} \tilde{\alpha}(\tilde{k},\tilde{r},v) = \\=
+    -(v-1)\sum_{\tilde{k},\tilde{r}\colon \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{O}}} \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_3(\gamma,x_3) \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(w,T^{(\tilde{k},\tilde{r})}) (w-(\ell(\tilde{k},\tilde{r},3)-x_3)) + \\ +O((v-1)^2)
+\end{multline*}
+
+Подставим получившиеся соотношения в выражение \eqref{summed:neccessary}. Поскольку любому входному состоянию системы соответсвует одно и только одно состояние продления и наоборот, то выражение \eqref{summed:neccessary} примет вид:
+\begin{multline}
+ 0 = O((v-1)^2) + (v-1) \sum_{\tilde{k}=1}^{d}\sum_{\tilde{r}=1}^{n_{\tilde{k}}} (\lambda_3 T^{(\tilde{k},\tilde{r})} f_3'(1) - \ell(\tilde{k},\tilde{r},3)) \mathfrak{M}(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1,v)   +\\+  (v-1) \sum_{\tilde{r}=1}^{n_0} (\lambda_3 T^{(0,\tilde{r})} f_3'(1) - \ell(0,\tilde{r},3))  \times \sum_{x_3=0}^{L} \left[ Q_3(\Gamma^{(k_1,r_1)},x_3) + Q_3(\Gamma^{(0,\tilde{r}\ominus_0 1)},x_3) \right] v^{x_3}  +\\+ (v-1) \sum_{\tilde{k},\tilde{r}\colon \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}} (\lambda_3 T^{(\tilde{k},\tilde{r})} f_3'(1) - \ell(\tilde{k},\tilde{r},3))\times \\ 
+     \times \biggl[ \mathfrak{M}^{(3)}(0,r_2,v) -   \sum_{x_3=0}^L\bigl(Q_3(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_3) + Q_3(\Gamma^{(0,r_2)},x_3) \bigr) v^{x_3} \biggr] -\\- (v-1)\sum_{\tilde{k}=1}^{d}\sum_{\tilde{r}=1}^{n_{\tilde{k}}} \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_3(\gamma,x_3) \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(w,T^{(\tilde{k},\tilde{r})}) (w-(\ell(\tilde{k},\tilde{r},3)-x_3)) 
+\end{multline}
+Разделим обе части равенства на $(v-1)$, устремим $v$ к единице и сгруппируем слагаемые.
+\begin{multline}
+ 0 = \sum_{\tilde{k},\tilde{r}\colon \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{I}}} (\lambda_3 T^{(\tilde{k},\tilde{r})} f_3'(1) - \ell(\tilde{k},\tilde{r},3))\times \\ 
+     \times \biggl[\mathfrak{M}(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1,1) - \sum_{x_3=0}^L Q_3(\Gamma^{(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1)},x_3)   +  \mathfrak{M}^{(3)}(0,r_2,1) -   \sum_{x_3=0}^L  Q_3(\Gamma^{(0,r_2)},x_3)  \biggr]
+     +\\+ \sum_{\tilde{k},\tilde{r}\colon \Gamma^{(\tilde{k}, \tilde{r})} \in C_{\tilde{k}}^{\mathrm{O}}} (\lambda_3 T^{(\tilde{k},\tilde{r})} f_3'(1) - \ell(\tilde{k},\tilde{r},3)) \mathfrak{M}(\tilde{k},\tilde{r}\ominus_{\tilde{k}} 1,1)   +\\+ \sum_{\tilde{r}=1}^{n_0} (\lambda_3 T^{(0,\tilde{r})} f_3'(1) - \ell(0,\tilde{r},3))  \times \sum_{x_3=0}^{L} \left[ Q_3(\Gamma^{(k_1,r_1)},x_3) + Q_3(\Gamma^{(0,\tilde{r}\ominus_0 1)},x_3) \right]   +\\+  \sum_{\tilde{k}=1}^{d}\sum_{\tilde{r}=1}^{n_{\tilde{k}}} \sum_{x_3=0}^{\ell(\tilde{k},\tilde{r},3)}\sum_{\gamma \in {\mathbb H}_{-1}(\tilde{\gamma},x_3)} Q_3(\gamma,x_3) \sum_{w=0}^{\ell(\tilde{k},\tilde{r},3) - x_3} \varphi_3(w,T^{(\tilde{k},\tilde{r})}) (\ell(\tilde{k},\tilde{r},3)-x_3 - w) 
+\end{multline}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Учтем первую очередь}
 
 Докажем марковость последовательности $\{(\Gamma_i, \varkappa_{1,i},\varkappa_{3,i}); i \geqslant 0\}$.
 \begin{theorem}
