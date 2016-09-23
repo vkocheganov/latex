@@ -14,8 +14,8 @@
    height="600"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="SystemScheme.png">
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="SystemScheme.svg">
   <defs
      id="defs4">
     <linearGradient
@@ -99,15 +99,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="286.0659"
+     inkscape:cx="334.95671"
      inkscape:cy="283.26554"
      inkscape:document-units="px"
      inkscape:current-layer="g8469"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1056"
-     inkscape:window-x="1600"
-     inkscape:window-y="24"
+     inkscape:window-width="1600"
+     inkscape:window-height="875"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -212,7 +212,7 @@
              y="162.66591" /></text>
         <text
            xml:space="preserve"
-           style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
            x="107.54814"
            y="604.14789"
            id="text8582"
@@ -220,12 +220,12 @@
              sodipodi:role="line"
              id="tspan8584"
              x="107.54814"
-             y="604.14789">П<tspan
-   style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:sub;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+             y="604.14789">Π<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
    id="tspan8586">1</tspan></tspan></text>
         <text
            xml:space="preserve"
-           style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
            x="107.54814"
            y="717.29938"
            id="text8582-4"
@@ -233,12 +233,12 @@
              sodipodi:role="line"
              id="tspan8584-9"
              x="107.54814"
-             y="717.29938">П<tspan
-   style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:sub;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+             y="717.29938">Π<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
    id="tspan8586-9">2</tspan></tspan></text>
         <text
            xml:space="preserve"
-           style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
            x="107.54814"
            y="831.29938"
            id="text8582-2"
@@ -246,12 +246,12 @@
              sodipodi:role="line"
              id="tspan8584-6"
              x="107.54814"
-             y="831.29938">П<tspan
-   style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:sub;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+             y="831.29938">Π<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
    id="tspan8586-6">3</tspan></tspan></text>
         <text
            xml:space="preserve"
-           style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
            x="107.54814"
            y="952.15656"
            id="text8582-47"
@@ -259,8 +259,8 @@
              sodipodi:role="line"
              id="tspan8584-0"
              x="107.54814"
-             y="952.15656">П<tspan
-   style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:sub;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+             y="952.15656">Π<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
    id="tspan8586-63">4</tspan></tspan></text>
         <text
            xml:space="preserve"
@@ -488,7 +488,7 @@
            sodipodi:cy="231.44206"
            sodipodi:rx="17.67767"
            sodipodi:ry="16.667517"
-           d="m 405.07116,231.44206 c 0,9.20522 -7.91456,16.66752 -17.67767,16.66752 -9.7631,0 -17.67767,-7.4623 -17.67767,-16.66752 0,-9.20521 7.91457,-16.66751 17.67767,-16.66751 9.76311,0 17.67767,7.4623 17.67767,16.66751 z"
+           d="m 405.07116,231.44206 a 17.67767,16.667517 0 0 1 -17.67767,16.66752 17.67767,16.667517 0 0 1 -17.67767,-16.66752 17.67767,16.667517 0 0 1 17.67767,-16.66751 17.67767,16.667517 0 0 1 17.67767,16.66751 z"
            transform="matrix(1.495782,0,0,1.6530082,-204.21367,327.7458)" />
         <text
            xml:space="preserve"
@@ -525,7 +525,7 @@
            sodipodi:cy="231.44206"
            sodipodi:rx="17.67767"
            sodipodi:ry="16.667517"
-           d="m 405.07116,231.44206 c 0,9.20522 -7.91456,16.66752 -17.67767,16.66752 -9.7631,0 -17.67767,-7.4623 -17.67767,-16.66752 0,-9.20521 7.91457,-16.66751 17.67767,-16.66751 9.76311,0 17.67767,7.4623 17.67767,16.66751 z"
+           d="m 405.07116,231.44206 a 17.67767,16.667517 0 0 1 -17.67767,16.66752 17.67767,16.667517 0 0 1 -17.67767,-16.66752 17.67767,16.667517 0 0 1 17.67767,-16.66751 17.67767,16.667517 0 0 1 17.67767,16.66751 z"
            transform="matrix(1.495782,0,0,1.6530082,-53.563409,328.33211)" />
         <text
            xml:space="preserve"
@@ -549,7 +549,7 @@
            sodipodi:cy="231.44206"
            sodipodi:rx="17.67767"
            sodipodi:ry="16.667517"
-           d="m 405.07116,231.44206 c 0,9.20522 -7.91456,16.66752 -17.67767,16.66752 -9.7631,0 -17.67767,-7.4623 -17.67767,-16.66752 0,-9.20521 7.91457,-16.66751 17.67767,-16.66751 9.76311,0 17.67767,7.4623 17.67767,16.66751 z"
+           d="m 405.07116,231.44206 a 17.67767,16.667517 0 0 1 -17.67767,16.66752 17.67767,16.667517 0 0 1 -17.67767,-16.66752 17.67767,16.667517 0 0 1 17.67767,-16.66751 17.67767,16.667517 0 0 1 17.67767,16.66751 z"
            transform="matrix(1.495782,0,0,1.6530082,-135.34516,526.42354)" />
         <text
            xml:space="preserve"
@@ -590,7 +590,7 @@
            sodipodi:cy="294.07153"
            sodipodi:rx="3.0304577"
            sodipodi:ry="4.5456862"
-           d="m 451.53818,294.07153 c 0,2.51052 -1.35678,4.54569 -3.03046,4.54569 -1.67367,0 -3.03046,-2.03517 -3.03046,-4.54569 0,-2.51051 1.35679,-4.54568 3.03046,-4.54568 1.67368,0 3.03046,2.03517 3.03046,4.54568 z"
+           d="m 451.53818,294.07153 a 3.0304577,4.5456862 0 0 1 -3.03046,4.54569 3.0304577,4.5456862 0 0 1 -3.03046,-4.54569 3.0304577,4.5456862 0 0 1 3.03046,-4.54568 3.0304577,4.5456862 0 0 1 3.03046,4.54568 z"
            transform="matrix(1.4337247,0,0,0.98359422,-196.28275,478.59217)" />
         <path
            sodipodi:type="arc"
@@ -600,7 +600,7 @@
            sodipodi:cy="294.07153"
            sodipodi:rx="3.0304577"
            sodipodi:ry="4.5456862"
-           d="m 451.53818,294.07153 c 0,2.51052 -1.35678,4.54569 -3.03046,4.54569 -1.67367,0 -3.03046,-2.03517 -3.03046,-4.54569 0,-2.51051 1.35679,-4.54568 3.03046,-4.54568 1.67368,0 3.03046,2.03517 3.03046,4.54568 z"
+           d="m 451.53818,294.07153 a 3.0304577,4.5456862 0 0 1 -3.03046,4.54569 3.0304577,4.5456862 0 0 1 -3.03046,-4.54569 3.0304577,4.5456862 0 0 1 3.03046,-4.54568 3.0304577,4.5456862 0 0 1 3.03046,4.54568 z"
            transform="matrix(1.4337247,0,0,0.98359422,-196.28234,500.33075)" />
         <path
            sodipodi:type="arc"
@@ -610,7 +610,7 @@
            sodipodi:cy="294.07153"
            sodipodi:rx="3.0304577"
            sodipodi:ry="4.5456862"
-           d="m 451.53818,294.07153 c 0,2.51052 -1.35678,4.54569 -3.03046,4.54569 -1.67367,0 -3.03046,-2.03517 -3.03046,-4.54569 0,-2.51051 1.35679,-4.54568 3.03046,-4.54568 1.67368,0 3.03046,2.03517 3.03046,4.54568 z"
+           d="m 451.53818,294.07153 a 3.0304577,4.5456862 0 0 1 -3.03046,4.54569 3.0304577,4.5456862 0 0 1 -3.03046,-4.54569 3.0304577,4.5456862 0 0 1 3.03046,-4.54568 3.0304577,4.5456862 0 0 1 3.03046,4.54568 z"
            transform="matrix(1.4337247,0,0,0.98359422,-196.28234,520.76603)" />
         <path
            style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
@@ -824,7 +824,7 @@
            sodipodi:nodetypes="cccccc" />
         <text
            xml:space="preserve"
-           style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
            x="107.54814"
            y="683.73859"
            id="text8582-77"
@@ -832,14 +832,14 @@
              sodipodi:role="line"
              id="tspan8584-51"
              x="107.54814"
-             y="683.73859">П<tspan
-   style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:sub;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+             y="683.73859">Π<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
    id="tspan8288">1</tspan><tspan
-   style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:super;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:super;text-anchor:start"
    id="tspan8286">нас</tspan></tspan></text>
         <text
            xml:space="preserve"
-           style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
            x="107.54814"
            y="796.28192"
            id="text8582-77-2"
@@ -847,14 +847,14 @@
              sodipodi:role="line"
              id="tspan8584-51-3"
              x="107.54814"
-             y="796.28192">П<tspan
-   style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:sub;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+             y="796.28192">Π<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
    id="tspan8288-0">2</tspan><tspan
-   style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:super;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:super;text-anchor:start"
    id="tspan8286-4">нас</tspan></tspan></text>
         <text
            xml:space="preserve"
-           style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
            x="107.54814"
            y="913.39868"
            id="text8582-77-2-7"
@@ -862,14 +862,14 @@
              sodipodi:role="line"
              id="tspan8584-51-3-8"
              x="107.54814"
-             y="913.39868">П<tspan
-   style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:sub;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+             y="913.39868">Π<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
    id="tspan8288-0-8">3</tspan><tspan
-   style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:super;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:super;text-anchor:start"
    id="tspan8286-4-3">нас</tspan></tspan></text>
         <text
            xml:space="preserve"
-           style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
            x="107.54814"
            y="1039.5459"
            id="text8582-77-2-4"
@@ -877,10 +877,10 @@
              sodipodi:role="line"
              id="tspan8584-51-3-6"
              x="107.54814"
-             y="1039.5459">П<tspan
-   style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:sub;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+             y="1039.5459">Π<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:sub;text-anchor:start"
    id="tspan8288-0-6">4</tspan><tspan
-   style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;baseline-shift:super;font-family:Nimbus Roman No9 L;-inkscape-font-specification:Nimbus Roman No9 L"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:'Nimbus Roman No9 L';-inkscape-font-specification:'Nimbus Roman No9 L';text-align:start;writing-mode:lr-tb;baseline-shift:super;text-anchor:start"
    id="tspan8286-4-2">нас</tspan></tspan></text>
         <path
            style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
