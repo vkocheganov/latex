@@ -1,0 +1,381 @@
+\documentclass[10pt]{beamer}
+
+\usepackage{color}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\newcommand{\No}{\textnumero}
+
+\usepackage{beton}
+
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+
+\defbeamertemplate{footline}{centered page number}
+{%
+  \hspace*{\fill}%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertpagenumber\,/\,\insertpresentationendpage%
+  \hspace*{\fill}\vskip2pt%
+}
+\setbeamertemplate{footline}[centered page number]
+%\mode<presentation>{
+%\usetheme{Rochester}
+%}
+\newcommand{\backupbegin}{
+   \newcounter{framenumberappendix}
+   \setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumberappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumberappendix}} 
+}
+\mode<presentation>{
+%  \usetheme{Madrid}
+  \usetheme{AnnArbor}
+  \usefonttheme{serif}
+}
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%~~\beamer@ifempty{\insertshortinstitute}{}{(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+
+\begin{document}
+
+\title[ ИЗУЧЕНИЕ ПРОЦЕССА УПРАВ...]{\normalsize \color{blue} ИЗУЧЕНИЕ ПРОЦЕССА УПРАВЛЕНИЯ ПОТОКАМИ ПЕРВИЧНЫХ ТРЕБОВАНИЙ В ТАНДЕМЕ СИСТЕМ ОБСЛУЖИВАНИЯ С ЦИКЛИЧЕСКИМ АЛГОРИТМОМ С ПРОДЛЕНИЕМ}
+
+\author[В.М.~Кочеганов, А.В.~Зорин (ННГУ)]{\textbf{В.М.~Кочеганов}, А.В.~Зорин}
+\institute[ННГУ]{\normalsize Нижегородский государственный университет\\
+им.~Н.И.~Лобачевского}
+\date[21-25.11.2016]{
+XVIII Международная конференция\\
+«ПРОБЛЕМЫ ТЕОРЕТИЧЕСКОЙ КИБЕРНЕТИКИ»\\
+г. Пенза, 19–23 июня 2017 г.
+}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+
+\begin{frame}{Литература}
+    \begin{itemize}
+    \item  \textbf{Яблонский~С.~В.} Основные понятия кибернетики // Проблемы кибернетики. Вып. 2. М.: Физматгиз. 1959. С.~7--38.
+    \item \textbf{Федоткин~М.~А.} Процессы обслуживания и управляющие системы // Математические проблемы кибернетики. Вып. 6. М.: Наука. 1996. С.~51--70.
+    \item \textbf{Афанасьева Л.Г., Булинская Е.В.} Математические модели транспортных систем, основанные на теории очередей // Труды Московского физико-технического института (государственного университета), 2010. --- Т. 2 – No 4. --- С.~6–21.
+\item \textbf{Зорин А.~В.} Устойчивость тандема систем обслуживания с бернуллиевским немгновенным перемещением требований // Теория вероятностей и математическая статистика, вып. 84, 2011. --- С.~163-176.
+
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Содержательная постановка задачи}
+  \begin{figure}[h]
+    \centering
+    \pgfimage[height=5cm]{Crossroads}
+    \caption{Тандем перекрёстков}
+    \label{VK:fig:1}
+  \end{figure}
+\end{frame} 
+
+
+
+\begin{frame}{Тандем перекрестков как управляющая СМО}
+  \begin{figure}[h]
+    \centering
+    \pgfimage[height=6cm]{SystemScheme}
+    \caption{Структурная схема рассматриваемой СМО}
+    \label{VK:fig:2}
+  \end{figure}
+\end{frame} 
+
+
+\begin{frame}{Параметры системы}
+\begin{itemize}
+    \item 
+$\color{blue}\lambda_1>0$, $\color{blue}\lambda_3>0$ --- интенсивности поступления групп требований по потокам  $\Pi_1$, $\Pi_3$ соответственно.
+%Входные потоки $\Pi_1$ и $\Pi_3$ --- \textbf{неординарные пуассоновские потоки} групп требований с интенсивностями поступления групп требований по потоку $\lambda_1$ и $\lambda_3$ соотвественно.
+  \item 
+{\color{blue}Распределение числа заявок в группе} по потоку $\Pi_j$, $j \in \{1,3\}$, имеет производящую функцию:
+$$
+f_j(z) = \sum_{\nu=1}^{\infty} p_{\nu}^{(j)} z ^{\nu}, \quad |z|<(1+\varepsilon), \varepsilon>0.
+$$
+  \item 
+$\color{blue}T^{(k,r)}>0$ --- неслучайное время нахождения обслуживающего устройства в состоянии $\Gamma^{(k,r)}$, $k\in \{0, 1, \ldots, d\}$, $r \in \{1, 2, \ldots, n_k\}$.  
+  \item 
+$\color{blue}\ell(k,r,j)\geqslant 0$ --- количество требований содержащихся в потоке насыщения $\Pi^{\text{нас}}_j$ в состоянии  $\Gamma^{(k,r)}$.
+  \item 
+$\color{blue}L > 0$ --- порог числа требований в очереди $O_3$, при превышении которого начинается обслуживание очереди $O_3$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Кибернетический подход}
+Основные принципы кибернетического подхода:
+  \begin{enumerate}
+  \item \textbf{принцип дискретности} актов функционирования управляющей системы обслуживания во времени;
+    \item \textbf{принцип совместного
+    рассмотрения} поблочного строения управляющей системы
+    обслуживания и ее функционирования во времени.
+  \item \textbf{принцип нелокальности} при описании поблочного
+    строения управляющей системы обслуживания;
+  \end{enumerate}
+  \framebreak
+  
+  
+    \begin{figure}[h]
+    \centering
+    \pgfimage[height=2.5cm]{timings}
+    \caption{Шкала моментов наблюдения}
+    \label{VK:fig:3}
+  \end{figure}
+ 
+  \framebreak
+  
+  
+Основными составляющими кибернетической системы являются:
+  \begin{itemize}
+  \item \textbf{схема}
+  \begin{itemize}
+      \item внешняя среда
+      \item входные и выходные полюса
+      \item внутренняя и внешняя память
+      \item устройства по переработке информации во внутренней и внешней памяти
+      \end{itemize}
+  \item \textbf{информация} --- набор состояний среды, очередей в накопителях, обслуживающего устройства, потоков насыщения и потоков обслуженных требований
+  \item \textbf{координата} блока --- номер блока на схеме
+  \item \textbf{функция} --- обслуживание потоков по заданному алгоритму
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Тандем перекрестков как управляющая СМО}
+  \begin{figure}[h]
+    \centering
+    \pgfimage[height=6cm]{SystemScheme}
+    \caption{Структурная схема рассматриваемой СМО}
+    \label{VK:fig:2}
+  \end{figure}
+\end{frame} 
+
+\begin{frame}{Кодирование информации}
+Пусть $Z_+$ --- множество целых неотрицательных чисел
+  \begin{itemize}
+  \item $\{e^{(1)}\}$ --- множество состояний \textbf{внешней среды} (одно состояние);
+  \item $Z^4_+$ --- множество состояний \textbf{входных полюсов};
+  \item $Z^4_+$ --- множество состояний \textbf{выходных полюсов};
+ \item $\Gamma=\{\Gamma^{(k,r)} \colon k=0,1,\ldots,d; r=1,2,\ldots n_k\}$ --- множество состояний \textbf{внутренней памяти};
+   \item $Z^4_+$ --- множество состояний \textbf{внешней памяти};
+   \item $\{r^{(1)}\}$ --- множество состояний \textbf{устройства по переработке информации во внешней памяти} (одно состояние)
+   \item граф переходов (будет описан ниже) описывает устройство по переработке информации во внутренней памяти
+   \end{itemize}
+\end{frame}
+
+\begin{frame}{Необходимые случайные величины}
+  \begin{itemize}
+    \item $\tau_i \in {\mathbb R}_+$, $i=0$, $1$, \ldots --- момент смены состояния
+    обслуживающего устройства;
+    \item $\eta_{j,i} \in Z_+$ --- число требований потока $\Pi_j$, поступивших за
+    промежуток $(\tau_i, \tau_{i+1}]$;
+    \item $\xi_{j,i} \in Z_+$ --- число требований потока насыщения $\Pi^{\mbox{\scriptsize{нас}}}_j$ на промежутке $(\tau_i, \tau_{i+1}]$;
+    \item $\varkappa_{j,i}$ --- число требований в
+    очереди $O_j$ в момент $\tau_i$;
+  \item $\Gamma_i\in\Gamma$ --- состояние обслуживающего устройства в момент $\tau_i$;
+  \item $\overline{\xi}_{j,i} \in Z_+$ --- число требований
+    выходного потока $\Pi^{\mbox{\scriptsize{вых}}}_j$ на промежутке
+    $(\tau_i, \tau_{i+1}]$.
+  \end{itemize}
+  $j=1$,  $2$, $3$, $4$.
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Граф переходов}
+ Изменение состояний обслуживающего устройства: $\Gamma_{i+1}=h(\Gamma_i,\varkappa_{3,i})$.
+   \begin{figure}[h]
+    \centering
+    \pgfimage[height=4.5cm]{SystemStates}
+    \caption{Числовой пример. Времена}
+    \label{VK:fig:3}
+  \end{figure}
+   \begin{figure}[h]
+    \centering
+    \pgfimage[height=6cm]{GraphScheme3}
+    \caption{Числовой пример. Граф переходов (отображение $h(\cdot,\cdot)$).}
+    \label{VK:fig:3}
+  \end{figure}
+
+  \begin{equation}
+  \Gamma = \bigl( \bigcup_{k=1}^d C_k \bigr) \bigcup \{\Gamma^{(0,1)}, \Gamma^{(0,2)}, \ldots, \Gamma^{(0,n_0)}\}, \quad C_k = C_k^{\mathrm{I}} \cup C_k^{\mathrm{O}}  \cup C_k^{\mathrm{N}}.
+  \end{equation}
+  \begin{equation}
+h(\Gamma^{(k,r)},y) = 
+\begin{cases}
+\Gamma^{(k,r\oplus_k 1)},& \quad \text{ если } \Gamma^{(k,r)}\in C_k\setminus C_k^{\mathrm{O}};\\
+\Gamma^{(k,r\oplus_k 1)},& \quad \text{ если } \Gamma^{(k,r)}\in C_k^{\mathrm{O}} \text{ и } y>L;\\
+\Gamma^{(0,h_1(\Gamma^{(k,r)}))},& \quad \text{ если } \Gamma^{(k,r)}\in C_k^{\mathrm{O}} \text{ и } y\leqslant L;\\
+\Gamma^{(0,h_2(r))},& \quad \text{ если } k=0 \text{ и } y\leqslant L;\\
+h_3(r),& \quad \text{ если } k=0 \text{ и } y > L.
+\end{cases}
+\end{equation}
+где 
+$$h_1(\cdot)\colon \bigcup_{k=1}^d C_k^{\mathrm{O}}\to N_0, \quad h_2(\cdot)\colon N_0\to N_0, \quad h_3(\cdot)\colon N_0 \to\bigcup_{k=1}^d C_k^{\mathrm{I}},$$ и $N_0=\{1,2, \ldots, n_0\}$.
+Тогда 
+\begin{equation}
+\Gamma_{i+1} = h(\Gamma_i, \varkappa_{3,i}).
+\end{equation}
+\end{frame}
+
+
+
+\begin{frame}{Функциональные соотношения }
+Функционирование системы подчиняется следующим функциональным соотношениям:
+\begin{align}
+\overline{\xi}_{j,i}&=\min\{\varkappa_{j,i}+\eta_{j,i},\xi_{j,i}\}, \quad & j\in \{1,2,3\},\\
+\varkappa_{j,i+1}&=\varkappa_{j,i}+\eta_{j,i}-\overline{\xi}_{j,i}, \quad & j\in \{1,2,3\},\\
+\varkappa_{j,i+1}&=\max\{{0,\varkappa_{j,i}+\eta_{j,i}-\xi_{j,i}}\}, \quad & j\in \{1,2,3\},\\
+\varkappa_{4,i+1}&=\varkappa_{4,i}+\eta_{4,i}-\eta_{2,i}, \quad &\\
+\xi_{4,i} & = \varkappa_{4,i}, & \\
+\eta_{4,i} & = \min\{ \varkappa_{1,i} + \eta_{1,i}, \xi_{1,i}\}.
+\end{align}
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}{Очереди первичных требований}
+Рассмотрим последовательность
+\[
+\{(\Gamma_i,
+\varkappa_{1,i},\varkappa_{3,i}); i \geqslant 0\}. \tag{1} 
+\]
+ 
+\begin{block}
+    {\bf Теорема 1.} {\it 
+    Пусть $$\Gamma_0=\Gamma^{(k_0,r_0)} \in \Gamma, ( \varkappa_{1,0}, \varkappa_{3,0})=(x_1,x_3)\in \mathbb{Z}^2_+$$ фиксированы.    
+    Тогда последовательность $$\{(\Gamma_i, \varkappa_{1,i},\varkappa_{3,i}); i \geqslant 0\}$$ является счетной цепью Маркова.}
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks]{Полученные результаты}
+\begin{block}{\bf Теорема 2.}
+Для того, чтобы марковская цепь $$\{(\Gamma_i(\omega), \varkappa_{1,i}(\omega),\varkappa_{3,i}(\omega)); i =0, 1, \ldots\}$$ имела стационарное распределение, достаточно выполнения неравенства
+$$
+\min_{\substack{k=\overline{1,d}\\ j=1,3}} { \frac{\sum_{r = 1}^{n_k} \ell(k,r,j) }{\lambda_j f_j'(1) \sum_{r=1}^{n_k} T^{(k,r)} }}>1.
+$$
+\label{theorem:nec}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\Huge{\centerline{\color{blue} Спасибо за внимание!}}
+\end{frame}
+
+\appendix
+\section{Приложение}
+\backupbegin
+
+\begin{frame}[allowframebreaks]{Кибернетический подход}
+Основные принципы кибернетического подхода:
+  \begin{enumerate}
+  \item \textbf{принцип дискретности} актов функционирования управляющей системы обслуживания во времени;
+    \item \textbf{принцип совместного
+    рассмотрения} поблочного строения управляющей системы
+    обслуживания и ее функционирования во времени.
+  \item \textbf{принцип нелокальности} при описании поблочного
+    строения управляющей системы обслуживания;
+  \end{enumerate}
+  \framebreak
+\end{frame}
+
+\begin{frame}{Похожие исследования}
+    \begin{itemize}
+    \item \textbf{Yamada K., Lam T.N.} Simulation analysis of two adjacent traffic signals // Proceedings of the 17th winter simulation conference. --- New York: ACM, 1985. --- P.~454–464.
+    \item \textbf{Афанасьева Л.Г., Булинская Е.В.} Математические модели транспортных систем, основанные на теории очередей // Труды Московского физико-технического института (государственного университета), 2010. --- Т. 2 – No 4. --- С.~6–21.
+\item \textbf{Зорин А.В.} Устойчивость тандема систем обслуживания с бернуллиевским немгновенным перемещением требований // Теория вероятностей и математическая статистика, вып. 84, 2011. --- С.~163-176.
+
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Свойства условных распределений}
+Определим функции $\varphi_j(\cdot,\cdot)$, $j\in \{1,3\}$, и $\psi(\cdot, \cdot, \cdot)$ из разложений:
+\begin{equation*}
+\sum_{\nu=0}^{\infty} z^\nu\varphi_j(\nu,t) = \exp\{\lambda_j t (f_j(z)-1)\}, \quad \psi(k;y,u)=C_y^k u^k (1-u)^{y-k}.	
+\end{equation*}
+
+Пусть $a=(a_1, a_2, a_3, a_4) \in \mathbb{Z}_+^4$ и $x=(x_1, x_2, x_3, x_4) \in \mathbb{Z}_+^4$.
+%\begin{block}{Предположение 1}
+
+Тогда вероятность $\varphi(a,k,r,x)$ одновременного выполнения равенств $\eta_{1,i}=a_1$, $\eta_{2,i}=a_2$, $\eta_{3,i}=a_3$, $\eta_{4,i}=a_4$ при условии  $\nu_i=(\Gamma{(k,r)}; x)$ есть 
+\begin{equation}
+\!\!\varphi_1(a_1,h_T(\Gamma^{({k},{r})},x_3)) \times \psi(a_2,x_4, p_{\tilde{k},\tilde{r}}) \times \varphi_3(a_3,h_T(\Gamma^{({k},{r})},x_3))
+\times \delta_{a_4,\min{\{\ell(\tilde{k},\tilde{r},1), x_1+a_1}\}},
+\end{equation}
+%\end{block}
+где
+\begin{equation*}
+\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3), \quad \delta_{i,j}=\begin{cases} 1, \quad \text{ если }i=j\\0, \quad \text{ если } i\neq j,
+\end{cases}.
+\end{equation*}
+и 
+$$
+T_{i+1}=h_T(\Gamma_i,\varkappa_{3,i})= T^{(k,r)},\quad  \Gamma^{(k,r)}=\Gamma_{i+1}=h(\Gamma_i,\varkappa_{3,i}).
+$$
+\framebreak
+
+Пусть $b=(b_1, b_2, b_3, b_4) \in \mathbb{Z}_+^4$. 
+
+Тогда вероятность $\zeta(b, k, r, x)$ одновременного выполнения равенств $\xi_{1,i}=b_1$, $\xi_{2,i}=b_2$, $\xi_{3,i}=b_3$, $\xi_{4,i}=b_4$ при фиксированном значении метки $\nu_i=(\Gamma{(k,r)}; x)$ есть
+\begin{equation}
+\delta_{b_1,\ell(\tilde{k},\tilde{r},1)} \times \delta_{b_2,\ell(\tilde{k},\tilde{r},2)} \times 
+\delta_{b_3,\ell(\tilde{k},\tilde{r},3)} \times \delta_{b_4,x_4}.
+\end{equation}
+где $\tilde{k}$ и $\tilde{r}$ такие, что $\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3)$.
+\end{frame}
+\begin{frame}[allowframebreaks]{Полученные ранее результаты}
+
+\begin{block}
+    {\bf Теорема 1.} {\it 
+    Пусть $$\Gamma_0=\Gamma^{(k_0,r_0)} \in \Gamma,  \varkappa_{3,0}=x_3\in \mathbb{Z}_+$$ фиксированы. 
+    
+    Тогда последовательность $$\{(\Gamma_i, \varkappa_{3,i}); i \geqslant 0\}$$ является счетной цепью Маркова.}
+\end{block}
+\framebreak
+\begin{block}
+    {\bf Теорема 2.}{\it Пусть 
+    $$x_3, \tilde{x}_3~\in \mathbb{Z}_+, \quad \Gamma^{(k,r)}\in \Gamma, \Gamma^{(\tilde{k},\tilde{r})}= h(\Gamma^{(k,r)},x_3).$$ Тогда условная вероятность 
+$${\mathbf P}(\{\Gamma_{i+1}=\Gamma^{(\tilde{k},\tilde{r})},\varkappa_{3,i+1}=\tilde{x}_3\}|\{\Gamma_{i}=\Gamma^{(k,r)},\varkappa_{3,i}=x_3\})$$ равна
+$$\delta_{\tilde{x}_3,0}\!\sum_{a=0}^{\ell(\tilde{k},\tilde{r},3)-x} \varphi_3(a,h_T(\Gamma^{(k,r)},x_3)) + (1-\delta_{\tilde{x}_3,0}) \varphi_3(\tilde{x}_3 + \ell(\tilde{k},\tilde{r},3)-x_3,h_T(\Gamma^{(k,r)},x_3)).$$}
+\end{block}
+\framebreak
+\begin{block}
+    {\bf Теорема 3.}{\it Пусть для $r=\overline{1,n_0}$ определено множество $$S^3_{0,r} =\bigl\{(\Gamma^{(0,r)},x_3)  \colon x_3\in Z_+,  L \geqslant x_3 > L - \max\bigl\{\sum_{t=0}^{n_k} \ell_{k,t,3}\colon k=\overline{1,d}\bigr\}\,\bigr\}
+$$ и  для $k=\overline{1,d}$, $r=\overline{1,n_k}$ обозначено $$S^3_{k,r} =  \{(\Gamma^{(k,r)},x_3) \colon x_3\in Z_+, x_3 > L - \sum_{t=0}^{r-1} \ell_{k,t,3}\}.$$ Тогда множество существенных состояний марковской цепи $\{(\Gamma_i, \varkappa_{3,i}); i \geqslant 0\}$ есть $$S=\bigcup_{k=0}^d \bigl(\bigcup_{r=1}^{n_k} S^3_{k,r}\bigr).$$}
+\end{block}
+
+\end{frame}
+\backupend
+
+\end{document}
