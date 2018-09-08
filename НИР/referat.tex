@@ -1,0 +1,286 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage[margin=2cm]{geometry}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{amsthm,amsmath}
+\usepackage{amssymb,amsfonts}
+
+\usepackage{indentfirst}
+
+\setlength{\parindent}{1.25cm}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+
+\renewcommand{\Pr}{\mathbb P}
+
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.}
+\renewenvironment{thebibliography}[1]
+     {\section*{\refname}%
+       \addcontentsline{toc}{section}{\refname}%
+       \addcontentsline{tce}{section}{References}%
+      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin 0pt % \labelwidth 
+            \itemindent \parindent
+            \advance\itemindent\labelwidth
+            % \advance\leftmargin\labelsep
+            \itemsep 0ex \parsep 0ex
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
+
+
+
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ \\РОССИЙСКОЙ ФЕДЕРАЦИИ \\
+    \textbf{%
+      Федеральное государственное автономное \\
+      образовательное учреждение высшего образования  \\
+      <<Национальный исследовательский
+      Нижегородский государственный университет им. Н.И. Лобачевского>> \\
+      (ННГУ)
+    }
+
+ \medskip
+ 
+    Институт информационных технологий, математики и механики \\
+    Кафедра программной инженерии
+
+    \medskip
+
+    Направление подготовки: <<Математика и механика>>\\
+    Направленность подготовки: <<Теория вероятностей и математическая
+    статистика>>
+
+    \vfill
+
+    РЕФЕРАТ \\ по дисциплине <<Введение в общие цепи Маркова>>\\
+    по теме: <<Эргодические цепи Маркова>>
+
+    \vfill \hfill
+    \begin{minipage}[h]{ 0.5\linewidth}
+      ВЫПОЛНИЛ: \\
+      аспирант кафедры МОСТ\\
+      третьего года обучения\\
+      Кочеганов В.М.
+    \end{minipage}
+    \vfill {Н.Новгород, 2016}
+  \end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\section{Понятие общей цепи Маркова}
+
+
+Пусть задано вероятностное пространство $(\Omega, \mathfrak F, \Pr)$, где
+$\Omega$ --- множество описаний $\omega$ элементарных исходов, $\mathfrak F$~---
+сигма-алгебра событий $A\subset \Omega$, $\Pr$~--- вероятностная мера на
+$\mathfrak F$. 
+
+\begin{definition}{\cite{Shyr}}
+  Последовательность случайных элементов $\{X_n(\omega); n=0, 1, \ldots\}$ со
+  значениями в измеримом пространстве $(E, \mathcal E)$ образует общую цепь
+  Маркова, если для любого множества $B\in\mathcal E$ 
+  \[
+  \Pr(X_{n+1}\in B \mid X_0, \ldots, X_n) = \Pr(X_{n+1}\in B \mid X_n) \quad
+  \text{$\Pr$-почти наверное}.
+  \]
+  Цепь Маркова называется однородой, если вероятность справа может быть выбрана
+  так, чтобы не зависеть от индекса $n$.
+\end{definition}
+
+
+Для общей цепи Маркова важную роль играет ее переходное ядро --- вариант
+условной вероятности 
+\[
+P(x,B) = \Pr(X_{n+1}\in B \mid X_n=x).
+\]
+По заданному переходному ядру $P(\cdot, \cdot)$ и произвольному распределению
+$\nu(\cdot)$ вероятностей на измеримом пространстве $(E, \mathfrak E)$ можно
+определить \emph{выборочное} вероятностное пространство $(E^\infty, \mathcal
+B(E^\infty), P_X)$ и определить <<координатную>> цепь Маркова $X=\{X_n(\omega);
+n=0, 1, \ldots\}$ с $X_n(\omega)=\omega_n$ для $\omega=(\omega_0, \omega_1,
+\ldots)\in E^\infty$, такую что для любых $B_0$, $B_1$, \ldots, $B_n\in \mathcal
+E^{n+1}$ выполняется равенство
+\[
+P_X(X_0\in B_0, X_1\in B_1, \ldots, X_n\in B_n)=\int_{B_0} \nu(d\omega_0)
+\int_{B_1} P(\omega_0, d\omega_1) \cdots \int_{B_n} P(\omega_{n-1}, d\omega_n).
+\]
+
+Классическая цепь Маркова с дискретным временем и счетным множеством состояний~\cite{Kemeni:Snell}
+являются частным случаем общей цепи Маркова. Если обозначить состояния числами
+$0$, $1$, \ldots, а вероятность перехода за один шаг из состояния $i$ в $j$ как
+$p_{i,j}$, то $E=\{0, 1, \ldots\}$, $P(x,B)=\sum_{j\in B} p_{i,j}$. 
+
+Примером общей цепи Маркова с непрерывным пространством состояний является
+векторный процесс авторегрессии~\cite{Hamilton} вида $X_{n+1}=\Phi X_n+\varepsilon_{n}$, где $X_n\in
+R^m$, $n=0$, $1$, \ldots{} и $\varepsilon_n$, $n=0$, $1$, \ldots{}~--- случайные
+$m$-мерные векторы, $\epsilon_n \sim \mathcal N(\mathbf 0, \Sigma)$. Здесь
+$\Sigma$~--- некоторая положительно определенная матрица (ковариационная матрица
+вектора $\varepsilon_n$). В этом случае переходная вероятность $P(x,B)$ имеет
+$m$-мерную плотность $p(x,y)$ относительно меры Лебега:
+\[
+p(x,y)=(2\pi)^{-m/2}(\det \Sigma)^{-1/2} \exp\Bigl\{-\frac12 (x-y) \Sigma^{-1}
+(x-y)^T\Bigr\}.
+\]
+
+
+
+Для выяснения структуры фазового пространства общей цепи Маркова вводится
+понятие циклов.
+
+\begin{definition}
+  Последовательность $E_0$, $E_1$, \ldots, $E_{m-1}$ непересекающихся
+  подмножеств из $\mathcal E$
+  называется {\emph{$m$-циклом}}, если для
+  каждого $i=0$, $1$, \ldots, $m-1$ и для каждого $x\in E_i$ оказывается
+  \[
+  P(x,E_j)=1, \qquad j\equiv i+1 \mod m.
+  \]
+\end{definition}
+
+
+Обобщением понятия сообщающихся состояний на произвольное фазовое пространство
+является понятие неприводимости. Введем функцию
+\[
+L(x,A)=\Pr\Bigl(\mathop{\cup}_{n=1}^\infty \{X_n\in A\}\Big|\,\{X_0=x\}\Bigr)
+\]
+
+\begin{definition}\label{AZ:def:irreducible} \sloppy
+  Стохастическое ядро $P(\cdot,\cdot)$ называется
+  {\emph{$\varphi$-не\-при\-во\-димым}}, если существует мера $\varphi(\cdot)$
+  на измеримом пространстве $(E,\mathcal E)$, такая что $L(x,A)>0$ для всякого
+  множества $A\in\mathcal E$ с $\varphi(A)>0$ и для всех $x\in E$. Цепь Маркова
+  $\{X_n; n=0, 1, \ldots\}$ c $\varphi$-неприводимой переходной вероятностью
+  $P(\cdot, \cdot)$ также называется $\varphi$-неприводимой.
+
+  Стохастическое ядро $P(\cdot, \cdot)$ называется $\psi$-неприводимым, если оно
+  $\varphi$-неприводимо для некоторой меры $\varphi(\cdot)$, а $\psi(\cdot)$
+  есть максимальная определяющая неприводимость мера
+\end{definition}
+
+Среди всех начальных распределений цепи естественно выделить (если оно
+существует) распределение $\pi(\cdot)$, такое что
+\begin{equation}
+\label{eq:inv}
+\pi(B)=\int_E \pi(dx) P(x,D), \qquad B\in \mathcal E.
+\end{equation}
+Общая цепь Маркова с таким начальным распределением становится
+\emph{стационарной} случайной последовательностью в строгом смысле: при каждом
+фиксированном $m$ случайные векторы $(X_k, X_{k+1}, \ldots, X_{k+m})$ одинаково
+распределены для всех $k=0$, $1$, \ldots. Такое распределение $\pi(\cdot)$
+называют \emph{стационарным}. 
+
+Если уравнению \eqref{eq:inv} удовлетворяет сигма-конечная мера $\pi(\cdot)$,
+такая что $\pi(A)<\infty$ хотя бы для одного множества $A$ с $\psi(A)>0$, то
+$\pi(\cdot)$ называется \emph{инвариантной}. 
+
+\newpage
+\section{Эргодичность цепи Маркова}
+
+Продемонстрировать весь спектр вопросов, связанных с эргодичностью, можно на
+примере \emph{конечной} цепи Маркова.
+
+\begin{theorem}[эргодическая теорема \cite{Shyr}]
+Пусть $Q=||p_{i,j}||$~--- матрица переходных вероятностей марковской цепи с
+конечным множеством состояний $X=\{1, 2, \ldots, N\}$.\par
+a) Если для некоторого $n_0$
+\begin{equation}\label{sh:e21}
+\min_{i,j} p^{(n_0)}_{i,j}>0,
+\end{equation}
+то найдутся числа $\pi_1$, \ldots, $\pi_N$ со свойством
+\begin{equation}\label{sh:e22}
+\pi_j>0, \qquad \sum_{j} \pi_j=1
+\end{equation}
+такие, что для каждого $j\in X$ и любого $i\in X$
+\begin{equation}\label{sh:e23}
+p^{(n)}_{i,j}\to \pi_j, \qquad n\to\infty.
+\end{equation}
+
+b) Обратно, если существуют числа $\pi_1$, \ldots, $\pi_n$, удовлетворяющие
+уcловиям \eqref{sh:e22} и \eqref{sh:e23}, то найдется $n_0$ такое, что выполнено
+условие  \eqref{sh:e21}.\par
+
+c) Числа $(\pi_1, \ldots, \pi_N)$ из а) удовлетворяют системе уравнений
+\[
+\pi_j = \sum_{\alpha} \pi_\alpha p_{\alpha, j}, \qquad j=1, \ldots, N.
+\]
+\end{theorem}
+
+Числа $\pi_1$, \ldots, $\pi_N$ являются, таким образом, инвариантным и
+стационарным распределением вероятностей. Стационарное распределение с $\pi_j>0$
+для всех $j=1$, \ldots, $N$ называется \emph{эргодическим}. Говорят, что цепь
+Маркова обладает свойством \emph{эргодичности}, если пределы $\lim_{n}
+p^{(n)}_{i,j}=\pi_j$ не только существуют, не зависят от $i$, образуют
+распределение вероятностей и $\pi_j>0$ для всех $j=1$, \ldots, $N$.
+
+В ходе доказательства эргодической теоремы для конечных цепей устанавливается,
+что существует число $\rho$, $0<\rho<1$, такое что
+\[
+\left| p^{(n)}_{i,j}-\pi_j\right| \leq C \rho^n.
+\]
+
+Напомним определение расстояния полной вариации между распределениями
+вероятностей $P_1(\cdot)$ и $\Pi_2(\cdot)$ на измеримом пространстве $(E,
+\mathcal E)$:
+\[
+\sigma(P_1, P_2) = \sup_{A\in \mathcal E} |P_1(A)- P_2(A)|.
+\]
+Если меры $P_1$ и $P_2$ сосредоточены на одном и том же счетном множестве $x_1$,
+$x_2$, \ldots{}, то 
+\[
+\sigma(P_1, P_2) = \frac{1}{2} \sum_{j} |P_1(\{ x_j\}) - P_2(\{x_j\})|.
+\]
+Используя это понятие можно сказать, что для эргодической цепи Маркова с
+конечным числом состояний
+\[
+\sigma( P_n(x, \cdot), \pi(\cdot))\leqslant \tilde{C}\rho^n\to\infty,
+\]
+где $P_n(x,B)=\sum_{j\in B} p^{(n)}_{x,j}$, $\pi(B)=\sum_{j\in B} \pi_j$. 
+
+Оказывается, что эргодическая цепь Маркова с конечным числом состояний
+\emph{метрически транзититивна} (\cite{Dub}). Из метрической транзитивности
+эргодической цепи Марковс с конечным числом состояний следует ее эргодичность,
+как ее обычно вводят в теории стационарных в узком смысле процессов: для
+произвольно функции $f(x)$ выполняется усиленный закон больших чисел
+\[ 
+\frac{f(X_0)+f(X_1)+\ldots+f(X_n)}{n+1} \to \sum_{j} f(j) \pi_j.
+\]
+
+\newpage
+
+\begin{thebibliography}{99}
+\bibitem{Shyr}
+  Ширяев А.Н. Вероятность. В 2х кн. М.: МЦНМО, 2004.
+\bibitem{Kemeni:Snell}
+  Кемени Дж., Снелл Дж., Кнепп А. Счетные цепи Маркова. --- М.: Наука,
+  Гл. ред. физ.-мат. лит.~--- 1987.~--- 416~с.
+\bibitem{Hamilton} Hamilton J.D. Time Series Analysis. --- Princeton: Princeton
+  University Press, 1994.~--- 814~p.
+\bibitem{Dub}
+  Дуб Дж.Л. Вероятностные процессы. --- М.: Изд-во иностр. лит., 1956. --- 606~с. 
+\end{thebibliography}
+\end{document}
