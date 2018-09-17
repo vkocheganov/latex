@@ -1,0 +1,134 @@
+%% ---------------------------------------------------------------------------
+\documentclass[openany, twoside, a5paper, 10pt]{book}
+%% ---------------------------------------------------------------------------
+\usepackage[cp1251]{inputenc}
+\usepackage[english,russian]{babel}
+%% ---------------------------------------------------------------------------
+\usepackage{indentfirst}
+\frenchspacing
+%% ---------------------------------------------------------------------------
+\usepackage{url}
+%% ---------------------------------------------------------------------------
+\usepackage[dvips]{graphicx}
+%\usepackage[pdftex]{graphicx}
+%\usepackage{epstopdf}
+%% ---------------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{bm}
+\usepackage{ifmtarg}
+%% ---------------------------------------------------------------------------
+%\usepackage{soul}
+%% ---------------------------------------------------------------------------
+%\sloppy
+%% ---------------------------------------------------------------------------
+% a5paper: 148 x 210
+% print area: 110 x 180
+% top = bottom = (210 - 180) / 2 = 15
+% left = right = (148 - 110) / 2 = 19
+\usepackage[%
+    left=1.9cm,%
+    top=1.5cm,%
+    right=1.9cm,%
+    bottom=1.5cm,%
+    headsep=0.2cm,%
+    footskip=0.5cm,%
+    includehead,%
+    includefoot]{geometry}
+%% ---------------------------------------------------------------------------
+%% set lengthes
+\newlength{\maxpicturewidth}
+\setlength{\maxpicturewidth}{\textwidth }
+\newlength{\maxpictureheight}
+\setlength{\maxpictureheight}{\textheight }
+%% ---------------------------------------------------------------------------
+\usepackage{titlesec,titletoc}
+%% ---------------------------------------------------------------------------
+\setcounter{secnumdepth}{-1}
+%% ---------------------------------------------------------------------------
+\titleformat{\chapter}[display]
+{\normalfont\huge\filcenter\bfseries}{}{20pt}{\Huge}
+%% ---------------------------------------------------------------------------
+\makeatletter
+%% ---------------------------------------------------------------------------
+% \Title[thanksto]{title}{name}{university}{city}{country}
+\def\Title{%
+    \@ifnextchar[{\TitleFootnote}{\TitleNoFootnote}
+}
+\newcounter{aster}
+\setcounter{aster}{1}
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\thefootnote}{\fnsymbol{aster}}
+
+\def\TitleFootnote[#1]#2#3#4#5#6{%
+    \par
+    \begin{centering}
+        \medskip
+        {\Large
+         \textbf{#2}\@ifmtarg{#1}{}{\footnote{#1}}}\\
+        \medskip
+            #3\\
+            \textit{#4, #5, #6}\\
+        \smallskip
+    \end{centering}
+    \@afterheading
+}
+\def\TitleNoFootnote#1#2#3#4#5{%
+    \par
+    \begin{centering}
+        \medskip
+        {\Large
+         \textbf{#1}}\\
+        \medskip
+            #2\\
+            \textit{#3, #4, #5}\\
+        \smallskip
+    \end{centering}
+    \@afterheading
+}
+%% ---------------------------------------------------------------------------
+\newenvironment{references_rus}{%
+    \par
+    \medskip
+    \centerline{\textbf{Список литературы}}
+    \nopagebreak
+    \medskip
+    \@afterheading
+    \begin{enumerate}
+     \parsep=0pt plus 1pt
+     \parskip=\parsep
+     \itemsep=\parsep
+}
+{\end{enumerate}}
+\newenvironment{references_eng}{%
+    \par
+    \medskip
+    \centerline{\textbf{References}}
+    \nopagebreak
+    \medskip
+    \@afterheading
+    \begin{enumerate}
+     \parsep=0pt plus 1pt
+     \parskip=\parsep
+     \itemsep=\parsep
+}
+{\end{enumerate}}
+%% ---------------------------------------------------------------------------
+\makeatother
+%% ---------------------------------------------------------------------------
+
+\begin{document}
+
+%% ---------------------------------------------------------------------------
+\renewcommand{\indexname}{Author index}
+%% ---------------------------------------------------------------------------
+\input{your_abstract}
+%\newpage
+%\input{your_thesis_rus}
+%% ---------------------------------------------------------------------------
+
+\end{document}
+
+%% ---------------------------------------------------------------------------
+
