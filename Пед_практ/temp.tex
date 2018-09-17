@@ -1,0 +1,22 @@
+\documentclass[14pt]{extarticle}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+
+Пусть величина $a\geqslant 0$. Рассмотрим производящую функцию вектора $(\eta(t_1+a), \eta(t_2+a), \ldots, \eta(t_d+a))$, $0<t_1<t_2<\ldots<t_d$:
+\begin{multline*}
+    M\prod_{d=1}^D z_d^{\eta(t_d + a)-\eta(a)} = M\prod_{d=1}^D z_d^{\sum_{j=1}^m(\eta_j(t_d + a)-\eta_j(a))} 
+    =\\ =M\prod_{j=1}^m\prod_{d=1}^D z_d^{\eta_j(t_d + a)-\eta_j(a)} = \prod_{j=1}^m M\prod_{d=1}^D z_d^{\eta_j(t_d + a)-\eta_j(a)} 
+    =\\= \prod_{j=1}^m M\prod_{d=1}^D z_d^{\eta_j(t_d)-\eta_j(0)} = 
+      M\prod_{d=1}^D z_d^{\eta(t_d)-\eta(0)}.
+\end{multline*}
+Поскольку производящие функции векторов $(\eta(t_1+a)-\eta(a), \eta(t_2+a)-\eta(a), \ldots, \eta(t_D+a)-\eta(a))$ и $(\eta(t_1), \eta(t_2), \ldots, \eta(t_D))$ совпадают, то их распределения также совпадают и процесс $\{\eta(t)\colon t\geqslant 0\}$ является стационарным.
+
+Аналогичным образом можно получить, что производящая функция вектора $(\eta(t_1)-\eta(t_0), \eta(t_2)-\eta(t_1), \ldots, \eta(t_D)-\eta(t_{D-1}))$, совпадает с произведением производящих функций величин $\eta(t_1)$, $\eta(t_2)-\eta(t_1)$, $\ldots$, $\eta(t_D)-\eta(t_{D-1})$:
+\begin{equation*}
+M\prod_{d=1}^D z_d^{\eta(t_d) -\eta(t_{d-1}) } = \prod_{d=1}^D M z_d^{\eta(t_d) -\eta(t_{d-1}) },
+\end{equation*}
+что доказывает отсутствие последействия.
+\end{document}

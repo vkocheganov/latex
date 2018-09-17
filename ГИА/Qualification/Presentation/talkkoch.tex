@@ -1,0 +1,802 @@
+\documentclass[10pt]{beamer}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\setbeamertemplate{caption}[numbered]
+\usepackage[utf8]{inputenc}
+% \usepackage[T2A]{fontenc}
+%  \usepackage[cp1251]{inputenc}
+% \usepackage[russian]{babel}
+% \usepackage{amsmath}
+% \input xy
+% %\xyoption{all}
+%  \usepackage{tikz}
+%\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+%            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usepackage{beton}
+
+\usepackage{tikz}
+\newcommand{\Mark}{\{(\Gamma_i, \varkappa_i); \hm{} i \geqslant 0\}}
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
+	{\hbox{$\mathsurround=0pt #1$}}{}}% перенос арифметических знаков
+\mode<presentation>{
+	\usetheme{Warsaw}
+	\usefonttheme{serif}
+	\useoutertheme{infolines}
+	
+}
+\renewcommand{\Pr}{{\mathbf P}}
+\newcommand{\MarkThree}{\{(\Gamma_i, \varkappa_{3,i}); \hm{} i \geqslant 0\}}
+% \title[fff\ldots{}]%
+% {\textbf\large ааа} 
+% \author{а} 
+% \institute[1231]{аа}
+% \date[аа 21.05.2018]{аа \\
+% 	аа}
+
+
+
+
+\begin{document}
+
+
+
+\begin{frame}
+	
+	\begin{center}
+		{\small 
+		Национальный исследовательский Нижегородский\\
+		государственный университет им.~Н.И.~Лобачевского
+		}
+		\bigskip
+		
+ 		{
+Кочеганов Виктор Михайлович			
+			\medskip
+			
+			{\large
+Моделирование и анализ тандема систем массового обслуживания с циклическим
+управлением с продлением
+}
+			
+ 		}
+		\vfill
+		
+		{\small 01.01.05~--- теория вероятностей и математическая статистика}
+		\medskip
+		
+		
+		{\small Научный доклад
+		}
+		
+	\end{center}
+	
+	\vfill
+	
+	
+	\hfill 
+	\begin{minipage}[h]{0.56\linewidth}\small
+		Научный руководитель:\\
+		д. ф.-м. н., доцент Зорин~А.В.
+	\end{minipage}
+	
+	\vfill
+	
+	
+	\centerline{\small Нижний Новгород, 2018}  
+	
+\end{frame}
+  \begin{frame}{Прикладная мотивация}
+      \begin{figure}[h]
+    \centering
+    \pgfimage[height=6cm]{highway.jpg}
+    \caption{Современная развязка шоссе}
+    \label{VK:fig:1}
+  \end{figure}
+\end{frame}
+  \begin{frame}{Прикладная мотивация}
+      \begin{figure}[h]
+    \centering
+    \pgfimage[height=6cm]{fff.jpg}
+    \caption{Два автомобильных перекрестка}
+    \label{VK:fig:1}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Цели научно-квалификационной работы}
+Целями данной работы являются:
+\begin{enumerate}
+    \item построение и анализ строгой вероятностной модели тандема систем массового обслуживания с циклическим алгоритмом с продлением;
+    \item реализация и исследование имитационной модели тандема автомобильных перекрестков.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Сведения о публикациях}
+Основные результаты по теме работы изложены в 11 работах
+    \begin{itemize}
+        \item 2~--- в журналах, рекомендованных ВАК,
+        \item 2~--- в библиографической базе Scopus, 
+        \item 2~--- в библиографической базе Web of Science, 
+        \item 9~--- в библиографической базе РИНЦ,
+        \item 9~--- в тезисах докладов.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Основные выступления на конференциях:}
+  \begin{enumerate}
+ \item Международная
+научная конференция «Теория вероятностей, случайные процессы, математическая статистика и приложения» (Минск, Республи
+ка Беларусь, 2015 г.).
+\item IX Международная конференция «Дискретные модели в теории управляющих систем» (Москва и Подмосковье, 2015 г.).
+\item Международная
+научная конференция «Distributed Computer and Communication
+Networks. DCCN 2016» (Москва, 2016 г.).
+\item XVIII Международная конференция «Проблемы теоретической кибернетики» (Пенза, 2017 г.).
+\item XVI Международная конференция имени А.Ф. Терпугова «Информационные
+технологии и математическое моделирование» ИТММ-2017 (Казань, 2017 г.).
+\item 20-я международная научная конференция «Распределенные компьютерные и телекоммуникационные сети: управление, вычисление, связь» DCCN-2017 (Москва, 2017 г.).
+  \end{enumerate} 
+  \end{frame}
+  
+  \begin{frame}{Содержание по главам}
+  \Large{\textbf{Глава 1. Построение вероятностной модели тандема}}\par
+
+
+      \end{frame}
+  
+\begin{frame}{Содержательная постановка задачи}
+        \begin{figure}[h]
+    \centering
+    \pgfimage[height=5cm]{Crossroads}
+    \caption{Тандем перекрёстков}
+    \label{VK:fig:1}
+  \end{figure}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}{Тандем перекрестков как управляющая СМО}
+  \begin{figure}[h]
+    \centering
+    \pgfimage[height=6cm]{SystemScheme}
+    \caption{Структурная схема рассматриваемой СМО}
+    \label{VK:fig:2}
+  \end{figure}
+\end{frame} 
+
+
+\begin{frame}{Параметры системы}
+\begin{itemize}
+    \item 
+$\color{blue}\lambda_1>0$, $\color{blue}\lambda_3>0$ --- интенсивности поступления групп требований по потокам  $\Pi_1$, $\Pi_3$ соответственно.
+%Входные потоки $\Pi_1$ и $\Pi_3$ --- \textbf{неординарные пуассоновские потоки} групп требований с интенсивностями поступления групп требований по потоку $\lambda_1$ и $\lambda_3$ соотвественно.
+  \item 
+{\color{blue}Распределение числа заявок в группе} по потоку $\Pi_j$, $j \in \{1,3\}$, имеет производящую функцию:
+$$
+f_j(z) = \sum_{\nu=1}^{\infty} p_{\nu}^{(j)} z ^{\nu}, \quad |z|<(1+\varepsilon), \varepsilon>0.
+$$
+  \item 
+$\color{blue}T^{(k,r)}>0$ --- неслучайное время нахождения обслуживающего устройства в состоянии $\Gamma^{(k,r)}$, $k\in \{0, 1, \ldots, d\}$, $r \in \{1, 2, \ldots, n_k\}$.  
+  \item 
+$\color{blue}\ell(k,r,j)\geqslant 0$ --- количество требований содержащихся в потоке насыщения $\Pi^{\text{нас}}_j$ в состоянии  $\Gamma^{(k,r)}$.
+  \item 
+$\color{blue}L > 0$ --- порог числа требований в очереди $O_3$, при превышении которого начинается обслуживание очереди $O_3$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Кибернетический подход}
+Основные принципы кибернетического подхода:
+  \begin{enumerate}
+  \item \textbf{принцип дискретности} актов функционирования управляющей системы обслуживания во времени;
+    \item \textbf{принцип совместного
+    рассмотрения} поблочного строения управляющей системы
+    обслуживания и ее функционирования во времени;
+  \item \textbf{принцип нелокальности} при описании поблочного
+    строения управляющей системы обслуживания.
+  \end{enumerate}
+  \framebreak
+  
+  
+    \begin{figure}[h]
+    \centering
+    \pgfimage[height=2.5cm]{timings}
+    \caption{Шкала моментов наблюдения}
+    \label{VK:fig:3}
+  \end{figure}
+ 
+  \framebreak
+  
+  
+Основными составляющими кибернетической системы являются:
+  \begin{itemize}
+  \item \textbf{схема}
+  \begin{itemize}
+      \item внешняя среда
+      \item входные и выходные полюса
+      \item внутренняя и внешняя память
+      \item устройства по переработке информации во внутренней и внешней памяти
+      \end{itemize}
+  \item \textbf{информация} --- набор состояний среды, очередей в накопителях, обслуживающего устройства, потоков насыщения и потоков обслуженных требований
+  \item \textbf{координата} блока --- номер блока на схеме
+  \item \textbf{функция} --- обслуживание потоков по заданному алгоритму
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Тандем перекрестков как управляющая СМО}
+  \begin{figure}[h]
+    \centering
+    \pgfimage[height=6cm]{SystemScheme}
+    \caption{Структурная схема рассматриваемой СМО}
+    \label{VK:fig:2}
+  \end{figure}
+\end{frame} 
+
+% \begin{frame}{Кодирование информации}
+% Пусть $Z_+$ --- множество целых неотрицательных чисел
+%   \begin{itemize}
+%   \item $\{e^{(1)}\}$ --- множество состояний \textbf{внешней среды} (одно состояние);
+%   \item $Z^4_+$ --- множество состояний \textbf{входных полюсов};
+%   \item $Z^4_+$ --- множество состояний \textbf{выходных полюсов};
+%  \item $\Gamma=\{\Gamma^{(k,r)} \colon k=0,1,\ldots,d; r=1,2,\ldots n_k\}$ --- множество состояний \textbf{внутренней памяти};
+%   \item $Z^4_+$ --- множество состояний \textbf{внешней памяти};
+%   \item $\{r^{(1)}\}$ --- множество состояний \textbf{устройства по переработке информации во внешней памяти} (одно состояние)
+%   \item граф переходов (будет описан ниже) описывает устройство по переработке информации во внутренней памяти
+%   \end{itemize}
+% \end{frame}
+
+\begin{frame}{Необходимые случайные величины}
+  \begin{itemize}
+    \item $\tau_i \in {\mathbb R}_+$, $i=0$, $1$, \ldots --- момент смены состояния
+    обслуживающего устройства;
+    \item $\eta_{j,i} \in Z_+$ --- число требований потока $\Pi_j$, поступивших за
+    промежуток $(\tau_i, \tau_{i+1}]$;
+    \item $\xi_{j,i} \in Z_+$ --- число требований потока насыщения $\Pi^{\mbox{\scriptsize{нас}}}_j$ на промежутке $(\tau_i, \tau_{i+1}]$;
+    \item $\varkappa_{j,i}$ --- число требований в
+    очереди $O_j$ в момент $\tau_i$;
+  \item $\Gamma_i\in\Gamma$ --- состояние обслуживающего устройства в момент $\tau_i$;
+  \item $\overline{\xi}_{j,i} \in Z_+$ --- число требований
+    выходного потока $\Pi^{\mbox{\scriptsize{вых}}}_j$ на промежутке
+    $(\tau_i, \tau_{i+1}]$.
+  \end{itemize}
+  $j=1$,  $2$, $3$, $4$.
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Граф переходов}
+ Изменение состояний обслуживающего устройства: $\Gamma_{i+1}=h(\Gamma_i,\varkappa_{3,i})$.
+   \begin{figure}[h]
+    \centering
+    \pgfimage[height=4.5cm]{SystemStates}
+    \caption{Числовой пример. Времена}
+    \label{VK:fig:3}
+  \end{figure}
+   \begin{figure}[h]
+    \centering
+    \pgfimage[height=6cm]{GraphScheme3}
+    \caption{Числовой пример. Граф переходов (отображение $h(\cdot,\cdot)$).}
+    \label{VK:fig:3}
+  \end{figure}
+
+  \begin{equation}
+  \Gamma = \bigl( \bigcup_{k=1}^d C_k \bigr) \bigcup \{\Gamma^{(0,1)}, \Gamma^{(0,2)}, \ldots, \Gamma^{(0,n_0)}\}, \quad C_k = C_k^{\mathrm{I}} \cup C_k^{\mathrm{O}}  \cup C_k^{\mathrm{N}}.
+  \end{equation}
+  \begin{equation}
+h(\Gamma^{(k,r)},y) = 
+\begin{cases}
+\Gamma^{(k,r\oplus_k 1)},& \quad \text{ если } \Gamma^{(k,r)}\in C_k\setminus C_k^{\mathrm{O}};\\
+\Gamma^{(k,r\oplus_k 1)},& \quad \text{ если } \Gamma^{(k,r)}\in C_k^{\mathrm{O}} \text{ и } y>L;\\
+\Gamma^{(0,h_1(\Gamma^{(k,r)}))},& \quad \text{ если } \Gamma^{(k,r)}\in C_k^{\mathrm{O}} \text{ и } y\leqslant L;\\
+\Gamma^{(0,h_2(r))},& \quad \text{ если } k=0 \text{ и } y\leqslant L;\\
+h_3(r),& \quad \text{ если } k=0 \text{ и } y > L,
+\end{cases}
+\end{equation}
+где 
+$$h_1(\cdot)\colon \bigcup_{k=1}^d C_k^{\mathrm{O}}\to N_0, \quad h_2(\cdot)\colon N_0\to N_0, \quad h_3(\cdot)\colon N_0 \to\bigcup_{k=1}^d C_k^{\mathrm{I}},$$ и $N_0=\{1,2, \ldots, n_0\}$.
+Тогда 
+\begin{equation}
+\Gamma_{i+1} = h(\Gamma_i, \varkappa_{3,i}).
+\end{equation}
+\end{frame}
+
+
+
+\begin{frame}{Функциональные соотношения }
+Функционирование системы подчиняется следующим функциональным соотношениям:
+\begin{equation}
+\begin{aligned}
+\overline{\xi}_{j,i}&=\min\{\varkappa_{j,i}+\eta_{j,i},\xi_{j,i}\}, \quad & j\in \{1,2,3\},\\
+\varkappa_{j,i+1}&=\varkappa_{j,i}+\eta_{j,i}-\overline{\xi}_{j,i}, \quad & j\in \{1,2,3\},\\
+\varkappa_{j,i+1}&=\max\{{0,\varkappa_{j,i}+\eta_{j,i}-\xi_{j,i}}\}, \quad & j\in \{1,2,3\},\\
+\varkappa_{4,i+1}&=\varkappa_{4,i}+\eta_{4,i}-\eta_{2,i}, \quad &\\
+\xi_{4,i} & = \varkappa_{4,i}, & \\
+\eta_{4,i} & = \min\{ \varkappa_{1,i} + \eta_{1,i}, \xi_{1,i}\}.
+\end{aligned}
+\label{rekk}
+\end{equation}
+\end{frame}
+
+
+
+
+\begin{frame}[allowframebreaks]{Свойства условных распределений}
+Определим функции $\varphi_j(\cdot,\cdot)$, $j\in \{1,3\}$, и $\psi(\cdot, \cdot, \cdot)$ из разложений:
+\begin{equation*}
+\sum_{\nu=0}^{\infty} z^\nu\varphi_j(\nu,t) = \exp\{\lambda_j t (f_j(z)-1)\}, \quad \psi(k;y,u)=C_y^k u^k (1-u)^{y-k}.	
+\end{equation*}
+
+Пусть $a=(a_1, a_2, a_3, a_4) \in \mathbb{Z}_+^4$ и $x=(x_1, x_2, x_3, x_4) \in \mathbb{Z}_+^4$.
+%\begin{block}{Предположение 1}
+
+Тогда вероятность $\varphi(a,k,r,x)$ одновременного выполнения равенств $\eta_{1,i}=a_1$, $\eta_{2,i}=a_2$, $\eta_{3,i}=a_3$, $\eta_{4,i}=a_4$ при условии  $\nu_i=(\Gamma{(k,r)}; x)$ есть 
+\begin{equation}
+\!\!\varphi_1(a_1,h_T(\Gamma^{({k},{r})},x_3)) \times \psi(a_2,x_4, p_{\tilde{k},\tilde{r}}) \times \varphi_3(a_3,h_T(\Gamma^{({k},{r})},x_3))
+\times \delta_{a_4,\min{\{\ell(\tilde{k},\tilde{r},1), x_1+a_1}\}},
+\end{equation}
+%\end{block}
+где
+\begin{equation*}
+\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3), \quad \delta_{i,j}=\begin{cases} 1, \quad \text{ если }i=j,\\0, \quad \text{ если } i\neq j,
+\end{cases}
+\end{equation*}
+и 
+$$
+T_{i+1}=h_T(\Gamma_i,\varkappa_{3,i})= T^{(k,r)},\quad  \Gamma^{(k,r)}=\Gamma_{i+1}=h(\Gamma_i,\varkappa_{3,i}).
+$$
+\framebreak
+
+Пусть $b=(b_1, b_2, b_3, b_4) \in \mathbb{Z}_+^4$. 
+
+Тогда вероятность $\zeta(b, k, r, x)$ одновременного выполнения равенств $\xi_{1,i}=b_1$, $\xi_{2,i}=b_2$, $\xi_{3,i}=b_3$, $\xi_{4,i}=b_4$ при фиксированном значении метки $\nu_i=(\Gamma{(k,r)}; x)$ есть
+\begin{equation}
+\delta_{b_1,\ell(\tilde{k},\tilde{r},1)} \times \delta_{b_2,\ell(\tilde{k},\tilde{r},2)} \times 
+\delta_{b_3,\ell(\tilde{k},\tilde{r},3)} \times \delta_{b_4,x_4}.
+\end{equation}
+где $\tilde{k}$ и $\tilde{r}$ такие, что $\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3)$.
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Результаты первой главы}
+
+    {\bf Теорема 1.1} {\it 
+    Пусть 
+    $$\gamma_0=\Gamma^{(k_0,r_0)} \in \Gamma, \quad x^0=(x_{1,0},x_{2,0}, x_{3,0},x_{4,0})\in \mathbb{Z}_+^4$$ фиксированы. Тогда существует вероятностное пространство $(\Omega, {\cal F}, {\mathbf P}(\cdot))$ и заданные на нем случайные величины $\eta_{j,i}=\eta_{j,i}(\omega)$, $\xi_{j,i}=\xi_{j,i}(\omega)$, $\overline{\xi}_{j,i}=\xi_{j,i}(\omega)$, $\varkappa_{j,i}=\varkappa_{j,i}(\omega)$ и случайные элементы $\Gamma_i=\Gamma_i(\omega)$, $i\geqslant 0$, $j\in \{1, 2, 3, 4\}$, такие, что 
+    \begin{itemize}
+    \item имеют место равенства $\Gamma_0(\omega) = \gamma_0$ и $\varkappa_0(\omega)=x^0$;
+    \item выполняются соотношения \eqref{rekk};
+    \item для любых  $a$, $b$, $x^t=(x_{1,t},x_{2,t},x_{3,t},x_{4,t}) \in \mathbb{Z}_+^4$, $\Gamma^{(k_t,r_t)} \in \Gamma$, $t = 1, 2, \ldots$, условное распределение векторов $\eta_i$, и $\xi_i$ имеет вид 
+\begin{multline*}
+    {\mathbf P}(\{ \omega \colon \eta_i = a, \xi_i=b\} |\cap_{t=0}^{i}\{\omega\colon \Gamma_t=\Gamma{(k_t,r_t)}, \varkappa_t=x^t\})=\\
+=\varphi(a,k_i,r_i,x^i)\times \zeta(b,k_i,r_i,x^i).
+\end{multline*}
+    \end{itemize}
+}
+
+\framebreak
+
+Результаты 1-й главы:
+\begin{enumerate}
+    \item задача управления тандемом перекрестков поставлена на содержательном уровне;
+    \item построена строгая математическая модель в виде вероятностного пространства с определенными на нем случайными величинами и элементами.
+
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+  \begin{frame}{Содержание по главам}
+  \Large{\textbf{Глава 2. Анализ стохастической последовательности, описывающей тандем}}\par
+
+
+      \end{frame}
+
+\begin{frame}{Стохастическая последовательность, описывающая тандем}
+В главе исследуются свойства общей последовательности
+\begin{equation}
+    \{(\Gamma_i, \varkappa_{1,i},\varkappa_{2,i}, \varkappa_{3,i}, \varkappa_{4,i}); i \geqslant 0\}
+\end{equation}
+        \begin{figure}[h]
+    \centering
+    \pgfimage[height=4.5cm]{Crossroads}
+    \caption{Тандем перекрёстков}
+    \label{VK:fig:1}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{Марковское свойство}
+\begin{block}
+    {\bf Теорема 2.1} {\it 
+Пусть $\Gamma_0=\Gamma^{(k,r)}\in \Gamma$ и $(\varkappa_{1,0},\varkappa_{2,0},\varkappa_{3,0},\varkappa_{4,0})=(x_1,x_2,x_3,x_4)\in \mathbb{Z}_+^4$ фиксированы. 
+
+Тогда последовательность $\{(\Gamma_i, \varkappa_{1,i},\varkappa_{2,i}, \varkappa_{3,i}, \varkappa_{4,i}); i \geqslant 0\}$ является однородной счетной цепью Маркова.
+}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Переходные вероятности}
+Введем множества ${\mathbb A}_{\mathrm{trans}}(x,\tilde{x},\tilde{k},\tilde{r})$  следующим образом:
+\begin{align}
+{\mathbb A}_{\mathrm{trans}}(x,\tilde{x},\tilde{k},\tilde{r}) &= {\mathbb A}_{\mathrm{trans}}^0(x,\tilde{x},\tilde{k},\tilde{r}) \cap {\mathbb A}_{\mathrm{trans}}^1(x,\tilde{x},\tilde{k},\tilde{r})\cap {\mathbb A}_{\mathrm{trans}}^2(x,\tilde{x},\tilde{k},\tilde{r}),\label{A:trans:1}\\
+{\mathbb A}_{\mathrm{trans}}^0(x,\tilde{x},\tilde{k},\tilde{r}) &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon a_2 = \min{\{\ell(\tilde{k},\tilde{r},1), x_1+a_1}\} +x_4-\tilde{x}_4\},\\
+{\mathbb A}_{\mathrm{trans}}^1(x,\tilde{x},\tilde{k},\tilde{r}) &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon \tilde{x}_1=\max{\{0,x_1+a_1-\ell(\tilde{k},\tilde{r},1)\}}\},\\
+{\mathbb A}_{\mathrm{trans}}^2(x,\tilde{x},\tilde{k},\tilde{r}) &= \{(a_1,a_2) \in \mathbb{Z}_+^2 \colon  \tilde{x}_2=\max{\{0,x_2+a_2-\ell(\tilde{k},\tilde{r},2)\}}\}.\label{A:trans:2}
+\end{align}
+\framebreak 
+
+ {\bf Теорема 2.3}
+{\it 
+Пусть $x$, $\tilde{x}\in \mathbb{Z}_+^4$ и $\Gamma^{(k,r)}$, $\Gamma^{(\tilde{k},\tilde{r})}=h(\Gamma^{(k,r)},x_3) \in \Gamma$. Тогда переходные вероятности однородной счетной марковской цепи $\Mark$ вычисляются по следующей формуле:
+\begin{multline}
+\Pr (\{\omega\colon \Gamma_{i+1}=\Gamma^{(\tilde{k},\tilde{r})},\varkappa_{i+1}=\tilde{x} \}| \{\omega\colon \Gamma_{i}=\Gamma^{(k,r)},\varkappa_i=x\})=\\ 
+=\widetilde{\varphi}_3(\tilde{k},\tilde{r},h_T(\Gamma^{(k,r)},x_3),x_3,\tilde{x}_3)\times \\ \times
+\sum_{(a_1,a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,h_T(\Gamma^{(k,r)},x_3))  \psi(a_2,x_4, p_{\tilde{k},\tilde{r}}).
+\label{transitionToProve}
+\end{multline}
+}
+
+\end{frame}
+
+
+
+\begin{frame}{Сообщающиеся состояния}
+    Для классификации состояний необходимо определить взаимную достижимость состояний цепи  $\Mark$.
+    
+    Например, сообщаются ли состояния
+    вида $$(\Gamma^{(0,r_0)},x^0), \quad r_0=\overline{1,n_0}, \quad x^0 \in \mathbb{Z}_+^4,\quad x_{3,0} \leqslant L$$
+   с состояниями вида   $$(\Gamma^{(0,\tilde{r})},(0,0,\tilde{x}_3,0)), \quad \tilde{r} = \overline{1,n_0}, \quad \tilde{x}_3\geqslant x_{3,0}.$$
+    
+    
+ {\bf Лемма 2.1}
+{\it 
+Для любых состояний $(\Gamma^{(0,r_0)},x^0)$, $r_0=\overline{1,n_0}$, $x^0 \in \mathbb{Z}_+^4$, $x_{3,0} \leqslant L$, и $(\Gamma^{(0,\tilde{r})},(0,0,\tilde{x}_3,0))$, $\tilde{r} = \overline{1,n_0}$, $\tilde{x}_3\geqslant x_{3,0}$, существует такое натуральное число $N$, что 
+\begin{equation*}
+\Pr(\{\omega\colon\Gamma_{N}=\Gamma^{(0,\tilde{r} )}, \varkappa_{N}=(0,0,\tilde{x}_3,0)\}|
+\{\omega\colon\Gamma_{0}=\Gamma^{(0,r_0)}, \varkappa_{0}=x^0\})>0.
+\end{equation*}
+}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Результаты второй главы}
+    Леммы 2.1~-- 2.9 подводят к основному результату главы 2.
+    
+ {\bf Теорема 2.5}
+{\it 
+Состояния вида
+$(\Gamma^{(\tilde{k},\tilde{r})},\tilde{x})$,
+где $\tilde{k}=\overline{0,d}$, $\tilde{r} = \overline{1,n_{\tilde{k}}}$, $\tilde{x}\in \mathbb{Z}_+^4$,
+\begin{gather}
+(\tilde{x}_1>0) \Rightarrow (\tilde{x}_4\geqslant \ell(\tilde{k},\tilde{r},1)),\label{reachable:1}\\
+\tilde{x}_3\geqslant \max{\Bigl\{0,L+1-\sum_{s=1}^{\tilde{r}}\ell(k,s,3)\Bigr\}}, \text{ если } \tilde{k}>0,\\
+\tilde{x}_3\geqslant \max{\Big\{0,L+1-\max_{k=\overline{1,d}}{\{\sum_{s=1}^{n_{\tilde{k}}} \ell(\tilde{k},s,3)\}}\Bigr\}}, \text{ если } \tilde{k}=0,\label{reachable:2}
+\end{gather}
+ и только они достижимы из состояния $(\Gamma^{(0,r_0)},x^0)$, $x^0=(0,0,L+1,0)$, $r_0=\overline{1,n_0}$, и, следовательно, являются существенными.
+ \label{important:states:basic}
+}
+\framebreak
+
+Результаты 2-й главы:
+\begin{enumerate}
+    \item строго доказано марковской свойство последовательности $\Mark$;
+    \item проведена классификация состояний по арифметическим свойствам марковской цепи $\Mark$.
+
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+  \begin{frame}{Содержание по главам}
+  \Large{\textbf{Глава 3. Анализ стохастических подпоследовательностей, описывающих первичные и промежуточную очереди системы}}\par
+
+
+      \end{frame}
+\begin{frame}{Тандем}
+        \begin{figure}[h]
+    \centering
+    \pgfimage[height=4.5cm]{Crossroads}
+    \caption{Тандем перекрёстков}
+    \label{VK:fig:1}
+  \end{figure}
+\end{frame}
+
+        \begin{frame}{Промежуточная очередь}
+        \begin{block}
+ {\bf Теорема 3.1}
+{\it 
+Для того, чтобы последовательность $\{E\varkappa_{4,i}(\omega); i =0, 1, \ldots\}$ была ограничена, достаточно выполнения неравенства
+\begin{equation*}
+   % \min_{\substack{k=\overline{1,d}\\ j=1,3}} {\{p_{k,r}\}} > 0.
+    \min_{k=\overline{0,d}, r=\overline{1,n_k}} {\{p_{k,r}\}} > 0.
+\end{equation*}
+}
+\end{block}
+      \end{frame}
+
+
+        \begin{frame}[allowframebreaks]{Низкоприоритетная очередь}
+При помощи итеративно-мажорантного метода были получены достаточное и необходимое условия существования стационарного распределения $$\MarkThree:$$
+ {\bf Теорема 3.4}
+{\it 
+Для того, чтобы марковская цепь $\MarkThree$ имела стационарное распределение $Q(\gamma,x)$, $(\gamma,x)\in \Gamma \times {\mathbb Z}_+$, достаточно выполнения неравенства 
+\begin{equation}
+\min_{k=\overline{1,d}} { \frac{\sum_{r = 1}^{n_k} \ell(k,r,3) }{\lambda_3 f_3'(1) \sum_{r=1}^{n_k} T^{(k,r)} }}>1.
+\label{sufficient:low}
+\end{equation}
+}
+\framebreak
+
+Необходимое условие существования стационарного распределения для $\MarkThree$ 
+
+ {\bf Теорема 3.5}
+{\it 
+Для того, чтобы марковская цепь $\MarkThree$ имела стационарное распределение $Q_3(\gamma,x)$, $(\gamma,x)\in \Gamma \times {\mathbb Z}_+$, необходимо выполнение неравенства
+$$
+\max_{k=\overline{1,d}} { \frac{\sum_{r = 1}^{n_{k}}\ell(k,r,3)}{\lambda_3 f_3'(1) \sum_{r = 1}^{n_k} T^{(k,r)}} } >1.
+$$
+}
+
+\end{frame}
+
+\begin{frame}{Очереди первичных требований}
+Очередями первичных требований будем называть очереди $O_1$ и $O_3$.
+\vfill
+
+ {\bf Теорема 3.9}
+{\it 
+Для того, чтобы марковская цепь $\{(\Gamma_i, \varkappa_{1,i},\varkappa_{3,i}); i \geqslant 0\}$ имела стационарное распределение $Q_1(\gamma,x_1,x_3)$, $(\gamma,x_1,x_3)\in \Gamma \times {\mathbb Z}^2_+$, достаточно выполнения неравенств
+\begin{equation}
+\min_{k=\overline{0,d}} { \frac{\sum_{r = 1}^{n_k} \ell(k,r,1) }{\lambda_1 f_1'(1) \sum_{r=1}^{n_k} T^{(k,r)} }}>1, \quad 
+\min_{k=\overline{1,d}} { \frac{\sum_{r = 1}^{n_k} \ell(k,r,3) }{\lambda_3 f_3'(1) \sum_{r=1}^{n_k} T^{(k,r)} }}>1.
+\label{sufficient:double}
+\end{equation}
+
+}
+\end{frame}
+
+
+\begin{frame}{Результаты третьей главы}
+Результаты 3-й главы:
+\begin{enumerate}
+    \item найдено достаточное условие ограниченности последовательности $\{(\Gamma_i, \varkappa_{4,i}); i \geqslant 0\}$, включающую промежуточную очередь $O_4$;
+    \item найдено достаточное и необходимое условия существования стационарного распределения для марковской цепи $\MarkThree$;
+    \item найдено достаточное условие существования стационарного распределения марковской цепи $\{(\Gamma_i, \varkappa_{1,i},\varkappa_{3,i}); i \geqslant 0\}$.
+\end{enumerate}
+
+\end{frame}
+
+
+  \begin{frame}{Содержание по главам}
+  \Large{\textbf{Глава 4. Исследование тандема систем с помощью имитационной модели}}\par
+\end{frame}
+
+\begin{frame}{Квазиоптимальное управление системой}
+    Управляющие параметры:
+    
+    \begin{itemize}
+        \item длительности $T_2$ и $T_3$ сигналов второго светофора;
+        \item длительность $T_{prol}$ сигнала продления второго светофора;
+        \item порог продления $L$.
+    \end{itemize}
+    
+    Показатель качества функционирования системы: $E \gamma$~--- среднее взвешенное время ожидания произвольного требования.
+    
+    Для определения квазистационарного режима запускаются несмещенная (<<0>>) и смещенная (<<+>>) системы: с пустыми и не пустыми начальными очередями соответственно. 
+\end{frame}
+
+
+\begin{frame}{Квазистационарный режим}
+    В конце каждого такта считаются значения
+\begin{equation}
+   \gamma_{j,\cdot}^0 = \frac{1}{\tilde{\mathcal{V}}_j^0}\sum_{\nu} \gamma_{j,\nu}^0, \quad \gamma_{j,\cdot}^+ = \frac{1}{\tilde{\mathcal{V}}_j^+}\sum_{\nu} \gamma_{j,\nu}^+ 
+\end{equation}
+
+Кроме того, для несмещенной системы  считаются входящий и выходящий потоки:
+\begin{equation}
+    F^{0}_{\text{in},1} = \sum_n \alpha^{0}_{\text{in},1,n}, \quad 
+    F^{0}_{\text{out},4} = \sum_n \alpha^{0}_{\text{out},4,n},
+\end{equation}
+\begin{equation}
+    F^{0}_{\text{in},3} = \sum_n \alpha^{0}_{\text{in},3,n}, \quad 
+    F^{0}_{\text{out},3} = \sum_n \alpha^{0}_{\text{out},3,n}.
+\end{equation}
+
+
+Стационарный режим считается достигнутым, если выполнены все неравенства:
+\begin{equation}
+    \frac{|\gamma_{j,\cdot}^0 - \gamma_{j,\cdot}^+|}{\gamma_{j,\cdot}^0} < \delta_1, \quad
+    \frac{F^{0}_{\text{in},1}}{F^{0}_{\text{out},4}} < \delta_2, \quad 
+    \frac{F^{0}_{\text{in},3}}{F^{0}_{\text{out},3}} < \delta_3.
+\end{equation}
+\end{frame}
+
+
+\begin{frame}{Показатель качества функционирования системы}
+     $\hat{E}\gamma_{j}=\frac{1}{\tilde{\mathcal{V}}_j}\sum_{\nu}\zeta_{j,\nu}$  -- оценка математического ожидания времени пребывания в системе произвольного требования потока $\Pi_j$.
+     \vfill
+     Результирующая оценка целевой функции:
+\begin{equation}
+ \hat{E}\gamma=\frac{\sum_{j\in\{1,3\}} (\lambda_j \sum_{\nu\geqslant1}\nu p_{\nu}^{(j)})\hat{E}\gamma_{j} }{\sum_{j\in\{1,3\}} \lambda_j \sum_{\nu\geqslant1}\nu p_{\nu}^{(j)}}.
+\end{equation}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Результаты экспериментов}
+\begin{columns}
+    \begin{column}{0.48\textwidth}
+        \begin{figure}[h]
+    \centering
+    \pgfimage[height=4.5cm]{target_thrs_-1.png}
+    \caption{Циклический алгоритм}
+    \label{VK:fig:1}
+  \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+        \begin{figure}[h]
+    \centering
+    \pgfimage[height=4.5cm]{target_thrs_15.png}
+    \caption{Алгоритм с продлением}
+    \label{VK:fig:1}
+  \end{figure}
+    \end{column}
+\end{columns}
+\framebreak
+
+\begin{columns}
+    \begin{column}{0.33\textwidth}
+        \begin{figure}[h]
+    \centering
+    \pgfimage[height=4cm]{target_thrs_5.png}
+    \caption{L=5}
+    \label{VK:fig:1}
+  \end{figure}
+    \end{column}
+    \begin{column}{0.33\textwidth}
+        \begin{figure}[h]
+    \centering
+    \pgfimage[height=4cm]{target_thrs_10.png}
+    \caption{L=10}
+    \label{VK:fig:1}
+  \end{figure}
+    \end{column}
+        \begin{column}{0.33\textwidth}
+        \begin{figure}[h]
+    \centering
+    \pgfimage[height=4cm]{target_thrs_15.png}
+    \caption{L=15}
+    \label{VK:fig:1}
+  \end{figure}
+    \end{column}
+\end{columns}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Результаты четвертой главы}
+Результаты 4-й главы:
+\begin{enumerate}
+    \item реализована имитационная модель тандема перекрестков;
+    \item разработан метод определения момента достижения системой квазистационарного режима;
+    \item проведен анализ имитационной модели и, в частности, подтверждены и расширены результаты теоретических исследований работы.
+\end{enumerate}
+
+\end{frame}
+
+
+
+\begin{frame}{Положения, выносимые на защиту}
+    \begin{enumerate}
+
+\item Методика построения вероятностного пространства для
+тандема систем с немгновенным перемещением требований между
+ними.
+\item Методика нахождения условий существования стационарного режима в тандемных системах управления потоками неоднородных требований с циклическим алгоритмом и алгоритмом с продлением.
+\item Метод определения момента достижения управляемой системой обслуживания квазистационарного режима.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Основные результаты}
+    \begin{enumerate}
+        \item построена строгая математическая модель тандема с циклическим алгоритмом управления и алгоритмом с продлением;
+        \item найдены условия существования стационарного распределения для цепи, включающей низкоприоритетную очередь;
+        \item найдены условия существования стационарного распределения для цепей, включающих промежуточную и первичные очереди;
+        \item разработана имитационная модель для изучения исходной системы;
+        \item на основе имитационной модели были подтверждены и расширены результаты, полученные теоретически.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Основные публикации:}
+    \begin{enumerate}
+    
+   \item Кочеганов~В.М., Зорин~А.В. Вероятностная модель тандема систем массового обслуживания с циклическим управлением с продлением // Теория вероятностей, случайные процессы, математическая статистика и приложения: материалы Междунар. науч. конф., посвящ. 80-летию проф., д-ра физ.-мат. наук Г.А. Медведева, Минск, 23–26 февр. 2015.~-- С.~94–99.
+\item Кочеганов~В.М., Зорин~А.В. Дискретная модель колебания длины низкоприоритетной очереди в тандеме систем массового обслуживания при циклическом алгоритме с продлением // Дискретные модели в теории управляющих систем: IX Международная конференция, Москва и Подмосковье, 20–22 мая 2015.~-- С.~126–129.
+\item Kocheganov~V.M., Zorine~A.V. Low-Priority Queue Fluctuations in Tandem of Queuing Systems Under Cyclic Control with Prolongations // Distributed Computer and Communication Networks. Ser. Communications in Computer and Information Science. 2016. V.~601. P.~268-279.
+
+
+
+\item Кочеганов~В.М., Зорин~А.В. Достаточное условие существования стационарного режима низкоприоритетной очереди в тандеме систем массового обслуживания // Вестник Волжской государственной академии водного транспорта. 2017. Выпуск~50. С.~47–55.
+
+% \item
+% Kocheganov~V.M., Zorine~A.V. Low-Priority Queue Fluctuations in Tandem of Queuing Systems Under Cyclic Control with Prolongations // DCCN. Ser. Communications in Computer and Information Science. 2016. V.~601. P.~268--279.
+
+\item
+Kocheganov~V., Zorine~A. Primary input flows in a tandem under prolongable cyclic service // DCCN. 2017. Pp.~517--525.
+
+\item Кочеганов~В.М., Зорин~А.В. Достаточное условие существования стационарного режима очередей первичных требований в тандеме систем массового обслуживания // Вестник ТвГУ. Серия: Прикладная математика. 2018. №~2. С.~49~--74.
+
+%         Кочеганов В.М., Зорин А.В. Вероятностная модель тандема систем массового обслуживания с циклическим управлением с продлением // Теория вероятностей, случайные процессы, математическая статистика и приложения: материалы Междунар. науч. конф., посвящ. 80-летию проф., д-ра физ.-мат. наук Г.А. Медведева, Минск, 23–26 февр. 2015 г. / редкол. Н.Н. Труш [и др.]. — Минск: РИВШ, 2015. — С. 94–99.
+% Тип: статья, печатная
+% 0.693 п.л.
+% http://elib.bsu.by/bitstream/123456789/111720/1/%D0%9A%D0%BE%D1%87%D0%B5%D0%B3%D0%B0%D0%BD%D0%BE%D0%B2.pdf
+
+
+% Кочеганов В.М., Зорин А.В. Дискретная модель колебания длины низкоприоритетной очереди в тандеме систем обслуживания при циклическом алгоритме с продлением // IX Международная конференция "Дискретные модели в теории управляющих систем": Москва и Подмосковье, 20-22 мая 2015 г.: Труды / Отв. ред. В.Б. Алексеев, Д.С. Романов, Б.Р. Данилов. - М.: МАКС Пресс, 2015. С. 126-128.
+% Тип: статья, печатная
+% 0.3465 п.л.
+% http://agora.guru.ru/display.php?conf=dm9&page=item001&PHPSESSID=6120k7rjdm4rb4lv5hakfueut6
+
+   
+% Kocheganov V.M., Zorine A.V. Low-Priority Queue Fluctuations in Tandem of Queuing Systems Under Cyclic Control with Prolongations / Distributed Computer and Communication Networks. Ser. Communications in Computer and Information Science, 2015. – V. 601. – P. 268–279
+% https://link.springer.com/chapter/10.1007/978-3-319-30843-2_28
+
+
+% Kocheganov V.M., Zorine A.V. Low-priority queue and server's steady-state existence in a tandem under prolongable cyclic service // Distributed Computer and Communication Networks. DCCN 2016. Communications in Computer and Information Science, 2016. – V. 678. – P. 210-221.
+% https://link.springer.com/chapter/10.1007/978-3-319-51917-3_19
+
+
+% Кочеганов В.М., Зорин А.В. Достаточное условие существования стационарного режима низкоприоритетной очереди в тандеме систем массового обслуживания // Вестник волжской государственной академии водного транспорта, 2017, N. 50. — С. 47–55. (РИНЦ)
+
+% Кочеганов В.М., Зорин А.В. Изучение процесса управления потоками первичных требований в тандеме систем обслуживания с циклическим алгоритмом с продлением // Проблемы теоретической кибернетики: XVIII международная конференция (Пенза, 19–23 июня 2017 г.) : Материалы : Под редакцией Ю. И. Журавлева. — М. : МАКС Пресс, 2017. — С. 135–137.
+
+
+% Кочеганов В.М., Зорин А.В. Анализ потоков первичных требований в тандеме при циклическом управлении с продлением // Информационные технологии и математическое моделирование (ИТММ-2017): Материалы XVI Международной конференции имени А.Ф. Терпугова (29 сентября – 3 октября 2017 г.) — Томск: Изд-во НТЛ, 2017 — Ч. 1. — С. 81–87.
+
+
+% Kocheganov V., Zorine A. Primary input flows in a tandem under prolongable cyclic service // Распределенные компьютерные и телекоммуникационные сети: управление, вычисление, связь (DCCN-2017) : Материалы Двадцатой мужденар. науч. конфер., 25–29 сент. 2017 г. Москва: / Ин-т прболем упр. им. В.А.Трапезникова Рос. акад. наук; под общ. ред. В.М.Вишневского. — М.: ТЕХНОСФЕРА, 2017. — C. 517–525.
+% Кочеганов В.М., Зорин А.В. Достаточное условие существования стационарного режима очередей первичных требований в тандеме систем массового обслуживания // Вестник ТвГУ. Серия: Прикладная математика. 2018. № 2. С. 49-74. https://doi.org/10.26456/vtpmk193
+
+
+    \end{enumerate}
+\end{frame}
+\begin{frame}
+\Huge{\centerline{\color{blue} Спасибо за внимание!}}
+\end{frame}
+
+\appendix
+\section{Приложение}
+
+
+\end{document}
+
+

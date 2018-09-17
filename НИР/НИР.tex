@@ -1,4 +1,8 @@
-\documentclass[a4paper,twoside]{article}
+%\documentclass[a4paper,twoside]{article}
+\documentclass[12pt]{extarticle}
+
+\usepackage[margin=2cm]{geometry}
+
 
 \usepackage[utf8x]{inputenc}
 %\usepackage[cp1251]{inputenc}
@@ -19,17 +23,17 @@
 \usepackage{euscript}
 \usepackage{indentfirst}
 \usepackage[english,russian]{babel}
+\usepackage{microtype}
+% \sloppy\unitlength=.24mm
+% \renewcommand{\thefootnote}{\arabic{footnote}}
 
-\sloppy\unitlength=.24mm
-\renewcommand{\thefootnote}{\arabic{footnote}}
-
-\textwidth=132mm
-\headheight=7mm
-\headsep=5mm
-\textheight=200mm
-\oddsidemargin=0mm
-\evensidemargin=0mm
-\topmargin=0mm
+% \textwidth=132mm
+% \headheight=7mm
+% \headsep=5mm
+% \textheight=200mm
+% \oddsidemargin=0mm
+% \evensidemargin=0mm
+% \topmargin=0mm
 
 \newcommand{\firstheader}[1]{\noindent\textbf{#1}\nopagebreak\bigskip}
 \newcommand{\header}[1]{\bigskip\medskip\noindent\textbf{#1}\nopagebreak\bigskip}
@@ -85,48 +89,78 @@
 \newcommand{\pages}{1-8}
 
 \begin{document}
-\pagestyle{headings}
-\makeatletter
-\renewcommand{\@evenhead}{\raisebox{0pt}[\headheight][0pt]{\vbox{\hbox to\textwidth{\thepage\hfill \strut {\small Кочеганов~В.М., Зорин~А.В.}}\hrule}}}
-\renewcommand{\@oddhead}{\raisebox{0pt}[\headheight][0pt]{\vbox{\hbox to\textwidth{{\small ДОСТАТОЧНОЕ УСЛОВИЕ СУЩЕСТВОВАНИЯ СТАЦИОНАРНОГО ... }\hfill \strut\thepage}\hrule}}}
-\makeatother
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Заголовок
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\thispagestyle{plain}
-УДК 519.21
-\begin{center}
-{\bf ДОСТАТОЧНОЕ УСЛОВИЕ СУЩЕСТВОВАНИЯ СТАЦИОНАРНОГО РЕЖИМА ОЧЕРЕДЕЙ ПЕРВИЧНЫХ ТРЕБОВАНИЙ В ТАНДЕМЕ СИСТЕМ МАССОВОГО ОБСЛУЖИВАНИЯ
-}
-\vspace{4mm}\par
-{\bf Кочеганов~В.М.$^{*}$, Зорин~А.В.$^{*}$}\\
-$^{*}$НИУ ННГУ им.~Н.И.Лобачевского, г.~Н.Новгород\\
-\end{center}
-\vspace{2mm}\par
+\begin{titlepage}
+
+  \begin{center}
+  \textls[-80]{
+    \textbf{МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ} }\\
+    \textls[-30]{
+    \textbf{%
+    {ФГАОУ ВО 
+      <<Нижегородский государственный университет им.~Н.И.~Лобачевского>>}
+    }
+    }
+
+ \medskip
+
+ 
+   \textbf{ Институт информационных технологий, математики и механики }\\
+    Кафедра математического обеспечения и суперкомпьютерных технологий
+
+    
+ \medskip
+  \medskip
+   \medskip \medskip
+    \medskip
+     \medskip
+      \medskip
+     \hfill
+    \begin{minipage}[h]{ 0.31\linewidth}
+    <<УТВЕРЖДАЮ>>\\
+    Руководитель \\
+    исследовательской практики\\
+\\
+    \underline{\hspace{3cm}} Зорин~А.В.
+    \end{minipage}
+   \medskip \medskip
+    \medskip
+     \medskip
+      \medskip
+   \medskip \medskip
+    \medskip
+     \medskip
+      \medskip
+      
+    \textbf{ОТЧЕТ  ПО}\\ \textbf{ИССЛЕДОВАТЕЛЬСКОЙ ПРАКТИКЕ}\\
+ \medskip
+    \textbf{по теме:} \\
+    <<Достаточное условие существования стационарного режима очередей \\ первичных требований в тандеме систем массового обслуживания>>
+    
+         \medskip
+      \medskip
+               \medskip
+      \medskip
+    \hfill
+    \begin{minipage}[h]{ 0.5\linewidth}
+    Аспиранта 4 года обучения\\
+    Кочеганова В.М.
+    \end{minipage}
+    \vfill {Н.Новгород, 2018}
+  \end{center}
+\end{titlepage}
 
 
+\tableofcontents
+\newpage
 
-\begin{quote}
-
-Рассматривается тандем из двух систем массового обслуживания с немгновенным перемещением требований между системами. 
-В каждую из этих систем поступают первичные требования, формируемые внешней средой. Кроме первичных требований во вторую систему также поступают требования, обслуженные первой системой.
-%В первой системе управление осуществляется по циклическому алгоритму. После обслуживания в первой системе, требования немгновенно поступают на вторую, где обслуживаются по циклическому алгоритму с продлением. 
-Построена математическая модель в виде многомерной марковской цепи, определенной на явно заданном вероятностном пространстве. Проведен анализ  марковской цепи, описывающей изменение состояния обслуживающего устройства и флуктуации длин очередей первичных требований. Найдено достаточное условие существования стационарного распределения для этой цепи.
-\end{quote}
-
-\begin{quote}
-{\bf Ключевые слова:} стационарное распределение, управляющая система массового обслуживания, циклический алгоритм с продлением, конфликтные потоки, многомерная счетная марковская цепь.
-\end{quote}
-%{\small {\it Вестник ТвГУ. Серия: Прикладная математика. 2016. № 2. С.~\pages.}}
-\vspace{5mm}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Статья
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\firstheader{Введение}
+\section{Информация об исследовательской практике}
+\begin{enumerate}
+    \item Сроки прохождения исследовательской практики: с 02.10.2017 по 31.01.2018.
+    \item База исследовательской практики: кафедра программной инженерии, \newline Нижегородский государственный университет им.~Н.И.~Лобачевского, \newline {г.~Нижний Новгород}
+\end{enumerate}
+\newpage
+\section{Введение}
 
 В связи со стремительным ростом числа машин в современных городах все больший интерес стала представлять теория потоков транспортных средств. Результаты ранних исследований по этой тематике собраны, например, в книгах \cite{Haight:1963, Drew:1968, Inose:1975}. В этих монографиях потоки машин моделируются с помощью традиционных стохастических потоков событий, весьма полно изученных в классической теории массового обслуживания. Однако классические модели не удается использовать для адекватного описания реальных потоков машин (см. \cite{Bartlet:1963, Cox:1969,Dshalalov:1997}). В работах
 \cite{Fedotkin:Kudryavcev:Rachinskaya:2010, Rachinskaya:Fedotkin:2011:1, Rachinskaya:Fedotkin:2014} предлагается учитывать не только вероятностные свойства последовательности моментов пересечения машинами так называемой виртуальной стоп-линии, но и определять свойства случайных конфигураций автомобилей на дороге. В указанных работах изучается возникновение так называемых пачек машин. Каждая пачка состоит из медленной головной машины и ожидающих возможности обгона машин за ней. Динамика длины пачки определяется возможностью обгона машинами из хвоста всей пачки. Другая динамика, обусловленная возможностью съезда машин с трассы, рассматривается в работах \cite{Afanasyeva:Bulinskaya:2013:1,Afanasyeva:Bulinskaya:2010,Afanasyeva:Bulinskaya:2013:2}. Основным объектом изучения в этих работах является плотность потока машин как функция от расстояния, а знание плотности, в свою очередь, позволяет делать выводы о пропускной способности перекрестков.
@@ -141,7 +175,7 @@ $^{*}$НИУ ННГУ им.~Н.И.Лобачевского, г.~Н.Новгор�
 Cтатья \cite{Kocheganov:2017:1} отличается от работ  \cite{Zorine:2012,Zorine:2013} введением продления в алгоритм обслуживания во второй системе. 
 В данной работе рассматривается тандем из двух систем массового обслуживания. В первой системе управление осуществляется по циклическому алгоритму. После обслуживания в первой системе, требования немгновенно поступают на вторую, где обслуживаются по циклическому алгоритму с продлением. Целью этой статьи является исследование условий существования стационарного режима очередей первичных требований, то есть требований, генерируемых внешней средой.
 
-\header{Постановка задачи на содержательном уровне}
+\section{Постановка задачи на содержательном уровне}
 
 Рассмотрим систему массового обслуживания следующего вида (рис.~\ref{SystemScheme}).
 \begin{figure}[h]
@@ -240,7 +274,7 @@ h_3(1)=\Gamma^{(2,1)}, \quad h_3(2)=\Gamma^{(3,1)}, \quad h_3(3)=\Gamma^{(4,1)} 
 Этим завершается построение числового примера.
 
 
-\header{Математическая модель}
+\section{Математическая модель}
 
 Описанная в предыдущем разделе на содержательном уровне система массового обслуживания должна рассматриваться как кибернетическая управляющая система обслуживания (см.~\cite{Yablonski}). Схема управляющей системы приведена на Рис.~\ref{SystemScheme}. На схеме присутствуют следующие блоки: 1) внешняя среда с одним состоянием; 2) входные полюса первого типа~--- входные потоки $\Pi_1$, $\Pi_2$, $\Pi_3$, $\Pi_4$; 3) входные полюса второго типа~--- потоки насыщения $\Pi_1^{\mathrm{\text{нас}}}$, $\Pi_2^{\mathrm{\text{нас}}}$, $\Pi_3^{\mathrm{\text{нас}}}$, $\Pi_4^{\mathrm{\text{нас}}}$; 4) внешняя память~--- очереди $O_1$, $O_2$, $O_3$, $O_4$; 5) устройство по переработкe информации внешней памяти~--- устройства по поддержанию дисциплины очереди $\delta_1$, $\delta_2$, $\delta_3$, $\delta_4$; 6) внутренняя память~--- обслуживающее устройство (ОУ); 7) устройство по переработке информации во внутренней памяти~--- граф смены состояний; 8) выходные полюса $\Pi_1^{\mathrm{\text{вых}}}$, $\Pi_2^{\mathrm{\text{вых}}}$, $\Pi_3^{\mathrm{\text{вых}}}$, $\Pi_4^{\mathrm{\text{вых}}}$. Координатой блока является номер этого блока на схеме. 
 
@@ -463,7 +497,7 @@ P_{n+1}(\omega_0,\omega_1,\ldots,\omega_n;\{(a_1,a_2,a_3)\}) = \\
 
 
 
-\header{Очереди первичных требований}
+\section{Очереди первичных требований}
 
 Рассмотрим случайную последовательность  $$\{(\Gamma_i, \varkappa_{1,i},\varkappa_{3,i}); i \geqslant 0\},$$ включающую в себя состояния $\varkappa_{1,i}$ и $\varkappa_{3,i}$ очередей $O_1$ и $O_3$ первичных требований в момент $\tau_i$. Приведем ниже несколько результатов, касающихся этой последовательности.
 
@@ -759,7 +793,7 @@ $$
 
 
 
-\header{Заключение}
+\section{Заключение}
 
 В работе рассмотрен тандем систем массового обслуживания. При помощи кибернетического подхода было построено вероятное пространство и заданы случайные величины и элементы, описывающие тандем. Была исследована стохастическая последовательность $\{(\Gamma_i, \varkappa_{1,i}, \varkappa_{3,i}); i \geqslant 0\}$, состоящая из состояния обслуживающего устройства и длин очередей первичных требований. Проведена классификация ее состояний и выделено множество существенных состояний. При помощи рекуррентных соотношений для вероятностей состояний и частичных производящих функций было найдено достаточное условие существования стационарного распределения цепи  
  $\{(\Gamma_i, \varkappa_{1,i}, \varkappa_{3,i}); i \geqslant 0\}$. 
@@ -793,7 +827,7 @@ $$
 \bibitem{Gomez:2002:3} Gomez-Corral~A. A matrix-geometric approximation for tandem queues with blocking and repeated attempts // Operations Research Letters  30. 2002. Pp.~360--374.
 
 \bibitem{Klimenok:Dudin:2005} Klimenok~V.I., Breuer~L., Tsarenkov~G.V., Dudin~A.N. The $BMAP/G/1/N \to PH/1/M$ system with losses // Performance Evaluation 61. 2005. Pp.~17--40.
-\bibitem{Klimenok:2010} Клименок~В.И., Тарамин~О.С. Двухфазная система обслуживания с групповым марковским потоком и повторными вызовами // Автоматика и телемеханика. 2010. \No~1. С.~3--17 .
+\bibitem{Klimenok:2010} Клименок~В.И., Тарамин~О.С. Двухфазная система обслуживания с групповым марковским потоком и повторными вызовами // Автоматика и телемеханика. 2010. \No~1. С.~3--17.
 \bibitem{Klimenok:2015} Клименок~В.И., Савко~Р.Ч. Двухфазная система с повторными попытками и нетерпеливостью запросов // Автоматика и телемеханика. 2015. \No{}~8. C.~78--93. 
 
 \bibitem{Zorine:2012} Zorine~A.V. Stability of a tandem of queuing systems with Bernoulli noninstantaneous transfer of customers // Theory of Probability and Mathematical Statistics. 2012. V.~84. Pp.~173--188.
@@ -807,107 +841,12 @@ $$
 
 \end{thebibliography}
 \newpage
-\bigskip\medskip{\centerline{\bf Сведения об авторах}}
-\begin{enumerate}[1.]
-\item {\bf Кочеганов Виктор Михайлович}\\
-аспирант кафедры программной инженерии института ИТММ Национального исследовательского Нижегородского университета им.~Н.И.~Лобачевского.
+\section{Приложение. Публикация статьи}
+Приведенная в этой работе статья была подана в редакцию журнала <<Вестник Тверского государственного университета. Серия: Прикладная математика>> 2 ноября 2017 года. Ответ редакции о положительной рецензии был получен 14 февраля 2018 года:
 
-\vspace{1mm}
-{\it Россия, 603950, г.~Нижний Новгород, пр.~Гагарина, 23.\\ E-mail: kocheganov@gmail.com.} 
-\item {\bf Зорин Андрей Владимирович}\\
-д.ф.-м.н., доцент кафедры программной инженерии института ИТММ Национального исследовательского Нижегородского университета им.~Н.И.~Лобачевского.
-
-\vspace{1mm}
-{\it Россия, 603950, г.~Нижний Новгород, пр.~Гагарина, 23.\\ E-mail: zoav1602@gmail.com.} 
-\end{enumerate} 
-
-\newpage
-\thispagestyle{plain}
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}
-{\bf SUFFICIENT CONDITION FOR PRIMARY QUEUES STATIONARY DISTRIBUTION EXISTENCE IN A TANDEM OF QUEUING SYSTEMS}
-\vspace{4mm}\par
-{\bf Kocheganov Victor Mikhailovich}\\
-PhD student at software engineering department of ITMM institute,\\ N.I.~Lobachevsky National Research State University of Nizhny Novgorod.\\
-{\it Gagarina av. 23, Nizhny Novgorod, 603950, Russia.\\ E-mail: kocheganov@gmail.com}\\ \vspace{2mm}
-
-{\bf Zorine Andrei Vladimirovich}\\
- Assistant professor at software engineering department of ITMM institute,\\
-N.I.~Lobachevsky National Research State University of Nizhny Novgorod.\\
-{\it  Gagarina av. 23, Nizhny Novgorod, 603950, Russia\\ E-mail: zoav1602@gmail.com.}  
-\end{center}
-\vspace{2mm}\par
-
-\begin{center}
-\renewcommand{\arraystretch}{0}
-\begin{tabular}{c}
-\hline
-\rule{0pt}{2mm}\\
-\small\it
-Received ,
-revised .
-\\
-\rule{0pt}{2mm}\\
-\hline
-\end{tabular}
-\end{center}
-
-\begin{quote}
- A tandem of two queuing systems is under consideration. Customers having been serviced in the first system  are non-instantaneously  transferred to the second system. Each system has primary input flow generated by an environment. Besides the second system besides has input flow of customers that were serviced by the first system. A mathematical model is constructed in the form of a multidimensional denumerable discrete-time Markov chain defined on an explicitly built probability space. The Markov chain describing service dynamics and primary input flows queues fluctuations is investigated. A sufficient condition for the chain stationary distribution existence is found.
-\end{quote}
-\begin{quote}
-{\bf Keywords:} stationary distribution, controlling queueing system, cyclic algorithm with prolongations, conflicting flows, multidimensional denumerable discrete-time Markov chain
-\end{quote}
-\vspace{5mm}
-
-
-
-\bigskip\bigskip\def\refname{\centerline{References}}
-\begin{thebibliography}{99}
-
-\bibitem{} Haight~F.A. {\it Mathematical Theories of Traffic Flow.} New York: Academic Press, 1963. 242~p.
-\bibitem{} Drew~D.R. {\it Traffic Flow Theory and Control.} New York: McGraw-Hill, 1968. 467~p.
-\bibitem{} Inose~H., Hamada~T. {\it Upravlenie dorozhnym dvizheniem} [Road Traffic Control]. Transport, Moscow, 1983, 248~p. (In Russian)
-%Иносэ~Х., Хамада~Т. Управление дорожным движением. Москва: Транспорт. 1983. 248 с.
-\bibitem{} Bartlett~M.S., The Spectral Analysis of Point Processes. {\it Journal of the Royal Statistical Society. Series B (Methodological)}, 1963, vol.~25, no.~2, pp.~264--296.
-\bibitem{} Cox~D.R., P.A.W.~Lewis. {\it Statisticheskii analiz posledovatel'nosti sobytii} [The Statistical Analysis of Series of Events]. <<Mir>> Publ., Moscow, 1969. 312~p. (In Russian)
-%Кокс~Д.Р., П.~Льюис. Статистический анализ последовательности событий. М.: Мир, 1969. 312 с.
-\bibitem{} D.L.~Jagerman, B.~Melamed, W.~Willinger. Stochastic modeling of traffic process. {\it In: Frontiers in queuing: models and applications in science and engineering, edited by J.H. Dshalalov. Boca Raton: CRC Press}, 1997, pp. 271–320.
-\bibitem{} Fedotkin~M.A., Kudryavtsev~E.V., Rachinskaya~M.A.  About correctness of probabilistic models of traffic flows dynamics on a motorway. {\it Proceedings of 36 International Workshop <<Distributed computer and communication networks>> (DCCN-2010), Moscow}, 2010, pp.~86--93.
-\bibitem{} Fedotkin~M.A., Rachinskaya~M.A.  Investigation of Traffic Flows Characteristics in Case of the Small Density. {\it Queues: Flows, Systems, Networks. Proceedings of the International Conference <<Modern Probabilistic Methods for Analysis and Optimization of Information and Telecommunication Networks>>, Minsk: BSU-RIVH}, 2011, no.~21, pp.~82--87.
-\bibitem{} Fedotkin~M., Rachinskaya~M. Parameters Estimator of the Probabilistic Model of Moving Batches Traffic Flow. {\it Distributed Computer and Communication Networks. Springer International Publishing, <<Communications in Computer and Information Science>> series}, 2014, vol.~279, pp.~154--168.
-\bibitem{} Afanasyeva~L.G., Bulinskaya~E.V.  Estimation of transport systems capacity. {\it Traffic and Granular Flow '11. Springer-Verlag Berlin, Heidelberg}, 2013, pp.~63--77.
-\bibitem{} Afanasyeva~L.G., Bulinskaya~E.V.  Matematicheskie modeli transportnykh sistem, osnovannye na teorii ocheredei. [Mathematical models of road traffic based on queueing theory]. {\it Trudy Moskovskogo fiziko-tekhnicheskogo instituta (gosudarstvennogo universiteta)} [Proceedings of Moscow physicotechnical institute (of State University)], 2010, vol.~2, no.~4, pp.~6--21. (In Russian)
-%Афанасьева~Л.Г., Булинская~Е.В. Математические модели транспортных систем, основанные на теории очередей // Труды Московского физико-технического института (государственного университета). 2010. Т.~2. \No{}~4. С.~6–21.
-\bibitem{} Afanasyeva~L.G., Bulinskaya~E.V.  Asymptotic analysis of traffic lights performance under heavy traffic assumption. {\it Methodology and Computing in Applied Probability, Springer}, 2013, vol.~15, no.~4, pp.~935--950.
-
-\bibitem{} Reich~E.  Waiting times when queues are in tandem. {\it The Annals of Mathematical Statistics}, 1957, vol.~28. no.~3, pp.~768-773.
-
-\bibitem{} Balsamo~S., Persone~V.D.N., Inverardi~P. A review on queueing network models with finite capacity queues for software architectures performance prediction. {\it  Performance Evaluation}, 2003, vol.~51, pp.~269–288.
-\bibitem{} Gnedenko~B.W., Konig~D. Handbuch der Bedienungstheorie. {\it Berlin: Akademie Verlag}, 1983. 
-\bibitem{} Perros~H.G.  Queuing networks with blocking in: Exact and Approximate Solutions. {\it New York: Oxford University Press}, 1994, 358~p.
-
-\bibitem{} Gomez-Corral~A.  A tandem queue with blocking and Markovian arrival process. {\it Queuing Systems}, 2002, vol.~41, pp.~343--370.
-\bibitem{} Gomez-Corral~A. On a tandem G-network with blocking.  {\it Advances in Applied Probability}, 2002, vol.~34(3), pp.~626--661.
-\bibitem{} Gomez-Corral~A. A matrix-geometric approximation for tandem queues with blocking and repeated attempts. {\it  Operations Research Letters}, 2002, vol.~30, pp.~360--374.
-
-\bibitem{} Klimenok~V.I., Breuer~L., Tsarenkov~G.V., Dudin~A.N.  The $BMAP/G/1/N \to PH/1/M$ system with losses.{\it Performance Evaluation}, 2005, vol.~61, pp.~17--40.
-\bibitem{} Klimenok~V.I., Taramin~O.S. Dvukhfaznaya sistema obsluzhivaniya s gruppovym markovskim potokom i povtornymi vyzovami. [Two-phase queuing system with Batch Markov Arrival Process and repeated requests] {\it Avtomatika i telemekhanika} [Automatics and telemechanics], 2010, no.~1, pp.~3--17. (In Russian)
-%Клименок~В.И., Тарамин~О.С. Двухфазная система обслуживания с групповым марковским потоком и повторными вызовами // Автоматика и телемеханика. 2010. \No~1. С.~3--17 .
-\bibitem{} 
-Klimenok~V.I., Savko~R.Ch. Dvukhfaznaya sistema s povtornymi popytkami i neterpelivost'yu zaprosov [Two-phase system with repeated requests] {\it Avtomatika i telemekhanika} [Automatics and telemechanics], 2015, no.~8, pp.~78--93. (In Russian)
-%Клименок~В.И., Савко~Р.Ч. Двухфазная система с повторными попытками и нетерпеливостью запросов // Автоматика и телемеханика. 2015. \No{}~8. Pp.~78--93. 
-\bibitem{} Zorine~A.V. Stability of a tandem of queuing systems with Bernoulli noninstantaneous transfer of customers. {\it Theory of Probability and Mathematical Statistics}, 2012, vol.~84, pp.~173--188.
-\bibitem{} Zorine~A.V. Study of Queues' Sizes in Tandem Intersections under Cyclic Control in Random Environment. {\it Modern Probabilistic Methods for Analysis of Telecommunication Networks. Communications in Computer and Information Science}, 2013, vol.~356, pp.~206-215.
-
-\bibitem{} Kocheganov~V.M., Zorine~A.V. Dostatochnoe uslovie sushchestvovaniya statsionarnogo rezhima nizkoprioritetnoi ocheredi v tandeme sistem massovogo obsluzhivaniya [Sufficient condition of low-priority queue stationary distribution existence in a tandem of queuing systems]. {\it Vestnik Volzhskoi gosudarstvennoi akademii vodnogo transporta} [Bulletin of the Volga State Academy of Water Transport], 2017, vol.~50, pp.~47--55. (In Russian)
-%Кочеганов~В.М., Зорин~А.В. Достаточное условие существования стационарного режима низкоприоритетной очереди в тандеме систем массового обслуживания // Вестник Волжской государственной академии водного транспорта. 2017. Выпуск~50. С.~47–55.
-
-\bibitem{} Yablonskii~S.V. {\it Osnovnye ponyatiya kibernetiki} [Basic concepts of cybernetics].  Problemy kibernetiki [Cybernetics problems], <<Fizmatgiz>> Publ.  , Moscow, 1959, vol.~2, pp.~7--38. (In Russian)
-%Яблонский~С.В. Основные понятия кибернетики // Проблемы кибернетики. Выпуск~2. М.:~Физматгиз, 1959. С.~7–38.
-\bibitem{} Shiryaev~A.N. {\it Veroyatnost': v 2-h kn. Kn.~1.} [Probability: in 2 books. Book~1]. <<Nauka>> Publ., Moscow, 2007, 552~p. (In Russian)
-%Ширяев~А.Н. Вероятность: в 2-х кн. Кн.~1. М.:~Наука, 2007. 552~с.
-
-\end{thebibliography} 
-
+\begin{figure}[h]
+\includegraphics[scale=0.45]{Correspondence.png} 
+\caption{Письмо от редакции журнала <<Вестник ТвГУ. Серия: Прикладная математика>>}
+\end{figure}
+В данный момент статья находится в печати.
 \end{document}

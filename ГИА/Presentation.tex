@@ -1,0 +1,282 @@
+\documentclass[10pt]{beamer}
+\usepackage{fancyvrb}
+\setbeamertemplate{caption}[numbered]
+
+
+\usepackage{color}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\newcommand{\No}{\textnumero}
+
+\usepackage{beton}
+
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+
+\defbeamertemplate{footline}{centered page number}
+{%
+  \hspace*{\fill}%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertpagenumber\,/\,\insertpresentationendpage%
+  \hspace*{\fill}\vskip2pt%
+}
+\setbeamertemplate{footline}[centered page number]
+%\mode<presentation>{
+%\usetheme{Rochester}
+%}
+\newcommand{\backupbegin}{
+   \newcounter{framenumberappendix}
+   \setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumberappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumberappendix}} 
+}
+\mode<presentation>{
+%  \usetheme{Madrid}
+  \usetheme{AnnArbor}
+  \usefonttheme{serif}
+}
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%~~\beamer@ifempty{\insertshortinstitute}{}{(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+
+\begin{document}
+% ывапывап
+% \title[ЧИСЛЕННЫЙ АНАЛИЗ МАРКОВСКИХ...]{\normalsize \color{blue} ЧИСЛЕННЫЙ АНАЛИЗ МАРКОВСКИХ ПРОЦЕССОВ ГИБЕЛИ И \\     РАЗМНОЖЕНИЯ С ПОМОЩЬЮ ПРЕОБРАЗОВАНИЯ ЛАПЛАСА}
+% \subtitle{Учебно-методическая разработка}
+
+
+\author[В.М.~Кочеганов]{
+\flushright Аспирант кафедры ПрИнж ИИТММ \\ \textbf{Кочеганов~В.М.}\\
+\medskip
+Направление: 01.06.01\\
+Направленность: 01.01.05}
+\institute[ГИА]{\normalsize Государственный экзамен}
+
+\date{29.06.2018}
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+
+\begin{frame}{Цели и задачи разработки}
+\small{
+\textbf{Целью} изучения пособия является знакомство с методами теории массового обслуживания студентов, не имевших спецкурса по теории массового обслуживания в бакалавриате.
+
+Пособие \textbf{предназначено} для студентов магистратуры, обучающихся по направлению \textbf{«Прикладная математика и информатика»} и \textbf{может быть использовано} при чтении курса по выбору \textbf{«Аналитические и численные методы в теории очередей»}
+
+\begin{block}{Формируемые компетенции:}
+\begin{itemize}
+    \item  ОК-1, способность к абстрактному мышлению;
+\item ОПК-4, способность использовать и применять углубленные знания в области прикладной
+математики;
+\item ПК-2, способность разрабатывать и анализировать концептуальные и теоретические
+модели решаемых научных проблем и задач;
+\item ПК-3, способность разрабатывать и применять математические методы, системное и
+прикладное программное обеспечение для решения задач научной и проектно-технологической
+деятельности
+\end{itemize}
+\end{block}}
+\end{frame}
+
+\begin{frame}{Структура учебно-методической разработки}
+Учебно-методическое пособие имеет следующую структуру:
+\medskip
+\begin{enumerate}
+    \item Введение
+    \medskip
+    \item Марковские процессы гибели и
+размножения с непрерывным временем
+\setbeamertemplate{enumerate items}[default]
+  \begin{enumerate}
+    \item Период занятости. Преобразование Лапласа
+    \item Задачи
+  \end{enumerate}
+    \end{enumerate}
+\end{frame}
+
+\section{Первая часть. Введение}
+\begin{frame}{Первая часть. Введение}
+Введение обладает важной целью: \textbf{актуализировать знания студента}, заинтересовать его. 
+  \begin{figure}[h]
+    \centering
+    \pgfimage[height=5cm]{Cafe}
+    \caption{Прикладная задача: обслуживание в кафе}
+    \label{VK:fig:2}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Знакомство с базовыми понятиями}
+На этой <<игровой>> задаче студент знакомится с:
+\begin{itemize}
+    \item понятием \textbf{входного потока}, в частности, \textbf{ординарного потока без последействия};
+    \item понятием \textbf{интенсивности входного потока};
+    \item понятием \textbf{очереди};
+    \item понятиями \textbf{обслуживания} требования, \textbf{интенсивности обслуживания};
+    \item \textbf{дифференциальными уравнениями Колмогорова}, задающих закон распределения количества свободных приборов;
+    \item элементами \textbf{имитационного моделирования}.
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Сопровождение программным кодом}
+В тексте пособия приведены листинги программ на Octave для наглядности излагаемого материала. 
+\begin{columns}[T] % align columns
+\begin{column}{0.55\textwidth}
+\begin{Verbatim}[label=Решение уравнений Колмогорова,fontsize=\scriptsize,baselinestretch=1,frame=single,xleftmargin=1em]
+function pdot = kolm(p,t)
+  m=2;
+  if (t<6) l=6+2/3*t; else l=14-2/3*t; endif;
+  sz = length(p);
+  A = zeros(sz,sz);
+  A(1:sz+1:sz^2) = -l-m*(0:sz-1);
+  A(2:sz+1:sz^2) = l;
+  A(sz+1:sz+1:sz^2) = m*(1:sz-1);
+  A(sz^2) = -(sz-1)*m;
+  pdot = A*p;
+endfunction;
+
+N=10;
+tt = 0:0.1:9;
+pp0 = [1, zeros(1,N)];
+pp = lsode("kolm", pp0, tt);
+plot(tt,pp); ## распределение вероятностей
+plot(tt,pp*(0:N)'); ## среднее число клиентов
+\end{Verbatim}
+\end{column}
+\hfill%
+\begin{column}{0.45\textwidth}
+\begin{figure}[h]
+    \centering
+    \pgfimage[height=4.3 cm]{distribution_tables_1}
+    \caption{Динамика распределения числа свободных столиков}
+  \end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{Вторая часть. Марковские процессы гибели и ...}
+\begin{frame}[fragile]
+\frametitle{Вторая часть. Марковские процессы гибели и размножения с непрерывным временем}
+Более подробно разбирается марковский процесс гибели и размножения:
+\begin{figure}[h]
+    \centering
+    \pgfimage[height=3cm]{Birth_death}
+    \caption{Схема переходов для процесса гибели и размножения}
+    \label{VK:fig:2}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Базовые определения}
+\begin{block}{1. Связь с <<игровой>> задачей}
+\begin{itemize}
+    \item 
+Проводится параллель с уже рассмотренной во введении задачей о кафе. Аналогичными рассуждениями выписываются формулы для допределного и предельного распределений количества свободных обслуживающих устройств.
+\end{itemize}
+\end{block}
+
+\medskip
+\medskip
+
+\begin{block}{2. Знакомство с новыми понятиями}
+\begin{itemize}
+    \item \textbf{период занятости} системы;
+    \item \textbf{преобразование Лапласа} для производящей функции распределения количества свободных обслуживающих устройств;
+    \item \textbf{преобразование Лапласа} неотрицательной случайной величины.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Период занятости системы}
+\begin{block}{3. Анализ системы M/M/1/$\infty$}
+Основная часть главы посвящена поиску распределения \textit{периода занятости} системы двумя разными способами:
+\begin{itemize}
+    \item рассматривая систему как марковский процесс с непрерывным временем;
+    \item рассматривая систему только в моменты скачков (прибытия или ухода требований), используя понятие \textbf{марковской цепи}.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Наглядность изложения}
+
+
+%Получая на выходе распределение в виде преобразования Лапласа, приводится численный метод для его обращения. Численный метод сопровождается соответствующей программой на языке Octave:
+Изложение сопровождается листингами из программ на языке Octave.
+\medskip
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\begin{Verbatim}[fontsize=\scriptsize,label=Обращение преобразования Лапласа,frame=single]
+function ans = talbot(F, t,  N)
+  r = 2*N./(5*mean(t));
+  h = pi / N;
+  k=1:(N-1);
+  [xt, xk] = meshgrid(t,k);
+  thk = xk*pi/N;
+  s = r*thk.*(i+cot(thk));
+  sgm = thk + (thk.*cot(thk)-1).*cot(thk);
+  ans = r/N*( feval(F,r)*exp(r*t)/2+ ...
+        sum( real( (feval(F,s).* (1+ ...
+        i*sgm)).*exp(xt.*s)), 1 ) );
+endfunction
+\end{Verbatim}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{Verbatim}[fontsize=\scriptsize,label=Конкретное распределение,frame=single]
+function y = F(s)
+  mu = 0.6;
+  lmb = 0.3;
+  y = 2*mu./(lmb+mu+s+sqrt((sqrt(lmb)-...
+       sqrt(mu))^2+s) .*sqrt((sqrt(lmb)+ ...
+       sqrt(mu))^2+s));
+endfunction
+
+mu = 0.6;
+lmb = 0.3;
+tt = 0.01:0.2:5;
+xtrue = sqrt(mu/lmb)*exp(-(lmb+mu)*tt) ...
+        .*besseli(1,2*sqrt(lmb*mu)*tt)./tt;
+xx = talbot(@F,tt,16);
+plot(tt,xtrue,'-',tt,xx,'+')
+\end{Verbatim}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Вторая часть. Задачи}
+
+В заключение пособия, студенту предлагается решить несколько задач на закрепление материала. Задачи можно объединить в следующие две группы:
+\begin{itemize}
+    \item задачи на нахождения преобразования Лапласа для известных распределений;
+    \item задачи на проведение анализа для схожих систем массового обслуживания (численное решение дифференциальных уравнений Колмогорова, поиск стационарного распределения и распределения периода занятости и т.д.) .
+\end{itemize}
+
+\end{frame}
+
+\end{document}
