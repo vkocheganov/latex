@@ -1,0 +1,81 @@
+\documentclass{article}
+
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+
+
+
+% \usepackage[T2A]{fontenc}
+% %\usepackage[cp866]{inputenc} %for DOS
+% \usepackage[cp1251]{inputenc} %for Windows
+% \usepackage[russian]{babel}
+
+
+\usepackage[tbtags]{amsmath}
+\usepackage{amsfonts,amssymb,mathrsfs,amscd,comment}
+%\usepackage{umnbib} % ¤«п д®а¬«Ґ­Ёп бЇЁбЄ  «ЁвҐа вгал ў Ї®¤Ў®а
+
+\overfullrule10pt
+
+\voffset-30mm\hoffset-15mm\mag1200
+\textheight 230mm\textwidth 140mm\normalbaselineskip=12.5pt		
+
+
+%
+%
+%
+%\documentclass{article}
+%\usepackage[T2A]{fontenc}
+%\usepackage[cp1251]{inputenc}
+%\usepackage[russian]{babel}
+%\usepackage{amssymb,amsmath,amsthm,amsfonts}
+%\textwidth=110mm
+%\textheight=168mm
+
+
+\begin{document}
+
+\makeatletter
+\renewcommand{\@makefnmark}{}
+\makeatother
+%\footnotetext{This work was supported by the RFBR (project 16-01-00184).}
+
+%
+%\addcontentsline{toc}{section}{Tsvetkova I.\,V. An algorithm for constructing interpolation martingale measures in the case of a countable probability space and finite-valued stock prices}
+
+{\bf Кочеганов В.М.} (Нижний Новгород, Россия) {\bf ---~Анализ тандема систем массового обслуживания с циклическим управлением с продлением}   
+%\footnote[1]{This work was supported by the RFBR (project 16-01-00184).}
+
+Рассматривается тандем систем массового обслуживания.  Требования первой системы обслуживаются в классе циклических алгоритмов. После обслуживания высокоприоритетные требования первой системы немгновенно поступают на обслуживание во вторую систему и становятся высокоприоритетными требованиями для второй системы. Во второй системе, требования обслуживаются в классе циклических алгоритмов с продлением.  Постановка задачи и построение математической модели могут быть найдены в работе~[1]. Центральное место в математической модели занимает многомерная счетная марковская цепь ${\{(\Gamma_i, \varkappa_{1,i}, \varkappa_{2,i}, \varkappa_{3,i}, \varkappa_{4,i});  i \geqslant 0\}}$. Здесь мы положим $\{\tau_i; i = 0, 1,\ldots\}$~--- это дискретные моменты наблюдения за системой. Также положим
+$\Gamma_i$~--- это состояние обслуживающего устройства в течение интервала времени $(\tau_{i-1};\tau_i]$, $\varkappa_{j,i} \in \mathbb{Z}_+ $~--- количество требований в очереди $j$-го входного потока в момент $\tau_i$, $\eta_{j,i} \in \mathbb{Z}_+$~--- количетсво требований, прибывших в очередь $j$-го входного потока в течение интервала времени $(\tau_{i};\tau_{i+1}]$,  $\overline{\xi}_{j,i}\in \mathbb{Z}_+$~--- количество требований, реально обслуженных из очереди $j$-го входного потока в течение интервала времени $(\tau_{i};\tau_{i+1}]$, $j\in
+\{1,2,3,4\}$. В работе~[1] были получены достаточные условия  существования стационарного режима для марковских цепей ${\{(\Gamma_i, \varkappa_{3,i});  i \geqslant 0\}}$ и ${\{(\Gamma_i, \varkappa_{1,i}, \varkappa_{3,i});  i \geqslant 0\}}$.  Также в работе~[2] была построена имитационная модель и были проведены серии экспериментов для более глубокого изучения системы.  В этой работе представлено необходимое условие для последовательности ${\{(\Gamma_i, \varkappa_{3,i});  i \geqslant 0\}}$.
+
+{\bf Теорема.} Для того,  чтобы марковская цепь ${\{(\Gamma_i, \varkappa_{3,i});  i \geqslant 0\}}$ имела стационарное распределение,  необходимо выполнение неравенства:
+$
+\max_{k=\overline{1, d}} { \frac{\sum_{r = 1}^{n_{k}}\ell(k, r, 3)}{\lambda_3 f_3'(1) \sum_{r = 1}^{n_k} T^{(k, r)}} } >1.
+$
+
+
+
+ %\vspace{3mm}
+ \begin{center}
+СПИСОК ЛИТЕРАТУРЫ
+ \end{center}
+ 
+ \begin{enumerate}
+\item {\it Кочеганов В.М., Зорин А.В.}
+Достаточное условие существования стационарного режима очередей первичных требований в тандеме систем массового обслуживания. Вестник ТвГУ. Серия: Прикладная математика, 2018, т.~2, с.~49--74.
+
+\item {\it Кочеганов В.М., Зорин А.В.}
+Статистический анализ и оптимизация тандема
+систем массового обслуживания в классе циклических алгоритмов с продлением. Управление Большими Системами: сборник трудов, 2019, т.~78, с.~122--148.
+
+
+ \end{enumerate}
+
+
+
+
+\end{document}

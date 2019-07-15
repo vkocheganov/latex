@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+%\usepackage[cp866]{inputenc} %for DOS
+\usepackage[cp1251]{inputenc} %for Windows
+\usepackage[russian]{babel}
+\usepackage[tbtags]{amsmath}
+\usepackage{amsfonts,amssymb,mathrsfs,amscd,comment}
+%\usepackage{umnbib} % ¤«п д®а¬«Ґ­Ёп бЇЁбЄ  «ЁвҐа вгал ў Ї®¤Ў®а
+
+\overfullrule10pt
+
+\voffset-30mm\hoffset-15mm\mag1200
+\textheight 230mm\textwidth 140mm\normalbaselineskip=12.5pt		
+
+
+%
+%
+%
+%\documentclass{article}
+%\usepackage[T2A]{fontenc}
+%\usepackage[cp1251]{inputenc}
+%\usepackage[russian]{babel}
+%\usepackage{amssymb,amsmath,amsthm,amsfonts}
+%\textwidth=110mm
+%\textheight=168mm
+
+
+\begin{document}
+
+\makeatletter
+\renewcommand{\@makefnmark}{}
+\makeatother
+%\footnotetext{This work was supported by the RFBR (project 16-01-00184).}
+
+%
+%\addcontentsline{toc}{section}{Tsvetkova I.\,V. An algorithm for constructing interpolation martingale measures in the case of a countable probability space and finite-valued stock prices}
+
+{\bf Kocheganov V.\,M.} (Nizhny Novgorod, Russia) {\bf ---~Tandem of queueing systems with cyclic service with prolongations analysis}   
+%\footnote[1]{This work was supported by the RFBR (project 16-01-00184).}
+
+Consider a tandem of queuing systems. In the first system, the customers are serviced in the class of cyclic algorithms. The serviced high-priority customers are transferred from the first system to the second one  with random delays and become the high-priority input flow of the second system. In the second system, customers are serviced in the class of cyclic algorithms with prolongations. Problem statement and mathematical model construction can be found in~[1]. The central object of the mathematical model is  multidimensional denumerable Markov chain ${\{(\Gamma_i, \varkappa_{1,i}, \varkappa_{2,i}, \varkappa_{3,i}, \varkappa_{4,i});  i \geqslant 0\}}$. Here we assume that $\{\tau_i; i = 0, 1,\ldots\}$ is a discrete time scale, when system is actually observed. Also let 
+%Consider a tandem of queuing systems. Each system has a high-priority input flow and a low-priority input flow which are conflicting. In the first system, the customers are serviced in the class of cyclic algorithms. The serviced high-priority customers are transferred from the first system to the second one  with random delays and become the high-priority input flow of the second system. In the second system, customers are serviced in the class of cyclic algorithms with prolongations. Low-priority customers are serviced when their number exceeds a threshold. Problem statement and mathematical model construction can be found in~[1]. The central object of the mathematical model is  multidimensional denumerable Markov chain ${\{(\Gamma_i, \varkappa_{1,i}, \varkappa_{2,i}, \varkappa_{3,i}, \varkappa_{4,i});  i \geqslant 0\}}$. Here we assume that $\{\tau_i; i = 0, 1,\ldots\}$ is a discrete time scale, when system is actually observed. Also let 
+$\Gamma_i$ be the server state
+during the interval $(\tau_{i-1};\tau_i]$, $\varkappa_{j,i} \in \mathbb{Z}_+ $ be the number of customers in
+the queue of $j$-th input flow at the instant $\tau_i$, $\eta_{j,i} \in \mathbb{Z}_+$ be the number of customers
+arrived into the queue of $j$-th input flow  during the interval $(\tau_{i};\tau_{i+1}]$,  $\overline{\xi}_{j,i}\in \mathbb{Z}_+$ be the actual number of 
+serviced customers from the queue of  $j$-th input flow during the interval $(\tau_{i};\tau_{i+1}]$, $j\in
+\{1,2,3,4\}$. Sufficient conditions of the stationary regime existence for Markov chains  ${\{(\Gamma_i, \varkappa_{3,i});  i \geqslant 0\}}$ and ${\{(\Gamma_i, \varkappa_{1,i}, \varkappa_{3,i});  i \geqslant 0\}}$ were obtained in~[1]. Also simulation model was built and experiments were made in~[2] to analyze tandem in more details. In this work we present necessary conditions for ${\{(\Gamma_i, \varkappa_{3,i});  i \geqslant 0\}}$.
+
+{\bf Theorem. } For Markov chain ${\{(\Gamma_i, \varkappa_{3,i});  i \geqslant 0\}}$  to have stationary distribution it is necessary to satisfy inequalitiy:
+$
+\max_{k=\overline{1, d}} { \frac{\sum_{r = 1}^{n_{k}}\ell(k, r, 3)}{\lambda_3 f_3'(1) \sum_{r = 1}^{n_k} T^{(k, r)}} } >1.
+$
+ %\vspace{3mm}
+ \begin{center}
+ REFERENCES
+ \end{center}
+ 
+ \begin{enumerate}
+\item {\it Kocheganov V.M., Zorine A.V.}
+Stationary regime of primary queues existence necessary condition in a tandem of queuing systems. Bulletin of the TvGU, Applied mathematics series, 2018, vol.~2, pp.~49--74.
+\item {\it Kocheganov V.M., Zorine A.V.}
+Statistical analysis and optimization of tandem of queuing systems in a class of cyclic algorithms with prolongation. UBS, 2019, vol.~78, pp.~122--148.
+ \end{enumerate}
+
+
+
+
+\end{document}
