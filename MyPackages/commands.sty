@@ -1,27 +1,60 @@
 \ProvidesPackage{commands}
-\usepackage[T2A,TS1]{fontenc}
-\usepackage[russian]{babel}   
-%\usepackage{commath} % for multline for example
-%Для использования различных шрифтов в формулах
-\usepackage{amsfonts}
-\usepackage{amssymb,amsthm}
 
-\newcommand{\br}[1]{\left(#1\right)}
-\newcommand{\brr}[1]{\left[#1\right]}
-\newcommand{\brrr}[1]{\left\{#1\right\}}
-\newcommand{\brrrr}[1]{\left|#1\right|}
-\newcommand{\ml}[1]{\begin{multline}#1\end{multline}}
-\newcommand{\mll}[1]{\begin{multline*}#1\end{multline*}}
-\newcommand{\On}[2]{O\br{\frac{#1}{#2}}}
-\newcommand{\la}[0]{\lambda}
-\newcommand{\F}[0]{\br{F^{-1}}}
-\newcommand{\Fb}[0]{F^{-1}}
-\newcommand{\I}[2]{\int_{#1}^{#2}}
-\newcommand{\vp}[0]{\varphi}
-\newcommand{\vk}[0]{\varkappa}
-\makeatletter
-\newcommand{\rmnum}[1]{\romannumeral #1}
-\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
-\makeatother
-\usepackage[lmargin=25mm,rmargin=25mm,tmargin=25mm,bmargin=30mm]{geometry}
-\usepackage[onehalfspacing]{setspace}
+
+
+\usepackage{indentfirst}
+\usepackage[intlimits,sumlimits]{amsmath}
+\usepackage{amssymb,amsthm}
+\usepackage[utf8]{inputenc}
+%\usepackage{misccorr}
+
+
+%Для использования дифференциальных символов
+\usepackage{commath}
+
+\renewcommand{\Pr}{{\mathbf P}}
+
+
+\usepackage{indentfirst}
+\usepackage[intlimits,sumlimits]{amsmath}
+\usepackage{amssymb,amsthm}
+\usepackage[utf8]{inputenc}
+%\usepackage{misccorr}
+
+%\usepackage{amsfonts}
+%Для использования дифференциальных символов
+\usepackage{commath}
+%Не нарушение выравнивания формул при вставке текста
+
+
+\renewcommand{\Pr}{{\mathbf P}}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\M}{\mathbf{M}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
+	{\hbox{$\mathsurround=0pt #1$}}{}}% перенос арифметических знаков
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{corollary}{Следствие}[section]
+\newtheorem{definition}{Определение}[subsection]
+\newtheorem{remark}{Замечание}[section]
+
+
+
+
+% \newtheoremstyle{ptvstyle}% NAME
+% 	{\topsep}%ABOVESPACE
+% 	{\topsep}%BELOWSPACE
+% 	{\rmfamily}%BODYFONT
+% 	{\parindent}%INDENT
+% 	{\bfseries}%HEADFONT
+% 	{.}%HEADPUNCT	
+% 	{\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font}%HEADSPACE
+% 	{}%CUSTOM-HEAD-SPACE
+
+% \theoremstyle{ptvstyle}
+
+
+
+
