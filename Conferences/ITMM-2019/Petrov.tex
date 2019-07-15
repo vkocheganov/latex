@@ -1,0 +1,439 @@
+%Äàòà ïîñëåäíåãî èçìåíåíèÿ ôàéëà 26-05-2017
+%\nonstopmode
+\documentclass[12pt]{book}
+\include{format-izv}
+%-------------------------------------------------
+\theoremstyle{plain}
+%Íóìåðîâàííûå
+\newtheorem{theorem}{\indent Òåîðåìà}
+\newtheorem{lemma}{\indent Ëåììà}
+\newtheorem{corollary}{\indent Ñëåäñòâèå}
+\newtheorem{prop}{\indent Óòâåðæäåíèå}
+\newtheorem{propos}{\indent Ïðåäëîæåíèå}
+\newtheorem{problem}{\indent Çàäà÷à}
+\newtheorem{Theorem}{\indent Theorem}
+\newtheorem{hypothesis}{\indent Ïðåäïîëîæåíèå}
+\newtheorem{Etheorem}{\indent Theorem}
+\newtheorem{Eproposition}{\indent Proposition}
+\newtheorem{Corollary}{\indent Corollary}
+\newtheorem{Lemma}{\indent Lemma}
+\newtheorem{theoremb}{\indent Òåîðåìà}
+\renewcommand{\thetheoremb}{\Alph{theoremb}}%Íóìåðàöèÿ òåîðåì A, B, C
+
+\theoremstyle{remark}
+\newtheorem{Example}{\indent Example}
+
+
+%Äâîéíàÿ íóìåðàöèÿ
+\newtheorem{theoremnn}{\indent Òåîðåìà}[section]
+\newtheorem{lemmann}{\indent Ëåììà}[section]
+\newtheorem{corollarynn}{\indent Ñëåäñòâèå}[section]
+\newtheorem{propnn}{\indent Óòâåðæäåíèå}[section]
+\newtheorem{proposnn}{\indent Ïðåäëîæåíèå}[section]
+\newtheorem{hypothesisnn}{\indent Ïðåäïîëîæåíèå}[section]
+
+\theoremstyle{plain}
+%Íåíóìåðîâàííûå îêðóæåíèÿ
+\newtheorem*{theorem*}{\indent Òåîðåìà}%Ïðîñòî òåîðåìà (áåç íîìåðà)
+\newtheorem*{lemma*}{\indent Ëåììà}
+\newtheorem*{corollary*}{\indent Ñëåäñòâèå}
+\newtheorem*{Corollary*}{\indent Corollary}
+\newtheorem*{prop*}{\indent Óòâåðæäåíèå}
+\newtheorem*{propos*}{\indent Ïðåäëîæåíèå}
+\newtheorem*{hypothesis*}{\indent Ïðåäïîëîæåíèå}
+%-------------------------------------------------
+\theoremstyle{definition}
+\newtheorem{definitionn}{\indent Îïðåäåëåíèå}[section]
+\newtheorem{remarknn}{\indent Çàìå÷àíèå}[section]
+\newtheorem{examplenn}{\indent Ïðèìåð}[section]
+
+\newtheorem{definition}{\indent Îïðåäåëåíèå}
+\newtheorem{remark}{\indent Çàìå÷àíèå}
+\newtheorem{example}{\indent Ïðèìåð}
+\newtheorem{Remark}{\indent Remark}
+\newtheorem{Question}{\indent Question}
+\newtheorem{Definition}{\indent Definition}
+
+\newtheorem*{definition*}{\indent Îïðåäåëåíèå}
+\newtheorem*{remark*}{\indent Çàìå÷àíèå}
+\newtheorem*{example*}{\indent Ïðèìåð}
+
+\renewenvironment{proof}{\indent\textbf{Äîêàçàòåëüñòâî. }}{\hfill$\Box$}
+
+\newcommand{\const}{\mathrm{const}}
+\newcommand{\Span}{\mathrm{Span}\,}
+\renewcommand{\Re}{\,\mathrm{Re}\,}
+\renewcommand{\Im}{\,\mathrm{Im}\,}
+\newcommand{\sgn}{\mathrm{sgn}\,}
+\newcommand{\diag}{\mathrm{diag}\,}
+%\numberwithin{equation}{section}%Äâîéíàÿ íóìåðàöèÿ ôîðìóë
+%Åñëè Âû ïîäêëþ÷àåòå íîâûé ïàêåò, òî îáÿçàòåëüíî ñîîáùèòå îá ýòîì â êîììåíòàðèÿõ ê òåêñòó ñòàòüè.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancyhead[CE]{ÌÀÒÅÌÀÒÈÊÀ}%Ðàçäåë æóðíàëà
+\fancyhead[CO]{È.~Î.~Ïåòðîâ, Ñ.~Â.~Ñèäîðîâ. Íàèìåíîâàíèå ñòàòüè }%
+
+\UDC{501.1}
+
+\Rtitle{ÍÀÈÌÅÍÎÂÀÍÈÅ ÑÒÀÒÜÈ ÍÀ ÐÓÑÑÊÎÌ ßÇÛÊÅ}%
+
+%\thispagestyle{izsc}%íå óáèðàòü!!!
+\Rauthor{È.~Î.~Ïåòðîâ, Ñ.~Â.~Ñèäîðîâ}%
+
+%Ôàìèëèÿ Èìÿ îò÷åñòâî, ó÷åíàÿ ñòåïåíü, äîëæíîñòü (ñ óêàçàíèåì êàôåäðû, îòäåëà), ìåñòî ðàáîòû (ïîëíîå
+%îôèöèàëüíîå íàçâàíèå ó÷ðåæäåíèÿ, ïî÷òîâûé àäðåñ), e-mail;
+\Raffil{Ïåòðîâ Èãîðü Îëåãîâè÷, êàíäèäàò ôèçèêî-ìàòåìàòè÷åñêèõ
+íàóê, äîöåíò êàôåäðû ìàòåìàòè÷åñêîãî àíàëèçà, Ñàðàòîâñêèé
+íàöèîíàëüíûé èññëåäîàòåëüñêèé ãîñóäàðñòâåííûé óíèâåðñèòåò
+èìåíè~Í.~Ã.~×åðíûøåâñêîãî, 410012, Ðîññèÿ, Ñàðàòîâ, Àñòðàõàíñêàÿ, 83, PetrovIO@info.sgu.ru\\
+Ñèäîðîâ Ñåðãåé Âèêòîðîâè÷, äîêòîð òåõíè÷åñêèõ íàóê, âåäóùèé
+íàó÷íûé ñîòðóäíèê, Èíñòèòóò ïðîáëåì òî÷íîé ìåõàíèêè è óïðàâëåíèÿ
+ÐÀÍ, 410024, Ðîññèÿ, Ñàðàòîâ, Ðàáî÷àÿ, 24, SidorovOV@mail.mipt.ru}
+
+
+\Rabstract{Àííîòàöèÿ íà ðóññêîì ÿçûêå. Òðåáîâàíèÿ ê àííîòàöèè:\\
+--  Îïòèìàëüíûé îáúåì 200--250 ñëîâ.\\
+-- Àííîòàöèÿ íå äîëæíà ñîäåðæàòü ñëîæíûå ôîðìóëû, ññûëêè íà
+áèáëèîãðàôè÷åñêèé ñïèñîê, ïî ñîäåðæàíèþ ïîâòîðÿòü íàçâàíèå ñòàòüè,
+áûòü íàñûùåíà îáùèìè ñëîâàìè, íå èçëàãàþùèìè ñóòè èññëåäîâàíèÿ;\\
+Àííîòàöèÿ äîëæíà îòðàæàòü ñîäåðæàíèå ñòàòüè, ñîõðàíÿÿ åå ñòðóêòóðó
+-- ââåäåíèå, öåëè è çàäà÷è, ìåòîäû èññëåäîâàíèÿ, ðåçóëüòàòû,
+çàêëþ÷åíèå (âûâîäû).}
+
+\Rkeywords{êëþ÷åâûå ñëîâà ÷åðåç çàïÿòóþ}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Òåêñò ñòàòüè
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{ÍÀÈÌÅÍÎÂÀÍÈÅ ÐÀÇÄÅËÀ}\label{Petr_sec1}
+
+Â ðåäàêöèþ ïðåäñòàâëÿþòñÿ ôàéëû ñòàòüè â ôîðìàòå tex è pdf, à òàêæå ôàéë Ñâåäåíèÿ.doc.
+
+Îáúåì ïóáëèêóåìîé ñòàòüè íå äîëæåí ïðåâûøàòü 12 ñòðàíèö, îôîðìëåííûõ ñîãëàñíî äàííîìó ñòèëåâîìó
+ôàéëó. Ñòàòüè áîëüøåãî îáúåìà ïðèíèìàþòñÿ òîëüêî ïî ñîãëàñîâàíèþ ñ ðåäêîëëåãèåé æóðíàëà.
+
+
+\begin{theorem}\label{Petr_thm1}  Íóìåðîâàòü ñëåäóåò òîëüêî ôîðìóëû, íà êîòîðûå åñòü ññûëêè. Ñëåäóåò
+èñïîëüçîâàòü àâòîìàòè÷åñêóþ íóìåðàöèþ ôîðìóë (\textrm{îêðóæåíèÿ equation, gather, align}):
+\begin{equation}\label{Petr_eq1}
+\vert \langle f,g\rangle\vert \leq [\langle f,f\rangle]^{\frac 12}
+[\langle g,g\rangle]^{\frac 12},\qquad f,g\in C^k(X),
+\end{equation}
+×òîáû èñêëþ÷èòü ïåðåêðåñòíûå ññûëêè ïðè ñáîðêå ìàêåòà æóðíàëà,
+ïðîñèì â ìåòêàõ (label) èñïîëüçîâàòü 3--4 áóêâû ôàìèëèè ïåðâîãî
+àâòîðà è íîìåð îáúåêòà ïî ïîðÿäêó, íàïðèìåð, äëÿ ôîðìóëû 1
+èñïîëüçîâàòü ìåòêó Petr-eq1.
+\end{theorem}
+
+\begin{proof}
+Òåêñò äîêàçàòåëüñòâà òåîðåìû (ëåììû).
+\end{proof}
+
+\section{ÐÈÑÓÍÊÈ È ÒÀÁËÈÖÛ}\label{Petr_sec2}
+
+Ðèñóíêè ñëåäóåò ïðåäñòàâëÿòü ôàéëàìè â ôîðìàòå eps, ïðè ýòîì ôàéë ðèñóíêà äîëæåí îáåñïå÷èâàòü
+ÿñíîñòü ïåðåäà÷è âñåõ äåòàëåé.
+
+Ðàñïå÷àòûâàåìûå ïî ôàéëó ðèñóíêè äîëæíû áûòü â íàòóðàëüíóþ
+âåëè÷èíó (ãîðèçîíòàëüíûé ðàçìåð æóðíàëüíîãî ïîëÿ ðàâåí 160 ìì,
+øðèôò íàäïèñåé íà ðèñóíêå è ïîäïèñè ê íåìó --- 10--11 Times New
+Roman (øðèôò small)).
+
+Ïîäðèñóíî÷íàÿ ïîäïèñü äîëæíà áûòü ñàìîäîñòàòî÷íîé áåç àïåëëÿöèè ê
+òåêñòó. Åñëè èëëþñòðàöèÿ ñîäåðæèò äîïîëíèòåëüíûå îáîçíà÷åíèÿ, èõ
+ñëåäóåò ðàñøèôðîâàòü.
+
+Êàæäàÿ òàáëèöà äîëæíà áûòü ïðîíóìåðîâàíà àðàáñêèìè öèôðàìè è èìåòü òåìàòè÷åñêèé çàãîëîâîê, êðàòêî
+ðàñêðûâàþùèé å¸ ñîäåðæàíèå. Âñå ñòîëáöû äîëæíû èìåòü ìàêñèìàëüíî êðàòêèå è èíôîðìàòèâíûå
+ïîäçàãîëîâêè. Åäèíèöû èçìåðåíèÿ óêàçûâàþòñÿ ïîñëå çàïÿòîé.
+
+Ïîäðèñóíî÷íûå ïîäïèñè, îáîçíà÷åíèÿ íà ðèñóíêàõ, çàãîëîâêè òàáëèö è
+èõ ñîäåðæèìîå îáÿçàòåëüíî ïðèâîäÿòñÿ íà äâóõ ÿçûêàõ --- ðóññêîì è
+àíãëèéñêîì.
+
+Íà êàæäûé ðèñóíîê è êàæäóþ òàáëèöó â òåêñòå ñòàòüè îáÿçàòåëüíî äîëæíà áûòü ññûëêà.
+
+\section{ÁÈÁËÈÎÃÐÀÔÈ×ÅÑÊÈÉ ÑÏÈÑÎÊ}\label{Petr_sec3}
+
+Áèáëèîãðàôèÿ äîëæíà îòðàæàòü êà÷åñòâî ïðîðàáîòêè àâòîðàìè
+àêòóàëüíûõ ïóáëèêàöèé ïî òåìàòèêå ñòàòüè, â òîì ÷èñëå çàðóáåæíûõ
+èñòî÷íèêîâ.
+
+Ñàìîöèòèðîâàíèå íå äîëæíî ïðåâûøàòü 20\% îò îáúåìà
+áèáëèîãðàôè÷åñêîãî ñïèñêà.
+
+
+Â áèáëèîãðàôè÷åñêîì ñïèñêå äîëæíû áûòü óêàçàíû òîëüêî
+ïðîöèòèðîâàííûå â ñòàòüå ðàáîòû. Íóìåðàöèÿ èñòî÷íèêîâ äîëæíà
+ñîîòâåòñòâîâàòü î÷åðåäíîñòè ññûëîê íà íèõ â òåêñòå. Ññûëêè íà
+íåîïóáëèêîâàííûå ðàáîòû íå äîïóñêàþòñÿ.
+
+Ïðèìåðû îôîðìëåíèÿ ññûëîê íà ëèòåðàòóðó: \cite{Petr1},
+\cite{Petr2,Petr3,Petr4}, \cite[ñ.~17]{Petr1}, \cite[òåîðåìà
+1]{Petr1}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Ññûëêà íà èñòî÷íèê ôèíàíñèðîâàíèÿ (åñëè åñòü)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thanks{Ðàáîòà âûïîëíåíà ïðè ôèíàíñîâîé ïîääåðæêå ÐÔÔÈ
+(ïðîåêò ¹ 00-00-00000)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Áèáëèîãðàôè÷åñêèé ñïèñîê
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{Rtwocolbib}%Íå óáèðàòü!!!
+%Äëÿ êíèã: Ôàìèëèè È.Î. âñåõ àâòîðîâ. Çàãëàâèå èçäàíèÿ.
+%Ãîðîä~: Èçäàòåëüñòâî, ãîä èçäàíèÿ. Êîëè÷åñòâî ñòðàíèö.
+%Íàïðèìåð:
+\bibitem{Petr1}
+\textit{Èëüèí~Â.~À.} Èçáðàííûå òðóäû~: â 2~ò. Ò.~2. Ì.~: ÌÀÊÑ
+Ïðåññ, 2008. 692~ñ.
+
+%Äëÿ ñòàòåé èç æóðíàëîâ: Ôàìèëèè È. Î. âñåõ àâòîðîâ. Íàçâàíèå
+%ñòàòüè // Çàãëàâèå èçäàíèÿ. Ãîä èçäàíèÿ. Òîì, Íîìåð. Ñòðàíèöû. DOI (åñëè åñòü)
+%Íàïðèìåð:
+\bibitem{Petr2}
+\textit{Áóðëóöêàÿ~Ì.~Ø., Õðîìîâ~À.~Ï.} Ðåçîëüâåíòíûé ïîäõîä â
+ìåòîäå Ôóðüå~// Äîêë. ÀÍ. 2014. Ò.~458, ¹~2. Ñ.~138--140. DOI:
+10.7868/S0869565214260041.
+
+\bibitem{Petr3}
+\textit{Õðîìîâ~À.~Ï.} Î êëàññè÷åñêîì ðåøåíèè îäíîé ñìåøàííîé
+çàäà÷è äëÿ âîëíîâîãî óðàâíåíèÿ~// Èçâ. Ñàðàò. óí-òà. Íîâ. ñåð.
+Ñåð. Ìàòåìàòèêà. Ìåõàíèêà. Èíôîðìàòèêà. 2015. Ò.~15, âûï.~1.
+Ñ.~56--66. DOI: 10.18500/1816-9791-2015-15-1-56-66.
+
+%Äëÿ ìàòåðèàëîâ êîíôåðåíöèé, ñáîðíèêîâ òðóäîâ è ò.ä.:
+%Ôàìèëèè  È. Î. âñåõ àâòîðîâ. Íàçâàíèå ñòàòüè
+%// Çàãëàâèå èçäàíèÿ. Ìåñòî, ãîä èçäàíèÿ. Òîì, Íîìåð (âûïóñê). Ñòðàíèöû.
+\bibitem{Petr4}
+\textit{Áóëàíîâ~À.~Ï.} Îá èíâàðèàíòàõ íà ñîâîêóïíîñòè ïîêàçàòåëåé
+âçàèìíî îáðàòíûõ ôóíêöèé Ëàìáåðòà, ïðåäñòàâëåííûõ öåïíûìè
+ýêñïîíåíòàìè~// Ñîâðåìåííûå ìåòîäû òåîðèè ôóíêöèé è ñìåæíûå
+ïðîáëåìû~: ìàòåðèàëû Âîðîíåæ. çèì. ìàòåì. øê. Âîðîíåæ, 2013.
+Ñ.~295--303.
+\end{Rtwocolbib}%Íå óáèðàòü!!!
+
+\language=0%English
+
+\Etitle{Íàèìåíîâàíèå Ñòàòüè íà Àíãëèéñêîì ßçûêå\\
+(âñå ñëîâà, êðîìå ïðåäëîãîâ, ñ áîëüøîé áóêâû)}
+
+\Eauthor{I.~O.~Petrov, S.~V.~Sidorov}%
+
+%Íà àíãë. ÿçûêå: Èìÿ Î. Ôàìèëèÿ, îôèöèàëüíîå íàçâàíèå îðãàíèçàöèè, ïî÷òîâûé àäðåñ
+%îðãàíèçàöèè, e-mail àâòîðà
+\Eaffil{Igor O. Petrov, orcid.org/0000-0002-7926-1347, Saratov
+State University, 83, Astrakhanskaya Str.,  Saratov, Russia, 410012, PetrovIO@info.sgu.ru\\
+Sergei V. Sidorov, orcid.org/0000-0002-0426-2046, Institute of
+Precision Mechanics and Control, Russian Academy of Sciences, 24,
+Rabochaya Str., Saratov, Russia, 410028, SidorovOV@mail.mipt.ru}%
+
+\Eabstract{Àííîòàöèÿ íà àíãëèéñêîì ÿçûêå (200--250 ñëîâ).\\
+Êà÷åñòâåííûé ïåðåâîä àííîòàöèè íà àíãëèéñêèé ÿçûê ïîçâîëÿåò:\\
+-- çàðóáåæíîìó ó÷åíîìó îçíàêîìèòüñÿ ñ ñîäåðæàíèåì ñòàòüè è îïðåäåëèòü èíòåðåñ ê íåé, íåçàâèñèìî îò
+ÿçûêà ñòàòüè è íàëè÷èÿ âîçìîæíîñòè ïðî÷èòàòü åå ïîëíûé òåêñò;\\
+-- ïðåîäîëåâàòü ÿçûêîâûé áàðüåð ó÷åíîìó, íå çíàþùåìó ðóññêèé ÿçûê;\\
+-- ïîâûñèòü âåðîÿòíîñòü öèòèðîâàíèÿ ñòàòüè çàðóáåæíûìè êîëëåãàìè.}%
+
+\Ekeywords{êëþ÷åâûå ñëîâà íà àíãëèéñêîì ÿçûêå}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Ññûëêà íà èñòî÷íèê ôèíàíñèðîâàíèÿ (åñëè åñòü)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ethanks{This work was supported by the Russian Foundation for
+Basic Research (projects no.~00-00-00000)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%References - Áèáëèîãðàôè÷åñêèé ñïèñîê íà àíãë. ÿçûêå
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Îñíîâíûå ïðàâèëà îôîðìëåíèÿ  ðóññêîÿçû÷íûõ èñòî÷íèêîâ â References:
+
+--  åñëè ñóùåñòâóåò ïåðåâîäíàÿ âåðñèÿ ñòàòüè (êíèãè), òî ñëåäóåò
+ïðåä-ñòàâèòü èìåííî åå; ïåðåâîäíàÿ âåðñèÿ ìîæåò áûòü òàêæå îïèñàíà
+êàê äîïîëíèòåëüíûå ñâåäåíèÿ (â ñêîáêàõ);
+
+--  åñëè ïåðåâîäíîé âåðñèè íå ñóùåñòâóåò, òî ìîæíî èñïîëüçîâàòü
+òðàíñëèòåðàöèþ (http://translit.ru, âàðèàíò LC), â êâàäðàòíûõ
+ñêîáêàõ îáÿçàòåëüíî ïðåäñòàâëÿåòñÿ ïåðåâîä íà àíãë. ÿçûê íàçâàíèÿ
+ñòàòüè (êíèãè), ïîñëå îïèñàíèÿ äîáàâëÿåòñÿ ÿçûê ïóáëèêàöèè (in
+Russian);
+
+--  åñëè îïèñûâàåìàÿ ïóáëèêàöèÿ èìååò DOI, åãî îáÿçàòåëüíî íàäî
+óêàçûâàòü.
+
+
+\smallskip
+
+Ðåêîìåíäóåì èñïîëüçîâàòü ñàéòû http://www.mathnet.ru è
+http://elibrary.ru.
+
+\begin{Etwocolbib}%Íå óáèðàòü!!!
+\bibitem{ePetr1}Il'in~V.~A. \textit{Izbrannye trudy} [Chosen works]. Vol.~2.
+Moscow, MAKS Press, 2008. 692~p. (in Russian).
+
+\bibitem{ePetr2}
+Burlutskaya~M.~S.,
+Khromov~A.~P. Rezolventny approach in the Fourier method.
+\textit{Doklady Math.}, 2014, vol.~90, no.~2, pp.~545--548. DOI:
+10.1134/ S1064562414060076.
+
+\bibitem{ePetr3}
+Khromov~A.~P. About the classical solution of the mixed problem
+for the wave equation. \textit{Izv. Saratov Univ. (N. S.), Ser.
+Math. Mech. Inform.}, 2015, vol.~15, no.~1, pp.~56--66 (in
+Russian). DOI: 10.18500/1816-9791-2015-15-1-56-66.
+
+\bibitem{ePetr4}
+Bulanov~A.~P. Ob invariantakh na sovokupnosti pokazatelei vzaimno
+obratnykh funktsii Lamberta, predstavlennykh tsepnymi eksponentami
+[On invariants on the set of indicators of mutually inverse
+functions Lambert submitted chain exhibitors]. \textit{Sovremennye
+metody teorii funktsii i smezhnye problemy~: materialy Voronezh.
+zim. matem. shk.} [Modern Methods of Function Theory and Related
+Problems~: Proc. Voronezh Winters School], Voronezh, 2013,
+pp.~295--303 (in Russian).
+\end{Etwocolbib}%Íå óáèðàòü!!!
+\language=1%Ðóññêèé
+
+\newpage
+
+\begin{center}
+\textbf{ÏÐÈÌÅÐÛ}
+\end{center}
+
+\textbf{Îïèñàíèå êíèãè (ìîíîãðàôèè,
+ñáîðíèêè)}
+
+\textit{Àãàåâ~Ã.~Í., Âèëåíêèí~Í.~ß., Äæàôàðëè~Ã.~Ì.,
+Ðóáèíøòåéí~À.~È.} Ìóëüòèïëèêàòèâíûå ñèñòåìû ôóíêöèé è
+ãàðìîíè÷åñêèé àíàëèç íà íóëüìåðíûõ ãðóïïàõ. Áàêó~: Ýëì, 1981.
+180~c.
+
+Agaev~G.~N., Vilenkin~N.~Ya., Dzafarli~G.~M., Rubinstein~A.~I.
+\textit{Mul'tiplikativnye sistemy funkcij i garmonicheskij analiz
+na nul'mernyh gruppah} [Multiplicative Systems of Functions and
+Harmonic Analysis on Zero-Dimensional Groups]. Baku, Elm, 1981,
+180~p.  (in Russian).
+
+\textbf{Îïèñàíèå ïåðåâîäíîé
+êíèãè}
+
+\textit{Êàðãàïîëîâ~Ì.~È., Ìåðçëÿêîâ~Þ.~È.} Îñíîâû òåîðèè ãðóïï.
+Ì.~: Íàóêà, 1982. 288~ñ.
+
+Kargapolov~M.~I., Merzljakov~Ju.~I. \textit{Fundamentajs of
+the Theory of Groups}. New York, Springer-Verlag, 1979, 203~p.
+(Rus. ed.~: Kargapolov~M.~I., Merzljakov~Ju.~I. Osnovy teorii
+grupp. Moscow, Nauka, 1982,  288~p.)
+
+
+\textbf{Îïèñàíèå ñòàòüè èç æóðíàëà}
+
+\textbf{\textit{Ïåðåâîäíûå}}
+
+\textit{Áóðëóöêàÿ~Ì.~Ø., Êóðäþìîâ~Â.~Ï., Ëóêîíèíà~À.~Ñ.,
+Õðîìîâ~À.~Ï.} Ôóíêöèîíàëüíî-äèôôåðåíöèàëüíûé îïåðàòîð ñ
+èíâîëþöèåé~// ÄÀÍ. 2007. Ò.~414. ¹~4. Ñ.~443--446.
+
+Burlutskaya~M.~Sh., Kurdyumov~V.~P., Lukonina~A.~S.,
+Khromov~A.~P. A func\-tio\-nal-differential operator with
+involution. \textit{Doklady Math.}, 2007,  vol.~75, no.~3,
+pp.~399--402.
+
+
+{\textbf{\textit{Íåïåðåâîäíûå}}}
+
+\textit{Õðîìîâ~À.~Ï.} Ñìåøàííàÿ çàäà÷à äëÿ äèôôåðåíöèàëüíîãî
+óðàâíåíèÿ ñ èíâîëþöèåé è ïîòåíöèàëîì ñïåöèàëüíîãî âèäà~// Èçâ.
+Ñàðàò. óí-òà. Íîâ. ñåð. Ñåð. Ìàòåìàòèêà. Ìåõàíèêà. Èíôîðìàòèêà.
+2010. Ò.~10, âûï.~4. Ñ.~17--22.
+
+Khromov~A.~P. The mixed problem for the differential equation
+with involution and potential of the special kind. \textit{Izv.
+Saratov Univ. (N.\,S.), Ser. Math. Mech. Inform.}, 2010,  vol.~10,
+iss.~4, pp.~17--22 (in Russian).
+
+{\textbf{Îïèñàíèå ñòàòüè ñ doi}}
+
+\textit{Õðîìîâ~À.~Ï.} Îá îáðàùåíèè èíòåãðàëüíûõ îïåðàòîðîâ ñ
+ÿäðàìè, ðàçðûâíûìè íà äèàãîíàëÿõ~// Ìàò. çàìåòêè. 1998. Ò.~64,
+¹~6. Ñ.~932--949. DOI: 10.4213/mzm1472.
+
+Khromov~A.~P. Inversion of integral operators with kernels
+discontinuous on the diagonal. \textit{Math. Notes}. 1998,
+vol.~64, no.~6, pp.~804--813. DOI: 10.4213/mzm1472.
+
+\textbf{Îïèñàíèå ñòàòüè â ýëåêòðîííîì
+æóðíàëå}
+
+\textit{Îðëÿíñêàÿ~È.~Â.} Ñîâðåìåííûå ïîäõîäû ê ïîñòðîåíèþ
+ìåòîäîâ ãëîáàëüíîé îïòèìèçàöèè // Ýëåêòðîííûé æóðíàë <<Èññëåäîâàíî
+â Ðîññèè>>. Ñ.~2097--2108. URL: http://zhurnal.ape.relarn.ru/
+articles/2002/189.pdf  (äàòà îáðàùåíèÿ: 02.12.2011).
+
+Orlyanskaya I. V. Modern approaches to global optimization
+methods building. \textit{Online journal <<Issledovano v
+Rossii>>}, pp. 2097--2108. Available at:
+http://zhurnal.ape.relarn.ru/articles/ 2002/189.pdf (Accessed 02,
+December, 2012).
+
+\textbf{Îïèñàíèå ñòàòüè èç ñáîðíèêà òðóäîâ}
+
+\textit{×åëíîêîâ~Þ.~Í.} Îïòèìàëüíàÿ ïåðåîðèåíòàöèÿ îðáèòû
+êîñìè÷åñêîãî àïïàðàòà ïîñðåäñòâîì ðåàêòèâíîé òÿãè, îðòîãîíàëüíîé
+ïëîñêîñòè îðáèòû // Ìàòåìàòèêà. Ìåõàíèêà~: ñá. íàó÷. òð. Ñàðàòîâ~:
+Èçä-âî Ñàðàò. óí-òà, 2006. Âûï.~8. Ñ.~231--234.
+
+Chelnokov~Yu.~N. Optimal'naja pereorientacija orbity
+kosmicheskogo apparata posredstvom reaktivnoj tjagi, ortogonal'noj
+ploskosti orbity [Optimal reorientation of spacecraft's orbit
+through thrust orthogonal to the plane of orbit].
+\textit{Matematika. Mehanika} [Mathematics. Mechanics]. Saratov,
+Saratov Univ. Press, 2006, iss.~8, pp.~231--234 (in Russian).
+
+\textbf{Îïèñàíèå ìàòåðèàëîâ êîíôåðåíöèé}
+
+\textit{Àíäðååâ~À.~À.} Î êîððåêòíîñòè êðàåâûõ çàäà÷ äëÿ
+íåêîòîðûõ óðàâíåíèé â ÷àñòíûõ ïðîèçâîäíûõ ñ êàðëåìàíîâñêèì
+ñäâèãîì~// Äèôôåðåíöèàëüíûå óðàâíåíèÿ è èõ ïðèëîæåíèÿ~: òð. 2-ãî
+ìåæäóíàð. ñåìèíàðà. Ñàìàðà, 1998. Ñ.~5--18.
+
+Andreev~A.~A. About the correctness of boundary problems for
+some equations with calimanesti shift. \textit{Differentsial'nye
+uravneniia i ikh prilozheniia~: trudy 2-go mezhdunarodnogo
+seminara} [Differential equations and their applications~:
+proceedings of the 2nd international workshop]. Ñàìàðà, 1998,
+pp.~5--18 (in Russian).
+
+
+\textbf{Îïèñàíèå Èíòåðíåò-ðåñóðñà}
+
+Illumina, Inc. URL: http://www. illumina.com/  (äàòà
+îáðàùåíèÿ: 18.05.2012).
+
+\textit{Illumina, Inc.} Available at: http://
+www.illumina.com/  (Accessed  18, May, 2012).
+
+\textbf{Îïèñàíèå äèññåðòàöèè èëè àâòîðåôåðàòà äèññåðòàöèè}
+
+\textit{Òåðåõèí~Ï.~À.} Àôôèííûå ñèñòåìû ôóíêöèé è ôðåéìû â
+áàíàõîâîì ïðîñòðàíñòâå : äèñ. ... ä-ðà ôèç.-ìàò. íàóê. Ñàðàòîâ,
+2010. 230~ñ.
+
+Terekhin~P.~A. \textit{Affinnye sistemy funkcij i frejmy v
+banahovom prostranstve}. Diss. dokt. fiz.-mat. nauk [Affine
+systems of functions and frames in Banach space : Dr. phys. and
+math. sci. diss.]. Saratov, 2010. 230 p. (in Russian).
+
+\textbf{Îïèñàíèå ÃÎÑÒà}
+
+ÃÎÑÒ 27.002-89. Íàäåæíîñòü â òåõíèêå. Îñíîâíûå ïîíÿòèÿ.
+Òåðìèíû è îïðåäåëåíèÿ. Ì., 1990. 24~ñ.
+
+State Standard 27.002-89. Industrial product dependability.
+General concepts. Terms and definitions. Moscow, Standartinform,
+1990. 24~p. (in Russian).
+\end{document}

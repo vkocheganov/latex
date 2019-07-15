@@ -1,0 +1,293 @@
+%\usepackage[cp1251]{inputenc}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtext}
+\usepackage{mathrsfs}
+\usepackage{cite}
+\ifx\pdfoutput\undefined
+\usepackage{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\fi
+
+\usepackage{xypic}
+\usepackage{epic}
+%\usepackage{urwcyr}
+%\usepackage{bng}
+%\usepackage{pscyr}
+%\usepackage[english,russian]{babel}
+\usepackage[russian,english]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{multicol}
+\premulticols=5pt \postmulticols=0mm \multicolsep=0mm
+\usepackage{longtable}
+%
+%
+%\usepackage{array}
+%\usepackage{multirow}
+%\renewcommand\multirowsetup{\centering}
+%\usepackage{dcolumn}
+\usepackage{graphicx}
+
+% LAYOUT ----------------------------------------------------------
+\usepackage{geometry}% Меняем поля страницы
+\geometry{left=3.5cm}% левое поле
+\geometry{right=1.5cm}% правое поле
+\geometry{top=3cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+\headsep=5mm%расстояние от верхнего колонтитула до текста
+%
+%Колонтитулы-----------------------------------------------------------
+\usepackage{fancyhdr}%загрузим пакет
+\pagestyle{fancy}%применим колонтитул
+\fancyfoot{}\fancyhead{}% очистим футер (снизу) и хидер (сверху) на всякий случай
+%\fancyhead[CE,CO]{\thepage}%номер страницы снизу по центру
+\fancyfoot[LE,RO]{\thepage}%E - нечетные,  O - четные,  L - слева, R - справа, C - по центру
+%\fancyhead[CO]{}%{текст-центр-нечетные}
+%\fancyhead[LO]{Левый колонтитул}%
+%\fancyhead[RE]{Правый колонтитул}%
+
+%------------------------------------------------------------------
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.}
+
+\renewcommand{\thesection}{\arabic{section}.}
+
+\renewcommand{\section}{\@startsection
+                                {section} %name
+                                {1}       %level
+                                {\z@}     %indent
+                                {12pt}    %before skip
+                                {10pt}    %after skip
+                                {\reset@font\normalfont\bfseries\sffamily}}
+                                          %font style
+
+\newcommand{\titler}[1]{%
+\vspace*{5mm}%
+
+\noindent%
+{\large\bf #1}%
+\vspace*{5mm}%
+}
+
+\makeatother
+\allowdisplaybreaks     % Разрешение переносить на другую страницу часть
+                        % многострочной формулы
+\sloppy                 %
+
+\newcommand{\di}{\displaystyle}
+
+%% аналог \- для внутритекстовых формул
+%% пример: $y(x) \hm= R_\lambda f(x)
+%% или : $Y(x)  \hm{:=} y_1(x) + y_2(x)
+\newcommand{\hm}[1]{#1\nobreak\discretionary{}{\hbox{\ensuremath{#1}}}{}}
+\relpenalty=10000 \binoppenalty=10000
+
+%Обнулить все счетчики
+\newcommand{\zerosetcounter}{
+\setcounter{footnote}{0}\setcounter{section}{0}\setcounter{equation}{0}%
+\setcounter{theorem}{0}\setcounter{lemma}{0}\setcounter{corollary}{0}\setcounter{prop}{0}
+\setcounter{propos}{0}\setcounter{problem}{0}\setcounter{Theorem}{0}%
+\setcounter{theoremnn}{0}\setcounter{lemmann}{0}\setcounter{corollarynn}{0}
+\setcounter{propnn}{0}\setcounter{proposnn}{0}%
+\setcounter{definitionn}{0}\setcounter{remarknn}{0}\setcounter{examplenn}{0}%
+\setcounter{definition}{0}\setcounter{remark}{0}\setcounter{example}{0}%
+\setcounter{hypothesis}{0}\setcounter{hypothesisnn}{0}\setcounter{theoremb}{0}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%УДК
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\UDC}[1]{%
+\vspace*{5mm}
+\noindent\textsf{УДК %
+#1}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Заголовки статей
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Rtitle}[1]{%
+\begin{center}%
+{ \bf\fontsize{14pt}{16pt}\sffamily%
+#1}%
+\end{center}%
+}
+
+\newcommand{\Etitle}[1]{%
+\newpage
+\begin{center}%
+{ \bf\fontsize{12pt}{14pt}\sffamily%
+#1}%
+\end{center}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Авторы
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Rauthor}[1]{%
+\centerline{%
+\bf\fontsize{11pt}{14pt}
+\sffamily%
+#1}%
+}
+
+\newcommand{\Eauthor}[1]{%
+\centerline{%
+\bf\fontsize{11pt}{14pt}
+\sffamily%
+#1}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Сведения об авторах %affiliation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Raffil}[1]{%
+\begin{center}
+\begin{minipage}{150mm}{%
+\small\sffamily%
+#1}%
+\end{minipage}%
+\end{center}
+}
+
+\newcommand{\Eaffil}[1]{%
+\begin{center}%
+\begin{minipage}{150mm}{%
+\small\sffamily%
+#1}%
+\end{minipage}%
+\end{center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%E-mail
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Email}[1]{%
+\vspace*{-3mm}
+\centerline{%
+\small\textit{%
+E-mail: #1}}%
+\vspace*{3mm}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Аннотация
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Rabstract}[1]{%
+\centerline{%
+\begin{minipage}{150mm}%
+{%\setlength{\parindent}{4mm}
+\small\sffamily%
+#1}%
+\end{minipage}}%
+}
+
+\newcommand{\Eabstract}[1]{%
+\centerline{%
+\begin{minipage}{150mm}%
+{%\setlength{\parindent}{4mm}
+\small\sffamily%
+#1}%
+\end{minipage}}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Ключевые слова
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Rkeywords}[1]{%
+\vspace*{3mm}%
+\centerline{%
+\begin{minipage}{150mm}%
+{%\setlength{\parindent}{4mm}
+\small\sffamily%
+\textit{Ключевые слова:} #1.}%
+\end{minipage}}%
+\vspace*{3mm}%
+}
+
+\newcommand{\Ekeywords}[1]{%
+\vspace*{3mm}%
+\centerline{%
+\begin{minipage}{150mm}%
+{%\setlength{\parindent}{4mm}
+\small\sffamily%
+\textit{Key words:} #1.}%
+\end{minipage}}%
+\vspace*{3mm}%
+}
+
+\newlength{\realparindent}%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Библиографический список
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\chapter}{\@startsection{chapter}{1}{0em}%
+{3.5ex plus 1ex minus .2ex}{.9ex plus.2ex}%
+{\zerosetcounter}}
+%Стили нумерации формул, списка литературы
+\addto\captionsrussian{%
+\def\bibname{}%Меняем заголовок литературы
+}%
+\renewcommand{\@biblabel}[1]{#1.}%Оформление номера в списке литературы
+\makeatother
+
+\newenvironment{Rtwocolbib}
+{%
+\vspace*{3mm} %
+\noindent
+{\normalfont\bfseries\sffamily Библиографический список}%
+\def\bibname{}
+\small
+%\begin{multicols}{2}%
+\vspace*{-12mm}%
+\begin{thebibliography}{99}
+\setlength{\itemsep}{-4pt}
+}{%
+\end{thebibliography}
+%\end{multicols}%
+\normalsize}%
+
+\newenvironment{Etwocolbib}
+{%
+\vspace*{1mm} %
+\noindent
+{\normalfont\bfseries\sffamily References}%
+%\begin{otherlanguage}{english}
+\small
+%\begin{multicols}{2}%
+%\vspace*{-45pt}%
+\begin{enumerate}
+\setlength{\itemsep}{-4pt}
+}{%
+\end{enumerate}
+%\end{multicols}%
+%\end{otherlanguage}
+\normalsize
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\arraystretch}{1.1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Благодарности
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thanks}[1]{%
+\vspace*{3mm}%
+\noindent\textit{Благодарности. #1.}%
+\vspace{2mm}%
+}%
+
+\newcommand{\ethanks}[1]{%
+%\vspace*{3mm}%
+\small
+\noindent\textit{Acknowledgements: #1.}%
+\vspace{3mm}%
+\normalsize
+}%
