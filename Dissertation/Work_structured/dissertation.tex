@@ -1,7 +1,16 @@
 %&preformat-disser
+
 \RequirePackage[l2tabu,orthodox]{nag} % Раскомментировав, можно в логе получать рекомендации относительно правильного использования пакетов и предупреждения об устаревших и нерекомендуемых пакетах
 % Формат А4, 14pt (ГОСТ Р 7.0.11-2011, 5.3.6)
 \documentclass[a4paper,14pt,oneside,openany]{memoir}
+%\usepackage{float}
+\usepackage{listings}
+\lstset{
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  float=H,
+  columns=fullflexible
+}
 
 \input{common/setup}               % общие настройки шаблона
 \input{common/packages}  % Пакеты общие для диссертации и автореферата
@@ -41,6 +50,6 @@
 %\include{Dissertation/dictionary}      % Словарь терминов
 \include{Dissertation/references}      % Список литературы
 %\include{Dissertation/lists}           % Списки таблиц и изображений (иллюстративный материал)
-%\include{Dissertation/appendix}        % Приложения
+\include{Dissertation/appendix}        % Приложения
 
 \end{document}

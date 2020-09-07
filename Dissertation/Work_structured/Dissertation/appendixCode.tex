@@ -1,0 +1,1177 @@
+
+
+\chapter{Код программного комплекса для имитации работы двух перекрестков} \label{AppendixA}
+
+    \begin{lstlisting}[language={[ISO]C++}]
+int main(int argc, char * const argv[])
+{
+    ...
+    Statistics aggStats(sai);
+    Optimization optimize(initialQueueState, initialServerState, sai);
+
+    optimize.rangeArray.ranges[FIRST_LIGHT_TIME_PRIMARY] = 
+                                                {20, 10, 20};
+    optimize.rangeArray.ranges[FIRST_LIGHT_TIME_SECONDARY] = 
+                                                {10, 10, 10};
+    optimize.rangeArray.ranges[SECOND_LIGHT_TIME_LOW] = 
+                                                {1, 4, 100};
+    optimize.rangeArray.ranges[SECOND_LIGHT_TIME_HIGH] = 
+                                                {1, 4, 100};
+    optimize.rangeArray.ranges[SECOND_LIGHT_TIME_PROLONG] = 
+                                                {10, 1, 10};
+    optimize.rangeArray.ranges[THRESHOLD] = {10, 1, 10};
+    
+    optimize.MakeOptimization();
+    ...
+    return 0;
+}
+\end{lstlisting}
+
+
+
+
+
+%\caption{Optimization.cpp \protect\cpp}\label{lst:hwbeauty}
+    % окружение учитывает пробелы и табуляции и применяет их в сответсвии с настройками
+    \begin{lstlisting}[language={[ISO]C++}]
+
+% #include "optimization.h"
+% #include "system.h"
+% #include <numeric>
+% #include <sstream>
+% #include <time.h>
+
+% string RangeIndexesNames[]=
+% {
+%     "FIRST_LIGHT_TIME_PRIMARY",
+%     "FIRST_LIGHT_TIME_SECONDARY",
+%     "SECOND_LIGHT_TIME_LOW",
+%     "SECOND_LIGHT_TIME_HIGH",
+%     "SECOND_LIGHT_TIME_PROLONG",
+%     "THRESHOLD"
+% };
+
+% template <typename T>
+% void Range<T>::Print(ostream& outStream)
+% {
+%     for (T f = first; f <= last; f += step)
+%         outStream<<f<<" ";
+% }
+
+% RangeArray::RangeArray(SystemAprioriInfo _baseSai):
+%     ranges{
+%     {_baseSai.fls.primaryTime, 1, _baseSai.fls.primaryTime},
+%     {_baseSai.fls.secondaryTime, 1, _baseSai.fls.secondaryTime},
+%     {_baseSai.sls.lowPriorityTime, 1, _baseSai.sls.lowPriorityTime},
+%     {_baseSai.sls.highPriorityTime, 1, _baseSai.sls.highPriorityTime},
+%     {_baseSai.sls.prolongationTime, 1, _baseSai.sls.prolongationTime},
+%     {_baseSai.prolongThres, 1, _baseSai.prolongThres}
+%     }, maxIdx{}, currIdxs{},
+%     currValues{
+%         _baseSai.fls.primaryTime,
+%         _baseSai.fls.secondaryTime,
+%         _baseSai.sls.lowPriorityTime,
+%         _baseSai.sls.highPriorityTime,
+%         _baseSai.sls.prolongationTime,
+%         _baseSai.prolongThres
+%     },
+%     arrIdx{}
+% {
+% }
+
+% void RangeArray::Start()
+% {
+%     int count = 1;
+%     for (int i = 0; i < RANGE_INDEXES_LAST; i++)
+%     {
+%         currValues[i] = ranges[i].first;
+%         int count_1 = 0;
+%         for (int i_range = ranges[i].first; i_range <= ranges[i].last; i_range += ranges[i].step)
+%         {
+%             count_1++;
+%         }
+%         maxIdx[i] = count_1 - 1;
+%         cout<<"max idx = "<<maxIdx[i]<<endl;
+%         count *= count_1;
+%     }
+%     arr.resize(count);
+% }
+
+% bool RangeArray::Iterate()
+% {
+%     int currIdx = RANGE_INDEXES_LAST - 1;
+%     while (currIdx >= 0 && currIdxs[currIdx] == maxIdx[currIdx])
+%     {
+%         currValues[currIdx] = ranges[currIdx].first;
+%         currIdxs[currIdx] = 0;
+%         currIdx--;
+%     }
+%     if (currIdx < 0)
+%         return false;
+%     arrIdx++;
+%     currIdxs[currIdx]++;
+%     currValues[currIdx] += ranges[currIdx].step;
+
+%     return true;
+% }
+
+% void RangeArray::PrintArr(ostream& outStream, SystemAprioriInfo sai)
+% {
+%     int idxs[RANGE_INDEXES_LAST]{};
+%     int idx = RANGE_INDEXES_LAST - 1;
+%     bool cont = true;
+%     bool newLine = false;
+%     int aIdx = 0;
+
+%     double bestTarget = arr[0].target;
+%     int bestIdx[RANGE_INDEXES_LAST] = {};
+    
+%     ofstream stationarReachingTheoreticalFile (sai.outFiles.stationarReachingT, ofstream::out | ofstream::app),
+%         stationarReachingFactFile (sai.outFiles.stationarReachingF, ofstream::out | ofstream::app),
+%         targetFile (sai.outFiles.stationarTarget, ofstream::out | ofstream::app),
+%         loadLowFile (sai.outFiles.loadLow, ofstream::out | ofstream::app),
+%         loadHighFile (sai.outFiles.loadHigh, ofstream::out | ofstream::app),
+%         prolTimeFile (sai.outFiles.prolTime, ofstream::out | ofstream::app),
+%         timeUntilStatFile (sai.outFiles.timeUntilStat, ofstream::out | ofstream::app),
+%         itersUntilStatFile (sai.outFiles.itersUntilStat, ofstream::out | ofstream::app)
+%         ;
+
+%     while (1)
+%     {
+%         {
+%             stationarReachingTheoreticalFile << arr[aIdx].theoreticalStationar<<" ";
+%             stationarReachingFactFile << arr[aIdx].stationar<<" ";
+%             targetFile << arr[aIdx].target<<" ";
+%             loadLowFile << arr[aIdx].loadLow<<" ";
+%             loadHighFile << arr[aIdx].loadHigh<<" ";
+%             prolTimeFile << arr[aIdx].avgProl<<" ";
+%             timeUntilStatFile <<arr[aIdx].timeUntilStationar<<" ";
+%             itersUntilStatFile <<arr[aIdx].itersUntilStationar<<" ";
+%         }
+%         outStream<< arr[aIdx++]<<" ";
+%         idx = RANGE_INDEXES_LAST - 1;
+%         newLine = false;
+%         while (idx >= 0 && idxs[idx] == maxIdx[idx])
+%         {
+%             if (maxIdx[idx] > 0)
+%                 newLine = true;
+%             idxs[idx] = 0;
+%             idx--;
+%         }
+%         if (idx < 0)
+%             break;
+%         idxs[idx]++;
+%         if (newLine)
+%         {
+%             {
+%                 stationarReachingTheoreticalFile << endl;
+%                 stationarReachingFactFile << endl;
+%                 targetFile << endl;
+%                 loadLowFile << endl;
+%                 loadHighFile << endl;
+%                 prolTimeFile << endl;
+%                 timeUntilStatFile <<endl;
+%                 itersUntilStatFile <<endl;
+%             }
+%             outStream<<endl;
+%             outStream<<"(";
+%             for (int i = 0; i < RANGE_INDEXES_LAST; i++)
+%             {
+%                 outStream<<(ranges[i].first + idxs[i]*ranges[i].step)<<" ";
+%             }
+%             outStream<<")"<<endl;
+%         }
+%         if (bestTarget > arr[aIdx].target)
+%         {
+%             bestTarget = arr[aIdx].target;
+%             for (int i = 0; i < RANGE_INDEXES_LAST; i++)
+%                 bestIdx[i] = idxs[i];
+%         }
+%     }
+%     outStream<<endl;
+%     outStream<<"best time="<<bestTarget<<"; (";
+%     for (int i = 0; i < RANGE_INDEXES_LAST; i++)
+%     {
+%         outStream<<(ranges[i].first + bestIdx[i] * ranges[i].step)<<" ";
+%     }
+%     outStream<<")"<<endl;
+% }
+
+% void RangeArray::SetSai(SystemAprioriInfo& sai)
+% {
+%     sai.fls.primaryTime = currValues[FIRST_LIGHT_TIME_PRIMARY];
+%     sai.fls.secondaryTime = currValues[FIRST_LIGHT_TIME_SECONDARY];
+%     sai.sls.lowPriorityTime = currValues[SECOND_LIGHT_TIME_LOW];
+%     sai.sls.highPriorityTime = currValues[SECOND_LIGHT_TIME_HIGH];
+%     sai.sls.prolongationTime = currValues[SECOND_LIGHT_TIME_PROLONG];
+%     sai.prolongThres = currValues[THRESHOLD];
+% }
+
+% void RangeArray::PrintCurrParams(ostream& outStream)
+% {
+%     for (int i = 0; i < RANGE_INDEXES_LAST; i++)
+%         outStream<<currValues[i]<<" ";
+%     outStream<<endl;
+% }
+
+% void RangeArray::PrintAllParams(ostream& outStream)
+% {
+%     for (int i = 0; i < RANGE_INDEXES_LAST; i++)
+%     {
+%         outStream<<RangeIndexesNames[i]<<": ";
+%         ranges[i].Print(outStream);
+%         outStream<<endl;
+%     }
+% }
+
+% Optimization::Optimization(QueueState initQueue, ServerState initServer, SystemAprioriInfo _baseSai):
+%     initialQueueState(initQueue), initialServerState(initServer), baseSai(_baseSai),
+%     rangeArray(_baseSai)
+% {
+% }
+
+void Optimization::MakeOptimization()
+{
+    this->DumpParams();
+    SystemAprioriInfo sai(baseSai);
+    this->rangeArray.Start();
+
+    ofstream saiFile;
+    do
+    {
+        saiFile.open(baseSai.outFiles.saiFile, ofstream::out | ofstream::app);
+        this->rangeArray.PrintCurrParams(saiFile);
+        saiFile.close();
+        this->rangeArray.SetSai(sai);
+        this->Iterate(sai);
+    } while (this->rangeArray.Iterate());
+    saiFile.open(baseSai.outFiles.saiFile, ofstream::out | ofstream::app);
+    this->rangeArray.PrintArr(saiFile, baseSai);
+}
+
+void Optimization::Iterate(SystemAprioriInfo sai)
+{
+    vector<double> firstService, secondService;
+    SystemAprioriInfo refSai(sai);
+    refSai.verbose=false;
+    QueueState refInitialQueueState(true);
+    Statistics aggStats(sai);  
+  
+    System system(initialQueueState, initialServerState, sai),
+        refSystem(refInitialQueueState, initialServerState, refSai);
+    bool statSucc = false;
+
+    int ii = 0;
+    for (ii; ii < sai.numMaxIteration; ii++)
+    {
+        refSystem.MakeIteration(ii);
+        system.MakeIteration(ii);
+        if (system.CheckStationaryMode(refSystem,ii) && ii >= sai.numMaxIteration * 0.1)
+        {
+            statSucc = true;
+            break;
+        }
+    }
+    ofstream saiFile;
+    saiFile.open(sai.outFiles.saiFile, ofstream::out | ofstream::app);
+    system.sQueue.PrintState(cout);
+    system.sQueue.PrintState(saiFile);
+
+    int totalCount = 0, totalTime = 0;
+    totalCount = system.sQueue.stats.timesLocate[0] +
+        system.sQueue.stats.timesLocate[1] +
+        system.sQueue.stats.timesLocate[2];
+    totalTime = system.sQueue.stats.timesLocateTimes[0] +
+        system.sQueue.stats.timesLocateTimes[1] +
+        system.sQueue.stats.timesLocateTimes[2];
+    cout <<"Locating (low,high,prolong): ("<<double(system.sQueue.stats.timesLocate[0])/totalCount<<","<<
+        double(system.sQueue.stats.timesLocate[1])/totalCount<<","<<
+        double(system.sQueue.stats.timesLocate[2])/totalCount<<")"<<endl;
+    cout <<"Locating times (low,high,prolong): ("<<double(system.sQueue.stats.timesLocateTimes[0])/totalTime<<","<<
+        double(system.sQueue.stats.timesLocateTimes[1])/totalTime<<","<<
+        double(system.sQueue.stats.timesLocateTimes[2])/totalTime<<")"<<endl;
+    saiFile.close();
+
+    rangeArray.arr[rangeArray.arrIdx].timeUntilStationar = system.sQueue.stats.timeTotal;
+    rangeArray.arr[rangeArray.arrIdx].itersUntilStationar = ii;
+    if (statSucc)
+    {
+        for (int i = 0; i < ii; i++)
+        {
+            system.MakeIteration(i);
+        }
+        system.sQueue.stats.UpdateStatistics(0);
+    }
+
+    double firstUntilServiceAvg = system.sQueue.stats.firstTimeUntilServ.mean,
+        secondUntilServiceAvg = system.sQueue.stats.secondTimeUntilServ.mean,
+        firstServiceAvg = system.sQueue.stats.firstTimeServ.mean,
+        secondServiceAvg = system.sQueue.stats.secondTimeServ.mean;
+    
+    rangeArray.arr[rangeArray.arrIdx].stationar = statSucc;
+    rangeArray.arr[rangeArray.arrIdx].theoreticalStationar = system.IsStationar();
+    rangeArray.arr[rangeArray.arrIdx].timeUntilServiceFirst = firstUntilServiceAvg;
+    rangeArray.arr[rangeArray.arrIdx].timeUntilServiceSecond = secondUntilServiceAvg;
+    rangeArray.arr[rangeArray.arrIdx].timeServiceFirst = firstServiceAvg;
+    rangeArray.arr[rangeArray.arrIdx].timeServiceSecond = secondServiceAvg;
+    
+    rangeArray.arr[rangeArray.arrIdx].loadLow = system.sQueue.stats.loadStatistics.inputNumLow/system.sQueue.stats.loadStatistics.theoreticalNumLow;
+    rangeArray.arr[rangeArray.arrIdx].loadHigh = system.sQueue.stats.loadStatistics.inputNumHigh/system.sQueue.stats.loadStatistics.theoreticalNumHigh;
+    
+    rangeArray.arr[rangeArray.arrIdx].target = UpdateTarget(firstUntilServiceAvg + firstServiceAvg, secondServiceAvg + secondUntilServiceAvg, sai, currFile);
+
+    rangeArray.arr[rangeArray.arrIdx].avgProl = double (system.sQueue.stats.loadStatistics.prolTime) / system.sQueue.stats.loadStatistics.prolNum;
+    
+    
+    saiFile.open(sai.outFiles.saiFile, ofstream::out | ofstream::app);
+    int statesTotalDurations = 0;
+    for (auto as:system.server.allStates)
+    {
+        statesTotalDurations += as.realResideCount * as.timeDuration;
+    }
+
+    saiFile<<"states durations:"<<endl;
+    for (auto as:system.server.allStates)
+    {
+        as.Print(saiFile);
+        saiFile << double(as.realResideCount * as.timeDuration) / statesTotalDurations<<endl;
+    }
+    saiFile.close();
+}
+
+% void Optimization::DumpTarget(double target, SystemAprioriInfo sai, string filename)
+% {
+%     ofstream file;
+%     if (filename == "")
+%         file.open(baseSai.outFiles.optFile, ofstream::out | ofstream::app );
+%     else
+%         file.open(filename, ofstream::out | ofstream::app );
+
+%     sai.PrintOpt(file);
+%     file<<target<<endl;
+% }
+
+% double Optimization::UpdateTarget(double firstTime, double secondTime, SystemAprioriInfo sai, string filename)
+% {
+%     double allLambdas = sai.firstFlow.totalLambda + sai.secondFlow.totalLambda;
+%     double target = (firstTime *sai.firstFlow.totalLambda  + secondTime *sai.secondFlow.totalLambda)/ allLambdas;
+%     DumpTarget(target, sai, filename);
+%     if (target <= bestTarget)
+%     {
+%         bestTarget = target;
+%         bestTargetSpec = sai;
+%         DumpTarget(bestTarget, sai, sai.outFiles.optFile);
+%     }
+
+%     return target;
+% }
+
+% void Optimization::DumpParams()
+% {
+%     ofstream saiFile(baseSai.outFiles.saiFile, ofstream::out | ofstream::app);
+%     rangeArray.PrintAllParams(saiFile);
+% }
+\end{lstlisting}
+
+%\caption{queue.cpp ,,Hello, world`` на \protect\cpp}\label{lst:hwbeauty}
+\begin{lstlisting}[language={[ISO]C++}]
+% #include "queue.h"
+% #include <fstream>
+% #include <cmath>
+% #include <random>
+% #include "flow.h"
+% using namespace std;
+
+% long long Customer::count = 0;
+
+% mt19937 PrimaryFlowDistribution::generator;
+
+% Queue::Queue(QueueState initialState, SystemAprioriInfo _sai): sai(_sai), stats(_sai)
+% {
+%     for (int i = 0; i < initialState.firstLightPrimary; i++)
+%     {
+%         firstLightPrimaryQueue.push(Customer(0));
+%     }
+%     for (int i = 0; i < initialState.secondLightSecondary; i++)
+%     {
+%         secondLightHighPriorityQueue.push(Customer(0));
+%     }
+%     for (int i = 0; i < initialState.secondLightPrimary; i++)
+%     {
+%         secondLightLowPriorityQueue.push(Customer(0));
+%     }
+%     for (int i = 0; i < initialState.midleQueue; i++)
+%     {
+%         midleQueue.push_back(Customer(0));
+%     }
+
+%     if (sai.verbose)
+%         PrintState(cout);
+% }
+
+% void Queue::PrintState(ostream& outStream)
+% {
+%     outStream<<"Queue state: ["<<firstLightPrimaryQueue.size()<<", "
+%         <<secondLightHighPriorityQueue.size()<<", "
+%         <<secondLightLowPriorityQueue.size()<<", "
+%         <<midleQueue.size()<<"]"<<endl;
+% }
+
+void Queue::ServiceMidleQueue(ServerState serverState)
+{
+    uniform_real_distribution<float> distribution(0., 1.);
+    int queueSize = midleQueue.size();
+    float generated;
+    for (auto a = midleQueue.begin(); a != midleQueue.end();)
+    {
+        generated = distribution(PrimaryFlowDistribution::generator);
+        if (generated <= serverState.midleSuccProb)
+    	{
+            secondLightHighPriorityQueue.push(*a);
+            a = midleQueue.erase(a);
+	    }
+        else
+	    {
+            a++;
+	    }
+    }
+}
+
+void Queue::MakeIteration(ServerState prevServerState, ServerState serverState, int currentTime, int iteration)
+{
+    if (prevServerState.state2 != serverState.state2)
+    {
+        stats.timesLocate[serverState.state2]++;
+        if (prevServerState.state2 == HighPriority)
+        {
+            stats.loadStatistics.prolNum++;
+        }
+        if (serverState.state2 == Prolongation)
+            stats.loadStatistics.prolTime += serverState.timeDuration;
+    }
+    stats.timesLocateTimes[serverState.state2] += serverState.timeDuration;
+    
+    if (prevServerState.state2 != LowPriority &&  serverState.state2 == LowPriority)
+        stats.secondLow.values.push_back(secondLightLowPriorityQueue.size());
+    if (prevServerState.state2 == LowPriority &&  serverState.state2 != LowPriority)
+        stats.secondHigh.values.push_back(secondLightHighPriorityQueue.size());
+      
+    if (prevServerState.state1 != Primary  &&  serverState.state1 == Primary)
+    {
+        stats.firstPrimary.values.push_back(firstLightPrimaryQueue.size());
+        stats.middle.values.push_back(midleQueue.size());
+    }
+
+    UpdateQueues(serverState, currentTime);
+
+    int timeToService = serverState.timeDuration;
+    int firstLightCustomersToServe = timeToService;
+    int secondLightCustomersToServe = timeToService;
+    int midleQueueToServe;
+
+    firstLightCustomersToServe *= (serverState.state1 == Primary ? sai.fls.primaryIntensity : 0);
+    secondLightCustomersToServe *= (serverState.state2 == LowPriority ? sai.sls.lowPriorityIntensity : (serverState.state2 == HighPriority ? sai.sls.highPriorityIntensity : sai.sls.prolongationIntensity) );
+
+
+    uniform_int_distribution<int> distribution(0, timeToService);
+    stats.loadStatistics.inputNumLow += sai.secondFlow.totalLambda * timeToService;
+    stats.loadStatistics.inputNumHigh += sai.firstFlow.totalLambda * timeToService;
+    if (serverState.state2 == LowPriority)
+    {
+        stats.loadStatistics.theoreticalNumLow += secondLightCustomersToServe;
+        int temp_count = std::min(secondLightCustomersToServe,(int)secondLightLowPriorityQueue.size() );
+        stats.outputThirdCust += temp_count;
+        for (int i = 0; i < temp_count; i++)
+  	    {
+            Customer customerToRemove = secondLightLowPriorityQueue.front();
+            int localService = distribution(PrimaryFlowDistribution::generator);
+            customerToRemove.serviceTime = std::max(currentTime + localService, customerToRemove.arrivalTime);
+            customerToRemove.departureTime = currentTime + timeToService;
+
+            stats.AddSecondCustomer(customerToRemove);
+            secondLightLowPriorityQueue.pop();
+  	    }
+    }
+    else
+    {
+        stats.loadStatistics.theoreticalNumHigh += secondLightCustomersToServe;
+        int temp_count = std::min(secondLightCustomersToServe,(int)secondLightHighPriorityQueue.size() );
+        stats.outputFirstCust += temp_count;
+        for (int i = 0; i < temp_count; i++)
+  	    {
+            Customer customerToRemove = secondLightHighPriorityQueue.front();
+            customerToRemove.departureTime=currentTime + timeToService;
+            secondLightHighPriorityQueue.pop();
+            stats.AddFirstCustomer(customerToRemove);
+  	    }
+    }
+    ServiceMidleQueue(serverState);
+    if (serverState.state1 == Primary)
+    {
+        int temp_count = std::min(firstLightCustomersToServe,(int)firstLightPrimaryQueue.size() );
+        for (int i =0; i < temp_count; i++)
+  	    {
+            Customer customerToMove = firstLightPrimaryQueue.front();
+            int localService;
+
+            if (timeToService - std::max(currentTime, customerToMove.arrivalTime) + currentTime == 0)
+                localService = 0;
+            else
+                localService = distribution(PrimaryFlowDistribution::generator) %
+                    (timeToService - std::max(currentTime, customerToMove.arrivalTime) + currentTime);
+
+            firstLightPrimaryQueue.pop();
+            customerToMove.serviceTime = std::max(currentTime, customerToMove.arrivalTime) + localService;
+            static int count = 0;
+            count++;
+            midleQueue.push_back(customerToMove);
+  	    }
+    }
+    if ( (iteration + 1) % stats.GRAN == 0)
+    {
+        stats.UpdateStatistics(iteration);
+    }
+}
+
+int Queue::GenerateBatches(float lambda, int timeToService)
+{
+    float mean = lambda * timeToService;
+    poisson_distribution<int> distribution(mean);
+    return distribution(PrimaryFlowDistribution::generator);
+}
+
+int Queue::GenerateCustomersInBatch(PrimaryFlowDistribution flow)
+{
+    discrete_distribution<int> distribution(flow.probabilities.begin(), flow.probabilities.end());
+    return (distribution(PrimaryFlowDistribution::generator) + 1);
+}
+
+void Queue::UpdateQueues(ServerState serverState, int currentTime)
+{
+    int timeToService = serverState.timeDuration;
+    int firstLightBatches = GenerateBatches(sai.firstFlow.lambda, timeToService),
+        secondLightBatches = GenerateBatches(sai.secondFlow.lambda, timeToService),
+        custInBatch,
+        realTime;
+    vector<double> tmpAr(firstLightBatches + secondLightBatches);
+    uniform_real_distribution<double> realDistribution(0.0, 1.0);
+    double sum = 0;
+    for (int i = 0; i < firstLightBatches; i++)
+    {
+        tmpAr[i] = sum = sum - log(realDistribution(PrimaryFlowDistribution::generator));
+    }
+    sum = sum - log(realDistribution(PrimaryFlowDistribution::generator));
+    for (int i = 0; i < firstLightBatches; i++)
+    {
+        tmpAr[i] /= sum;
+    }
+
+    sum = 0;
+    for (int i = firstLightBatches; i < firstLightBatches + secondLightBatches; i++)
+    {
+        tmpAr[i] = sum = sum - log(realDistribution(PrimaryFlowDistribution::generator));
+    }
+    sum = sum - log(realDistribution(PrimaryFlowDistribution::generator));
+    for (int i = firstLightBatches; i < firstLightBatches + secondLightBatches; i++)
+    {
+        tmpAr[i] /= sum;
+    }
+
+    for (int i = 0; i < firstLightBatches; i++)
+    {
+        custInBatch = GenerateCustomersInBatch(sai.firstFlow);
+        stats.inputFirstCust += custInBatch;
+        realTime = currentTime + timeToService*tmpAr[i];
+        for (int j = 0; j < custInBatch; j++)
+        {
+            firstLightPrimaryQueue.push(Customer(realTime));
+        }
+    }
+
+    for (int i = 0; i < secondLightBatches; i++)
+    {
+        custInBatch = GenerateCustomersInBatch(sai.secondFlow);
+        stats.inputThirdCust += custInBatch;
+        realTime = currentTime + timeToService*tmpAr[i + firstLightBatches];
+        for (int j = 0; j < custInBatch; j++)
+        {
+            secondLightLowPriorityQueue.push(Customer(realTime));
+        }
+    }
+}
+
+    \end{lstlisting}
+
+%    \caption{Servers.cpp \protect\cpp}\label{lst:hwbeauty}
+\begin{lstlisting}[language={[ISO]C++}]
+% #include "servers.h"
+
+
+% void GenerateStates(vector<ServerState>& vs, int currentState, SystemAprioriInfo sai);
+
+% Server::Server(ServerState initialState, SystemAprioriInfo _sai): sai(_sai)
+% {
+%     allStates.push_back(initialState);
+%     GenerateStates(allStates, 0, sai);
+%     state = 0;
+%     prolongationThreshold = sai.prolongThres;
+
+%     if (sai.verbose)
+%     {
+%         cout <<"find cycles"<< endl;
+%         int count = 0;
+%         for (auto a: allStates)
+% 	    {
+%             cout <<"["<<count<<"] ";
+%             a.Print(cout);
+%             count++;
+% 	    }
+%     }
+% }
+
+int Server::MakeIteration(int lowPriorityQueueSize, int )
+{
+    lastState = state;
+    state = ( allStates[state].nextProlongation != -1 && lowPriorityQueueSize <= prolongationThreshold ? allStates[state].nextProlongation :
+              (allStates[state].nextRegular == -1 ? allStates[state].nextProlongation : allStates[state].nextRegular)
+                  );
+    if (state == -1)
+    {
+        cout<<"Error!!!"<<endl;
+        exit(1);
+    }
+    return allStates[state].timeDuration;
+}
+% void Server::Print(ostream& outStream)
+% {
+%     allStates[state].Print(outStream);
+% }
+
+void GenerateStates(vector<ServerState>& vs, int currentState, SystemAprioriInfo sai)
+{
+    int serverToFinish;
+    int temp, timeToFinish;
+    int eligibleToProlong;
+    ServerState newState;
+
+    int firstLightCustomersToServe;
+    int secondLightCustomersToServe;
+
+    if (vs[currentState].time1 < vs[currentState].time2)
+    {
+        serverToFinish = 1;
+        timeToFinish = vs[currentState].time1;
+    }
+    else if (vs[currentState].time1 > vs[currentState].time2)
+    {
+        serverToFinish = 2;
+        timeToFinish = vs[currentState].time2;
+    }
+    else
+    {
+        serverToFinish = 0;
+        timeToFinish = vs[currentState].time1;
+    }
+    vs[currentState].timeDuration = timeToFinish;
+    vs[currentState].midleSuccProb = sai.GetSuccProb(vs[currentState].timeDuration);
+
+    if (vs[currentState].numCustomersFirstLight < 0 || vs[currentState].numCustomersSecondLight < 0)
+    {
+        firstLightCustomersToServe = timeToFinish;
+        secondLightCustomersToServe = timeToFinish;
+        firstLightCustomersToServe *= (vs[currentState].state1 == Primary ? sai.fls.primaryIntensity : 0);
+        secondLightCustomersToServe *= (vs[currentState].state2 == LowPriority ? sai.sls.lowPriorityIntensity : (vs[currentState].state2 == HighPriority ? sai.sls.highPriorityIntensity : sai.sls.prolongationIntensity) );
+        vs[currentState].numCustomersFirstLight = firstLightCustomersToServe;
+        vs[currentState].numCustomersSecondLight = secondLightCustomersToServe;
+    }
+
+  
+    newState.timeDuration = timeToFinish;
+    vs[currentState].midleSuccProb = sai.GetSuccProb(newState.timeDuration);
+    if (serverToFinish == 1)
+    {
+        newState.state1 = (vs[currentState].state1 == Primary ? Secondary : Primary);
+        newState.time1 = (newState.state1 == Primary ? sai.fls.primaryTime : sai.fls.secondaryTime);
+        newState.state2 = vs[currentState].state2;
+        newState.time2 = vs[currentState].time2 - timeToFinish;
+    }
+    else if (serverToFinish == 2)
+    {
+        newState.state1 = vs[currentState].state1;
+        newState.time1 = vs[currentState].time1 - timeToFinish;
+        newState.state2 = (vs[currentState].state2  > LowPriority ? LowPriority : HighPriority);
+        newState.time2 = (newState.state2 == LowPriority ? sai.sls.lowPriorityTime : sai.sls.highPriorityTime);
+    }
+    else
+    {
+        newState.state1 = (vs[currentState].state1 == Primary ? Secondary : Primary);
+        newState.time1 = (newState.state1 == Primary ? sai.fls.primaryTime : sai.fls.secondaryTime);
+        newState.state2 = (vs[currentState].state2  > LowPriority ? LowPriority : HighPriority);
+        newState.time2 = (newState.state2 == LowPriority ? sai.sls.lowPriorityTime : sai.sls.highPriorityTime);
+    }
+
+    bool newStateIsRegular = newState.state2 != Prolongation;
+    eligibleToProlong = ((serverToFinish == 0 || serverToFinish == 2) && vs[currentState].state2 > LowPriority ) ||
+        (serverToFinish == 1  && vs[currentState].state2 == Prolongation );
+
+    if (newStateIsRegular)
+    {
+        auto tmp = find(vs.begin(), vs.end(), newState);
+        if (tmp == vs.end())
+        {
+            vs.push_back(newState);
+            vs[currentState].nextRegular = vs.size() - 1;
+            GenerateStates(vs, vs.size()-1, sai);
+        }
+        else
+        {
+            vs[currentState].nextRegular = tmp - vs.begin();
+        }
+        if (eligibleToProlong)
+        {
+            newState.state2 = Prolongation;
+            newState.time2 = sai.sls.prolongationTime;
+            auto tmp = find(vs.begin(), vs.end(), newState);
+            if ( tmp == vs.end())
+            {
+                vs.push_back(newState);
+                vs[currentState].nextProlongation = vs.size() - 1;
+                GenerateStates(vs, vs.size()-1, sai);
+            }
+            else
+            {
+                vs[currentState].nextProlongation = tmp - vs.begin();
+            }
+        }
+    }
+    else
+    {
+        auto tmp = find(vs.begin(), vs.end(), newState);
+        if (tmp == vs.end())
+        {
+            vs.push_back(newState);
+            vs[currentState].nextProlongation = vs.size() - 1;
+            GenerateStates(vs, vs.size()-1, sai);
+        }
+        else
+        {
+            vs[currentState].nextProlongation = tmp - vs.begin();
+        }
+    }
+}
+
+void IterateFindCycles(vector<ServerState>& vs, int currentState, vector<bool>& processed, vector<Cycle>& cycles, int currentCycle)
+{
+    cycles[currentCycle].idxs.push_back(currentState);
+    processed[currentState] = true;
+    int nextRegular = vs[currentState].nextRegular;
+    int nextProlongation = vs[currentState].nextProlongation;
+
+    if (vs[currentState].state2 != Prolongation)
+    {
+        if (!processed[nextRegular])
+      	{
+            IterateFindCycles(vs, nextRegular, processed, cycles, currentCycle);
+      	}
+        if (nextProlongation != -1 && !processed[nextProlongation])
+      	{
+            Cycle dummy;
+            dummy.isProlongation = true;
+            cycles.push_back(dummy);
+            IterateFindCycles(vs, nextProlongation, processed, cycles, cycles.size()-1);
+      	}
+    }
+    else
+    {
+        if (nextProlongation != -1 && !processed[nextProlongation])
+      	{
+            IterateFindCycles(vs, nextProlongation, processed, cycles, currentCycle);
+      	}
+        if (nextRegular != -1 && !processed[nextRegular])
+      	{
+            Cycle dummy;
+            dummy.isProlongation = true;
+            cycles.push_back(dummy);
+            IterateFindCycles(vs, nextRegular, processed, cycles, cycles.size()-1);
+      	}
+    }
+}
+
+vector<Cycle> FindCycles(vector<ServerState> vs, SystemAprioriInfo sai)
+{
+    vector<bool> processed(vs.size(),0);
+    vector<Cycle> cycles;
+    Cycle dummy;
+    cycles.push_back(dummy);
+    IterateFindCycles(vs, 0, processed, cycles, 0);
+    for (auto& a:cycles)
+        a.CalcStatistics(vs, sai);
+    return cycles;
+}
+
+void Cycle::CalcStatistics(vector<ServerState>& vs, SystemAprioriInfo sai)
+{
+    for (auto a:idxs)
+    {
+        timeDuration += vs[a].timeDuration;
+        if (vs[a].state1 == Primary)
+	    {
+            primaryFlowServed += vs[a].numCustomersFirstLight;
+	    }
+        if (vs[a].state2 == LowPriority)
+	    {
+            lowPriorityFlowServed += vs[a].numCustomersSecondLight;
+	    }
+        else
+	    {
+            highPriorityFlowServed += vs[a].numCustomersSecondLight;
+	    }
+    }
+
+    firstLightIncome = timeDuration * sai.firstFlow.totalLambda;
+    secondLightIncome = timeDuration * sai.secondFlow.totalLambda;
+}
+
+bool Cycle::IsStationar()
+{
+    bool ret;
+    if (timeDuration == 0)
+        return true;
+    ret = (firstLightIncome < primaryFlowServed);
+    ret = ret && (std::min(float(primaryFlowServed),firstLightIncome) < highPriorityFlowServed);
+
+    if (!this->isProlongation)
+    {
+        ret = ret && (secondLightIncome < lowPriorityFlowServed);
+    }
+    return ret;
+}
+
+% void Cycle::Print(ofstream& outStream)
+% {
+%     outStream<<"Duration: "<<timeDuration<<"; States: [ ";
+%     for (auto a:idxs)
+%     {
+%         outStream<<a<<" ";
+%     }
+%     outStream <<"] isStationar"<<this->IsStationar()<<endl<<
+%         "      FirstLight: primaryIncome="<<firstLightIncome<<", primaryServed="<<primaryFlowServed<<""<<endl<<
+%         "      SecondLight: lowPriorityIncome="<<secondLightIncome<<", lowPriorityServed="<<lowPriorityFlowServed<<", highPriorityServed"<<highPriorityFlowServed<<")"<<endl;
+% }
+
+% void Cycle::Print_Ext(ofstream& outStream)
+% {
+%     outStream<<"[ ";
+%     for (auto a:idxs)
+%     {
+%         outStream<<a<<" ";
+%     }
+%     outStream <<"]"<<" (FirstLightIncome"<<", SecondLightIncome"<<", PrimaryFirstLight_sum{l}"<<", LowPriority_sum{l}, HighPriority_sum{l}) = ("<<firstLightIncome<<","<<primaryFlowServed<<","<<secondLightIncome<<","<<lowPriorityFlowServed<<", "<<highPriorityFlowServed<<")"<<endl;
+% }
+    \end{lstlisting}
+
+
+
+
+%    \caption{statistics.cpp \protect\cpp}\label{lst:hwbeauty}
+\begin{lstlisting}[language={[ISO]C++}]
+% #include "statistics.h"
+
+void Statistics::UpdateStatistics(int iteration)
+{
+    {
+        if (sai.verbose)
+        {
+            DumpAllCustomers();
+        }
+
+        firstTimeUntilServ.UpdateMean();
+        firstTimeServ.UpdateMean();
+        secondTimeUntilServ.UpdateMean();
+        secondTimeServ.UpdateMean();
+      
+        firstPrimary.UpdateMean();
+        secondHigh.UpdateMean();
+        secondLow.UpdateMean();
+        middle.UpdateMean();
+
+        if (stationaryMode)
+	    {
+            ofstream file_(sai.outFiles.stationaryFileMeans, ofstream::out | ofstream::app );
+            DumpStatsMean(file_); file_<<endl;
+	    }
+    }
+}
+
+% void Statistics::DumpAllCustomers()
+% {
+%     ofstream file1(sai.outFiles.firstCustomersFile, ofstream::out | ofstream::app );
+%     ofstream file2(sai.outFiles.secondCustomersFile, ofstream::out | ofstream::app );
+
+%     for (auto& a : departFirstQueue)
+%         a.Dump(file1);
+%     for (auto& a : departSecondQueue)
+%         a.Dump(file2);
+% }
+
+void Statistics::AddFirstCustomer(Customer cust)
+{
+    long untilServ = cust.serviceTime - cust.arrivalTime,
+        serv = cust.departureTime - cust.serviceTime;
+    if (untilServ < 0 || serv <= 0)
+    {
+        cout <<" "<<cust.arrivalTime<<" "<<cust.serviceTime<<" "<<cust.departureTime<<";";
+        cout <<untilServ << " "<<serv<<" < 0"<<endl;
+        exit(1);
+    }
+    else
+    {
+        firstTimeUntilServ.values.push_back(untilServ);
+        firstTimeServ.values.push_back(serv);
+        departFirstQueue.push_back(cust);
+    }
+}
+void Statistics::AddSecondCustomer(Customer cust)
+{
+    secondTimeUntilServ.values.push_back(cust.serviceTime - cust.arrivalTime);
+    secondTimeServ.values.push_back(cust.departureTime - cust.serviceTime);
+    departSecondQueue.push_back(cust);
+}
+
+void Statistics::AddStatistics(Statistics& s)
+{
+    firstTimeUntilServ.AddMeans(s.firstTimeUntilServ);
+    firstTimeServ.AddMeans(s.firstTimeServ);
+    secondTimeUntilServ.AddMeans(s.secondTimeUntilServ);
+    secondTimeServ.AddMeans(s.secondTimeServ);
+
+    firstPrimary.AddMeans(s.firstPrimary);
+    secondHigh.AddMeans(s.secondHigh);
+    secondLow.AddMeans(s.secondLow);
+    middle.AddMeans(s.middle);
+}
+
+% void Statistics::Print(ostream& outStream)
+% {
+%     outStream << "FirstTimeUntilServ:";
+%     firstTimeUntilServ.Print(outStream);
+
+%     outStream << "FirstTimeServ:";
+%     firstTimeServ.Print(outStream);
+
+%     outStream << "SecondTimeUntilServ:";
+%     secondTimeUntilServ.Print(outStream);
+
+%     outStream << "SecondTimeServ:";
+%     secondTimeServ.Print(outStream);
+%     outStream<<endl;
+
+%     outStream << "FirstPrimary queue:";
+%     firstPrimary.Print(outStream);
+
+%     outStream << "SecondHigh queue:";
+%     secondHigh.Print(outStream);
+
+%     outStream << "SecondLow queue:";
+%     secondLow.Print(outStream);
+
+%     outStream << "Middle queue:";
+%     middle.Print(outStream);
+% }
+
+% void Statistics::ClearStatistics()
+% {
+%     firstTimeUntilServ.Clear();
+%     firstTimeServ.Clear();
+%     secondTimeUntilServ.Clear();
+%     secondTimeServ.Clear();
+    
+%     firstPrimary.Clear();
+%     secondHigh.Clear();
+%     secondLow.Clear();
+%     middle.Clear();
+
+%     loadStatistics.inputNumLow =
+%         loadStatistics.theoreticalNumLow =
+%         loadStatistics.inputNumHigh =
+%         loadStatistics.theoreticalNumHigh = 0;
+%     }
+
+% void Statistics::DumpStatsMean(ofstream& _stream)
+% {
+%     firstTimeUntilServ.DumpMeans(_stream);
+%     firstTimeServ.DumpMeans(_stream);
+%     secondTimeUntilServ.DumpMeans(_stream);
+%     secondTimeServ.DumpMeans(_stream);
+  
+%     firstPrimary.DumpMeans(_stream);
+%     secondHigh.DumpMeans(_stream);
+%     secondLow.DumpMeans(_stream);
+%     middle.DumpMeans(_stream);
+% }
+
+
+% void MyMean::UpdateMean()
+% {
+%     double old_sum = mean,
+%         old_sum_sq = mean_sq;
+  
+%     double sum = mean * num,
+%         sum_sq = mean_sq * num;
+
+%     for (auto& a: values)
+%     {
+%         sum += a;
+%         sum_sq += a*a;
+%         if (a < 0)
+%             cout <<a<<endl;
+%     }
+%     num += values.size();
+%     if (num > 0)
+%     {
+%         mean = sum/num;
+%         mean_sq = sum_sq/num;
+%         values.clear();
+%     }
+
+%     if (old_sum > 0)
+%         diff = std::abs(old_sum - mean)/old_sum;
+%     else
+%         diff = 1.;
+    
+%     double old_std = std::sqrt(double(old_sum_sq - old_sum * old_sum)),
+%         new_std = std::sqrt(double(mean_sq - mean*mean));
+
+%     if (old_std > 0)
+%         diff_std = std::abs(old_std - new_std)/double(old_std);
+%     else
+%         diff_std = 1.;
+
+%     //Error est
+%     double tmp_est = est_err * est_num,
+%         tmp_est_sq = est_err_sq * est_num;
+%     tmp_est += mean;
+%     tmp_est_sq += mean*mean;
+%     est_num++;
+%     est_err = tmp_est/est_num;
+%     est_err_sq = tmp_est_sq/est_num;
+
+% }
+
+% void MyMean::AddMeans(MyMean& m)
+% {
+%     double old_sum = mean,
+%         old_sum_sq = mean_sq;
+  
+%     this->UpdateMean();
+%     m.UpdateMean();
+  
+%     mean = mean * num + m.mean * m.num;
+%     mean_sq = mean_sq * num + m.mean_sq * m.num;
+%     num += m.num;
+%     if (num > 0)
+%     {
+%         mean /= num;
+%         mean_sq /= num;
+%     }
+  
+%     if (old_sum > 0)
+%         diff = std::abs(old_sum - mean)/old_sum;
+%     else
+%         diff = 1.;
+  
+%     double old_std = std::sqrt(double(old_sum_sq - old_sum * old_sum)),
+%         new_std = std::sqrt(double(mean_sq - mean*mean));
+
+%     if (old_std > 0)
+%         diff_std = std::abs(old_std - new_std)/double(old_std);
+%     else
+%         diff_std = 1.;
+% }
+\end{lstlisting}
+
+
+\begin{lstlisting}[language={[ISO]C++}]
+% #include "system.h"
+
+% System::System (QueueState initQueueState, ServerState initServerState, SystemAprioriInfo _sai):
+%     sQueue(initQueueState, _sai), server(initServerState, _sai), sai(_sai)
+% {
+%     cycles = FindCycles(server.allStates, sai);
+
+%     ofstream saiFile(sai.outFiles.saiFile, ofstream::out | ofstream::app);
+%     saiFile <<"Cycles num = "<<cycles.size()<<endl;
+%     for (auto a:cycles) a.Print(saiFile);
+% }
+
+void System::MakeIteration(int iteration)
+{
+    int prevTotalTime = sQueue.stats.timeTotal;
+    server.allStates[server.state].realResideCount++;
+    sQueue.stats.timeTotal += server.MakeIteration(sQueue.secondLightLowPriorityQueue.size(), iteration);
+    sQueue.MakeIteration(server.allStates[server.lastState], server.allStates[server.state], prevTotalTime, iteration);
+}
+
+% void System::Print(ostream& outStream)
+% {
+%     server.Print(outStream);
+%     sQueue.PrintState(outStream);
+% }
+
+bool System::CheckStationaryMode(System& sys, int iteration)
+{
+    float diff1 = std::abs(sys.sQueue.stats.firstTimeUntilServ.mean - this->sQueue.stats.firstTimeUntilServ.mean) /this->sQueue.stats.firstTimeUntilServ.mean ,
+        diff2 = std::abs(sys.sQueue.stats.secondTimeUntilServ.mean - this->sQueue.stats.secondTimeUntilServ.mean) / this->sQueue.stats.secondTimeUntilServ.mean;
+
+    double inputFirstFlow = double(sQueue.stats.inputFirstCust)/sQueue.stats.timeTotal,
+        outputFirstFlow = double(sQueue.stats.outputFirstCust)/sQueue.stats.timeTotal,
+        inputThirdFlow = double(sQueue.stats.inputThirdCust)/sQueue.stats.timeTotal,
+        outputThirdFlow = double(sQueue.stats.outputThirdCust)/sQueue.stats.timeTotal;
+
+    if (!this->sQueue.stats.stationaryMode && 
+        diff1 < this->sQueue.stats.RATIO_CHANGE &&
+        diff2 < this->sQueue.stats.RATIO_CHANGE &&
+        inputFirstFlow < 1.1 * outputFirstFlow &&
+        inputThirdFlow < 1.01 * outputThirdFlow
+        &&
+        sQueue.stats.firstPrimary.CheckErr(0.1) &&
+        sQueue.stats.secondHigh.CheckErr(0.1) &&
+        sQueue.stats.secondLow.CheckErr(0.1) &&
+        sQueue.stats.middle.CheckErr(0.1)
+        )
+    {
+        this->sQueue.stats.stationaryMode = true;
+        this->sQueue.stats.ClearStatistics();
+    }
+
+    return this->sQueue.stats.stationaryMode;
+}
+
+% bool System::StopCriteria()
+% {
+%     if (!this->sQueue.stats.stationaryMode)
+%         return false;
+% }
+
+% bool System::IsStationar()
+% {
+%     bool ret = true;
+%     for (auto& a:cycles)
+%     {
+%         ret *= a.IsStationar();
+%     }
+%     return ret;
+% }
+\end{lstlisting}
+
+
+
+
+% \begin{ListingEnv}[!h]% настройки floating аналогичны окружению figure
+%     \captiondelim{ } % разделитель идентификатора с номером от наименования
+%     \caption{Программа ,,Hello, world`` на \protect\cpp}\label{lst:hwbeauty}
+% \begin{lstlisting}[language={[ISO]C++}]
+
+%     \end{lstlisting}
+% \end{ListingEnv}%
+

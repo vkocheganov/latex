@@ -1,14 +1,14 @@
-\chapter{Анализ управляющей системы Ляпунова--Яблонского как стохастической последовательности}						% Заголовок
+\chapter{Анализ стохастической последовательности $\boldsymbol{\{(\Gamma_i,  \varkappa_{i}), i \geqslant 0\}}$}						% Заголовок
 % \addcontentsline{toc}{chapter}{Анализ кибернетической системы как стохастической последовательности}	% Добавляем его в оглавление
 % \setcounter{chapter}{2}
 % \setcounter{section}{0}
 
 Исследуемая в работе управляющая система характеризуется следующими объектами:  обслуживающее устройство и четыре очереди. Последовательность 
- $\{(\Gamma_i,  \varkappa_{1, i},  \varkappa_{2, i},  \varkappa_{3, i},   \varkappa_{4, i}); i \geqslant 0\}$ служит математическим описанием этих объектов. Глава~2 посвящена тем результатам,  которые удается получить для этой пятимерной последовательности,  несмотря на ее сложность: доказана марковость этой последовательности,  а также проведена классификация ее состояний по арифметическим свойствам переходных вероятностей. Эти результаты позволят далее в работе доказать марковость и провести классификацию состояний для последовательностей,  содержащих только часть из упомянутых пяти компонент.
+ $\{(\Gamma_i,  \varkappa_i); i \geqslant 0\}$ служит математическим описанием этих объектов, где $ \varkappa_i = (\varkappa_{1, i},  \varkappa_{2, i},  \varkappa_{3, i},   \varkappa_{4, i})$. Глава~2 посвящена тем результатам,  которые удается получить для этой пятимерной последовательности,  несмотря на ее сложность: доказана марковость этой последовательности,  а также проведена классификация ее состояний по арифметическим свойствам переходных вероятностей. Эти результаты позволят далее в работе доказать марковость и провести классификацию состояний для последовательностей,  содержащих только часть из упомянутых пяти компонент.
 
-\section[Марковское свойство управляющей системы]%
-{Марковское свойство управляющей системы}
-Пусть $a$,  $b$,  $x^i \in \mathbb{Z}_+^4$,  $k_i=\overline{0;d}$,  $r_i=\overline{1;n_{k_i}}$,  $i=0$,  $1$,  $\ldots$. Введем следующие события:
+\section[Свойство марковости последовательности $\{(\Gamma_i,  \varkappa_{i}), i \geqslant 0\}$]%
+{Свойство марковости последовательности $\boldsymbol{\{(\Gamma_i,  \varkappa_{i}), i \geqslant 0\}}$}
+Пусть $a$,  $b$,  $x^i \in \mathbb{Z}_+^4$,  $k_i=\overline{0,d}$,  $r_i=\overline{1,n_{k_i}}$,  $i=0$,  $1$,  $\ldots$. Введем следующие события:
 \begin{equation}
 A_i(k_i;r_i;x^i) = \{\omega\colon\Gamma_i=\Gamma^{(k_i, r_i)},  \varkappa_i=x^i\},  \quad  B_i(a;b) = \{\omega\colon\eta_i=a,  \xi_i=b\}, 
 \label{A:definition}
@@ -84,6 +84,7 @@ $$\Mark.$$
 По аналогии с предыдущим утверждением,  докажем марковость последовательности $\MarkThree$,  описывающую динамику изменения состояния обслуживающего устройства и низкоприоритетной очереди $O_3$.
 \begin{theorem}
 Пусть $\Gamma_0=\Gamma^{(k, r)}\in \Gamma$ и $\varkappa_{3, 0}=x_{3, 0}\in \mathbb{Z}_+$ фиксированы. Тогда последовательность $\MarkThree$ является однородной счетной цепью Маркова.
+\label{markov:theorem:three}
 \end{theorem}
 \begin{proof}
 Для доказательства необходимо проверить равенство:
@@ -742,10 +743,11 @@ x^j = (0,  0,  \max{\{0,  L+1-\sum_{s=1}^{j} \ell(\tilde{k},  s,  3)\}},  0).
 
 \begin{lemma}
 Состояния вида 
-\begin{equation*}
+\begin{equation}
     (\Gamma^{(0,  \tilde{r})},  \tilde{x}),  \quad 
 \tilde{x}=(0,  0,  \tilde{x}_3, 0),  \tilde{x}_3 \geqslant \max{\{0,  L+1-\sum_{s=1}^{n_{\tilde{k}}} \ell(\tilde{k},  s,  3)\}}, 
-\end{equation*}
+\label{classification:arithm:4:eq}
+\end{equation}
 где $\tilde{k}=\overline{1,  d},  \tilde{r} = \overline{1,  n_0}$,  достижимы из состояний вида 
 \begin{equation*}
 (\Gamma^{(0,  r_0)},  x^0),  \quad x_0=(0,  0,  L+1,  0),  r_0=\overline{1,  n_0}.
@@ -803,7 +805,7 @@ x^2=(0,  0,  \max{\{0,  L+1-\sum_{s=1}^{n_{\tilde{k}}} \ell(\tilde{k},  s,  3)\}
 Таким образом,  полагая $N=N_1+N_2+1+N_3$,  получаем утверждение леммы.
 \end{proof}
 
-Из предыдущей леммы легко следует лемма~\ref{classification:arithm:5}.
+Взяв в выражении~\eqref{classification:arithm:4:eq} в качестве $\tilde{k}$ такое, которое максимизирует сумму $\sum_{s=1}^{n_{\tilde{k}}} \ell(\tilde{k},  s,  3)$, получим лемму~\ref{classification:arithm:5}.
 \begin{lemma}
 Состояния вида 
 $$
@@ -823,11 +825,11 @@ $$
 \begin{lemma}
 Если состояния вида
 $$
-(\Gamma^{(0,  \tilde{r})},  (0,  0,  \min\{L,  \tilde{x}_3\},  0)),  \quad \tilde{r}=\overline{1; n_0},  \tilde{x}_3 \geqslant 0, 
+(\Gamma^{(0,  \tilde{r})},  (0,  0,  \min\{L,  \tilde{x}_3\},  0)),  \quad \tilde{r}=\overline{1, n_0},  \tilde{x}_3 \geqslant 0, 
 $$
 достижимы из начальных состояний вида
 $$
-(\Gamma^{(0,  r_0)},  x^0),  \quad x^0=(0,  0,  L+1,  0),  r_0=\overline{1; n_0}, 
+(\Gamma^{(0,  r_0)},  x^0),  \quad x^0=(0,  0,  L+1,  0),  r_0=\overline{1, n_0}, 
 $$
 то тогда из начальных состояний достижимы и состояния вида
 $$
@@ -993,8 +995,10 @@ $$
 \sum_{(a_1,  a_2)\in {\mathbb A}_{\mathrm{trans}}}\varphi_1(a_1,  T^{(0,  r_2 \oplus_0 1)}) \psi(a_2,  \sum_{s=1}^{N_2} \ell(0, r_1 \oplus_0 s, 1) ,  p_{0,  r_2 \oplus_0  1}).
 \end{multline*}
 где множество ${\mathbb A}_{\mathrm{trans}}$ не пусто и содержит,  как минимум,  один элемент $(a_1,  a_2)\hm=(0, 0)$,  поскольку из соотношений \eqref{A:trans:1}--\eqref{A:trans:2} имеем
+\begin{equation*}
+    {\mathbb A}_{\mathrm{trans}}(x^{N_2+1},  x^{N_2+2},  0,  r_2 \oplus_0 1) = {\mathbb A}_{\mathrm{trans}}^0 \bigcap {\mathbb A}_{\mathrm{trans}}^1\bigcap {\mathbb A}_{\mathrm{trans}}^2,
+\end{equation*}
 \begin{align*}
-{\mathbb A}_{\mathrm{trans}}&(x^{N_2+1},  x^{N_2+2},  0,  r_2 \oplus_0 1) = {\mathbb A}_{\mathrm{trans}}^0 \bigcap {\mathbb A}_{\mathrm{trans}}^1\bigcap {\mathbb A}_{\mathrm{trans}}^2, \\
 {\mathbb A}_{\mathrm{trans}}^0 =& \{(a_1,  a_2) \in \mathbb{Z}_+^2 \colon a_2 =\\
 =&\min{\{\ell(0,  r_2 \oplus_0 1,  1),  x_4 + \tilde{x}_2 - \sum_{s=1}^{N_2} \ell(0, r_1 \oplus_0 s, 1) + a_1}\}   + \\
 +&\sum_{s=1}^{N_2} \ell(0, r_1 \oplus_0 s, 1) -\tilde{x}_2 - x_4 \}, \\
@@ -1117,7 +1121,15 @@ $$
 \end{lemma}
 
 \begin{proof}
-Доказательство следует из лемм~\ref{classification:arithm:5} и \ref{classification:arithm:6}.
+Из леммы~\eqref{classification:arithm:5} следует, что состояния вида $
+(\Gamma^{(0,  \tilde{r})},  \tilde{\tilde{x}})$, где 
+$$
+\tilde{\tilde{x}}=(0,  0,  \tilde{x}_3,  0),  \tilde{x}_3\geqslant \max{\Big\{0,  L+1-\max_{k=\overline{1,  d}}{\Big\{ \sum_{s=1}^{n_k}\ell(k,  s,  3)\Big\}}\Big\}}, 
+\tilde{r} = \overline{1,  n_0}, 
+$$
+достижимы из начального состояния  $(\Gamma^{(0,  r_0)},  x^0)$. 
+
+Это, в свою очередь, по лемме~\eqref{classification:arithm:6} влечет достижимость конечных состояний $(\Gamma^{(0,  \tilde{r})},  \tilde{x})$.
 \end{proof}
 
 \begin{lemma}
@@ -1209,10 +1221,18 @@ $(\Gamma^{(\tilde{k}, \tilde{r})}, \tilde{x})$,
   \quad 1 \leqslant k \leqslant d,  \quad 1 \leqslant r \leqslant n_k.
 \end{align*}
 
+
 Из доказанных лемм~\ref{first:lemma}--\ref{last:lemma} также следует другая теорема.
 \begin{theorem}
-Множество существенных состояний марковской цепи $\MarkThree$ имеет вид $\raisebox{-.5ex}{$\Bigl($}\bigcup\limits_{1 \leqslant r \leqslant n_0}S^3_{0, r}\raisebox{-.5ex}{$\Bigr)$}\cup \raisebox{-.5ex}{$\Bigl($}\bigcup\limits_{\substack{1 \leqslant k \leqslant d\\ 1 \leqslant r \leqslant n_k}} S^3_{k, r}\raisebox{-.5ex}{$\Bigr)$}$.
+Множество существенных состояний марковской цепи $\MarkThree$ имеет вид
+\begin{equation}
+S^{3} = \raisebox{-.5ex}{$\Bigl($}\bigcup\limits_{1 \leqslant r \leqslant n_0}S^3_{0, r}\raisebox{-.5ex}{$\Bigr)$}\cup \raisebox{-.5ex}{$\Bigl($}\bigcup\limits_{\substack{1 \leqslant k \leqslant d\\ 1 \leqslant r \leqslant n_k}} S^3_{k, r}\raisebox{-.5ex}{$\Bigr)$}.
+\label{important:states:three:expr}
+\end{equation}
+\label{important:states:three}
 \end{theorem}
+
+Таким образом, теорема~\ref{important:states:basic} описывает множество существенных состояний для основной марковской цепи $\Mark$, а теорема~\ref{important:states:three}~--- для марковской цепи $\MarkThree$. 
 
 
 
